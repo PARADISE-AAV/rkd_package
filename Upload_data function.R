@@ -1,8 +1,8 @@
-#' @title Upload_data
+#' @title LoadRKD
 #' @author Matthieu COQ
 #' Version: 1.0
 #' Date: 24-Jan-23
-#' Objective: the Objective is to performed QC1 on the new Biopred data. The QC1 is a test to check that the positive control don't take more the 15% of the reads
+#' Objective: The objective is to load the RKD data in a datframe object
 #'
 #'
 #' @param input_path folder where the Redcap data are
@@ -12,7 +12,7 @@
 #' @export
 
 
-Upload_data=function(input_path, output_path,date){
+LoadRKD=function(input_path, output_path,date){
   setwd(input_path)
   data <- read.csv("", header=T)
   return(data)
