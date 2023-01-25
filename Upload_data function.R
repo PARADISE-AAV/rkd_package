@@ -15,8 +15,8 @@
 
 LoadRKD=function(input_path, data, output_path, date){
   setwd(input_path)
-  data <- read.csv(data, header=T)
+  data <- read.csv(data, header=TRUE)
   return(data)
   setwd(output_path)
-  write.csv(paste("Redcap_clinical_data_",date,sep=""), data, row.names = F)
+  write.csv(paste("Redcap_clinical_data_", date, sep=""), data, row.names = F)
 }
