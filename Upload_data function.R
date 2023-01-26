@@ -13,10 +13,29 @@
 #' @export
 
 
-LoadRKD=function(input_path, data, output_path, date){
+LoadRKD=function(input_path, files, output_path, date){
+  ####Test on the argument
+  if (is.character(input_path) == FALSE) {
+    stop("The argument input_path need to be a character argument")
+  }
+  if (is.character(files) == FALSE) {
+    stop("The argument files need to be a character argument")
+  }
+  if (is.character(output_path) == FALSE) {
+    stop("The argument output_path need to be a character argument")
+  }
+  if (is.character(date) == FALSE) {
+    stop("The argument date need to be a character argument")
+  }
+  
   setwd(input_path)
-  data <- read.csv(data, header=TRUE)
-  return(data)
+  RKD_data <- read.csv(files, header = TRUE)
+  #check that you load a real file
+  if(ncol(RKD_data)==0 | nrow(RKD_data)==0){
+    stop("You give an empty files")
+  }
+  
+  return(RKD_data)
   setwd(output_path)
-  write.csv(paste("Redcap_clinical_data_", date, sep=""), data, row.names = F)
+  write.csv(paste("Redcap_clinical_data_", date, sep=""), RKD_data, row.names = F)
 }
