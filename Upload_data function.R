@@ -30,12 +30,13 @@ LoadRKD=function(input_path, files, output_path, date){
   
   setwd(input_path)
   RKD_data <- read.csv(files, header = TRUE)
-  #check that you load a real file
+  ###check that you load a real file
   if(ncol(RKD_data)==0 | nrow(RKD_data)==0){
     stop("You give an empty files")
   }
   
-  return(RKD_data)
+  
   setwd(output_path)
-  write.csv(paste("Redcap_clinical_data_", date, sep=""), RKD_data, row.names = F)
+  write.csv(RKD_data, paste("Redcap_clinical_data_", date, ".csv", sep=""), row.names = F)
+  return(RKD_data)
 }
