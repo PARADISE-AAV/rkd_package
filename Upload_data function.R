@@ -28,6 +28,14 @@ LoadRKD=function(input_path, files, output_path, date){
     stop("The argument date need to be a character argument")
   }
   
+  files_test <-  list.files(input_path, pattern = ".", all.files = FALSE, recursive = TRUE)
+  if(identical(files_test, character(0)) == TRUE){
+    stop("Your input folder don't exist")
+  }
+  if(length(which(files_test == files)) != 1){
+    stop("There is no files requested or multiple times this files")
+  }
+  
   setwd(input_path)
   RKD_data <- read.csv(files, header = TRUE)
   ###check that you load a real file
@@ -35,9 +43,11 @@ LoadRKD=function(input_path, files, output_path, date){
     stop("You give an empty files")
   }
   
-  
+  files_test <-  list.files(output_path, pattern = ".", all.files = FALSE, recursive = TRUE)
+  if(identical(files_test, character(0)) == TRUE){
+    stop("Your output folder don't exist")
+  }
   setwd(output_path)
-  
   write.csv(RKD_data, paste("Redcap_clinical_data_", date, ".csv", sep=""), row.names = F)
   return(RKD_data)
 }
