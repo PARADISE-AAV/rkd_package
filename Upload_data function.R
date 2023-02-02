@@ -37,6 +37,7 @@ LoadRKD=function(input_path, files, output_path, date){
   
   
   setwd(output_path)
+  
   write.csv(RKD_data, paste("Redcap_clinical_data_", date, ".csv", sep=""), row.names = F)
   return(RKD_data)
 }
