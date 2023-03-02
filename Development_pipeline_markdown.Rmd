@@ -1,0 +1,108 @@
+---
+title: "Pipeline_for_development"
+author: "Conor Finlay"
+date: '`r Sys.Date()`'
+output: html_document
+---
+
+**Rationale**
+
+This document will serve as a template for the development of the pipeline. We can run existing function inside a code chunk. Custom code (which may eventually become a function) can be written inside a chunk with comments. Eventually this pipeline will call the R package itself.
+
+-   Run functions in chunks
+
+-   Run custom code with comments
+
+-   Produce record of analysis
+
+-   Embed in line text
+
+-   Embed figures
+
+# Setup
+
+Load required libraries and set markdown settings (for plotting, caching, etc)
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Project setup
+
+To run this pipeline locally, you need to setup a R project in Rstudio by selecting `File` and `New project` checkout the repo <https://github.com/PARADISE-AAV/rkd_package/> using git.
+
+### Data protection warning
+
+Please familiarise yourself with github before using this pipeline. **Do not store data files locally within the folder as these may be pushed to github.** Link to the onedrive location of the files on your computer.
+
+## load libraries 
+
+```{r libary}
+library(tidyverse)
+```
+
+## Working directories 
+
+The `.Rproj` file (which is ignored by GitHub and specific for each local instance of the repo) sets the working directory to wherever the project is located on your computer. This has the advantage of simplifying pathing by making them relative to this folder.
+
+```{r pathing}
+#print local directory 
+getwd()
+list.files()
+```
+
+## Paths to data
+
+in the future we may have a static path to a onedrive url or an API to Repcap. For now the paths should lead to a local sync of one drive folders.
+
+There are 3 types of data
+
+-   RKD dataset
+
+-   Bio marker Master
+
+-   freezer works exports
+
+For this pipeline to work each user should set these paths each time.
+
+```{r paths}
+#paths
+RKD_path <- "C:/Users/Conor/OneDrive - Trinity College Dublin/Redcap Data exports/"
+
+Biomarker_path <- "C:/Users/Conor/Trinity College Dublin/THKC - Documents/Arlena Carney/Makala Carroll/Projects/Mini Biobank/Biomarker_master/Biomarker master-Data only.csv"
+   
+fw_path <- "C:/Users/Conor/OneDrive - Trinity College Dublin/Freezerworks Exports/"
+
+#specific RKD version
+RKD_file <- "C:/Users/Conor/OneDrive - Trinity College Dublin/Redcap Data exports/RareKidneyDiseaseRIT-DiseaseControls_DATA_LABELS_2023-02-24_1707.csv"
+```
+
+## Functions
+
+Here we will load the approved functions into the R session. It assumes that all functions are required.
+
+```{r load_functions}
+# find all files ending in ".R" and run source
+for (f in list.files(pattern="*.R$")) {
+    source(f)
+}
+
+```
+
+# Pipeline
+
+## loadRKD
+This function will load RKD dataset
+```{r load_RKD}
+rkd  <- LoadRKD(files_name = RKD_file, output_path = "output/")
+head(rkd)[1:5,1:10]
+```
+```{r wd_check}
+getwd()
+```
+
+# Appendix
+
+```{r sessioin}
+sessionInfo()
+```
