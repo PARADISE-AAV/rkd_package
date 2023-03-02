@@ -16,9 +16,6 @@ LoadRKD=function(files_name){
   if (is.character(files_name) == FALSE) {
     stop("The argument files_name need to be a character argument")
   }
-  if (is.character(output_path) == FALSE) {
-    stop("The argument output_path need to be a character argument")
-  }
   #extract the folder and the files 
   b <- max(gregexpr("\\/", files_name)[[1]])
   if(b > 0){

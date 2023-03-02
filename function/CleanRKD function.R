@@ -30,8 +30,11 @@ CleanRKD=function(RKDdata, output_path){
     stop("You give an empty files")
   }
   
-  RKD_data$Date.of.Birth=as.Date(RKD_data$Date.of.Birth)
-  
+  a=grep("Date",colnames(RKD_data))
+  a=a[-grep("known.unknown",colnames(RKD_data)[a])]
+  for(i in a){
+    RKD_data[,i]=as.Date(RKD_data[,i])
+  }
   Clean_RKD_data=RKD_data
   
   files_test <-  list.files(output_path, pattern = ".", all.files = FALSE, recursive = TRUE)
