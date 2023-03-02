@@ -1,5 +1,5 @@
 #' @title LoadBiomarker
-#' @author Matthieu COQ
+#' @author Matthieu COQ/Yagmur DOGAY
 #' Version: 1.0
 #' Date: 24-Jan-23
 #' Objective: The objective is to load the Biomarker data in a datframe object
@@ -11,7 +11,7 @@
 
 
 
-LoadRKD=function(input_path, file_name){
+LoadBiomarker=function(input_path, file_name){
   ####Test on the argument
   if (is.character(input_path) == FALSE) {
     stop("The argument input_path need to be a character argument")
