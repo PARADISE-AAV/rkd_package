@@ -37,3 +37,11 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+# prevent csv and xlx files from being uploaded to github
+.csv
+.xlx
+.xlsx
+
+# prevent contents of output from being uploaded 
+output/
