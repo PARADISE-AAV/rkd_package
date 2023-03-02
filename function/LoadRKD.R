@@ -6,12 +6,11 @@
 #'
 #'
 #' @param files_name RKD data used
-#' @param ouput_path folder where the Redcap data will be saved
 #' @return The Redcap data in your folder and in an object
 #' @export
 
 
-LoadRKD=function(files_name, output_path){
+LoadRKD=function(files_name){
   ####Test on the argument
   library(stringr)
   if (is.character(files_name) == FALSE) {
@@ -45,11 +44,5 @@ LoadRKD=function(files_name, output_path){
     stop("You give an empty files")
   }
   
-  files_test <-  list.files(output_path, pattern = ".", all.files = FALSE, recursive = TRUE)
-  if(identical(files_test, character(0)) == TRUE){
-    stop("Your output folder don't exist")
-  }
-  setwd(output_path)
-  write.csv(RKD_data, paste("Redcap_clinical_data_", Sys.Date() , ".csv", sep=""), row.names = F)
   return(RKD_data)
 }
