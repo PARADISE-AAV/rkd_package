@@ -35,6 +35,9 @@ CleanRKD=function(RKDdata, output_path){
   for(i in a){
     RKD_data[,i]=as.Date(RKD_data[,i])
   }
+  RKD_data1=RKD_data[which(RKD_data$Repeat.Instrument=="Encounters"),]
+  RKD_data2=RKD_data[which(RKD_data$Repeat.Instrument=="" & RKD_data$Type.of.Patient!=""),]
+  
   Clean_RKD_data=RKD_data
   
   files_test <-  list.files(output_path, pattern = ".", all.files = FALSE, recursive = TRUE)
