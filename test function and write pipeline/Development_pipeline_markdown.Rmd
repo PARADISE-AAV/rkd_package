@@ -37,7 +37,7 @@ Please familiarise yourself with github before using this pipeline. **Do not sto
 
 ## load libraries 
 
-```{r libary}
+```{r libary, include=FALSE}
 library(tidyverse)
 ```
 
@@ -83,7 +83,7 @@ Here we will load the approved functions into the R session. It assumes that all
 
 ```{r load_functions}
 # find all files ending in ".R" and run source
-for (f in list.files(pattern="*.R$")) {
+for (f in list.files(path = "~/GitHub/rkd_package/function", pattern = "*.R$")) {
     source(f)
 }
 
