@@ -83,7 +83,8 @@ Here we will load the approved functions into the R session. It assumes that all
 
 ```{r load_functions}
 # find all files ending in ".R" and run source
-for (f in list.files(path = "~/GitHub/rkd_package/function", pattern = "*.R$")) {
+setwd("~/GitHub/rkd_package/function")
+for (f in list.files(pattern = "*.R$")) {
     source(f)
 }
 
