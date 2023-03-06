@@ -123,6 +123,8 @@ CleanRKD=function(RKDdata, output_path){
   }
   RKD_data$Ethnicity.of.father <- ethnicity
   
+  ###solve the problem of the RKD.ID wrong
+  
   RKD_data$RKD.ID <- as.factor(RKD_data$RKD.ID)
   RKD_data_RKDID_PB <- RKD_data[grep("-",RKD_data$RKD.ID),]
   RKD_data_RKDID_PB$RKD.ID <- droplevels(RKD_data_RKDID_PB$RKD.ID)
