@@ -30,11 +30,100 @@ CleanRKD=function(RKDdata, output_path){
     stop("You give an empty files")
   }
   
-  a=grep("Date",colnames(RKD_data))
-  a=a[-grep("known.unknown",colnames(RKD_data)[a])]
+  a <- grep("Date",colnames(RKD_data))
+  a <- a[-grep("known.unknown",colnames(RKD_data)[a])]
   for(i in a){
-    RKD_data[,i]=as.Date(RKD_data[,i])
+    RKD_data[,i] <- as.Date(RKD_data[,i])
   }
+  
+  ###Reduce ethnicity
+  
+  ethnicity <- NULL
+  n <- nrow(RKD_data)
+  for (i in 1:n){
+    if((RKD_data$Ethnicity[i]) == ""){
+      ethnicity <- c(ethnicity, "")
+    }else{
+      if(length(grep("W2",RKD_data$Ethnicity.of.father[i])) == 1  | length(grep("W1",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("W9",RKD_data$Ethnicity.of.father[i])) == 1){
+        ethnicity <- c(ethnicity, "White")
+      }
+      if(length(grep("A2",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("A1",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("A9",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("A3",RKD_data$Ethnicity.of.father[i])) == 1){
+        ethnicity <- c(ethnicity, "Asian")
+      }
+      if(length(grep("B2",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("B1",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("B9",RKD_data$Ethnicity.of.father[i])) == 1){
+        ethnicity <- c(ethnicity, "Black")
+      }
+      if(length(grep("M2",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("M1",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("M9",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("M3",RKD_data$Ethnicity.of.father[i])) == 1){
+        ethnicity <- c(ethnicity, "Mixed ethnicity")
+      }
+      if(length(grep("O1",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("O9",RKD_data$Ethnicity.of.father[i])) == 1){
+        ethnicity <- c(ethnicity, "Other")
+      }
+      if(length(grep("NS",RKD_data$Ethnicity.of.father[i])) == 1){
+        ethnicity <- c(ethnicity, "Not Stated")
+      }
+    }
+  }
+  RKD_data$Ethnicity.of.father <- ethnicity
+  
+  
+  ethnicity <- NULL
+  n <- nrow(RKD_data)
+  for (i in 1:n){
+    if((RKD_data$Ethnicity[i]) == ""){
+      ethnicity <- c(ethnicity, "")
+    }else{
+      if(length(grep("W2",RKD_data$Ethnicity.of.mother[i])) == 1  | length(grep("W1",RKD_data$Ethnicity.of.mother[i])) == 1 | length(grep("W9",RKD_data$Ethnicity.of.mother[i])) == 1){
+        ethnicity <- c(ethnicity, "White")
+      }
+      if(length(grep("A2",RKD_data$Ethnicity.of.mother[i])) == 1 | length(grep("A1",RKD_data$Ethnicity.of.mother[i])) == 1 | length(grep("A9",RKD_data$Ethnicity.of.mother[i])) == 1 | length(grep("A3",RKD_data$Ethnicity.of.mother[i])) == 1){
+        ethnicity <- c(ethnicity, "Asian")
+      }
+      if(length(grep("B2",RKD_data$Ethnicity.of.mother[i])) == 1 | length(grep("B1",RKD_data$Ethnicity.of.mother[i])) == 1 | length(grep("B9",RKD_data$Ethnicity.of.mother[i])) == 1){
+        ethnicity <- c(ethnicity, "Black")
+      }
+      if(length(grep("M2",RKD_data$Ethnicity.of.mother[i])) == 1 | length(grep("M1",RKD_data$Ethnicity.of.mother[i])) == 1 | length(grep("M9",RKD_data$Ethnicity.of.mother[i])) == 1 | length(grep("M3",RKD_data$Ethnicity.of.mother[i])) == 1){
+        ethnicity <- c(ethnicity, "Mixed ethnicity")
+      }
+      if(length(grep("O1",RKD_data$Ethnicity.of.mother[i])) == 1 | length(grep("O9",RKD_data$Ethnicity.of.mother[i])) == 1){
+        ethnicity <- c(ethnicity, "Other")
+      }
+      if(length(grep("NS",RKD_data$Ethnicity.of.mother[i])) == 1){
+        ethnicity <- c(ethnicity, "Not Stated")
+        }
+      }
+    }
+  RKD_data$Ethnicity.of.father.of.mother <- ethnicity
+  
+  ethnicity <- NULL
+  n <- nrow(RKD_data)
+  for (i in 1:n){
+    if((RKD_data$Ethnicity[i]) == ""){
+      ethnicity <- c(ethnicity, "")
+    }else{
+      if(length(grep("W2",RKD_data$Ethnicity.of.father[i])) == 1  | length(grep("W1",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("W9",RKD_data$Ethnicity.of.father[i])) == 1){
+        ethnicity <- c(ethnicity, "White")
+      }
+      if(length(grep("A2",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("A1",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("A9",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("A3",RKD_data$Ethnicity.of.father[i])) == 1){
+        ethnicity <- c(ethnicity, "Asian")
+      }
+      if(length(grep("B2",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("B1",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("B9",RKD_data$Ethnicity.of.father[i])) == 1){
+        ethnicity <- c(ethnicity, "Black")
+      }
+      if(length(grep("M2",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("M1",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("M9",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("M3",RKD_data$Ethnicity.of.father[i])) == 1){
+        ethnicity <- c(ethnicity, "Mixed ethnicity")
+      }
+      if(length(grep("O1",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("O9",RKD_data$Ethnicity.of.father[i])) == 1){
+        ethnicity <- c(ethnicity, "Other")
+      }
+      if(length(grep("NS",RKD_data$Ethnicity.of.father[i])) == 1){
+        ethnicity <- c(ethnicity, "Not Stated")
+      }
+    }
+  }
+  RKD_data$Ethnicity.of.father <- ethnicity
+ 
+ 
   RKD_Encounter=RKD_data[which(RKD_data$Repeat.Instrument=="Encounters"),]
   RKD_Initial=RKD_data[which(RKD_data$Repeat.Instrument=="" & RKD_data$Type.of.Patient!=""),]
   
