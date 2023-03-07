@@ -146,65 +146,65 @@ CleanRKD=function(RKDdata, output_path){
   
   ####select the variable of the Encounters
   
-  a_Encounters = NULL
-  b_Encounters = NULL
+  a_Encounters <- NULL
+  b_Encounters <- NULL
   for (i in 1:ncol(RKD_Encounter)) {
     # for-loop over columns
-    na_values = length(which(is.na(RKD_Encounter[,i]) == TRUE))
+    na_values <- length(which(is.na(RKD_Encounter[,i]) == TRUE))
     
     if (na_values == nrow(RKD_Encounter )) {
-      a_Encounters = c(a_Encounters, colnames(RKD_Encounter)[i])
+      a_Encounters <- c(a_Encounters, colnames(RKD_Encounter)[i])
     }
     else {
-      if(length(levels(as.factor(RKD_Encounter[,i])))==1 & levels(as.factor(RKD_Encounter[,i]))[1]==""){
-        a_Encounters = c(a_Encounters, colnames(RKD_Encounter)[i])
+      if(length(levels(as.factor(RKD_Encounter[,i])))== 1 & levels(as.factor(RKD_Encounter[,i]))[1] == ""){
+        a_Encounters <- c(a_Encounters, colnames(RKD_Encounter)[i])
       }else{
-        b_Encounters = c(b_Encounters, colnames(RKD_Encounter)[i])
+        b_Encounters <- c(b_Encounters, colnames(RKD_Encounter)[i])
       }
       
     }
   }
-  print(length(a_Encounters))
-  print(length(b_Encounters))
   
-  newdata=NULL
+  
+  newdata <- NULL
   c=colnames(RKD_Encounter)
   for( j in 1:length(b_Encounters)) {
-    newdata=cbind(newdata,RKD_Encounter[,which(c==b_Encounters[j])])
+    newdata <- cbind(newdata, RKD_Encounter[,which(c == b_Encounters[j])])
   }
-  colnames(newdata)=b_Encounters
-  RKD_Encounter_filter=as.data.frame(newdata)
+  colnames(newdata) <- b_Encounters
+  RKD_Encounter_filter <- as.data.frame(newdata)
   
-  a_Initials = NULL
-  b_Initials = NULL
+  a_Initials <- NULL
+  b_Initials <- NULL
   for (i in 1:ncol(RKD_Initial)) {
     # for-loop over columns
-    na_values = length(which(is.na(RKD_Initial[,i]) == TRUE))
+    na_values <- length(which(is.na(RKD_Initial[,i]) == TRUE))
     
     if (na_values == nrow(RKD_Initial )) {
-      a_Initials = c(a_Initials, colnames(RKD_Initial)[i])
+      a_Initials <- c(a_Initials, colnames(RKD_Initial)[i])
     }
     else {
-      if(length(levels(as.factor(RKD_Initial[,i])))==1 & levels(as.factor(RKD_Initial[,i]))[1]==""){
-        a_Initials = c(a_Initials, colnames(RKD_Initial)[i])
+      if(length(levels(as.factor(RKD_Initial[,i]))) == 1 & levels(as.factor(RKD_Initial[,i]))[1] == ""){
+        a_Initials <- c(a_Initials, colnames(RKD_Initial)[i])
       }else{
-        b_Initials = c(b_Initials, colnames(RKD_Initial)[i])
+        b_Initials <- c(b_Initials, colnames(RKD_Initial)[i])
       }
       
     }
   }
-  print(length(a_Initials))
-  print(length(b_Initials))
+
   
-  newdata=NULL
-  c=colnames(RKD_Initial)
+  newdata <- NULL
+  c <- colnames(RKD_Initial)
   for( j in 1:length(b_Initials)) {
-    newdata=cbind(newdata,RKD_Initial[,which(c==b_Initials[j])])
+    newdata <- cbind(newdata,RKD_Initial[,which(c == b_Initials[j])])
   }
-  colnames(newdata)=b_Initials
-  RKD_Initial_filter=as.data.frame(newdata)
+  colnames(newdata) <- b_Initials
+  RKD_Initial_filter <- as.data.frame(newdata)
   
-  Clean_RKD_data=RKD_data
+  RKD_data_filter <- merge(RKD_Initial_filter, RKD_Encounter_filter, by = "RKD.ID")
+  
+  Clean_RKD_data <- RKD_data_filter
   
   files_test <-  list.files(output_path, pattern = ".", all.files = FALSE, recursive = TRUE)
   if(identical(files_test, character(0)) == TRUE){
