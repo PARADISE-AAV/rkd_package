@@ -13,6 +13,7 @@
 
 
 CleanRKD=function(RKDdata, output_path){
+  library(lubridate)
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument files_name need to be a character argument")
@@ -148,7 +149,7 @@ CleanRKD=function(RKDdata, output_path){
   
   a_Encounters <- NULL
   b_Encounters <- NULL
-  for (i in 1:ncol(RKD_Encounter)) {
+  for (i in 5:ncol(RKD_Encounter)) {
     # for-loop over columns
     na_values <- length(which(is.na(RKD_Encounter[,i]) == TRUE))
     
@@ -166,17 +167,17 @@ CleanRKD=function(RKDdata, output_path){
   }
   
   
-  newdata <- NULL
+  newdata <- RKD_Encounter[,1:4]
   c=colnames(RKD_Encounter)
   for( j in 1:length(b_Encounters)) {
     newdata <- cbind(newdata, RKD_Encounter[,which(c == b_Encounters[j])])
   }
-  colnames(newdata) <- b_Encounters
-  RKD_Encounter_filter <- as.data.frame(newdata)
+  colnames(newdata)[-c(1:4)] <- b_Encounters
+  RKD_Encounter_filter <- newdata
   
   a_Initials <- NULL
   b_Initials <- NULL
-  for (i in 1:ncol(RKD_Initial)) {
+  for (i in 5:ncol(RKD_Initial)) {
     # for-loop over columns
     na_values <- length(which(is.na(RKD_Initial[,i]) == TRUE))
     
@@ -194,15 +195,19 @@ CleanRKD=function(RKDdata, output_path){
   }
 
   
-  newdata <- NULL
-  c <- colnames(RKD_Initial)
+  newdata <- RKD_Initial[,1:4]
+  c=colnames(RKD_Initial)
   for( j in 1:length(b_Initials)) {
-    newdata <- cbind(newdata,RKD_Initial[,which(c == b_Initials[j])])
+    newdata <- cbind(newdata, RKD_Initial[,which(c == b_Initials[j])])
   }
-  colnames(newdata) <- b_Initials
-  RKD_Initial_filter <- as.data.frame(newdata)
+  colnames(newdata)[-c(1:4)] <- b_Initials
+  RKD_Initial_filter <- newdata
   
-  RKD_data_filter <- merge(RKD_Initial_filter, RKD_Encounter_filter, by = "RKD.ID")
+  RKD_data_filter <- merge(RKD_Initial_filter, RKD_Encounter_filter[,-c(2:4)], by = "RKD.ID")
+  
+  
+  
+  RKD_data_filter$Age <- year(RKD_data_filter$Date.of.diagnosis)- year(RKD_data_filter$Date.of.Birth)
   
   Clean_RKD_data <- RKD_data_filter
   
