@@ -205,8 +205,6 @@ CleanRKD=function(RKDdata, output_path){
   
   RKD_data_filter <- merge(RKD_Initial_filter, RKD_Encounter_filter[,-c(2:4)], by = "RKD.ID")
   
-  
-  
   RKD_data_filter$Age <- year(RKD_data_filter$Date.of.diagnosis)- year(RKD_data_filter$Date.of.Birth)
   
   Clean_RKD_data <- RKD_data_filter
