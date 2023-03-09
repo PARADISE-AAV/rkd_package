@@ -7,7 +7,6 @@
 #'
 #' @param RKDdata RKD data from loadRKD function
 #' @param ouput_path folder where the Redcap data will be saved
-#' @param date date when you load your data
 #' @return The Redcap data cleaned in your folder and in an object
 #' @export
 
@@ -203,7 +202,7 @@ CleanRKD=function(RKDdata, output_path){
   colnames(newdata)[-c(1:4)] <- b_Initials
   RKD_Initial_filter <- newdata
   
-  RKD_data_filter <- merge(RKD_Initial_filter, RKD_Encounter_filter[,-c(2:4)], by = "RKD.ID")
+  RKD_data_filter <- merge(RKD_Encounter_filter, RKD_Initial_filter[,-c(2:4)], by = "RKD.ID")
   
   RKD_data_filter$Age <- year(RKD_data_filter$Date.of.diagnosis)- year(RKD_data_filter$Date.of.Birth)
   
