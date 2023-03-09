@@ -26,5 +26,26 @@ DemographicFilterRKD=function(RKDdata, output_path){
     stop("You give an empty files")
   }
   
+  ###Select on disease Select only GPA and MPA
+  RKD_data_DiseaseFilter <- RKD_data[which(RKD_data$Small.vessel.vasculitis..ANCA.associated. == "Granulomatosis with polyangiitis (Wegener) - Orpha:900" | RKD_data$Small.vessel.vasculitis..ANCA.associated. == "Eosinophilic granulomatosis with polyangiitis (Churg Strauss) - ORPHA:183"),]
   
+  
+  #####Diagnosis confidence filter
+  RKD_data_DiagnosisFilter <- RKD_data_DiseaseFilter[which(RKD_data_DiseaseFilter$Diagnosis.confidence == "Definite"),]
+  
+  ###### Small vessel immune filter
+  
+  RKD_data_SmallvesselImmuneFilter <- RKD_data_DiagnosisFilter[which(RKD_data_DiagnosisFilter$Small.vessel.vasculitis..Immune.complex. == ""),]
+  
+  
+  
+  Filter_RKD_data <- RKD_data
+  
+  files_test <-  list.files(output_path, pattern = ".", all.files = FALSE, recursive = TRUE)
+  if(identical(files_test, character(0)) == TRUE){
+    stop("Your output folder don't exist")
+  }
+  setwd(output_path)
+  write.csv(Filter_RKD_data, paste("Redcap_clinical_data_filter", Sys.Date() , ".csv", sep=""), row.names = F)
+  return(Filter_RKD_data)
 }
