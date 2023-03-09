@@ -5,7 +5,7 @@
 #' Objective: The objective is to clean the RKD data and send the problematic data to the RKD person
 #'
 #'
-#' @param RKDdata RKD data from CleanRKD function
+#' @param RKDdata RKD data from CleanRKD function or AddBiomarker function
 #' @param ouput_path folder where the filter RKD data will be saved
 #' @return The Redcap data cleaned in your folder and in an object
 #' @export
@@ -22,7 +22,9 @@ DemographicFilterRKD=function(RKDdata, output_path){
   }
   
   RKD_data <- RKDdata
-  
+  if(ncol(RKD_data)==0 | nrow(RKD_data)==0){
+    stop("You give an empty files")
+  }
   
   
 }
