@@ -37,9 +37,15 @@ DemographicFilterRKD=function(RKDdata, output_path){
   
   RKD_data_SmallvesselImmuneFilter <- RKD_data_DiagnosisFilter[which(RKD_data_DiagnosisFilter$Small.vessel.vasculitis..Immune.complex. == ""),]
   
+  ########Secondary vascularite filter
   
+  RKD_data_SecondaryFilter <- RKD_data_SmallvesselImmuneFilter[which(RKD_data_SmallvesselImmuneFilter$Secondary.vasculitis != "Yes"),]
   
-  Filter_RKD_data <- RKD_data
+  ########Other filter
+  
+  RKD_data_OtherFilter <- RKD_data_SecondaryFilter[which(RKD_data_SecondaryFilter$Other != "Yes"), ]
+  
+  Filter_RKD_data <- RKD_data_OtherFilter
   
   files_test <-  list.files(output_path, pattern = ".", all.files = FALSE, recursive = TRUE)
   if(identical(files_test, character(0)) == TRUE){
