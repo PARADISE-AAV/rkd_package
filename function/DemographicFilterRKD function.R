@@ -45,7 +45,28 @@ DemographicFilterRKD=function(RKDdata, output_path){
   
   RKD_data_OtherFilter <- RKD_data_SecondaryFilter[which(RKD_data_SecondaryFilter$Other != "Yes"), ]
   
-  Filter_RKD_data <- RKD_data_OtherFilter
+  #######medium vessel filter
+  
+  RKD_data_MediumVesselFilter <- RKD_data_OtherFilter[which(RKD_data_OtherFilter$Medium.vessel.vasculitis == ""), ]
+  
+  #######large vessel filter
+  
+  RKD_data_largeVesselFilter <- RKD_data_MediumVesselFilter[which(RKD_data_MediumVesselFilter$Large.vessel.vasculitis == ""), ]
+  
+  #####Variable vessel filter
+  
+  RKD_data_VariableVesselFilter <- RKD_data_largeVesselFilter[which(RKD_data_largeVesselFilter$Variable.vessel.vasculitis == ""), ]
+  
+  ####Last filter
+  
+  RKD_data_LastFilter <- RKD_data_VariableVesselFilter[which((RKD_data_VariableVesselFilter$At.any.point.ANCA.specificity == "PR3" | 
+                                                              RKD_data_VariableVesselFilter$At.any.point.ANCA.specificity == "MPO" |
+                                                              RKD_data_VariableVesselFilter$At.any.point.ANCA.specificity == "MPO and PR3") | 
+                                                             (RKD_data_VariableVesselFilter$Biopsy.performed. == "Yes" & 
+                                                              RKD_data_VariableVesselFilter$Histologically.confirmed.diagnosis == "Yes")
+                                                             ),]
+  
+  Filter_RKD_data <- RKD_data_LastFilter
   
   files_test <-  list.files(output_path, pattern = ".", all.files = FALSE, recursive = TRUE)
   if(identical(files_test, character(0)) == TRUE){
