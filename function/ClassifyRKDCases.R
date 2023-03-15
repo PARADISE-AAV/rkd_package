@@ -2,7 +2,7 @@
 #' @author Matthieu COQ
 #' Version: 1.0
 #' Date: 15-Mar-23
-#' Objective: The objective is to clean the RKD data and send the problematic data to the RKD person
+#' Objective: The objective is to classify the patient of RKD data based on criteria described in the function apply
 #'
 #'
 #' @param RKDdata RKD data from DemographicFilterRKD function
