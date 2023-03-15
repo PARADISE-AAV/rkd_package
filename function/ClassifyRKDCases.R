@@ -1,7 +1,7 @@
 #' @title ClassifyRKDCases
 #' @author Matthieu COQ
 #' Version: 1.0
-#' Date: 24-Jan-23
+#' Date: 15-Mar-23
 #' Objective: The objective is to clean the RKD data and send the problematic data to the RKD person
 #'
 #'
