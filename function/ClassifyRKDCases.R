@@ -37,4 +37,14 @@ ClassifyRKDCases=function(RKDdata, output_path,algorithm){
     RKD_data$Group <- jen(argument)
   }
   
+  Classify_RKD_data <- RKD_data_LastFilter
+  
+  files_test <-  list.files(output_path, pattern = ".", all.files = FALSE, recursive = TRUE)
+  if(identical(files_test, character(0)) == TRUE){
+    stop("Your output folder don't exist")
+  }
+  setwd(output_path)
+  write.csv(Classify_RKD_data, paste("Redcap_clinical_data_with-classification", Sys.Date() , ".csv", sep=""), row.names = F)
+  return(Classify_RKD_data)
+  
 }
