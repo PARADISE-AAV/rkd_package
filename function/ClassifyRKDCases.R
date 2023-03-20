@@ -12,7 +12,7 @@
 #' @export
 
 
-ClassifyRKDCases=function(RKDdata, output_path,algorithm){
+ClassifyRKDCases = function(RKDdata, output_path, algorithm) {
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument files_name need to be a character argument")
@@ -23,28 +23,44 @@ ClassifyRKDCases=function(RKDdata, output_path,algorithm){
   if (is.character(algorithm) == FALSE) {
     stop("The argument output_path need to be a character argument")
   }
-  if(algorithm != "BRelapse")
+  if (algorithm != "BRelapse"
+  )
   
   
-  RKD_data <- RKDdata
+    RKD_data <- RKDdata
   ###check that you load a real file
-  if(ncol(RKD_data)==0 | nrow(RKD_data)==0){
+  if (ncol(RKD_data) == 0 | nrow(RKD_data) == 0) {
     stop("You give an empty files")
   }
   
-  if(algorithm == "BRelapse"){
+  if (algorithm == "BRelapse") {
     Classify_RKD_data <- BRelapseFunction(RKD_data)
   }
-
   
-
   
-  files_test <-  list.files(output_path, pattern = ".", all.files = FALSE, recursive = TRUE)
-  if(identical(files_test, character(0)) == TRUE){
+  
+  
+  files_test <-
+    list.files(
+      output_path,
+      pattern = ".",
+      all.files = FALSE,
+      recursive = TRUE
+    )
+  if (identical(files_test, character(0)) == TRUE) {
     stop("Your output folder don't exist")
   }
   setwd(output_path)
-  write.csv(Classify_RKD_data, paste("Redcap_clinical_data_with-classification", Sys.Date() , ".csv", sep=""), row.names = F)
+  write.csv(
+    Classify_RKD_data,
+    paste(
+      "Redcap_clinical_data_with-classification",
+      Sys.Date() ,
+      ".csv",
+      sep = ""
+    ),
+    row.names = F
+  )
   return(Classify_RKD_data)
   
 }
