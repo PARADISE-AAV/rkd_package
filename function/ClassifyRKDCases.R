@@ -7,7 +7,7 @@
 #'
 #' @param RKDdata RKD data from DemographicFilterRKD function
 #' @param ouput_path folder where the Redcap data will be saved
-#' @param algorithm function use to classify the RKD patient, the possibility are "bahareh", "jen"
+#' @param algorithm function use to classify the RKD patient, the possibility are "BRelapse"
 #' @return The Redcap data cleaned in your folder and in an object
 #' @export
 
@@ -23,6 +23,8 @@ ClassifyRKDCases=function(RKDdata, output_path,algorithm){
   if (is.character(algorithm) == FALSE) {
     stop("The argument output_path need to be a character argument")
   }
+  if(algorithm != "BRelapse")
+  
   
   RKD_data <- RKDdata
   ###check that you load a real file
@@ -30,14 +32,12 @@ ClassifyRKDCases=function(RKDdata, output_path,algorithm){
     stop("You give an empty files")
   }
   
-  if(algorithm == "bahareh"){
-    RKD_data$Group <- bahareh(argument)
+  if(algorithm == "BRelapse"){
+    Classify_RKD_data <- BRelapseFunction(RKD_data)
   }
-  if(algorithm == "jen"){
-    RKD_data$Group <- jen(argument)
-  }
+
   
-  Classify_RKD_data <- RKD_data_LastFilter
+
   
   files_test <-  list.files(output_path, pattern = ".", all.files = FALSE, recursive = TRUE)
   if(identical(files_test, character(0)) == TRUE){
