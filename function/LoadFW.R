@@ -33,7 +33,7 @@ LoadFW=function(folder_name, matrix_type){
   }
   files_name1=paste(folder_name,files_name1,sep="/")
   
-  FW_data <- read.table(files_name1, header = TRUE, sep = '\t')
+  FW_data <- read.table(files_name1, header = TRUE, sep = '\t', fill = TRUE)
   ###check that you load a real file
   if(ncol(FW_data)==0 | nrow(FW_data)==0){
     stop("You give an empty files")
