@@ -2,13 +2,14 @@
 #' @author Yagmur Dogay
 #' Version:
 #' Date: 16-March-23
-#' Objective: Calculating the Relapse sample
+#' Objective: Relapse
 #'
+
+
 #' @param data RKD data from Demographic Filter RKD Data
-#' @return The data with the Relapse sample
-#' @export
 
 
+library(plyr)
 
 BRelapseFunction <- function(RKD_data) {
   # Step 1: Flare: consider three columns:
@@ -16,7 +17,6 @@ BRelapseFunction <- function(RKD_data) {
   # 2.	For empty cells go to the "Do you think Vasculitis is relapsing in this encounter" and "Definite"/"high probability" as "Yes" and "Unknown"/"Possibly"/"BLANK" go to step 3
   # 3a.	"Disease activity since the last visit" = "Active OR Low disease activity" > "Yes" and "Remission"/"BLANK" > "No"
   # Step 1:
-  library(plyr)
   data <- RKD_data
   data$IntFlare <-
     with(data,
@@ -92,8 +92,8 @@ BRelapseFunction <- function(RKD_data) {
   # Step 3:
   # change the encounters' situation from 2 to 0
   data$`Date.Of.Visit` <-
-    as.Date(e_frame_5$`Date.Of.Visit`, "%d/%m/%Y")
-  data <- e_frame_5 %>%
+    as.Date(data$`Date.Of.Visit`, "%d/%m/%Y")
+  data <- data %>%
     group_by(`RKD.ID`) %>%
     mutate(Lagvisit = ifelse(
       is.na(difftime(
@@ -103,7 +103,7 @@ BRelapseFunction <- function(RKD_data) {
       difftime(`Date.Of.Visit`, lag(`Date.Of.Visit`), units =
                  "days")
     ))
-  data$Lagvisit <- as.numeric(e_frame_5$Lagvisit)
+  data$Lagvisit <- as.numeric(data$Lagvisit)
   
   
   data <- data %>%
@@ -165,7 +165,7 @@ BRelapseFunction <- function(RKD_data) {
       )
     )
   
-  
+  #
   # Making the criteria as a symptom of flare
   # CRP: if it is more  than 5 is a symptom
   
@@ -173,7 +173,7 @@ BRelapseFunction <- function(RKD_data) {
     group_by(`RKD.ID`) %>%
     mutate(ExactCRP = ifelse(is.na(Flare_Edit_4), CRP, NA)) %>%
     mutate(SymCRP = ifelse(ExactCRP > 5, 1, 0))
-  #table(e_frame_5$SymCRP)
+  #table(data_5$SymCRP)
   
   
   # Creatinine: rising 20 percent
@@ -328,7 +328,7 @@ BRelapseFunction <- function(RKD_data) {
         NA
       )
     )
-  #sum(!is.na(e_frame_7$Exc_Lagvisit_R1))
+  #sum(!is.na(data$Exc_Lagvisit_R1))
   # [1]0
   
   
