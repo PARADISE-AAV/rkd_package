@@ -28,10 +28,10 @@ LoadFW=function(folder_name, matrix_type){
   }
   files_name1=files_test[grep(matrix_type,files_test)]
   
-  if(length(which(files_test == files_name1)) != 1){
+  if(length(files_name1) != 1){
     stop("There is no files requested or multiple times this files")
   }
-  
+  files_name1=paste(folder_name,files_name1,sep="/")
   
   FW_data <- read.csv(files_name1, header = TRUE)
   ###check that you load a real file
