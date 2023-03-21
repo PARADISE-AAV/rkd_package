@@ -7,11 +7,12 @@
 #'
 #' @param RKDdata RKD data from ClassifyRKDCases function or AddBiomarker function
 #' @param ouput_path folder where the filter RKD data will be saved
+#' @param algorithm The algorithm used in the ClassifyRKDCases function
 #' @return The Redcap data cleaned in your folder and in an object
 #' @export
 #' 
 
-ClinicalFilterRKD=function(RKDdata, output_path){
+ClinicalFilterRKD=function(RKDdata, output_path, algorithm){
   
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
@@ -19,6 +20,12 @@ ClinicalFilterRKD=function(RKDdata, output_path){
   }
   if (is.character(output_path) == FALSE) {
     stop("The argument output_path need to be a character argument")
+  }
+  if (is.character(algorithm) == FALSE) {
+    stop("The argument output_path need to be a character argument")
+  }
+  if (algorithm != "BRelapse"){
+    stop("The argument algorithm need to be BRelapse")
   }
   
   RKD_data <- RKDdata
