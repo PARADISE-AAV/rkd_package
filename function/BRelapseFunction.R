@@ -19,6 +19,8 @@ BRelapseFunction <- function(RKD_data) {
   # 3a.	"Disease activity since the last visit" = "Active OR Low disease activity" > "Yes" and "Remission"/"BLANK" > "No"
   # Step 1:
   library(plyr)
+  library(dplyr)
+  library(epiDisplay)
   data <- RKD_data
   data$IntFlare <-
     with(data,
@@ -54,7 +56,7 @@ BRelapseFunction <- function(RKD_data) {
   
   
   # Coding the observation of flare
-  library(plyr)
+  
   data$Flare_Edit_1 <- revalue(
     data$IntFlare,
     c(
@@ -72,7 +74,7 @@ BRelapseFunction <- function(RKD_data) {
   
   
   # Step 2: determine the visit dates with interval less than 3 months of the date of diagnosis
-  library(epiDisplay)
+  
   data <- data %>%
     mutate(
       Flare_Edit_2 = ifelse(
