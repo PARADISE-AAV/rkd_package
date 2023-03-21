@@ -33,6 +33,11 @@ ClinicalFilterRKD=function(RKDdata, output_path, algorithm){
     stop("You give an empty files")
   }
   
+  if(algorithm == "BRelapse"){
+    Filter_RKD_data <- RKD_data[which(RKD_data$Relapse != ""),]
+  }
+  
+  
   Filter_RKD_data <- RKD_data
   
   files_test <-  list.files(output_path, pattern = ".", all.files = FALSE, recursive = TRUE)
