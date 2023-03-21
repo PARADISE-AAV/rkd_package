@@ -35,7 +35,7 @@ LoadFW=function(folder_name, matrix_type){
   
   FW_data <- read.csv(files_name1, header = TRUE)
   ###check that you load a real file
-  if(ncol(FW_data)==0 | nrow(RKD_data)==0){
+  if(ncol(FW_data)==0 | nrow(FW_data)==0){
     stop("You give an empty files")
   }
   
