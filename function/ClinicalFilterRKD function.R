@@ -26,6 +26,14 @@ ClinicalFilterRKD=function(RKDdata, output_path){
     stop("You give an empty files")
   }
   
+  Filter_RKD_data <- RKD_data
   
+  files_test <-  list.files(output_path, pattern = ".", all.files = FALSE, recursive = TRUE)
+  if(identical(files_test, character(0)) == TRUE){
+    stop("Your output folder don't exist")
+  }
+  setwd(output_path)
+  write.csv(Filter_RKD_data, paste("Redcap_clinical_data_filter", Sys.Date() , ".csv", sep=""), row.names = F)
+  return(Filter_RKD_data)
   
 }
