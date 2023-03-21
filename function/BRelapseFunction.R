@@ -4,12 +4,11 @@
 #' Date: 16-March-23
 #' Objective: Relapse
 #'
-
-
 #' @param data RKD data from Demographic Filter RKD Data
+#' @return The Redcap data cleaned in your folder and in an object
+#' @export
 
 
-library(plyr)
 
 BRelapseFunction <- function(RKD_data) {
   # Step 1: Flare: consider three columns:
@@ -17,6 +16,7 @@ BRelapseFunction <- function(RKD_data) {
   # 2.	For empty cells go to the "Do you think Vasculitis is relapsing in this encounter" and "Definite"/"high probability" as "Yes" and "Unknown"/"Possibly"/"BLANK" go to step 3
   # 3a.	"Disease activity since the last visit" = "Active OR Low disease activity" > "Yes" and "Remission"/"BLANK" > "No"
   # Step 1:
+  library(plyr)
   data <- RKD_data
   data$IntFlare <-
     with(data,
