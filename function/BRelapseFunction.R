@@ -2,10 +2,10 @@
 #' @author Yagmur Dogay
 #' Version:
 #' Date: 16-March-23
-#' Objective: Relapse
+#' Objective: Calculating the Relapse sample
 #'
 #' @param data RKD data from Demographic Filter RKD Data
-#' @return The Redcap data cleaned in your folder and in an object
+#' @return The data with the Relapse sample
 #' @export
 
 
