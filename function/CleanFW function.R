@@ -2,7 +2,7 @@
 #' @author Matthieu COQ
 #' Version: 1.0
 #' Date: 22-Mar-23
-#' Objective: The objective is to clean the RKD data and send the problematic data to the RKD person
+#' Objective: The objective is to clean the Freezerwork data
 #'
 #'
 #' @param FWdata FW data from loadFW function
