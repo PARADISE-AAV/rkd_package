@@ -27,7 +27,7 @@ DemographicFilterRKD=function(RKDdata, output_path){
   }
   
   ###Select on disease Select only GPA and MPA
-  RKD_data_DiseaseFilter <- RKD_data[which(RKD_data$Small.vessel.vasculitis..ANCA.associated. == "Granulomatosis with polyangiitis (Wegener) - Orpha:900" | RKD_data$Small.vessel.vasculitis..ANCA.associated. == "Eosinophilic granulomatosis with polyangiitis (Churg Strauss) - ORPHA:183"),]
+  RKD_data_DiseaseFilter <- RKD_data[which(RKD_data$Small.vessel.vasculitis..ANCA.associated. == "Granulomatosis with polyangiitis (Wegener) - Orpha:900" | RKD_data$Small.vessel.vasculitis..ANCA.associated. == "Microscopic polyangiitis (including renal limited vasculitis) - ORPHA:727"),]
   
   
   #####Diagnosis confidence filter
