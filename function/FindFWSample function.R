@@ -34,7 +34,7 @@ FindFWSample=function(FWdata, RKDdata, output_path){
     stop("You give an empty files")
   }
   
-  Merged_data <- RKD_data_filter
+  Merged_data <- merge(RKD_data, FW_data, by.x = c("RKD.ID", "Date.Of.Visit"), by.y = c("Main.Study.ID", "Date.of.encounter"))
   
   files_test <-  list.files(output_path, pattern = ".", all.files = FALSE, recursive = TRUE)
   if(identical(files_test, character(0)) == TRUE){
