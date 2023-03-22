@@ -15,7 +15,7 @@ CleanFW=function(FWdata, output_path){
   
   ####Test on the argument
   if (is.data.frame(FWdata) == FALSE) {
-    stop("The argument files_name need to be a character argument")
+    stop("The argument FWdata need to be a dataframe argument")
   }
   if (is.character(output_path) == FALSE) {
     stop("The argument output_path need to be a character argument")

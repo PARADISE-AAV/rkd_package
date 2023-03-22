@@ -6,6 +6,23 @@
 #'
 #'
 #' @param FWdata FW data from CleanFW function
+#' @param RKDdata RKD data from ClinicalFilterRKD function
 #' @param ouput_path folder where the merged data will be saved
 #' @return The Redcap data cleaned in your folder and in an object
 #' @export
+
+CleanFW=function(FWdata, RKDdata, output_path){
+  
+  #Checking the argument
+  if (is.data.frame(FWdata) == FALSE) {
+    stop("The argument FWdata need to be a dataframe argument")
+  }
+  if (is.data.frame(RKDdata) == FALSE) {
+    stop("The argument FWdata need to be a dataframe argument")
+  }
+  if (is.character(output_path) == FALSE) {
+    stop("The argument output_path need to be a character argument")
+  }
+  
+  
+}

@@ -16,13 +16,13 @@ ClinicalFilterRKD=function(RKDdata, output_path, algorithm){
   
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
-    stop("The argument files_name need to be a character argument")
+    stop("The argument RKDdata need to be a dataframe argument")
   }
   if (is.character(output_path) == FALSE) {
     stop("The argument output_path need to be a character argument")
   }
   if (is.character(algorithm) == FALSE) {
-    stop("The argument output_path need to be a character argument")
+    stop("The argument algorithm need to be a character argument")
   }
   if (algorithm != "BRelapse"){
     stop("The argument algorithm need to be BRelapse")

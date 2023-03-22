@@ -13,10 +13,10 @@
 LoadFW=function(folder_name, matrix_type){
   ####Test on the argument
   if (is.character(folder_name) == FALSE) {
-    stop("The argument files_name need to be a character argument")
+    stop("The argument folder_name need to be a character argument")
   }
   if (is.character(matrix_type) == FALSE) {
-    stop("The argument files_name need to be a character argument")
+    stop("The argument matrix_type need to be a character argument")
   }
   
   #extract the folder and the files 
