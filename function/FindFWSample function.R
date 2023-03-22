@@ -11,7 +11,7 @@
 #' @return The Redcap data cleaned in your folder and in an object
 #' @export
 
-CleanFW=function(FWdata, RKDdata, output_path){
+FindFWSample=function(FWdata, RKDdata, output_path){
   
   #Checking the argument
   if (is.data.frame(FWdata) == FALSE) {
@@ -33,5 +33,15 @@ CleanFW=function(FWdata, RKDdata, output_path){
   if(ncol(FW_data)==0 | nrow(FW_data)==0){
     stop("You give an empty files")
   }
+  
+  Merged_data <- RKD_data_filter
+  
+  files_test <-  list.files(output_path, pattern = ".", all.files = FALSE, recursive = TRUE)
+  if(identical(files_test, character(0)) == TRUE){
+    stop("Your output folder don't exist")
+  }
+  setwd(output_path)
+  write.csv(Merged_data, paste("Merged_FW_RKD_", Sys.Date() , ".csv", sep=""), row.names = F)
+  return(Merged_data)
   
 }
