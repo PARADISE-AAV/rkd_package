@@ -24,5 +24,14 @@ CleanFW=function(FWdata, RKDdata, output_path){
     stop("The argument output_path need to be a character argument")
   }
   
+  RKD_data <- RKDdata
+  if(ncol(RKD_data)==0 | nrow(RKD_data)==0){
+    stop("You give an empty files")
+  }
+  
+  FW_data <- FWdata
+  if(ncol(FW_data)==0 | nrow(FW_data)==0){
+    stop("You give an empty files")
+  }
   
 }
