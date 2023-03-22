@@ -27,9 +27,11 @@ CleanFW=function(FWdata, output_path){
     stop("You give an empty files")
   }
   
+  FW_data_filter_RKID <- FW_data[which(is.na(as.numeric(FW_data$Main.Study.ID)) == FALSE), ]
   
+  FW_data_filter_amount <- FW_data_filter_RKID[which(FW_data_filter_RKID$Current.Amount > 0),]
   
-  Clean_FW_data <- FW_data
+  Clean_FW_data <- FW_data_filter_amount
   
   files_test <-  list.files(output_path, pattern = ".", all.files = FALSE, recursive = TRUE)
   if(identical(files_test, character(0)) == TRUE){
