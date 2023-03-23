@@ -36,6 +36,8 @@ CleanRKD=function(RKDdata, output_path){
     RKD_data[,i] <- as.Date(RKD_data[,i])
   }
   
+  
+  
   ###Reduce ethnicity
   
   ethnicity <- NULL
