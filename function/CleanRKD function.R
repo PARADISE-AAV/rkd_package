@@ -128,19 +128,22 @@ CleanRKD=function(RKDdata, output_path){
   ###solve the problem of the RKD.ID wrong
   
   RKD_data$RKD.ID <- as.factor(RKD_data$RKD.ID)
-  RKD_data_RKDID_PB <- RKD_data[grep("-",RKD_data$RKD.ID),]
-  RKD_data_RKDID_PB$RKD.ID <- droplevels(RKD_data_RKDID_PB$RKD.ID)
-  n <- length(levels(RKD_data_RKDID_PB$RKD.ID))
-  RKD_data_RKDID_PB_2 <- NULL
-  for ( i in 1:n){
-    dat <- RKD_data_RKDID_PB[which(RKD_data_RKDID_PB$RKD.ID==levels(RKD_data_RKDID_PB$RKD.ID)[i]),]
-    dat$RKD.ID <- rep(dat$Patient.Id[1],nrow(dat))
-    RKD_data_RKDID_PB_2 <- rbind(RKD_data_RKDID_PB_2,dat)
+  if(length(grep("-",RKD_data$RKD.ID))>0){
+    RKD_data_RKDID_PB <- RKD_data[grep("-",RKD_data$RKD.ID),]
+    RKD_data_RKDID_PB$RKD.ID <- droplevels(RKD_data_RKDID_PB$RKD.ID)
+    n <- length(levels(RKD_data_RKDID_PB$RKD.ID))
+    RKD_data_RKDID_PB_2 <- NULL
+    for ( i in 1:n){
+      dat <- RKD_data_RKDID_PB[which(RKD_data_RKDID_PB$RKD.ID==levels(RKD_data_RKDID_PB$RKD.ID)[i]),]
+      dat$RKD.ID <- rep(dat$Patient.Id[1],nrow(dat))
+      RKD_data_RKDID_PB_2 <- rbind(RKD_data_RKDID_PB_2,dat)
+    }
+    
+    RKD_data_RKDID_NOPB <- RKD_data[-grep("-",RKD_data$RKD.ID),]
+    
+    RKD_data <- rbind(RKD_data_RKDID_NOPB,RKD_data_RKDID_PB_2)
   }
-  
-  RKD_data_RKDID_NOPB <- RKD_data[-grep("-",RKD_data$RKD.ID),]
-  
-  RKD_data=rbind(RKD_data_RKDID_NOPB,RKD_data_RKDID_PB_2)
+ 
  
   RKD_Encounter <- RKD_data[which(RKD_data$Repeat.Instrument == "Encounters"),]
   RKD_Initial <- RKD_data[which(RKD_data$Repeat.Instrument == "" & RKD_data$Type.of.Patient!= ""),]
