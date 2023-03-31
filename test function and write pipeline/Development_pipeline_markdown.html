@@ -11,7 +11,7 @@
 
 <meta name="author" content="Conor Finlay" />
 
-<meta name="date" content="2023-03-02" />
+<meta name="date" content="2023-03-31" />
 
 <title>Pipeline_for_development</title>
 
@@ -352,7 +352,7 @@ display: none;
 
 <h1 class="title toc-ignore">Pipeline_for_development</h1>
 <h4 class="author">Conor Finlay</h4>
-<h4 class="date">2023-03-02</h4>
+<h4 class="date">2023-03-31</h4>
 
 </div>
 
@@ -390,15 +390,6 @@ on your computer.</p>
 </div>
 <div id="load-libraries" class="section level2">
 <h2>load libraries</h2>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-## ✔ ggplot2 3.4.0      ✔ purrr   1.0.1 
-## ✔ tibble  3.1.8      ✔ dplyr   1.0.10
-## ✔ tidyr   1.2.1      ✔ stringr 1.5.0 
-## ✔ readr   2.1.3      ✔ forcats 0.5.2 
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 </div>
 <div id="working-directories" class="section level2">
 <h2>Working directories</h2>
@@ -408,13 +399,10 @@ wherever the project is located on your computer. This has the advantage
 of simplifying pathing by making them relative to this folder.</p>
 <pre class="r"><code>#print local directory 
 getwd()</code></pre>
-<pre><code>## [1] &quot;C:/Users/Conor/Desktop/rkd_package/rkd_package&quot;</code></pre>
+<pre><code>## [1] &quot;C:/Users/Administrator/Documents/GitHub/rkd_package/test function and write pipeline&quot;</code></pre>
 <pre class="r"><code>list.files()</code></pre>
-<pre><code>## [1] &quot;AddBiomarkerFunction.R&quot;             &quot;CleanRKD function.R&quot;               
-## [3] &quot;Development_pipeline_markdown.html&quot; &quot;Development_pipeline_markdown.Rmd&quot; 
-## [5] &quot;LoadBiomarker.R&quot;                    &quot;LoadRKD.R&quot;                         
-## [7] &quot;output&quot;                             &quot;README.md&quot;                         
-## [9] &quot;rkd_package.Rproj&quot;</code></pre>
+<pre><code>## [1] &quot;Development_pipeline_markdown.html&quot; &quot;Development_pipeline_markdown.Rmd&quot; 
+## [3] &quot;output&quot;</code></pre>
 </div>
 <div id="paths-to-data" class="section level2">
 <h2>Paths to data</h2>
@@ -430,21 +418,22 @@ folders.</p>
 <p>For this pipeline to work each user should set these paths each
 time.</p>
 <pre class="r"><code>#paths
-RKD_path &lt;- &quot;C:/Users/Conor/OneDrive - Trinity College Dublin/Redcap Data exports/&quot;
+RKD_path &lt;- &quot;C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Data exports/&quot;
 
 Biomarker_path &lt;- &quot;C:/Users/Conor/Trinity College Dublin/THKC - Documents/Arlena Carney/Makala Carroll/Projects/Mini Biobank/Biomarker_master/Biomarker master-Data only.csv&quot;
    
-fw_path &lt;- &quot;C:/Users/Conor/OneDrive - Trinity College Dublin/Freezerworks Exports/&quot;
+fw_path &lt;- &quot;C:/Users/Administrator/OneDrive - Trinity College Dublin/Freezerworks Exports/&quot;
 
 #specific RKD version
-RKD_file &lt;- &quot;C:/Users/Conor/OneDrive - Trinity College Dublin/Redcap Data exports/RareKidneyDiseaseRIT-DiseaseControls_DATA_LABELS_2023-02-24_1707.csv&quot;</code></pre>
+RKD_file &lt;- &quot;C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Data exports/RareKidneyDiseaseRIT-FullVasculitisExport_DATA_LABELS_2023-03-23_1542.csv&quot;</code></pre>
 </div>
 <div id="functions" class="section level2">
 <h2>Functions</h2>
 <p>Here we will load the approved functions into the R session. It
 assumes that all functions are required.</p>
 <pre class="r"><code># find all files ending in &quot;.R&quot; and run source
-for (f in list.files(pattern=&quot;*.R$&quot;)) {
+setwd(&quot;~/GitHub/rkd_package/function&quot;)
+for (f in list.files(pattern = &quot;*.R$&quot;)) {
     source(f)
 }</code></pre>
 </div>
@@ -454,38 +443,63 @@ for (f in list.files(pattern=&quot;*.R$&quot;)) {
 <div id="loadrkd" class="section level2">
 <h2>loadRKD</h2>
 <p>This function will load RKD dataset</p>
-<pre class="r"><code>rkd  &lt;- LoadRKD(files_name = RKD_file, output_path = &quot;output/&quot;)
+<pre class="r"><code>setwd(&quot;~/GitHub/rkd_package&quot;)
+rkd  &lt;- LoadRKD(files_name = RKD_file)
 head(rkd)[1:5,1:10]</code></pre>
-<pre><code>##   RKD.ID Repeat.Instrument Repeat.Instance Type.of.Patient
-## 1  10216                                NA                
-## 2  10007                                NA   Other Disease
-## 3  10007        Encounters               1                
-## 4  10007        Encounters               2                
-## 5  10008                                NA   Other Disease
-##        Clinical.diagnosis.1 Clinical.diagnosis.1..snomedCT Clinical.diagnosis.2
-## 1                                                                              
-## 2      Ischemic nephropathy                                     Hyperthyroidism
-## 3                                                                              
-## 4                                                                              
-## 5 Polycystic Kidney Disease                                        hypertension
-##   Clinical.diagnosis.2..snomedCT   Clinical.diagnosis.3
-## 1                                                      
-## 2                                                   IHD
-## 3                                                      
-## 4                                                      
-## 5                                sigmoid diverticulosis
-##   Clinical.diagnosis.3..snomedCT
-## 1                               
-## 2                               
-## 3                               
-## 4                               
+<pre><code>##   RKD.ID           Repeat.Instrument Repeat.Instance Patient.Id
+## 1      1                                          NA          1
+## 2      1                    Biopsies               1           
+## 3      1                    COVID-19               1           
+## 4      1               Complications               1           
+## 5      1 Pre-existing co-morbidities               1           
+##   Hospital.Unit...Site.at.Diagnosis Hospital.Unit...Site.at.Diagnosis...Other
+## 1                    TUH - Tallaght                                          
+## 2                                                                            
+## 3                                                                            
+## 4                                                                            
+## 5                                                                            
+##   Type.of.Patient Other.Disease.name Other.Disease.name...other
+## 1      Vasculitis                 NA                         NA
+## 2                                 NA                         NA
+## 3                                 NA                         NA
+## 4                                 NA                         NA
+## 5                                 NA                         NA
+##   Self.reported.as.healthy
+## 1                         
+## 2                         
+## 3                         
+## 4                         
 ## 5</code></pre>
-<pre class="r"><code>getwd()</code></pre>
-<pre><code>## [1] &quot;C:/Users/Conor/Desktop/rkd_package/rkd_package&quot;</code></pre>
+<pre class="r"><code>a=getwd()</code></pre>
 </div>
-<div id="biomarker" class="section level2">
-<h2>Biomarker</h2>
-<pre class="r"><code># error in code, there are two functions called loadRKD, the second function is in LaodBioamrker.R</code></pre>
+<div id="clean-the-data" class="section level2">
+<h2>Clean the data</h2>
+<pre class="r"><code>clean_rkd &lt;- CleanRKD(rkd, paste(a,&quot;/output&quot;,sep=&quot;&quot;))
+head(rkd)[1:5,1:10]</code></pre>
+<pre><code>##   RKD.ID           Repeat.Instrument Repeat.Instance Patient.Id
+## 1      1                                          NA          1
+## 2      1                    Biopsies               1           
+## 3      1                    COVID-19               1           
+## 4      1               Complications               1           
+## 5      1 Pre-existing co-morbidities               1           
+##   Hospital.Unit...Site.at.Diagnosis Hospital.Unit...Site.at.Diagnosis...Other
+## 1                    TUH - Tallaght                                          
+## 2                                                                            
+## 3                                                                            
+## 4                                                                            
+## 5                                                                            
+##   Type.of.Patient Other.Disease.name Other.Disease.name...other
+## 1      Vasculitis                 NA                         NA
+## 2                                 NA                         NA
+## 3                                 NA                         NA
+## 4                                 NA                         NA
+## 5                                 NA                         NA
+##   Self.reported.as.healthy
+## 1                         
+## 2                         
+## 3                         
+## 4                         
+## 5</code></pre>
 </div>
 </div>
 <div id="appendix" class="section level1">
@@ -493,7 +507,7 @@ head(rkd)[1:5,1:10]</code></pre>
 <pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>## R version 4.2.2 (2022-10-31 ucrt)
 ## Platform: x86_64-w64-mingw32/x64 (64-bit)
-## Running under: Windows 10 x64 (build 19045)
+## Running under: Windows 10 x64 (build 19044)
 ## 
 ## Matrix products: default
 ## 
@@ -506,31 +520,21 @@ head(rkd)[1:5,1:10]</code></pre>
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] forcats_0.5.2   stringr_1.5.0   dplyr_1.0.10    purrr_1.0.1    
-## [5] readr_2.1.3     tidyr_1.2.1     tibble_3.1.8    ggplot2_3.4.0  
-## [9] tidyverse_1.3.2
+##  [1] lubridate_1.9.0  timechange_0.2.0 forcats_1.0.0    stringr_1.5.0   
+##  [5] dplyr_1.0.10     purrr_1.0.1      readr_2.1.4      tidyr_1.2.1     
+##  [9] tibble_3.1.8     ggplot2_3.4.1    tidyverse_2.0.0 
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] tidyselect_1.2.0    xfun_0.36           bslib_0.4.2        
-##  [4] haven_2.5.1         gargle_1.2.1        colorspace_2.0-3   
-##  [7] vctrs_0.5.1         generics_0.1.3      htmltools_0.5.4    
-## [10] yaml_2.3.6          utf8_1.2.2          rlang_1.0.6        
-## [13] jquerylib_0.1.4     pillar_1.8.1        withr_2.5.0        
-## [16] glue_1.6.2          DBI_1.1.3           dbplyr_2.3.0       
-## [19] readxl_1.4.1        modelr_0.1.10       lifecycle_1.0.3    
-## [22] munsell_0.5.0       gtable_0.3.1        cellranger_1.1.0   
-## [25] rvest_1.0.3         evaluate_0.20       knitr_1.42         
-## [28] tzdb_0.3.0          fastmap_1.1.0       fansi_1.0.3        
-## [31] broom_1.0.3         backports_1.4.1     scales_1.2.1       
-## [34] googlesheets4_1.0.1 cachem_1.0.6        jsonlite_1.8.4     
-## [37] fs_1.6.0            hms_1.1.2           digest_0.6.31      
-## [40] stringi_1.7.12      grid_4.2.2          cli_3.6.0          
-## [43] tools_4.2.2         magrittr_2.0.3      sass_0.4.5         
-## [46] crayon_1.5.2        pkgconfig_2.0.3     ellipsis_0.3.2     
-## [49] xml2_1.3.3          reprex_2.0.2        googledrive_2.0.0  
-## [52] lubridate_1.9.1     timechange_0.2.0    assertthat_0.2.1   
-## [55] rmarkdown_2.20      httr_1.4.4          rstudioapi_0.14    
-## [58] R6_2.5.1            compiler_4.2.2</code></pre>
+##  [1] bslib_0.4.2      compiler_4.2.2   pillar_1.8.1     jquerylib_0.1.4 
+##  [5] tools_4.2.2      digest_0.6.31    jsonlite_1.8.4   evaluate_0.20   
+##  [9] lifecycle_1.0.3  gtable_0.3.1     pkgconfig_2.0.3  rlang_1.0.6     
+## [13] cli_3.4.1        DBI_1.1.3        rstudioapi_0.14  yaml_2.3.6      
+## [17] xfun_0.36        fastmap_1.1.0    withr_2.5.0      knitr_1.42      
+## [21] hms_1.1.2        generics_0.1.3   vctrs_0.5.1      sass_0.4.5      
+## [25] grid_4.2.2       tidyselect_1.2.0 glue_1.6.2       R6_2.5.1        
+## [29] fansi_1.0.3      rmarkdown_2.20   tzdb_0.3.0       magrittr_2.0.3  
+## [33] ellipsis_0.3.2   scales_1.2.1     htmltools_0.5.4  colorspace_2.0-3
+## [37] utf8_1.2.2       stringi_1.7.12   munsell_0.5.0    cachem_1.0.6</code></pre>
 </div>
 
 
