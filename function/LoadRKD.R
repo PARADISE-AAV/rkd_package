@@ -25,9 +25,9 @@ LoadRKD=function(files_name){
     input_path <- getwd()
     files_name1 <- files_name
   }
-  
+  dir_test <- list.dirs(input_path)
   files_test <-  list.files(input_path, pattern = ".", all.files = FALSE, recursive = TRUE)
-  if(identical(files_test, character(0)) == TRUE){
+  if(identical(dir_test, character(0)) == TRUE){
     stop("Your input folder don't exist")
   }
   if(length(which(files_test == files_name1)) != 1){

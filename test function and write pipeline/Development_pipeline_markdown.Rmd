@@ -74,7 +74,7 @@ Biomarker_path <- "C:/Users/Conor/Trinity College Dublin/THKC - Documents/Arlena
 fw_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Freezerworks Exports/"
 
 #specific RKD version
-RKD_file <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Data exports/RareKidneyDiseaseRIT-DiseaseControls_DATA_LABELS_2023-02-24_1707.csv"
+RKD_file <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Data exports/RareKidneyDiseaseRIT-FullVasculitisExport_DATA_LABELS_2023-03-23_1542.csv"
 ```
 
 ## Functions
@@ -100,12 +100,13 @@ rkd  <- LoadRKD(files_name = RKD_file)
 head(rkd)[1:5,1:10]
 ```
 ```{r wd_check}
-getwd()
+a=getwd()
 ```
-## Biomarker
+## Clean the data
 
 ```{r}
-# error in code, there are two functions called loadRKD, the second function is in LaodBioamrker.R
+
+clean_rkd <- CleanRKD(rkd, paste(a,"/output",sep=""))
 ```
 
 
