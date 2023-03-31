@@ -67,14 +67,14 @@ For this pipeline to work each user should set these paths each time.
 
 ```{r paths}
 #paths
-RKD_path <- "C:/Users/Conor/OneDrive - Trinity College Dublin/Redcap Data exports/"
+RKD_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Data exports/"
 
 Biomarker_path <- "C:/Users/Conor/Trinity College Dublin/THKC - Documents/Arlena Carney/Makala Carroll/Projects/Mini Biobank/Biomarker_master/Biomarker master-Data only.csv"
    
-fw_path <- "C:/Users/Conor/OneDrive - Trinity College Dublin/Freezerworks Exports/"
+fw_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Freezerworks Exports/"
 
 #specific RKD version
-RKD_file <- "C:/Users/Conor/OneDrive - Trinity College Dublin/Redcap Data exports/RareKidneyDiseaseRIT-DiseaseControls_DATA_LABELS_2023-02-24_1707.csv"
+RKD_file <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Data exports/RareKidneyDiseaseRIT-DiseaseControls_DATA_LABELS_2023-02-24_1707.csv"
 ```
 
 ## Functions
@@ -95,7 +95,8 @@ for (f in list.files(pattern = "*.R$")) {
 ## loadRKD
 This function will load RKD dataset
 ```{r load_RKD}
-rkd  <- LoadRKD(files_name = RKD_file, output_path = "output/")
+setwd("~/GitHub/rkd_package")
+rkd  <- LoadRKD(files_name = RKD_file)
 head(rkd)[1:5,1:10]
 ```
 ```{r wd_check}
