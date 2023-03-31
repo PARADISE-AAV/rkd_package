@@ -68,7 +68,7 @@ DemographicFilterRKD=function(RKDdata, output_path){
   
   Filter_RKD_data <- RKD_data_LastFilter
   
-  files_test <-  list.files(output_path, pattern = ".", all.files = FALSE, recursive = TRUE)
+  files_test <-  list.dirs(output_path)
   if(identical(files_test, character(0)) == TRUE){
     stop("Your output folder don't exist")
   }

@@ -107,6 +107,7 @@ a=getwd()
 ```{r}
 
 clean_rkd <- CleanRKD(rkd, paste(a,"/output",sep=""))
+head(rkd)[1:5,1:10]
 ```
 
 

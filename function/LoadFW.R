@@ -22,8 +22,9 @@ LoadFW=function(folder_name, matrix_type){
   #extract the folder and the files 
   
   
-  files_test <-  list.files(folder_name, pattern = ".", all.files = FALSE, recursive = TRUE)
-  if(identical(files_test, character(0)) == TRUE){
+  dir_test <- list.dirs(input_path)
+  files_test <-  list.files(input_path, pattern = ".", all.files = FALSE, recursive = TRUE)
+  if(identical(dir_test, character(0)) == TRUE){
     stop("Your input folder don't exist")
   }
   files_name1=files_test[grep(matrix_type,files_test)]

@@ -36,7 +36,7 @@ FindFWSample=function(FWdata, RKDdata, output_path){
   
   Merged_data <- merge(RKD_data, FW_data, by.x = c("RKD.ID", "Date.Of.Visit"), by.y = c("Main.Study.ID", "Date.of.encounter"))
   
-  files_test <-  list.files(output_path, pattern = ".", all.files = FALSE, recursive = TRUE)
+  files_test <-  list.dirs(output_path)
   if(identical(files_test, character(0)) == TRUE){
     stop("Your output folder don't exist")
   }

@@ -38,7 +38,7 @@ ClinicalFilterRKD=function(RKDdata, output_path, algorithm){
   }
   
   
-  files_test <-  list.files(output_path, pattern = ".", all.files = FALSE, recursive = TRUE)
+  files_test <-  list.dirs(output_path)
   if(identical(files_test, character(0)) == TRUE){
     stop("Your output folder don't exist")
   }
