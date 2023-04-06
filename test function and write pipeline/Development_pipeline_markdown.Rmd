@@ -71,10 +71,10 @@ RKD_path <- "C:/Users/matth/OneDrive - Trinity College Dublin/Redcap Data export
 
 Biomarker_path <- "C:/Users/matth/Trinity College Dublin/THKC - Documents/Arlena Carney/Makala Carroll/Projects/Mini Biobank/Biomarker_master/Biomarker master-Data only.csv"
    
-fw_path <- "C:/Users/matthr/OneDrive - Trinity College Dublin/Freezerworks Exports/"
+fw_path <- "C:/Users/matth/OneDrive - Trinity College Dublin/Freezerworks Exports/"
 
 #specific RKD version
-RKD_file <- "C:/Users/matthr/OneDrive - Trinity College Dublin/Redcap Data exports/RareKidneyDiseaseRIT-FullVasculitisExport_DATA_LABELS_2023-03-23_1542.csv"
+RKD_file <- "C:/Users/matth/OneDrive - Trinity College Dublin/Redcap Data exports/RareKidneyDiseaseRIT-FullVasculitisExport_DATA_LABELS_2023-03-23_1542.csv"
 ```
 
 ## Functions
@@ -107,9 +107,15 @@ a=getwd()
 ```{r, warning=FALSE}
 
 clean_rkd <- CleanRKD(rkd, paste(a,"/output",sep=""))
-head(rkd)[1:5,1:10]
+head(clean_rkd)[1:5,1:10]
 ```
+## Use the Demographic filter
 
+```{r, warning=FALSE}
+
+Inclusion_Criteria_rkd <- DemographicFilterRKD(clean_data,paste(a,"/output",sep=""))
+head(Inclusion_Criteria_rkd)[1:5,1:10]
+```
 
 # Appendix
 
