@@ -31,6 +31,8 @@ CleanFW=function(FWdata, output_path){
   
   FW_data_filter_amount <- FW_data_filter_RKID[which(FW_data_filter_RKID$Current.Amount > 0),]
   
+  FW_data_filter_amount$Date.of.encounter <- as.Date(FW_data_filter_amount$Date.of.encounter, format = '%d/%m/%Y')
+  
   Clean_FW_data <- FW_data_filter_amount
   
   files_test <-  list.dirs(output_path)

@@ -148,7 +148,13 @@ head(Load_FW)[1:5,1:10]
 Clean_FW <- CleanFW(Load_FW, paste(a,"/output",sep=""))
 head(Clean_FW)[1:5,1:10]
 ```
+## Finding the good sample
 
+```{r, warning=FALSE}
+
+Finding_Good_Sample <- FindFWSample(Clean_FW, Filter_Classify_rkd, paste(a,"/output",sep=""))
+head(Finding_Good_Sample)[1:5,1:10]
+```
 
 # Appendix
 
