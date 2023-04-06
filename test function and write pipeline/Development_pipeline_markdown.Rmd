@@ -137,7 +137,7 @@ head(Classify_rkd)[1:5,1:10]
 
 ```{r, warning=FALSE}
 
-Load_FW <- LoadFW(fw_path, "PBMC")
+Load_FW <- LoadFW(fw_path, "Plasma")
 head(Load_FW)[1:5,1:10]
 ```
 
