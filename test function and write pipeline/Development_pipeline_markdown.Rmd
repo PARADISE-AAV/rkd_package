@@ -116,6 +116,23 @@ head(clean_rkd)[1:5,1:10]
 Inclusion_Criteria_rkd <- DemographicFilterRKD(clean_rkd, paste(a,"/output",sep=""))
 head(Inclusion_Criteria_rkd)[1:5,1:10]
 ```
+## Classify the RKD patient
+
+```{r, warning=FALSE}
+
+Classify_rkd <- ClassifyRKDCases(Inclusion_Criteria_rkd, paste(a,"/output",sep=""), "BRelapse")
+head(Classify_rkd)[1:5,1:10]
+```
+
+## Filter with the classification
+
+```{r, warning=FALSE}
+
+Filter_Classify_rkd <- ClinicalFilterRKD(Classify_rkd, paste(a,"/output",sep=""), "BRelapse")
+head(Classify_rkd)[1:5,1:10]
+```
+
+
 
 # Appendix
 
