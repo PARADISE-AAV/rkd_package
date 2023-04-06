@@ -141,6 +141,15 @@ Load_FW <- LoadFW(fw_path, "Plasma")
 head(Load_FW)[1:5,1:10]
 ```
 
+## Cleanning Freezer Work data
+
+```{r, warning=FALSE}
+
+Clean_FW <- CleanFW(Load_FW, paste(a,"/output",sep=""))
+head(Clean_FW)[1:5,1:10]
+```
+
+
 # Appendix
 
 ```{r sessioin}
