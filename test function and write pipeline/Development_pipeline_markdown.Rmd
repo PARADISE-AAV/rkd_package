@@ -99,7 +99,7 @@ setwd("~/GitHub/rkd_package")
 rkd  <- LoadRKD(files_name = RKD_file)
 head(rkd)[1:5,1:10]
 ```
-```{r wd_check}
+```{r wd_check, warning=FALSE}
 a=getwd()
 dir.create(paste(a,"/output",sep=""))
 ```
