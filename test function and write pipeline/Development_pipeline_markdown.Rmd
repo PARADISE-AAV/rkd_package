@@ -101,6 +101,7 @@ head(rkd)[1:5,1:10]
 ```
 ```{r wd_check}
 a=getwd()
+dir.create(paste(a,"/output",sep=""))
 ```
 ## Clean the data
 
