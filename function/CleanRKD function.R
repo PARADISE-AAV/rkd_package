@@ -211,21 +211,22 @@ CleanRKD=function(RKDdata, output_path){
   
   RKD_data_filter$Age_Encounters <- year(RKD_data_filter$Date.Of.Visit)- year(RKD_data_filter$Date.of.Birth)
   
-  RKD_data_filter$AntiMPO_PR3=NA
+  RKD_data_filter$AntiMPO_PR3 <- NA
+  m <- nrow(RKD_data_filter)
   for(i in 1:m){
-    if (is.na(RKD_data_filter$Anti.MPO.level[i])==T & is.na(RKD_data_filter$Anti.PR3.level[i])==T){
-      RKD_data_filter$AntiMPO_PR3[i]=NA
+    if (is.na(RKD_data_filter$Anti.MPO.level[i]) == TRUE & is.na(RKD_data_filter$Anti.PR3.level[i]) == TRUE){
+      RKD_data_filter$AntiMPO_PR3[i] <- NA
     }else{
-      if(is.na(RKD_data_filter$Anti.MPO.level[i])==T & is.na(RKD_data_filter$Anti.PR3.level[i])==F){
-        RKD_data_filter$AntiMPO_PR3[i]="PR3"
+      if(is.na(RKD_data_filter$Anti.MPO.level[i]) == TRUE & is.na(RKD_data_filter$Anti.PR3.level[i]) == FALSE){
+        RKD_data_filter$AntiMPO_PR3[i] <- "PR3"
       }else{
-        if(is.na(RKD_data_filter$Anti.MPO.level[i])==F & is.na(RKD_data_filter$Anti.PR3.level[i])==T){
-          RKD_data_filter$AntiMPO_PR3[i]="MPO"
+        if(is.na(RKD_data_filter$Anti.MPO.level[i]) == FALSE & is.na(RKD_data_filter$Anti.PR3.level[i]) == TRUE){
+          RKD_data_filter$AntiMPO_PR3[i] <- "MPO"
         }else{
-          if(RKD_data_filter$Anti.MPO.level[i]>RKD_data_filter$Anti.PR3.level[i]){
-            RKD_data_filter$AntiMPO_PR3[i]="MPO"
+          if(RKD_data_filter$Anti.MPO.level[i] > RKD_data_filter$Anti.PR3.level[i]){
+            RKD_data_filter$AntiMPO_PR3[i] <- "MPO"
           }else{
-            RKD_data_filter$AntiMPO_PR3[i]="PR3"
+            RKD_data_filter$AntiMPO_PR3[i] <- "PR3"
           }
         }
       }
