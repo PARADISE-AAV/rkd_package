@@ -211,6 +211,27 @@ CleanRKD=function(RKDdata, output_path){
   
   RKD_data_filter$Age_Encounters <- year(RKD_data_filter$Date.Of.Visit)- year(RKD_data_filter$Date.of.Birth)
   
+  RKD_data_filter_filter$AntiMPO_PR3=NA
+  for(i in 1:m){
+    if (is.na(RKD_data_filter$Anti.MPO.level[i])==T & is.na(RKD_data_filter$Anti.PR3.level[i])==T){
+      RKD_data_filter$AntiMPO_PR3[i]=NA
+    }else{
+      if(is.na(RKD_data_filter$Anti.MPO.level[i])==T & is.na(RKD_data_filter$Anti.PR3.level[i])==F){
+        RKD_data_filter$AntiMPO_PR3[i]="PR3"
+      }else{
+        if(is.na(RKD_data_filter$Anti.MPO.level[i])==F & is.na(RKD_data_filter$Anti.PR3.level[i])==T){
+          RKD_data_filter$AntiMPO_PR3[i]="MPO"
+        }else{
+          if(RKD_data_filter$Anti.MPO.level[i]>RKD_data_filter$Anti.PR3.level[i]){
+            RKD_data_filter$AntiMPO_PR3[i]="MPO"
+          }else{
+            RKD_data_filter$AntiMPO_PR3[i]="PR3"
+          }
+        }
+      }
+    }
+  }
+  
   Clean_RKD_data <- RKD_data_filter
   
   files_test <-  list.dirs(output_path)
