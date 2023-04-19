@@ -211,7 +211,7 @@ CleanRKD=function(RKDdata, output_path){
   
   RKD_data_filter$Age_Encounters <- year(RKD_data_filter$Date.Of.Visit)- year(RKD_data_filter$Date.of.Birth)
   
-  RKD_data_filter_filter$AntiMPO_PR3=NA
+  RKD_data_filter$AntiMPO_PR3=NA
   for(i in 1:m){
     if (is.na(RKD_data_filter$Anti.MPO.level[i])==T & is.na(RKD_data_filter$Anti.PR3.level[i])==T){
       RKD_data_filter$AntiMPO_PR3[i]=NA
