@@ -8,6 +8,11 @@
 #' @param RKDdata RKD data from loadRKD function
 #' @param ouput_path folder where the Redcap data will be saved
 #' @return The Redcap data cleaned in your folder and in an object
+#' @details The function change the Date variable with the format "%Y-%m-%d". 
+#' @details The function reduce the ethnicity to 6 group where different subgroup are regrouped.
+#' @details The function clean some RKD.ID trouble to be sure that we have no problem when we do any merge with other dataset 
+#' @details The function select the variable present only for the Encounters data and the Initial data (demographics, diagnostics and all other exams performed at the moment of the diagnostics)and merge the Encounter dtaa and Initail data that the initial data are replicate for each Encounter
+#' @details The function create the following variable Age of the Encounter and ANCA titration (Anti MPO or Anti PR3 or NA) 
 #' @export
 
 
