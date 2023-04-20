@@ -2,11 +2,12 @@
 #' @author Matthieu COQ
 #' Version: 1.0
 #' Date: 24-Jan-23
-#' Objective: The objective is to load the RKD data in a datframe object
+#' Objective: The objective is to load the RKD data in a dataframe object
 #'
 #'
 #' @param files_name RKD data used
 #' @return The Redcap data in your folder and in an object
+#' @details This function output need to be reuse in the other function of the package
 #' @export
 
 
