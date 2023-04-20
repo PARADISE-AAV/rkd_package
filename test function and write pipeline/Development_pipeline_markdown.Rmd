@@ -1,6 +1,6 @@
 ---
 title: "Pipeline_for_development"
-author: "Conor Finlay"
+author: "Conor Finlay/Matthieu Coq"
 date: '`r Sys.Date()`'
 output: html_document
 ---
@@ -121,7 +121,7 @@ head(Inclusion_Criteria_rkd)[1:5,1:10]
 
 ```{r, warning=FALSE}
 
-Classify_rkd <- ClassifyRKDCases(Inclusion_Criteria_rkd, paste(a,"/output",sep=""), "BRelapse")
+Classify_rkd <- ClassifyRKDCases(clean_rkd, paste(a,"/output",sep=""), "BRelapse")
 head(Classify_rkd)[1:5,1:10]
 ```
 
