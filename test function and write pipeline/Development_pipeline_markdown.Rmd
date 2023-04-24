@@ -119,11 +119,24 @@ head(clean_rkd)[1:5,1:10]
 ```
 ## Use the Demographic filter
 
+The DemographicFilterRKD function use the Paradise filter
+-SVV = GPA / MPA
+-AND diagnosis confidence = definite
+-AND SVV (IC) != Anti-GBM, IgA, cryo
+-AND Secondary vasculitis != Yes
+-AND 'Other' != Yes
+-AND 'Medium vessel' != 1 or 2
+-AND 'large vessel' != 1 or 2
+-AND 'variable vessel' != 1 or 2
+-AND (ANCA subtype = PR3 / MPO / both) OR (biopsy = Definite vasculitis AND histologically confirmed = YES)
+
+
 ```{r, warning=FALSE}
 
 Inclusion_Criteria_rkd <- DemographicFilterRKD(clean_rkd, paste(a,"/output",sep=""))
 head(Inclusion_Criteria_rkd)[1:5,1:10]
 ```
+
 ## Classify the RKD patient
 
 ```{r, warning=FALSE}
