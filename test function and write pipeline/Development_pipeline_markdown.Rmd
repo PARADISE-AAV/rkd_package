@@ -74,7 +74,7 @@ Biomarker_path <- "C:/Users/Administrator/Trinity College Dublin/THKC - Document
 fw_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Freezerworks exports"
 
 #specific RKD version
-RKD_file <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Data exports/RareKidneyDiseaseRIT-FullExport_DATA_LABELS_2023-04-24_1131.csv"
+RKD_file <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Data exports/RareKidneyDiseaseRIT-FullVasculitisExport_DATA_LABELS_2023-04-24_1444.csv"
 ```
 
 ## Functions
