@@ -154,6 +154,8 @@ head(Classify_rkd)[1:5,1:10]
 
 ## Filter with the classification
 
+The ClinicalFilterRKD function is a filter based on classify algorithm
+
 ```{r, warning=FALSE}
 
 Filter_Classify_rkd <- ClinicalFilterRKD(Classify_rkd, paste(a,"/output",sep=""), "BRelapse")
@@ -163,6 +165,15 @@ head(Classify_rkd)[1:5,1:10]
 
 ## Load Freezer Work data
 
+This function load the data from Freezerwork database based on their blood matrix:
+
+* Plasma
+- PBMC
+- Serum
+- DNA
+- urine
+- RNA
+
 ```{r, warning=FALSE}
 
 Load_FW <- LoadFW(fw_path, "Plasma")
@@ -170,6 +181,8 @@ head(Load_FW)[1:5,1:10]
 ```
 
 ## Cleanning Freezer Work data
+
+
 
 ```{r, warning=FALSE}
 
