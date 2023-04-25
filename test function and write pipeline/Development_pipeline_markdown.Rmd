@@ -196,7 +196,7 @@ head(Clean_FW)[1:5,1:10]
 
 ## Finding the good sample
 
-The Goal of the FindFWSample function is to find the best sample to measure to answer to the statistician question. It is jsut a merge between the 2 files.
+The Goal of the FindFWSample function is to find the best sample to measure to answer to the statistician question. It is just a merge between the 2 files.
 
 ```{r, warning=FALSE}
 
