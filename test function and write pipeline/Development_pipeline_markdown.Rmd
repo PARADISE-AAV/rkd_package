@@ -105,12 +105,13 @@ dir.create(paste(a,"/output",sep=""))
 ```
 ## Clean the data
 
-The CleanRKD function clean the in 5 step
--set the date variable to the format "%Y-%m-%d"
--reduce the ethnicity to 6 group where different subgroup are regrouped
--clean some RKD.ID trouble to be sure that we have no problem when we do any merge with other dataset
--select the variable present only for the Encounters data and the Initial data (demographics, diagnostics and all other exams performed at the moment of the diagnostics)and merge the Encounter dtaa and Initail data that the initial data are replicate for each Encounter
--create the following variable Age of the Encounter and ANCA titration (Anti MPO or Anti PR3 or NA)
+The CleanRKD function clean the in 5 step:
+
+* set the date variable to the format "%Y-%m-%d"
+-   reduce the ethnicity to 6 group where different subgroup are regrouped
+-   clean some RKD.ID trouble to be sure that we have no problem when we do any merge with other dataset
+-   select the variable present only for the Encounters data and the Initial data (demographics, diagnostics and all other exams performed at the moment of the diagnostics)and merge the Encounter dtaa and Initail data that the initial data are replicate for each Encounter
+-   create the following variable Age of the Encounter and ANCA titration (Anti MPO or Anti PR3 or NA)
 
 ```{r, warning=FALSE}
 
@@ -119,16 +120,17 @@ head(clean_rkd)[1:5,1:10]
 ```
 ## Use the Demographic filter
 
-The DemographicFilterRKD function use the Paradise filter
--SVV = GPA / MPA
--AND diagnosis confidence = definite
--AND SVV (IC) != Anti-GBM, IgA, cryo
--AND Secondary vasculitis != Yes
--AND 'Other' != Yes
--AND 'Medium vessel' != 1 or 2
--AND 'large vessel' != 1 or 2
--AND 'variable vessel' != 1 or 2
--AND (ANCA subtype = PR3 / MPO / both) OR (biopsy = Definite vasculitis AND histologically confirmed = YES)
+The DemographicFilterRKD function use the Paradise filter:
+
+* SVV = GPA / MPA
+-   AND diagnosis confidence = definite
+-   AND SVV (IC) != Anti-GBM, IgA, cryo
+-   AND Secondary vasculitis != Yes
+-   AND 'Other' != Yes
+-   AND 'Medium vessel' != 1 or 2
+-   AND 'large vessel' != 1 or 2
+-   AND 'variable vessel' != 1 or 2
+-   AND (ANCA subtype = PR3 / MPO / both) OR (biopsy = Definite vasculitis AND histologically confirmed = YES)
 
 
 ```{r, warning=FALSE}
@@ -141,6 +143,7 @@ head(Inclusion_Criteria_rkd)[1:5,1:10]
 
 The ClassifyRKDCases function use different algorithm create by several previous employee
 -"BRelapse" algorithm perform the prediction of a Relapse. The output of the function is a variable that tell if the patient have a definite relapse, a possible relapse or no relapse fr one encounter.
+-
 
 ```{r, warning=FALSE}
 
