@@ -202,7 +202,7 @@ The Goal of the FindFWSample function is to find the best sample to measure to a
 
 ```{r, warning=FALSE}
 
-Finding_Good_Sample <- FindFWSample(Clean_FW, Classify_rkd, paste(a,"/output",sep=""))
+Finding_Good_Sample <- FindFWSample(Clean_FW, Inclusion_Criteria_rkd , paste(a,"/output",sep=""))
 head(Finding_Good_Sample)[1:5,1:10]
 ```
 
