@@ -150,7 +150,7 @@ The ClassifyRKDCases function use different algorithm create by several previous
 
 ```{r, warning=FALSE}
 
-Classify_rkd <- ClassifyRKDCases(clean_rkd, paste(a,"/output",sep=""), "BRelapse")
+Classify_rkd <- ClassifyRKDCases(Inclusion_Criteria_rkd, paste(a,"/output",sep=""), "BRelapse")
 head(Classify_rkd)[1:5,1:10]
 ```
 
