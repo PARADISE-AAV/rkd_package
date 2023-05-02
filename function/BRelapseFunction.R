@@ -22,15 +22,13 @@ BRelapseFunction <- function(RKD_data) {
   library(dplyr)
   library(epiDisplay)
   data <- RKD_data
-  n=ncol(data)
   m=nrow(data)
-  for(i in 1:n){
-    for(j in 1:m){
-      if(as.character(data[j,i])=="" & is.na(data[j,i])==F){
-        data[j,i]=NA
+  for(j in 1:m){
+      if(as.character(data$Adjudicated.probability.of.relapse[j])=="" & is.na(data$Adjudicated.probability.of.relapse[j])==F){
+        data$Adjudicated.probability.of.relapse[j]=NA
       }
-    }
   }
+  
   data$IntFlare <-
     with(data,
          ifelse(
