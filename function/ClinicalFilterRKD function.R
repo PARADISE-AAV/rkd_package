@@ -24,8 +24,8 @@ ClinicalFilterRKD=function(RKDdata, output_path, algorithm){
   if (is.character(algorithm) == FALSE) {
     stop("The argument algorithm need to be a character argument")
   }
-  if (algorithm != "BRelapse"){
-    stop("The argument algorithm need to be BRelapse")
+  if (algorithm != "BRelapse" & algorithm != "Paradise_Encounter"){
+    stop("The argument algorithm need to be BRelapse or Paradise_Encounter")
   }
   
   RKD_data <- RKDdata
@@ -35,6 +35,9 @@ ClinicalFilterRKD=function(RKDdata, output_path, algorithm){
   
   if(algorithm == "BRelapse"){
     Filter_RKD_data <- RKD_data[which(RKD_data$Relapse != ""),]
+  }
+  if (algorithm == "Paradise_Encounter") {
+    Filter_RKD_data <- RKD_data[which(RKD_data$Paradise.Encounters == 1),]
   }
   
   
