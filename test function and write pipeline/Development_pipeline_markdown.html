@@ -11,7 +11,7 @@
 
 <meta name="author" content="Conor Finlay/Matthieu Coq" />
 
-<meta name="date" content="2023-04-25" />
+<meta name="date" content="2023-05-03" />
 
 <title>Pipeline_for_development</title>
 
@@ -352,7 +352,7 @@ display: none;
 
 <h1 class="title toc-ignore">Pipeline_for_development</h1>
 <h4 class="author">Conor Finlay/Matthieu Coq</h4>
-<h4 class="date">2023-04-25</h4>
+<h4 class="date">2023-05-03</h4>
 
 </div>
 
@@ -549,11 +549,35 @@ head(Inclusion_Criteria_rkd)[1:5,1:10]</code></pre>
 <div id="classify-the-rkd-patient" class="section level2">
 <h2>Classify the RKD patient</h2>
 <p>The ClassifyRKDCases function use different algorithm create by
-several previous employee -“BRelapse” algorithm perform the prediction
-of a Relapse. The output of the function is a variable that tell if the
-patient have a definite relapse, a possible relapse or no relapse fr one
-encounter. -</p>
-<pre class="r"><code>Classify_rkd &lt;- ClassifyRKDCases(clean_rkd, paste(a,&quot;/output&quot;,sep=&quot;&quot;), &quot;BRelapse&quot;)</code></pre>
+several previous employee:</p>
+<ul>
+<li>“BRelapse” algorithm perform the prediction of a Relapse. The output
+of the function is a variable that tell if the patient have a definite
+relapse, a possible relapse or no relapse fr one encounter.</li>
+<li>“Paradise_Encounter” algorithm perform a selection of the encounter
+that reach the paradise project criteria.</li>
+</ul>
+<pre class="r"><code>Classify_rkd &lt;- ClassifyRKDCases(Inclusion_Criteria_rkd, paste(a,&quot;/output&quot;,sep=&quot;&quot;), &quot;Paradise_Encounter&quot;)
+head(Classify_rkd)[1:5,1:10]</code></pre>
+<pre><code>##   RKD.ID Date.Of.Visit Repeat.Instrument Repeat.Instance Patient.Id Patient.ID
+## 1      1    2012-08-31        Encounters               1                     1
+## 2      1    2012-09-07        Encounters              36                     1
+## 3      1    2012-09-17        Encounters              37                     1
+## 4      1    2012-09-21        Encounters               2                     1
+## 5      1    2012-09-28        Encounters              28                     1
+##   COVID.19.related.entry. Interval.from.diagnosis..months.  Hospital.Site
+## 1                      No                              0.0 TUH - Tallaght
+## 2                                                      0.2 TUH - Tallaght
+## 3                                                      0.6 TUH - Tallaght
+## 4                      No                              0.7 TUH - Tallaght
+## 5                                                      0.9 TUH - Tallaght
+##   Other.Hospital
+## 1               
+## 2               
+## 3               
+## 4               
+## 5</code></pre>
+<pre class="r"><code>Classify_rkd2 &lt;- ClassifyRKDCases(Classify_rkd, paste(a,&quot;/output&quot;,sep=&quot;&quot;), &quot;BRelapse&quot;)</code></pre>
 <pre><code>## ------------------------------------------------------------------------------</code></pre>
 <pre><code>## You have loaded plyr after dplyr - this is likely to cause problems.
 ## If you need functions from both plyr and dplyr, please load plyr first, then dplyr:
@@ -582,42 +606,57 @@ encounter. -</p>
 <pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
 ## 
 ##     alpha</code></pre>
-<pre><code>## The following `from` values were not present in `x`: Remission, Possibly, Active, Low disease activity</code></pre>
-<pre class="r"><code>head(Classify_rkd)[1:5,1:10]</code></pre>
+<pre class="r"><code>head(Classify_rkd2)[1:5,1:10]</code></pre>
 <pre><code>## # A tibble: 5 × 10
 ## # Groups:   RKD.ID [1]
-##   RKD.ID Repeat.Ins…¹ Repea…² Patie…³ Patie…⁴ Date.Of.…⁵ COVID…⁶ Inter…⁷ Hospi…⁸
-##   &lt;fct&gt;  &lt;chr&gt;          &lt;int&gt; &lt;chr&gt;     &lt;int&gt; &lt;date&gt;     &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;  
-## 1 1      Encounters         1 &quot;&quot;            1 2012-08-31 &quot;No&quot;        0   TUH - …
-## 2 1      Encounters        36 &quot;&quot;            1 2012-09-07 &quot;&quot;          0.2 TUH - …
-## 3 1      Encounters        37 &quot;&quot;            1 2012-09-17 &quot;&quot;          0.6 TUH - …
-## 4 1      Encounters         2 &quot;&quot;            1 2012-09-21 &quot;No&quot;        0.7 TUH - …
-## 5 1      Encounters        28 &quot;&quot;            1 2012-09-28 &quot;&quot;          0.9 TUH - …
+##   RKD.ID Date.Of.Visit Repeat.…¹ Repea…² Patie…³ Patie…⁴ COVID…⁵ Inter…⁶ Hospi…⁷
+##   &lt;fct&gt;  &lt;date&gt;        &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;     &lt;int&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;  
+## 1 1      2012-08-31    Encounte…       1 &quot;&quot;            1 &quot;No&quot;        0   TUH - …
+## 2 1      2012-09-07    Encounte…      36 &quot;&quot;            1 &quot;&quot;          0.2 TUH - …
+## 3 1      2012-09-17    Encounte…      37 &quot;&quot;            1 &quot;&quot;          0.6 TUH - …
+## 4 1      2012-09-21    Encounte…       2 &quot;&quot;            1 &quot;No&quot;        0.7 TUH - …
+## 5 1      2012-09-28    Encounte…      28 &quot;&quot;            1 &quot;&quot;          0.9 TUH - …
 ## # … with 1 more variable: Other.Hospital &lt;chr&gt;, and abbreviated variable names
 ## #   ¹​Repeat.Instrument, ²​Repeat.Instance, ³​Patient.Id, ⁴​Patient.ID,
-## #   ⁵​Date.Of.Visit, ⁶​COVID.19.related.entry.,
-## #   ⁷​Interval.from.diagnosis..months., ⁸​Hospital.Site</code></pre>
+## #   ⁵​COVID.19.related.entry., ⁶​Interval.from.diagnosis..months., ⁷​Hospital.Site</code></pre>
 </div>
 <div id="filter-with-the-classification" class="section level2">
 <h2>Filter with the classification</h2>
+<p>The ClinicalFilterRKD function is a filter based on classify
+algorithm</p>
 <pre class="r"><code>Filter_Classify_rkd &lt;- ClinicalFilterRKD(Classify_rkd, paste(a,&quot;/output&quot;,sep=&quot;&quot;), &quot;BRelapse&quot;)
 head(Classify_rkd)[1:5,1:10]</code></pre>
-<pre><code>## # A tibble: 5 × 10
-## # Groups:   RKD.ID [1]
-##   RKD.ID Repeat.Ins…¹ Repea…² Patie…³ Patie…⁴ Date.Of.…⁵ COVID…⁶ Inter…⁷ Hospi…⁸
-##   &lt;fct&gt;  &lt;chr&gt;          &lt;int&gt; &lt;chr&gt;     &lt;int&gt; &lt;date&gt;     &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;  
-## 1 1      Encounters         1 &quot;&quot;            1 2012-08-31 &quot;No&quot;        0   TUH - …
-## 2 1      Encounters        36 &quot;&quot;            1 2012-09-07 &quot;&quot;          0.2 TUH - …
-## 3 1      Encounters        37 &quot;&quot;            1 2012-09-17 &quot;&quot;          0.6 TUH - …
-## 4 1      Encounters         2 &quot;&quot;            1 2012-09-21 &quot;No&quot;        0.7 TUH - …
-## 5 1      Encounters        28 &quot;&quot;            1 2012-09-28 &quot;&quot;          0.9 TUH - …
-## # … with 1 more variable: Other.Hospital &lt;chr&gt;, and abbreviated variable names
-## #   ¹​Repeat.Instrument, ²​Repeat.Instance, ³​Patient.Id, ⁴​Patient.ID,
-## #   ⁵​Date.Of.Visit, ⁶​COVID.19.related.entry.,
-## #   ⁷​Interval.from.diagnosis..months., ⁸​Hospital.Site</code></pre>
+<pre><code>##   RKD.ID Date.Of.Visit Repeat.Instrument Repeat.Instance Patient.Id Patient.ID
+## 1      1    2012-08-31        Encounters               1                     1
+## 2      1    2012-09-07        Encounters              36                     1
+## 3      1    2012-09-17        Encounters              37                     1
+## 4      1    2012-09-21        Encounters               2                     1
+## 5      1    2012-09-28        Encounters              28                     1
+##   COVID.19.related.entry. Interval.from.diagnosis..months.  Hospital.Site
+## 1                      No                              0.0 TUH - Tallaght
+## 2                                                      0.2 TUH - Tallaght
+## 3                                                      0.6 TUH - Tallaght
+## 4                      No                              0.7 TUH - Tallaght
+## 5                                                      0.9 TUH - Tallaght
+##   Other.Hospital
+## 1               
+## 2               
+## 3               
+## 4               
+## 5</code></pre>
 </div>
 <div id="load-freezer-work-data" class="section level2">
 <h2>Load Freezer Work data</h2>
+<p>This function load the data from Freezerwork database based on their
+blood matrix:</p>
+<ul>
+<li>Plasma</li>
+<li>PBMC</li>
+<li>Serum</li>
+<li>DNA</li>
+<li>urine</li>
+<li>RNA</li>
+</ul>
 <pre class="r"><code>Load_FW &lt;- LoadFW(fw_path, &quot;Plasma&quot;)
 head(Load_FW)[1:5,1:10]</code></pre>
 <pre><code>##   Main.Study.ID Specimen.type Date.of.encounter Unique.Aliquot.ID
@@ -641,6 +680,12 @@ head(Load_FW)[1:5,1:10]</code></pre>
 </div>
 <div id="cleanning-freezer-work-data" class="section level2">
 <h2>Cleanning Freezer Work data</h2>
+<p>The CleanFW function is done in 2 step:</p>
+<ul>
+<li>Put the date in the same format of the RKD data</li>
+<li>Remove the sample that no amount</li>
+<li>Remove sample without RKD.ID</li>
+</ul>
 <pre class="r"><code>Clean_FW &lt;- CleanFW(Load_FW, paste(a,&quot;/output&quot;,sep=&quot;&quot;))
 head(Clean_FW)[1:5,1:10]</code></pre>
 <pre><code>##    Main.Study.ID Specimen.type Date.of.encounter Unique.Aliquot.ID
@@ -664,7 +709,10 @@ head(Clean_FW)[1:5,1:10]</code></pre>
 </div>
 <div id="finding-the-good-sample" class="section level2">
 <h2>Finding the good sample</h2>
-<pre class="r"><code>Finding_Good_Sample &lt;- FindFWSample(Clean_FW, Classify_rkd, paste(a,&quot;/output&quot;,sep=&quot;&quot;))
+<p>The Goal of the FindFWSample function is to find the best sample to
+measure to answer to the statistician question. It is just a merge
+between the 2 files.</p>
+<pre class="r"><code>Finding_Good_Sample &lt;- FindFWSample(Clean_FW, Classify_rkd2 , paste(a,&quot;/output&quot;,sep=&quot;&quot;))
 head(Finding_Good_Sample)[1:5,1:10]</code></pre>
 <pre><code>##   RKD.ID Date.Of.Visit Repeat.Instrument Repeat.Instance Patient.Id Patient.ID
 ## 1      1    2012-09-21        Encounters               2                     1
@@ -705,23 +753,24 @@ head(Finding_Good_Sample)[1:5,1:10]</code></pre>
 ## 
 ## other attached packages:
 ##  [1] epiDisplay_3.5.0.2 nnet_7.3-18        MASS_7.3-58.1      survival_3.5-0    
-##  [5] foreign_0.8-84     plyr_1.8.8         lubridate_1.9.0    timechange_0.2.0  
-##  [9] forcats_1.0.0      stringr_1.5.0      dplyr_1.0.10       purrr_1.0.1       
-## [13] readr_2.1.4        tidyr_1.2.1        tibble_3.1.8       ggplot2_3.4.1     
-## [17] tidyverse_2.0.0   
+##  [5] foreign_0.8-84     plyr_1.8.8         DT_0.27            lubridate_1.9.0   
+##  [9] timechange_0.2.0   forcats_1.0.0      stringr_1.5.0      dplyr_1.0.10      
+## [13] purrr_1.0.1        readr_2.1.4        tidyr_1.2.1        tibble_3.1.8      
+## [17] ggplot2_3.4.1      tidyverse_2.0.0   
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] tidyselect_1.2.0 xfun_0.36        bslib_0.4.2      splines_4.2.2   
-##  [5] lattice_0.20-45  colorspace_2.0-3 vctrs_0.5.1      generics_0.1.3  
-##  [9] htmltools_0.5.4  yaml_2.3.6       utf8_1.2.2       rlang_1.0.6     
-## [13] jquerylib_0.1.4  pillar_1.8.1     glue_1.6.2       withr_2.5.0     
-## [17] DBI_1.1.3        lifecycle_1.0.3  munsell_0.5.0    gtable_0.3.1    
-## [21] evaluate_0.20    knitr_1.42       tzdb_0.3.0       fastmap_1.1.0   
-## [25] fansi_1.0.3      Rcpp_1.0.9       scales_1.2.1     cachem_1.0.6    
-## [29] jsonlite_1.8.4   hms_1.1.2        digest_0.6.31    stringi_1.7.12  
-## [33] grid_4.2.2       cli_3.4.1        tools_4.2.2      magrittr_2.0.3  
-## [37] sass_0.4.5       pkgconfig_2.0.3  ellipsis_0.3.2   Matrix_1.5-3    
-## [41] rmarkdown_2.20   rstudioapi_0.14  R6_2.5.1         compiler_4.2.2</code></pre>
+##  [1] tidyselect_1.2.0  xfun_0.36         bslib_0.4.2       lattice_0.20-45  
+##  [5] splines_4.2.2     colorspace_2.0-3  vctrs_0.5.1       generics_0.1.3   
+##  [9] htmltools_0.5.4   yaml_2.3.6        utf8_1.2.2        rlang_1.0.6      
+## [13] jquerylib_0.1.4   pillar_1.8.1      glue_1.6.2        withr_2.5.0      
+## [17] DBI_1.1.3         lifecycle_1.0.3   munsell_0.5.0     gtable_0.3.1     
+## [21] htmlwidgets_1.6.1 evaluate_0.20     knitr_1.42        tzdb_0.3.0       
+## [25] fastmap_1.1.0     fansi_1.0.3       Rcpp_1.0.9        scales_1.2.1     
+## [29] cachem_1.0.6      jsonlite_1.8.4    hms_1.1.2         digest_0.6.31    
+## [33] stringi_1.7.12    grid_4.2.2        cli_3.4.1         tools_4.2.2      
+## [37] magrittr_2.0.3    sass_0.4.5        pkgconfig_2.0.3   Matrix_1.5-3     
+## [41] ellipsis_0.3.2    rmarkdown_2.20    rstudioapi_0.14   R6_2.5.1         
+## [45] compiler_4.2.2</code></pre>
 </div>
 
 
