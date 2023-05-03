@@ -6,7 +6,7 @@
 #'
 
 
-#' @param data RKD data from Demographic Filter RKD Data
+#' @param RKD_data RKD data from Demographic Filter RKD Data
 #' @return The data with the patient in relapse 
 #' @export
 
