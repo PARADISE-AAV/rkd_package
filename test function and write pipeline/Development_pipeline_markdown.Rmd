@@ -146,7 +146,7 @@ head(Inclusion_Criteria_rkd)[1:5,1:10]
 The ClassifyRKDCases function use different algorithm create by several previous employee:
 
 * "BRelapse" algorithm perform the prediction of a Relapse. The output of the function is a variable that tell if the patient have a definite relapse, a possible relapse or no relapse fr one encounter.
-- 
+- "Paradise_Encounter" algorithm perform a selection of the encounter that reach the paradise project criteria.
 
 ```{r, warning=FALSE}
 
