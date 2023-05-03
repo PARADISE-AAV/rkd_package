@@ -23,8 +23,8 @@ ClassifyRKDCases = function(RKDdata, output_path, algorithm) {
   if (is.character(algorithm) == FALSE) {
     stop("The argument algorithm need to be a character argument")
   }
-  if (algorithm != "BRelapse" | algorithm != "Paradise_Encounter"){
-    stop("The argument algorithm need to be BRelapse")
+  if (algorithm != "BRelapse" & algorithm != "Paradise_Encounter"){
+    stop("The argument algorithm need to be BRelapse or Paradise_Encounter")
   }
   
   
