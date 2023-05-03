@@ -150,12 +150,12 @@ The ClassifyRKDCases function use different algorithm create by several previous
 
 ```{r, warning=FALSE}
 
-Classify_rkd <- ClassifyRKDCases(Inclusion_Criteria_rkd, paste(a,"/output",sep=""), "Paradise_Encounter")
+Classify_rkd_Paradise_Encounter <- ClassifyRKDCases(Inclusion_Criteria_rkd, paste(a,"/output",sep=""), "Paradise_Encounter")
 head(Classify_rkd)[1:5,1:10]
 ```
 ```{r, warning=FALSE}
 
-Classify_rkd2 <- ClassifyRKDCases(Classify_rkd, paste(a,"/output",sep=""), "BRelapse")
+Classify_rkd_BRelapse <- ClassifyRKDCases(Classify_rkd_Paradise_Encounter, paste(a,"/output",sep=""), "BRelapse")
 head(Classify_rkd2)[1:5,1:10]
 ```
 
@@ -165,7 +165,7 @@ The ClinicalFilterRKD function is a filter based on classify algorithm
 
 ```{r, warning=FALSE}
 
-Filter_Classify_rkd <- ClinicalFilterRKD(Classify_rkd2, paste(a,"/output",sep=""), "BRelapse")
+Filter_Classify_rkd <- ClinicalFilterRKD(Classify_rkd_BRelapse, paste(a,"/output",sep=""), "BRelapse")
 head(Classify_rkd)[1:5,1:10]
 ```
 
@@ -207,7 +207,7 @@ The Goal of the FindFWSample function is to find the best sample to measure to a
 
 ```{r, warning=FALSE}
 
-Finding_Good_Sample <- FindFWSample(Clean_FW, Classify_rkd2 , paste(a,"/output",sep=""))
+Finding_Good_Sample <- FindFWSample(Clean_FW, Classify_rkd_BRelapse , paste(a,"/output",sep=""))
 head(Finding_Good_Sample)[1:5,1:10]
 ```
 
