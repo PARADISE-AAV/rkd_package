@@ -7,7 +7,7 @@
 #'
 #' @param RKDdata RKD data from DemographicFilterRKD function
 #' @param ouput_path folder where the Redcap data will be saved
-#' @param algorithm function use to classify the RKD patient, the possibility are "BRelapse"
+#' @param algorithm function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter"
 #' @return The Redcap data cleaned in your folder and in an object
 #' @export
 
@@ -23,7 +23,7 @@ ClassifyRKDCases = function(RKDdata, output_path, algorithm) {
   if (is.character(algorithm) == FALSE) {
     stop("The argument algorithm need to be a character argument")
   }
-  if (algorithm != "BRelapse"){
+  if (algorithm != "BRelapse" | algorithm != "Paradise_Encounter"){
     stop("The argument algorithm need to be BRelapse")
   }
   
@@ -37,8 +37,9 @@ ClassifyRKDCases = function(RKDdata, output_path, algorithm) {
   if (algorithm == "BRelapse") {
     Classify_RKD_data <- BRelapseFunction(RKD_data)
   }
-  
-  
+  if (algorithm == "Paradise_Encounter") {
+    Classify_RKD_data <- Paradise_Encounter(RKD_data)
+  }
   
   
   files_test <-  list.dirs(output_path)
