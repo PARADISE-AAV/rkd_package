@@ -1,9 +1,22 @@
 ---
-title: "Pipeline_for_development"
-author: "Conor Finlay/Matthieu Coq"
-date: '`r Sys.Date()`'
-output: html_document
+title: "Pipeline for development"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{development}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(rkdpipeline)
+```
 
 **Rationale**
 
@@ -31,24 +44,18 @@ knitr::opts_chunk$set(echo = TRUE)
 
 To run this pipeline locally, you need to setup a R project in Rstudio by selecting `File` and `New project` checkout the repo <https://github.com/PARADISE-AAV/rkd_package/> using git.
 
+Then install the package using **Ctrl** + **Shift** + **B** or equivalent.
+
 ### Data protection warning
 
 Please familiarise yourself with github before using this pipeline. **Do not store data files locally within the folder as these may be pushed to github.** Link to the onedrive location of the files on your computer.
 
 ## load libraries 
 
-```{r libary, include=FALSE}
-library(tidyverse)
-```
+We can make all functions of the package available by running
 
-## Working directories 
-
-The `.Rproj` file (which is ignored by GitHub and specific for each local instance of the repo) sets the working directory to wherever the project is located on your computer. This has the advantage of simplifying pathing by making them relative to this folder.
-
-```{r pathing}
-#print local directory 
-getwd()
-list.files()
+```{r library, include=FALSE}
+library(rkdpipeline)
 ```
 
 ## Paths to data

@@ -46,3 +46,5 @@ vignettes/*.pdf
 
 # prevent contents of output from being uploaded 
 output/
+*.html
+*.R

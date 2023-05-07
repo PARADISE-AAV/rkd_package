@@ -1,4 +1,4 @@
-#' @title AddBiomarkerRDK
+#' @title AddBiomarkerRKD
 #' @author Yagmur Dogay
 #' Version:
 #' Date: 25-Jan-23
@@ -8,12 +8,7 @@
 #' @param input_path_2 folder where the Biomarker data is
 #' @param data_1 Cleaned RKD data
 #' @param data_2 Biomarker data used
-#' @param 
 #' @return The merge data
-
-library('lubridate')
-
-
 #' @param data_1 Cleaned RKD data
 #' @param data_2 Biomarker data
 #' @param column_a1 RKD ID Column name in RKD Data
@@ -22,7 +17,7 @@ library('lubridate')
 #' @param column_b2 Date of sample Column name in Biomarker Data
 #' @param script_file_name_1 Name of R script which has CleanRKD Function
 #' @param script_file_name_2 Name of R script which has LoadBiomarker Function
-
+#' @import lubridate
 AddBiomarkerRKD <- function(data_1, data_2,
                             column_a1, column_a2,
                             column_b1, column_b2,
