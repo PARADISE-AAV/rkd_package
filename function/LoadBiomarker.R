@@ -38,7 +38,7 @@ LoadBiomarker=function(files_name){
   
   Biomarker_data <- read.csv(files_name, header = TRUE)
   ###check that you load a real file
-  if(ncol(RKD_data)==0 | nrow(RKD_data)==0){
+  if(ncol(Biomarker_data)==0 | nrow(Biomarker_data)==0){
     stop("You give an empty files")
   }
   
