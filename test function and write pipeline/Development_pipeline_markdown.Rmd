@@ -69,7 +69,7 @@ For this pipeline to work each user should set these paths each time.
 #paths
 RKD_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Data exports/"
 
-Biomarker_path <- "C:/Users/Administrator/Trinity College Dublin/THKC - Documents/Arlena Carney/Makala Carroll/Projects/Mini Biobank/Biomarker_master/Biomarker master-Data only.csv"
+Biomarker_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Biomarker_master/Biomarker master_Data only.csv"
    
 fw_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Freezerworks exports"
 
@@ -209,6 +209,14 @@ The Goal of the FindFWSample function is to find the best sample to measure to a
 
 Finding_Good_Sample <- FindFWSample(Clean_FW, Classify_rkd_BRelapse , paste(a,"/output",sep=""))
 head(Finding_Good_Sample)[1:5,1:10]
+```
+
+# Load Biomarker
+
+```{r, warning=FALSE}
+
+BM_data <- LoadBiomarker(Biomarker_path)
+head(BM_data)[1:5,1:10]
 ```
 
 # Appendix
