@@ -5,9 +5,10 @@
 #' Objective: The objective is to load the Biomarker data in a datframe object
 #'
 #'
-#' @param input_path folder where the Biomarker are
-#' @param file_name Biomarkerdata used
-#' @return The Biomarker Data as datafrme
+#' @param files_name Biomarkerdata used
+#' @return The Biomarker Data into DataFrame
+
+
 
 
 
