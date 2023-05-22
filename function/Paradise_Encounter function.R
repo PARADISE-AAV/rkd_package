@@ -12,11 +12,11 @@
 #' @export
 #' 
 
-Paradise_Encounter <- function(RKD_data){
+Paradise_Encounter <- function(RKD_data,interval_from_diagnostics){
   library(DT)
   library(lubridate)
   remission_frame<- RKD_data[RKD_data$Disease.activity.since.last.return %in% c('Remission'), ]
-  interval_more_then_6_month_frame <- remission_frame[remission_frame$Interval.from.diagnosis..months.>6,]
+  interval_more_then_6_month_frame <- remission_frame[remission_frame$Interval.from.diagnosis..months.>interval_from_diagnostics,]
   interval_more_then_6_month_frame <-interval_more_then_6_month_frame[!is.na(interval_more_then_6_month_frame$RKD.ID),]
   interval_more_then_6_month_frame$Date.Of.Visit=as.character(interval_more_then_6_month_frame$Date.Of.Visit)
   interval_more_then_6_month_frame$Date.of.event=as.character(interval_more_then_6_month_frame$Date.of.event)

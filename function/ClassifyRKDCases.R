@@ -12,7 +12,7 @@
 #' @export
 
 
-ClassifyRKDCases = function(RKDdata, output_path, algorithm) {
+ClassifyRKDCases = function(RKDdata, output_path, algorithm, interval_from_diagnostics=6) {
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
@@ -38,7 +38,7 @@ ClassifyRKDCases = function(RKDdata, output_path, algorithm) {
     Classify_RKD_data <- BRelapseFunction(RKD_data)
   }
   if (algorithm == "Paradise_Encounter") {
-    Classify_RKD_data <- Paradise_Encounter(RKD_data)
+    Classify_RKD_data <- Paradise_Encounter(RKD_data,interval_from_diagnostics)
   }
   
   
