@@ -183,7 +183,7 @@ This function load the data from Freezerwork database based on their blood matri
 
 ```{r, warning=FALSE}
 
-Load_FW <- LoadFW(fw_path, "Plasma")
+Load_FW <- LoadFW(fw_path, "Plasma_exp")
 head(Load_FW)[1:5,1:10]
 ```
 
