@@ -34,7 +34,7 @@ ImputationRKD <- function(RKDdata, output_path, algorithm){
     stop("You give an empty files")
   }
   
-  if (algorithm == "BRelapse") {
+  if (algorithm == "RemissionImplementation") {
     Imputated_RKD_data <- RemissionImplementation(RKD_data)
   }
   
