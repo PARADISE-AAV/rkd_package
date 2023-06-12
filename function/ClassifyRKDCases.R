@@ -8,7 +8,8 @@
 #' @param RKDdata RKD data from DemographicFilterRKD function
 #' @param ouput_path folder where the Redcap data will be saved
 #' @param algorithm function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter"
-#' @return The Redcap data cleaned in your folder and in an object
+#' @param interval_from_diagnostics the interval from diagnostics for the algorithm Paradise_Encounter by default 6
+#' @return The Redcap data cleaned in your folder and in an object 
 #' @export
 
 
