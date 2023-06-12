@@ -6,18 +6,14 @@
 #'
 #'
 #' @param RKDdata RKD data
-#' @param ouput_path folder where the filter RKD data will be saved
 #' @return The Redcap data witht he remission labels corected
 #' @export
 #' 
 
-RemissionImplementation=function(RKDdata, output_path){
+RemissionImplementation=function(RKDdata){
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
-  }
-  if (is.character(output_path) == FALSE) {
-    stop("The argument output_path need to be a character argument")
   }
   
   RKD_data <- RKDdata
@@ -54,14 +50,6 @@ RemissionImplementation=function(RKDdata, output_path){
     }
   }
   RKD_data_correct <- rbind(RKD_data_nonmissing, RKD_data_missing)
-  
-  files_test <-  list.dirs(output_path)
-  if(identical(files_test, character(0)) == TRUE){
-    stop("Your output folder don't exist")
-  }
-  setwd(output_path)
-  write.csv(RKD_data_correct, paste("Redcap_clinical_data_status_corrected", Sys.Date() , ".csv", sep=""), row.names = F)
-  
   
   return(RKD_data_correct)
 }
