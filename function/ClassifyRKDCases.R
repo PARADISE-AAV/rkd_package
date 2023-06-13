@@ -51,7 +51,7 @@ ClassifyRKDCases = function(RKDdata, output_path, algorithm, interval_from_diagn
   write.csv(
     Classify_RKD_data,
     paste(
-      "Redcap_clinical_data_with-classification",
+      output_path, "/Redcap_clinical_data_with-classification",
       Sys.Date() ,
       ".csv",
       sep = ""
