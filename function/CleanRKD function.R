@@ -244,7 +244,7 @@ CleanRKD=function(RKDdata, output_path){
   if(identical(files_test, character(0)) == TRUE){
     stop("Your output folder don't exist")
   }
-  setwd(output_path)
-  write.csv(Clean_RKD_data, paste("Redcap_clinical_data_clean", Sys.Date() , ".csv", sep=""), row.names = F)
+  
+  write.csv(Clean_RKD_data, paste(output_path, "/Redcap_clinical_data_clean", Sys.Date() , ".csv", sep=""), row.names = F)
   return(Clean_RKD_data)
 }
