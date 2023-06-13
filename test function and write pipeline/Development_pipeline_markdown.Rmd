@@ -120,6 +120,15 @@ The CleanRKD function clean the in 5 step:
 clean_rkd <- CleanRKD(rkd, paste(a,"/output",sep=""))
 head(clean_rkd)[1:5,1:10]
 ```
+## Impute key variable for the Paradise project
+
+```{r}
+imputated_rkd <- ImputationRKD(clean_rkd, paste(a,"/output",sep=""),"RemissionImplementation")
+head(imputated_rkd)[1:5,1:10]
+```
+
+
+
 ## Use the Demographic filter
 
 The DemographicFilterRKD function use the Paradise filter:
@@ -137,7 +146,7 @@ The DemographicFilterRKD function use the Paradise filter:
 
 ```{r, warning=FALSE}
 
-Inclusion_Criteria_rkd <- DemographicFilterRKD(clean_rkd, paste(a,"/output",sep=""))
+Inclusion_Criteria_rkd <- DemographicFilterRKD(imputated_rkd, paste(a,"/output",sep=""))
 head(Inclusion_Criteria_rkd)[1:5,1:10]
 ```
 
