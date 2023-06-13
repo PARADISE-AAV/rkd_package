@@ -42,7 +42,6 @@ ImputationRKD <- function(RKDdata, output_path, algorithm){
   if(identical(files_test, character(0)) == TRUE){
     stop("Your output folder don't exist")
   }
-  setwd(output_path)
   write.csv(Imputated_RKD_data, paste("Redcap_imputated_data", Sys.Date() , ".csv", sep=""), row.names = F)
   
   
