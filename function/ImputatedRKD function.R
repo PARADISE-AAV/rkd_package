@@ -44,5 +44,5 @@ ImputationRKD <- function(RKDdata, output_path, algorithm){
   }
   write.csv(Imputated_RKD_data, paste("Redcap_imputated_data", Sys.Date() , ".csv", sep=""), row.names = F)
   
-  
+  return(Imputated_RKD_data)
 }
