@@ -65,67 +65,53 @@ in the future we may have a static path to a onedrive url or an API to Repcap. F
 There are 3 types of data
 
 -   RKD dataset
-
--   Bio marker Master
-
--   freezer works exports
+-   Biomarker master
+-   FreezerWorks exports
 
 For this pipeline to work each user should set these paths each time.
+Note the following code is not reproducible for other users.
 
 ```{r paths}
 #paths
-RKD_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Data exports/"
-
-Biomarker_path <- "C:/Users/Administrator/Trinity College Dublin/THKC - Documents/Arlena Carney/Makala Carroll/Projects/Mini Biobank/Biomarker_master/Biomarker master-Data only.csv"
-   
+rkd_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Data exports/"
+biomarker_path <- "C:/Users/Administrator/Trinity College Dublin/THKC - Documents/Arlena Carney/Makala Carroll/Projects/Mini Biobank/Biomarker_master/Biomarker master-Data only.csv"
 fw_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Freezerworks exports"
 
 #specific RKD version
-RKD_file <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Data exports/RareKidneyDiseaseRIT-FullVasculitisExport_DATA_LABELS_2023-04-24_1444.csv"
-```
-
-## Functions
-
-Here we will load the approved functions into the R session. It assumes that all functions are required.
-
-```{r load_functions}
-# find all files ending in ".R" and run source
-setwd("~/GitHub/rkd_package/function")
-for (f in list.files(pattern = "*.R$")) {
-    source(f)
-}
-
+rkd_file <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Data exports/RareKidneyDiseaseRIT-FullVasculitisExport_DATA_LABELS_2023-04-24_1444.csv"
 ```
 
 # Pipeline
 
-## loadRKD
-This function will load RKD dataset
+## Import the data
+
+This function will load the RKD dataset from disk.
+For the purposes of this example, we will pull in whichever CSV file is in the current working directory.
+
 ```{r load_RKD}
-setwd("~/GitHub/rkd_package")
-rkd  <- LoadRKD(files_name = RKD_file)
-head(rkd)[1:5,1:10]
+rkd_csv <- list.files(pattern = 'DATA_LABELS.*\\.csv')
+rkd <- load_rkd(rkd_file)
+rkd[1:5, 1:10]
 ```
 
 
 ```{r wd_check, warning=FALSE}
-a=getwd()
-dir.create(paste(a,"/output",sep=""))
+dir.create("output")
 ```
+
 ## Clean the data
 
-The CleanRKD function clean the in 5 step:
+The CleanRKD function clean the in 5 steps:
 
-* set the date variable to the format "%Y-%m-%d"
--   reduce the ethnicity to 6 group where different subgroup are regrouped
--   clean some RKD.ID trouble to be sure that we have no problem when we do any merge with other dataset
--   select the variable present only for the Encounters data and the Initial data (demographics, diagnostics and all other exams performed at the moment of the diagnostics)and merge the Encounter data and Initial data that the initial data are replicate for each Encounter
+* set the date variable to the format `"%Y-%m-%d"`
+-   reduce the ethnicity to 6 groups where different subgroup are regrouped
+-   clean some `RKD.ID` trouble to be sure that we have no problem when we do any merge with other dataset
+-   select the variable present only for the Encounters data and the Initial data (demographics, diagnostics and all other exams performed at the moment of the diagnostics) and merge the Encounter data and Initial data that the initial data are replicate for each Encounter
 -   create the following variable Age of the Encounter and ANCA titration (Anti MPO or Anti PR3 or NA)
 
 ```{r, warning=FALSE}
-
-clean_rkd <- CleanRKD(rkd, paste(a,"/output",sep=""))
-head(clean_rkd)[1:5,1:10]
+clean_rkd <- CleanRKD(rkd, "output")
+head(clean_rkd)[1:5, 1:10]
 ```
 ## Use the Demographic filter
 

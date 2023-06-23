@@ -8,7 +8,7 @@ You can install the latest version of the package directly from GitHub from with
 
 ```r
 # install.packages('remotes')
-remotes::install_github('PARADISE-AAV/rkd_package')
+remotes::install_github('PARADISE-AAV/rkd_package', ref = 'pkg')
 ```
 
 As it's a private repository, you'll need to authenticate with GitHub somehow.

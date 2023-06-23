@@ -1,45 +1,41 @@
-#' @title CleanRKD
+#' @title Clean rare kidney disease data
 #' @author Matthieu COQ
+#' 
+#' The objective is to clean the RKD data and send the problematic data to the RKD person
 #' Version: 1.0
 #' Date: 24-Jan-23
-#' Objective: The objective is to clean the RKD data and send the problematic data to the RKD person
 #'
 #'
-#' @param RKDdata RKD data from loadRKD function
+#' @param rkd_data RKD data from \code{\link{load_rkd}} function
 #' @param ouput_path folder where the Redcap data will be saved
 #' @return The Redcap data cleaned in your folder and in an object
-#' @details The function change the Date variable with the format "%Y-%m-%d". 
-#' @details The function reduce the ethnicity to 6 group where different subgroup are regrouped.
-#' @details The function clean some RKD.ID trouble to be sure that we have no problem when we do any merge with other dataset 
-#' @details The function select the variable present only for the Encounters data and the Initial data (demographics, diagnostics and all other exams performed at the moment of the diagnostics)and merge the Encounter dtaa and Initail data that the initial data are replicate for each Encounter
-#' @details The function create the following variable Age of the Encounter and ANCA titration (Anti MPO or Anti PR3 or NA) 
+#' The function change the Date variable with the format "%Y-%m-%d". 
+#' The function reduce the ethnicity to 6 group where different subgroup are regrouped.
+#' The function clean some RKD.ID trouble to be sure that we have no problem when we do any merge with other dataset 
+#' The function select the variable present only for the Encounters data and the Initial data (demographics, diagnostics and all other exams performed at the moment of the diagnostics)and merge the Encounter dtaa and Initail data that the initial data are replicate for each Encounter
+#' The function create the following variable Age of the Encounter and ANCA titration (Anti MPO or Anti PR3 or NA) 
+#' @import lubridate
+#' @import stringr
+#' @import dplyr
 #' @export
 
 
-CleanRKD=function(RKDdata, output_path){
-  library(lubridate)
-  ####Test on the argument
-  if (is.data.frame(RKDdata) == FALSE) {
-    stop("The argument RKDdata need to be a dataframe argument")
-  }
-  if (is.character(output_path) == FALSE) {
-    stop("The argument output_path need to be a character argument")
-  }
-  #extract the folder and the files 
+CleanRKD=function(rkd_data, output_path){
+  # Check arguments
+  stopifnot(is.data.frame(rkd_data))
+  stopifnot(is.character(output_path))
   
-  
-  
-  RKD_data <- RKDdata
+  # Extract the folder and the files 
+  # RKD_data <- RKDdata # ??
   ###check that you load a real file
-  if(ncol(RKD_data)==0 | nrow(RKD_data)==0){
-    stop("You give an empty files")
+  if (!ncol(rkd_data) | !nrow(rkd_data)) {
+    stop("You supplied an empty file")
   }
   
-  a <- grep("Date",colnames(RKD_data))
-  a <- a[-grep("known.unknown",colnames(RKD_data)[a])]
-  for(i in a){
-    RKD_data[,i] <- as.Date(RKD_data[,i])
-  }
+  date_columns <- stringr::str_subset(colnames(rkd_data), 'Date')
+  date_columns <- stringr::str_subset(date_columns, 'known.unknown', negate = TRUE)
+
+  RKD_data <- rkd_data <- dplyr::mutate(rkd_data, across(all_of(date_columns), as.Date))
   
   
   
