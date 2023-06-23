@@ -89,8 +89,9 @@ This function will load the RKD dataset from disk.
 For the purposes of this example, we will pull in whichever CSV file is in the current working directory.
 
 ```{r load_RKD}
-rkd_csv <- list.files(pattern = 'DATA_LABELS.*\\.csv')
-rkd <- load_rkd(rkd_file)
+#rkd_csv <- list.files(pattern = 'DATA_LABELS.*\\.csv')
+rkd_xlsx <- list.files(pattern = 'DATA_LABELS.*\\.xlsx')
+rkd <- readxl::read_excel(rkd_xlsx)
 rkd[1:5, 1:10]
 ```
 
