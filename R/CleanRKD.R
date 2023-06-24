@@ -57,32 +57,17 @@ clean_rkd <- function(rkd_data, output_path) {
     warning('Replacing', paste(sum(is.na(rkd_data$RKD.ID)), 'incorrect RKD.IDs with Patient.Id'))
   }
   rkd_data <- dplyr::mutate(rkd_data, RKD.ID = dplyr::coalesce(RKD.ID, Patient.Id))
- 
-  RKD_Encounter <- rkd_data[rkd_data$Repeat.Instrument == "Encounters", ]
-  RKD_Initial <- rkd_data[rkd_data$Repeat.Instrument == "" & rkd_data$Type.of.Patient != "",]
-  
-  
-  ####select the variable of the Encounters
-  
-  a_Encounters <- NULL
-  b_Encounters <- NULL
-  for (i in 5:ncol(RKD_Encounter)) {
-    # for-loop over columns
-    na_values <- length(which(is.na(RKD_Encounter[,i]) == TRUE)) # sum(is.na(.))
-    
-    if (na_values == nrow(RKD_Encounter )) { # if (all(is.na(.)))
-      a_Encounters <- c(a_Encounters, colnames(RKD_Encounter)[i]) # then this is an encounter column
-    }
-    else {
-      if(length(levels(as.factor(RKD_Encounter[,i])))== 1 & levels(as.factor(RKD_Encounter[,i]))[1] == ""){ # all(!nchar(.))
-        a_Encounters <- c(a_Encounters, colnames(RKD_Encounter)[i]) # then this is an encounter column
-      }else{
-        b_Encounters <- c(b_Encounters, colnames(RKD_Encounter)[i]) # otherwise it is not?
-      }
-      
-    }
-  }
-  
+
+  rkd_encounters <- dplyr::filter(rkd_data, Repeat.Instrument == 'Encounters')
+  rkd_initial <- dplyr::filter(rkd_data, Repeat.Instrument == '', Type.of.Patient != '')
+
+  # Select the variables of encounters
+  a_encounter_vars <- rkd_encounters %>%
+    dplyr::select(5:ncol(.)) %>%
+    dplyr::select(dplyr::where(~ all(is.na(.x)) | all(!nchar(.x)))) %>%
+    colnames()
+
+  b_encounter_vars <- setdiff(colnames(rkd_encounters)[-(1:4)], a_encounter_vars)  
   
   newdata <- RKD_Encounter[,1:4]
   c=colnames(RKD_Encounter)
