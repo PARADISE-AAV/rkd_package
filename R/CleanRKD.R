@@ -1,10 +1,9 @@
 #' @title Clean rare kidney disease data
 #' @author Matthieu COQ
-#' 
+#'
 #' The objective is to clean the RKD data and send the problematic data to the RKD person
 #' Version: 1.0
 #' Date: 24-Jan-23
-#'
 #'
 #' @param rkd_data RKD data from \code{\link{load_rkd}} function
 #' @param ouput_path folder where the Redcap data will be saved
@@ -17,137 +16,50 @@
 #' @import lubridate
 #' @import stringr
 #' @import dplyr
+#' @import forcats
 #' @export
 
 
-CleanRKD=function(rkd_data, output_path){
+clean_rkd <- function(rkd_data, output_path) {
   # Check arguments
   stopifnot(is.data.frame(rkd_data))
   stopifnot(is.character(output_path))
-  
-  # Extract the folder and the files 
-  # RKD_data <- RKDdata # ??
-  ###check that you load a real file
-  if (!ncol(rkd_data) | !nrow(rkd_data)) {
+
+  # Check that you load a real file
+  if (!ncol(rkd_data) || !nrow(rkd_data)) {
     stop("You supplied an empty file")
   }
-  
+
+  # Parse all date columns
   date_columns <- stringr::str_subset(colnames(rkd_data), 'Date')
   date_columns <- stringr::str_subset(date_columns, 'known.unknown', negate = TRUE)
+  rkd_data <- dplyr::mutate(rkd_data,
+    dplyr::across(dplyr::all_of(date_columns), lubridate::as_date))
 
-  RKD_data <- rkd_data <- dplyr::mutate(rkd_data, across(all_of(date_columns), as.Date))
+  # Collapse ethnicities
+  rkd_data <- dplyr::mutate(rkd_data,
+    dplyr::across(
+      dplyr::starts_with('Ethnicity'),
+      ~ forcats::fct_collapse(
+        stringr::str_extract(.x, '^[A-Z]{0,2}'),
+        White = 'W',
+        Asian = 'A',
+        Black = 'B',
+        `Mixed ethnicity` = 'M',
+        Other = 'O',
+        `Not Stated` = 'NS'
+      ))
   
-  
-  
-  ###Reduce ethnicity
-  
-  ethnicity <- NULL
-  n <- nrow(RKD_data)
-  for (i in 1:n){
-    if((RKD_data$Ethnicity[i]) == ""){
-      ethnicity <- c(ethnicity, "")
-    }else{
-      if(length(grep("W2",RKD_data$Ethnicity[i])) == 1  | length(grep("W1",RKD_data$Ethnicity[i])) == 1 | length(grep("W9",RKD_data$Ethnicity[i])) == 1){
-        ethnicity <- c(ethnicity, "White")
-      }
-      if(length(grep("A2",RKD_data$Ethnicity[i])) == 1 | length(grep("A1",RKD_data$Ethnicity[i])) == 1 | length(grep("A9",RKD_data$Ethnicity[i])) == 1 | length(grep("A3",RKD_data$Ethnicity[i])) == 1){
-        ethnicity <- c(ethnicity, "Asian")
-      }
-      if(length(grep("B2",RKD_data$Ethnicity[i])) == 1 | length(grep("B1",RKD_data$Ethnicity[i])) == 1 | length(grep("B9",RKD_data$Ethnicity[i])) == 1){
-        ethnicity <- c(ethnicity, "Black")
-      }
-      if(length(grep("M2",RKD_data$Ethnicity[i])) == 1 | length(grep("M1",RKD_data$Ethnicity[i])) == 1 | length(grep("M9",RKD_data$Ethnicity[i])) == 1 | length(grep("M3",RKD_data$Ethnicity[i])) == 1){
-        ethnicity <- c(ethnicity, "Mixed ethnicity")
-      }
-      if(length(grep("O1",RKD_data$Ethnicity[i])) == 1 | length(grep("O9",RKD_data$Ethnicity[i])) == 1){
-        ethnicity <- c(ethnicity, "Other")
-      }
-      if(length(grep("NS",RKD_data$Ethnicity[i])) == 1){
-        ethnicity <- c(ethnicity, "Not Stated")
-      }
-    }
+  # Solve the problem of incorrect RKD IDs
+  # If the RKD ID contains a '-', replace it with Patient Id
+  rkd_data$RKD.ID[stringr::str_detect(rkd_data$RKD.ID, '-')] <- NA
+  if (any(is.na(rkd_data$RKD.ID))) {
+    warning('Replacing', paste(sum(is.na(rkd_data$RKD.ID)), 'incorrect RKD.IDs with Patient.Id'))
   }
-  RKD_data$Ethnicity <- ethnicity
-  
-  
-  ethnicity <- NULL
-  n <- nrow(RKD_data)
-  for (i in 1:n){
-    if((RKD_data$Ethnicity.of.mother[i]) == ""){
-      ethnicity <- c(ethnicity, "")
-    }else{
-      if(length(grep("W2",RKD_data$Ethnicity.of.mother[i])) == 1  | length(grep("W1",RKD_data$Ethnicity.of.mother[i])) == 1 | length(grep("W9",RKD_data$Ethnicity.of.mother[i])) == 1){
-        ethnicity <- c(ethnicity, "White")
-      }
-      if(length(grep("A2",RKD_data$Ethnicity.of.mother[i])) == 1 | length(grep("A1",RKD_data$Ethnicity.of.mother[i])) == 1 | length(grep("A9",RKD_data$Ethnicity.of.mother[i])) == 1 | length(grep("A3",RKD_data$Ethnicity.of.mother[i])) == 1){
-        ethnicity <- c(ethnicity, "Asian")
-      }
-      if(length(grep("B2",RKD_data$Ethnicity.of.mother[i])) == 1 | length(grep("B1",RKD_data$Ethnicity.of.mother[i])) == 1 | length(grep("B9",RKD_data$Ethnicity.of.mother[i])) == 1){
-        ethnicity <- c(ethnicity, "Black")
-      }
-      if(length(grep("M2",RKD_data$Ethnicity.of.mother[i])) == 1 | length(grep("M1",RKD_data$Ethnicity.of.mother[i])) == 1 | length(grep("M9",RKD_data$Ethnicity.of.mother[i])) == 1 | length(grep("M3",RKD_data$Ethnicity.of.mother[i])) == 1){
-        ethnicity <- c(ethnicity, "Mixed ethnicity")
-      }
-      if(length(grep("O1",RKD_data$Ethnicity.of.mother[i])) == 1 | length(grep("O9",RKD_data$Ethnicity.of.mother[i])) == 1){
-        ethnicity <- c(ethnicity, "Other")
-      }
-      if(length(grep("NS",RKD_data$Ethnicity.of.mother[i])) == 1){
-        ethnicity <- c(ethnicity, "Not Stated")
-        }
-      }
-    }
-  RKD_data$Ethnicity.of.mother <- ethnicity
-  
-  ethnicity <- NULL
-  n <- nrow(RKD_data)
-  for (i in 1:n){
-    if((RKD_data$Ethnicity.of.father[i]) == ""){
-      ethnicity <- c(ethnicity, "")
-    }else{
-      if(length(grep("W2",RKD_data$Ethnicity.of.father[i])) == 1  | length(grep("W1",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("W9",RKD_data$Ethnicity.of.father[i])) == 1){
-        ethnicity <- c(ethnicity, "White")
-      }
-      if(length(grep("A2",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("A1",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("A9",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("A3",RKD_data$Ethnicity.of.father[i])) == 1){
-        ethnicity <- c(ethnicity, "Asian")
-      }
-      if(length(grep("B2",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("B1",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("B9",RKD_data$Ethnicity.of.father[i])) == 1){
-        ethnicity <- c(ethnicity, "Black")
-      }
-      if(length(grep("M2",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("M1",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("M9",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("M3",RKD_data$Ethnicity.of.father[i])) == 1){
-        ethnicity <- c(ethnicity, "Mixed ethnicity")
-      }
-      if(length(grep("O1",RKD_data$Ethnicity.of.father[i])) == 1 | length(grep("O9",RKD_data$Ethnicity.of.father[i])) == 1){
-        ethnicity <- c(ethnicity, "Other")
-      }
-      if(length(grep("NS",RKD_data$Ethnicity.of.father[i])) == 1){
-        ethnicity <- c(ethnicity, "Not Stated")
-      }
-    }
-  }
-  RKD_data$Ethnicity.of.father <- ethnicity
-  
-  ###solve the problem of the RKD.ID wrong
-  
-  RKD_data$RKD.ID <- as.factor(RKD_data$RKD.ID)
-  if(length(grep("-",RKD_data$RKD.ID))>0){
-    RKD_data_RKDID_PB <- RKD_data[grep("-",RKD_data$RKD.ID),]
-    RKD_data_RKDID_PB$RKD.ID <- droplevels(RKD_data_RKDID_PB$RKD.ID)
-    n <- length(levels(RKD_data_RKDID_PB$RKD.ID))
-    RKD_data_RKDID_PB_2 <- NULL
-    for ( i in 1:n){
-      dat <- RKD_data_RKDID_PB[which(RKD_data_RKDID_PB$RKD.ID==levels(RKD_data_RKDID_PB$RKD.ID)[i]),]
-      dat$RKD.ID <- rep(dat$Patient.Id[1],nrow(dat))
-      RKD_data_RKDID_PB_2 <- rbind(RKD_data_RKDID_PB_2,dat)
-    }
-    
-    RKD_data_RKDID_NOPB <- RKD_data[-grep("-",RKD_data$RKD.ID),]
-    
-    RKD_data <- rbind(RKD_data_RKDID_NOPB,RKD_data_RKDID_PB_2)
-  }
+  rkd_data <- dplyr::mutate(rkd_data, RKD.ID = dplyr::coalesce(RKD.ID, Patient.Id))
  
- 
-  RKD_Encounter <- RKD_data[which(RKD_data$Repeat.Instrument == "Encounters"),]
-  RKD_Initial <- RKD_data[which(RKD_data$Repeat.Instrument == "" & RKD_data$Type.of.Patient!= ""),]
+  RKD_Encounter <- rkd_data[rkd_data$Repeat.Instrument == "Encounters", ]
+  RKD_Initial <- rkd_data[rkd_data$Repeat.Instrument == "" & rkd_data$Type.of.Patient != "",]
   
   
   ####select the variable of the Encounters
@@ -156,16 +68,16 @@ CleanRKD=function(rkd_data, output_path){
   b_Encounters <- NULL
   for (i in 5:ncol(RKD_Encounter)) {
     # for-loop over columns
-    na_values <- length(which(is.na(RKD_Encounter[,i]) == TRUE))
+    na_values <- length(which(is.na(RKD_Encounter[,i]) == TRUE)) # sum(is.na(.))
     
-    if (na_values == nrow(RKD_Encounter )) {
-      a_Encounters <- c(a_Encounters, colnames(RKD_Encounter)[i])
+    if (na_values == nrow(RKD_Encounter )) { # if (all(is.na(.)))
+      a_Encounters <- c(a_Encounters, colnames(RKD_Encounter)[i]) # then this is an encounter column
     }
     else {
-      if(length(levels(as.factor(RKD_Encounter[,i])))== 1 & levels(as.factor(RKD_Encounter[,i]))[1] == ""){
-        a_Encounters <- c(a_Encounters, colnames(RKD_Encounter)[i])
+      if(length(levels(as.factor(RKD_Encounter[,i])))== 1 & levels(as.factor(RKD_Encounter[,i]))[1] == ""){ # all(!nchar(.))
+        a_Encounters <- c(a_Encounters, colnames(RKD_Encounter)[i]) # then this is an encounter column
       }else{
-        b_Encounters <- c(b_Encounters, colnames(RKD_Encounter)[i])
+        b_Encounters <- c(b_Encounters, colnames(RKD_Encounter)[i]) # otherwise it is not?
       }
       
     }

@@ -91,7 +91,8 @@ For the purposes of this example, we will pull in whichever CSV file is in the c
 ```{r load_RKD}
 #rkd_csv <- list.files(pattern = 'DATA_LABELS.*\\.csv')
 rkd_xlsx <- list.files(pattern = 'DATA_LABELS.*\\.xlsx')
-rkd <- readxl::read_excel(rkd_xlsx)
+rkd <- readxl::read_excel(rkd_xlsx, .name_repair = 'universal')
+# The option 'universal' replaces spaces in colnames with dots, like base read.csv
 rkd[1:5, 1:10]
 ```
 
