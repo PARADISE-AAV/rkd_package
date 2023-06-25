@@ -23,6 +23,11 @@ clean_rkd <- function(rkd_data, output_path) {
   stopifnot(is.data.frame(rkd_data))
   stopifnot(is.character(output_path))
 
+  # Check output directory
+  if (!dir.exists(output_path)) {
+    stop('Specified output folder does not exist')
+  }
+
   # Check that you load a real file
   if (!ncol(rkd_data) || !nrow(rkd_data)) {
     stop("You supplied an empty file")
@@ -104,37 +109,26 @@ clean_rkd <- function(rkd_data, output_path) {
     by = "RKD.ID"
     )
 
-  RKD_data_filter$Age_Encounters <- year(RKD_data_filter$Date.Of.Visit) - year(RKD_data_filter$Date.of.Birth)
+  # Add age variable
+  rkd_data_filtered <- rkd_data_filtered %>%
+    dplyr::mutate(Age_Encounters = lubridate::year(Date.Of.Visit) - lubridate::year(Date.Of.Birth))
 
-  RKD_data_filter$AntiMPO_PR3 <- NA
-  m <- nrow(RKD_data_filter)
-  for (i in 1:m) {
-    if (is.na(RKD_data_filter$Anti.MPO.level[i]) == TRUE & is.na(RKD_data_filter$Anti.PR3.level[i]) == TRUE) {
-      RKD_data_filter$AntiMPO_PR3[i] <- NA
-    } else {
-      if (is.na(RKD_data_filter$Anti.MPO.level[i]) == TRUE & is.na(RKD_data_filter$Anti.PR3.level[i]) == FALSE) {
-        RKD_data_filter$AntiMPO_PR3[i] <- "PR3"
-      } else {
-        if (is.na(RKD_data_filter$Anti.MPO.level[i]) == FALSE & is.na(RKD_data_filter$Anti.PR3.level[i]) == TRUE) {
-          RKD_data_filter$AntiMPO_PR3[i] <- "MPO"
-        } else {
-          if (RKD_data_filter$Anti.MPO.level[i] > RKD_data_filter$Anti.PR3.level[i]) {
-            RKD_data_filter$AntiMPO_PR3[i] <- "MPO"
-          } else {
-            RKD_data_filter$AntiMPO_PR3[i] <- "PR3"
-          }
-        }
-      }
-    }
-  }
+  # Anti MPO PR3
+  rkd_data_filtered <- rkd_data_filtered %>%
+    dplyr::mutate(AntiMPO_PR3 = dplyr::case_when(
+      is.na(Anti.MPO.level) & is.na(Anti.PR3.level) ~ NA,
+      is.na(Anti.MPO.level) & !is.na(Anti.PR3.level) ~ 'PR3',
+      !is.na(Anti.MPO.level) & is.na(Anti.PR3.level) ~ 'MPO',
+      Anti.MPO.level > Anti.PR3.level ~ 'MPO',
+      TRUE ~ 'PR3'
+    )
+    )
 
-  Clean_RKD_data <- RKD_data_filter
-
-  files_test <- list.dirs(output_path)
-  if (identical(files_test, character(0)) == TRUE) {
-    stop("Your output folder don't exist")
-  }
-  setwd(output_path)
-  write.csv(Clean_RKD_data, paste("Redcap_clinical_data_clean", Sys.Date(), ".csv", sep = ""), row.names = F)
-  return(Clean_RKD_data)
+  output_filename <- file.path(
+    output_path,
+    paste0('Redcap_clinical_data_clean',
+           Sys.Date(), '.csv')
+  )
+  write.csv(rkd_data_filtered, output_filename, row.names = FALSE)
+  return(rkd_data_filtered)
 }
