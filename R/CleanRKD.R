@@ -96,22 +96,25 @@ clean_rkd <- function(rkd_data, output_path) {
 
   # Get rid of empty / all-missing variables
   rkd_encounter_filtered <- rkd_encounters %>%
-    dplyr::select(!dplyr::where(~ all(is.na(.x)) | all(!nchar(.x))))
+    dplyr::select(!dplyr::where(~ all(is.na(.x)))) %>%
+    dplyr::select(!dplyr::where(~ is.character(.x) && all(.x == '')))
   rkd_initial_filtered <- rkd_initial %>%
-    dplyr::select(!dplyr::where(~ all(is.na(.x)) | all(!nchar(.x))))
+    dplyr::select(!dplyr::where(~ all(is.na(.x)))) %>%
+    dplyr::select(!dplyr::where(~ is.character(.x) && all(.x == '')))
 
   # Merge together so we go from a sparse block-structure table
   # to a wide table, effectively with initial values carried forward
   # TODO: switch this to na.locf?
   rkd_data_filtered <- rkd_encounter_filtered %>%
     dplyr::full_join(rkd_initial_filtered %>%
-      dplyr::select(-Repeat.Instrument, -Repeat.Instance, -Patient.Id),
+      dplyr::select(-Patient.Id),
     by = "RKD.ID"
     )
 
   # Add age variable
   rkd_data_filtered <- rkd_data_filtered %>%
-    dplyr::mutate(Age_Encounters = lubridate::year(Date.Of.Visit) - lubridate::year(Date.Of.Birth))
+    dplyr::mutate(Age_Encounters =
+      lubridate::year(Date.Of.Visit) - lubridate::year(Date.of.Birth))
 
   # Anti MPO PR3
   rkd_data_filtered <- rkd_data_filtered %>%

@@ -2,20 +2,17 @@
 title: "Pipeline for development"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{development}
+  %\VignetteIndexEntry{Pipeline for development}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+```{r setup, include = FALSE}
 knitr::opts_chunk$set(
+  echo = TRUE,
   collapse = TRUE,
   comment = "#>"
 )
-```
-
-```{r setup}
-library(rkdpipeline)
 ```
 
 **Rationale**
@@ -36,8 +33,8 @@ This document will serve as a template for the development of the pipeline. We c
 
 Load required libraries and set markdown settings (for plotting, caching, etc)
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r}
+library(rkdpipeline)
 ```
 
 ## Project setup
@@ -56,6 +53,7 @@ We can make all functions of the package available by running
 
 ```{r library, include=FALSE}
 library(rkdpipeline)
+message(packageVersion('rkdpipeline'))
 ```
 
 ## Paths to data
@@ -89,17 +87,18 @@ This function will load the RKD dataset from disk.
 For the purposes of this example, we will pull in whichever CSV file is in the current working directory.
 
 ```{r load_RKD}
-rkd_csv <- list.files(pattern = 'DATA_LABELS.*\\.csv')
-rkd_xlsx <- list.files(pattern = 'DATA_LABELS.*\\.xlsx')
+# rkd_xlsx <- list.files(pattern = 'DATA_LABELS.*\\.xlsx')
 # rkd <- readxl::read_excel(rkd_xlsx, .name_repair = 'universal')
 # The option 'universal' replaces spaces in colnames with dots, like base read.csv
+rkd_csv <- list.files(pattern = 'DATA_LABELS.*\\.csv')
 rkd <- load_rkd(rkd_csv)
-rkd[1:5, 1:10]
+colnames(rkd)[1:10]
 ```
 
 
 ```{r wd_check, warning=FALSE}
-dir.create("output")
+if (!dir.exists('output'))
+  dir.create("output")
 ```
 
 ## Clean the data
@@ -113,8 +112,9 @@ The CleanRKD function clean the in 5 steps:
 -   create the following variable Age of the Encounter and ANCA titration (Anti MPO or Anti PR3 or NA)
 
 ```{r, warning=FALSE}
-clean_rkd <- CleanRKD(rkd, "output")
-head(clean_rkd)[1:5, 1:10]
+clean_rkd <- clean_rkd(rkd, "output")
+colnames(clean_rkd)[1:10]
+knitr::knit_exit() # only render up to this point
 ```
 ## Use the Demographic filter
 
