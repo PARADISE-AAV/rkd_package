@@ -34,16 +34,53 @@ clean_rkd <- function(rkd_data, output_path) {
   }
 
   # Parse all date columns
-  date_columns <- stringr::str_subset(colnames(rkd_data), "Date")
-  date_columns <- stringr::str_subset(date_columns, "known.unknown", negate = TRUE)
-  rkd_data <- dplyr::mutate(
-    rkd_data,
-    dplyr::across(dplyr::all_of(date_columns), lubridate::as_date)
-  )
+  rkd_data <- rkd_parse_dates(rkd_data)
 
   # Collapse ethnicities
-  rkd_data <- dplyr::mutate(
-    rkd_data,
+  rkd_data <- rkd_collapse_ethnicity(rkd_data)
+
+  # Solve the problem of incorrect RKD IDs:
+  # If the RKD ID contains a '-', replace it with Patient ID
+  rkd_data <- rkd_fix_ids(rkd_data)
+
+  # Combine the single-row initial records with the (multi-row) encounters
+  rkd_data <- rkd_tidy_encounters(rkd_data)
+
+  # Add age variable
+  rkd_data <- rkd_data %>%
+    dplyr::mutate(Age_Encounters =
+      lubridate::year(Date.Of.Visit) - lubridate::year(Date.of.Birth))
+
+  # Anti MPO PR3
+  rkd_data <- rkd_anti_mpo_pr3(rkd_data)
+
+  output_filename <- file.path(
+    output_path,
+    paste0('Redcap_clinical_data_clean',
+           Sys.Date(), '.csv')
+  )
+  write.csv(rkd_data, output_filename, row.names = FALSE)
+  return(rkd_data)
+}
+
+#' @import stringr
+#' @import dplyr
+#' @import lubridate
+rkd_parse_dates <- function(data) {
+  date_columns <- stringr::str_subset(colnames(data), "Date")
+  date_columns <- stringr::str_subset(date_columns, "known.unknown", negate = TRUE)
+  dplyr::mutate(
+    data,
+    dplyr::across(dplyr::all_of(date_columns), lubridate::as_date)
+  )
+}
+
+#' @import forcats
+#' @import stringr
+#' @import dplyr
+rkd_collapse_ethnicity <- function(data) {
+  dplyr::mutate(
+    data,
     dplyr::across(
       dplyr::starts_with("Ethnicity"),
       ~ forcats::fct_collapse(
@@ -57,17 +94,19 @@ clean_rkd <- function(rkd_data, output_path) {
       )
     )
   )
+}
 
-  # Solve the problem of incorrect RKD IDs
-  # If the RKD ID contains a '-', replace it with Patient Id
-  rkd_data$RKD.ID[stringr::str_detect(rkd_data$RKD.ID, "-")] <- NA
-  if (any(is.na(rkd_data$RKD.ID))) {
+#' @import stringr
+#' @import dplyr
+rkd_fix_ids <- function(data) {
+  data$RKD.ID[stringr::str_detect(data$RKD.ID, "-")] <- NA
+  if (any(is.na(data$RKD.ID))) {
     warning(
       "Replacing ",
-      sum(is.na(rkd_data$RKD.ID)),
+      sum(is.na(data$RKD.ID)),
       " incorrect RKD.IDs with Patient.ID"
     )
-    rkd_data <- dplyr::mutate(rkd_data,
+    data <- dplyr::mutate(data,
       RKD.ID = dplyr::coalesce(
         RKD.ID,
         Patient.ID
@@ -75,14 +114,17 @@ clean_rkd <- function(rkd_data, output_path) {
       # as.integer(Patient.Id))
     )
   }
+  return(data)
+}
 
-
+#' @import dplyr
+rkd_tidy_encounters <- function(data) {
   rkd_encounters <- dplyr::filter(
-    rkd_data,
+    data,
     Repeat.Instrument == "Encounters"
   )
   rkd_initial <- dplyr::filter(
-    rkd_data,
+    data,
     Repeat.Instrument == "",
     Type.of.Patient != ""
   )
@@ -97,41 +139,29 @@ clean_rkd <- function(rkd_data, output_path) {
   # Get rid of empty / all-missing variables
   rkd_encounter_filtered <- rkd_encounters %>%
     dplyr::select(!dplyr::where(~ all(is.na(.x)))) %>%
-    dplyr::select(!dplyr::where(~ is.character(.x) && all(.x == '')))
+    dplyr::select(!dplyr::where(~ is.character(.x) && all(.x == "")))
   rkd_initial_filtered <- rkd_initial %>%
     dplyr::select(!dplyr::where(~ all(is.na(.x)))) %>%
-    dplyr::select(!dplyr::where(~ is.character(.x) && all(.x == '')))
+    dplyr::select(!dplyr::where(~ is.character(.x) && all(.x == "")))
 
   # Merge together so we go from a sparse block-structure table
   # to a wide table, effectively with initial values carried forward
   # TODO: switch this to na.locf?
-  rkd_data_filtered <- rkd_encounter_filtered %>%
-    dplyr::full_join(rkd_initial_filtered %>%
-      dplyr::select(-Patient.Id),
-    by = "RKD.ID"
+  rkd_encounter_filtered %>%
+    dplyr::full_join(
+      rkd_initial_filtered %>%
+        dplyr::select(-Patient.Id),
+      by = "RKD.ID"
     )
+}
 
-  # Add age variable
-  rkd_data_filtered <- rkd_data_filtered %>%
-    dplyr::mutate(Age_Encounters =
-      lubridate::year(Date.Of.Visit) - lubridate::year(Date.of.Birth))
-
-  # Anti MPO PR3
-  rkd_data_filtered <- rkd_data_filtered %>%
-    dplyr::mutate(AntiMPO_PR3 = dplyr::case_when(
-      is.na(Anti.MPO.level) & is.na(Anti.PR3.level) ~ NA,
-      is.na(Anti.MPO.level) & !is.na(Anti.PR3.level) ~ 'PR3',
-      !is.na(Anti.MPO.level) & is.na(Anti.PR3.level) ~ 'MPO',
-      Anti.MPO.level > Anti.PR3.level ~ 'MPO',
-      TRUE ~ 'PR3'
-    )
-    )
-
-  output_filename <- file.path(
-    output_path,
-    paste0('Redcap_clinical_data_clean',
-           Sys.Date(), '.csv')
-  )
-  write.csv(rkd_data_filtered, output_filename, row.names = FALSE)
-  return(rkd_data_filtered)
+#' @import dplyr
+rkd_anti_mpo_pr3 <- function(data) {
+  dplyr::mutate(data, AntiMPO_PR3 = dplyr::case_when(
+    is.na(Anti.MPO.level) & is.na(Anti.PR3.level) ~ NA,
+    is.na(Anti.MPO.level) & !is.na(Anti.PR3.level) ~ "PR3",
+    !is.na(Anti.MPO.level) & is.na(Anti.PR3.level) ~ "MPO",
+    Anti.MPO.level > Anti.PR3.level ~ "MPO",
+    TRUE ~ "PR3"
+  ))
 }

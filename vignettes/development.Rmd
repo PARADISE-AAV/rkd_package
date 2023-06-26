@@ -95,12 +95,6 @@ rkd <- load_rkd(rkd_csv)
 colnames(rkd)[1:10]
 ```
 
-
-```{r wd_check, warning=FALSE}
-if (!dir.exists('output'))
-  dir.create("output")
-```
-
 ## Clean the data
 
 The CleanRKD function clean the in 5 steps:
@@ -112,7 +106,9 @@ The CleanRKD function clean the in 5 steps:
 -   create the following variable Age of the Encounter and ANCA titration (Anti MPO or Anti PR3 or NA)
 
 ```{r, warning=FALSE}
-clean_rkd <- clean_rkd(rkd, "output")
+temp_output_dir <- tempdir()
+clean_rkd <- clean_rkd(rkd, temp_output_dir)
+list.files(temp_output_dir)
 colnames(clean_rkd)[1:10]
 knitr::knit_exit() # only render up to this point
 ```
