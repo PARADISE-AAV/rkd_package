@@ -10,9 +10,7 @@
 #' @param algorithm function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter"
 #' @return The Redcap data cleaned in your folder and in an object
 #' @export
-
-
-ClassifyRKDCases = function(RKDdata, output_path, algorithm) {
+ClassifyRKDCases <- function(RKDdata, output_path, algorithm) {
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
@@ -20,43 +18,29 @@ ClassifyRKDCases = function(RKDdata, output_path, algorithm) {
   if (is.character(output_path) == FALSE) {
     stop("The argument output_path need to be a character argument")
   }
-  if (is.character(algorithm) == FALSE) {
-    stop("The argument algorithm need to be a character argument")
-  }
-  if (algorithm != "BRelapse" & algorithm != "Paradise_Encounter"){
-    stop("The argument algorithm need to be BRelapse or Paradise_Encounter")
-  }
-  
-  
-    RKD_data <- RKDdata
+  algorithm <- match.arg(algorithm, c('BRelapse', 'Paradise_Encounter'))
+
+  RKD_data <- RKDdata
   ###check that you load a real file
   if (ncol(RKD_data) == 0 | nrow(RKD_data) == 0) {
     stop("You give an empty files")
   }
-  
+
   if (algorithm == "BRelapse") {
     Classify_RKD_data <- BRelapseFunction(RKD_data)
   }
   if (algorithm == "Paradise_Encounter") {
     Classify_RKD_data <- Paradise_Encounter(RKD_data)
   }
-  
-  
+
   files_test <-  list.dirs(output_path)
   if (identical(files_test, character(0)) == TRUE) {
     stop("Your output folder don't exist")
   }
-  setwd(output_path)
-  write.csv(
-    Classify_RKD_data,
-    paste(
-      "Redcap_clinical_data_with-classification",
-      Sys.Date() ,
-      ".csv",
-      sep = ""
-    ),
-    row.names = F
-  )
+  output_filename <- file.path(output_path,
+    paste0("Redcap_clinical_data_with-classification", Sys.Date(), ".csv"))
+
+  write.csv(Classify_RKD_data, output_filename, row.names = FALSE)
   return(Classify_RKD_data)
-  
+
 }

@@ -1,3 +1,4 @@
 inst/doc
 *.xlsx
 *.csv
+.Rhistory

@@ -2,7 +2,7 @@
 % Please edit documentation in R/BRelapseFunction.R
 \name{BRelapseFunction}
 \alias{BRelapseFunction}
-\title{BRelapse}
+\title{BRelapse (DEPRECATED)}
 \usage{
 BRelapseFunction(RKD_data)
 }
@@ -13,7 +13,7 @@ BRelapseFunction(RKD_data)
 The data with the patient in relapse
 }
 \description{
-BRelapse
+BRelapse (DEPRECATED)
 }
 \author{
 Yagmur Dogay

@@ -1,26 +1,19 @@
-#' @title BRelapse
+#' @title BRelapse (DEPRECATED)
 #' @author Yagmur Dogay
 #' Version:
 #' Date: 16-March-23
 #' Objective: Inputing the Relapse patient
 #'
-
-
 #' @param RKD_data RKD data from Demographic Filter RKD Data
-#' @return The data with the patient in relapse 
+#' @return The data with the patient in relapse
+#' @import dplyr
 #' @export
-
-
-
 BRelapseFunction <- function(RKD_data) {
   # Step 1: Flare: consider three columns:
   # 1a.	"Adjudicated probability of relapse," "Definite"/"high probability" as "Yes" and "no"/ "Possible" as "No"
   # 2.	For empty cells go to the "Do you think Vasculitis is relapsing in this encounter" and "Definite"/"high probability" as "Yes" and "Unknown"/"Possibly"/"BLANK" go to step 3
   # 3a.	"Disease activity since the last visit" = "Active OR Low disease activity" > "Yes" and "Remission"/"BLANK" > "No"
   # Step 1:
-  library(plyr)
-  library(dplyr)
-  library(epiDisplay)
   data <- RKD_data
   m=nrow(data)
   for(j in 1:m){

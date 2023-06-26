@@ -90,8 +90,8 @@ For the purposes of this example, we will pull in whichever CSV file is in the c
 # rkd_xlsx <- list.files(pattern = 'DATA_LABELS.*\\.xlsx')
 # rkd <- readxl::read_excel(rkd_xlsx, .name_repair = 'universal')
 # The option 'universal' replaces spaces in colnames with dots, like base read.csv
-rkd_csv <- list.files(pattern = 'DATA_LABELS.*\\.csv')
-rkd <- load_rkd(rkd_csv)
+(rkd_csv <- list.files(pattern = 'DATA_LABELS.*\\.csv'))
+rkd <- load_rkd(rkd_csv[1])
 colnames(rkd)[1:10]
 ```
 
@@ -105,12 +105,10 @@ The CleanRKD function clean the in 5 steps:
 -   select the variable present only for the Encounters data and the Initial data (demographics, diagnostics and all other exams performed at the moment of the diagnostics) and merge the Encounter data and Initial data that the initial data are replicate for each Encounter
 -   create the following variable Age of the Encounter and ANCA titration (Anti MPO or Anti PR3 or NA)
 
-```{r, warning=FALSE}
-temp_output_dir <- tempdir()
-clean_rkd <- clean_rkd(rkd, temp_output_dir)
-list.files(temp_output_dir)
+```{r}
+output_dir <- tempdir()
+clean_rkd <- clean_rkd(rkd, output_dir)
 colnames(clean_rkd)[1:10]
-knitr::knit_exit() # only render up to this point
 ```
 ## Use the Demographic filter
 
@@ -127,10 +125,9 @@ The DemographicFilterRKD function use the Paradise filter:
 -   AND (ANCA subtype = PR3 / MPO / both) OR (biopsy = Definite vasculitis AND histologically confirmed = YES)
 
 
-```{r, warning=FALSE}
-
-Inclusion_Criteria_rkd <- DemographicFilterRKD(clean_rkd, paste(a,"/output",sep=""))
-head(Inclusion_Criteria_rkd)[1:5,1:10]
+```{r}
+Inclusion_Criteria_rkd <- DemographicFilterRKD(clean_rkd, output_dir)
+head(Inclusion_Criteria_rkd)[, 1:10]
 ```
 
 ## Classify the RKD patient
@@ -140,15 +137,16 @@ The ClassifyRKDCases function use different algorithm create by several previous
 * "BRelapse" algorithm perform the prediction of a Relapse. The output of the function is a variable that tell if the patient have a definite relapse, a possible relapse or no relapse fr one encounter.
 - "Paradise_Encounter" algorithm perform a selection of the encounter that reach the paradise project criteria.
 
-```{r, warning=FALSE}
-
-Classify_rkd_Paradise_Encounter <- ClassifyRKDCases(Inclusion_Criteria_rkd, paste(a,"/output",sep=""), "Paradise_Encounter")
-head(Classify_rkd_Paradise_Encounter)[1:5,1:10]
+```{r}
+Classify_rkd_Paradise_Encounter <- ClassifyRKDCases(Inclusion_Criteria_rkd, output_dir, "Paradise_Encounter")
+head(Classify_rkd_Paradise_Encounter)[, 1:10]
 ```
-```{r, warning=FALSE}
 
-Classify_rkd_BRelapse <- ClassifyRKDCases(Classify_rkd_Paradise_Encounter, paste(a,"/output",sep=""), "BRelapse")
-head(Classify_rkd_BRelapse)[1:5,1:10]
+The following function is deprecated and will soon be replaced:
+
+```{r}
+Classify_rkd_BRelapse <- ClassifyRKDCases(Classify_rkd_Paradise_Encounter, output_dir, "BRelapse")
+head(Classify_rkd_BRelapse)[, 1:10]
 ```
 
 ## Filter with the classification
@@ -156,11 +154,16 @@ head(Classify_rkd_BRelapse)[1:5,1:10]
 The ClinicalFilterRKD function is a filter based on classify algorithm
 
 ```{r, warning=FALSE}
-
-Filter_Classify_rkd <- ClinicalFilterRKD(Classify_rkd_BRelapse, paste(a,"/output",sep=""), "BRelapse")
-head(Classify_rkd)[1:5,1:10]
+Filter_Classify_rkd <- ClinicalFilterRKD(Classify_rkd_BRelapse, output_dir, "BRelapse")
+head(Classify_rkd)[, 1:10]
 ```
 
+Let's look at the outputs:
+
+```{r}
+list.files(output_dir, full.names = TRUE)
+knitr::knit_exit() # only render document up to this point
+```
 
 ## Load Freezer Work data
 
