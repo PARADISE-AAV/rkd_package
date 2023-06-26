@@ -19,7 +19,7 @@ Suggests:
     testthat (>= 3.0.0)
 VignetteBuilder: knitr
 Imports: 
-    dplyr,
+    dplyr (>= 1.1.2),
     forcats,
     lubridate,
     stringr
