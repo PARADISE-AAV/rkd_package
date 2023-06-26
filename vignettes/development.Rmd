@@ -31,12 +31,6 @@ This document will serve as a template for the development of the pipeline. We c
 
 # Setup
 
-Load required libraries and set markdown settings (for plotting, caching, etc)
-
-```{r}
-library(rkdpipeline)
-```
-
 ## Project setup
 
 To run this pipeline locally, you need to setup a R project in Rstudio by selecting `File` and `New project` checkout the repo <https://github.com/PARADISE-AAV/rkd_package/> using git.
@@ -105,7 +99,7 @@ The CleanRKD function clean the in 5 steps:
 -   select the variable present only for the Encounters data and the Initial data (demographics, diagnostics and all other exams performed at the moment of the diagnostics) and merge the Encounter data and Initial data that the initial data are replicate for each Encounter
 -   create the following variable Age of the Encounter and ANCA titration (Anti MPO or Anti PR3 or NA)
 
-```{r}
+```{r clean_rkd)}
 output_dir <- tempdir()
 clean_rkd <- clean_rkd(rkd, output_dir)
 colnames(clean_rkd)[1:10]
@@ -125,7 +119,7 @@ The DemographicFilterRKD function use the Paradise filter:
 -   AND (ANCA subtype = PR3 / MPO / both) OR (biopsy = Definite vasculitis AND histologically confirmed = YES)
 
 
-```{r}
+```{r demographic filter}
 Inclusion_Criteria_rkd <- DemographicFilterRKD(clean_rkd, output_dir)
 head(Inclusion_Criteria_rkd)[, 1:10]
 ```
@@ -137,14 +131,14 @@ The ClassifyRKDCases function use different algorithm create by several previous
 * "BRelapse" algorithm perform the prediction of a Relapse. The output of the function is a variable that tell if the patient have a definite relapse, a possible relapse or no relapse fr one encounter.
 - "Paradise_Encounter" algorithm perform a selection of the encounter that reach the paradise project criteria.
 
-```{r}
+```{r classify paradise}
 Classify_rkd_Paradise_Encounter <- ClassifyRKDCases(Inclusion_Criteria_rkd, output_dir, "Paradise_Encounter")
 head(Classify_rkd_Paradise_Encounter)[, 1:10]
 ```
 
 The following function is deprecated and will soon be replaced:
 
-```{r}
+```{r classify brelapse}
 Classify_rkd_BRelapse <- ClassifyRKDCases(Classify_rkd_Paradise_Encounter, output_dir, "BRelapse")
 head(Classify_rkd_BRelapse)[, 1:10]
 ```
@@ -153,9 +147,9 @@ head(Classify_rkd_BRelapse)[, 1:10]
 
 The ClinicalFilterRKD function is a filter based on classify algorithm
 
-```{r, warning=FALSE}
+```{r filter berelapse}
 Filter_Classify_rkd <- ClinicalFilterRKD(Classify_rkd_BRelapse, output_dir, "BRelapse")
-head(Classify_rkd)[, 1:10]
+head(Filter_Classify_rkd)[, 1:10]
 ```
 
 Let's look at the outputs:
