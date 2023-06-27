@@ -4,10 +4,12 @@
 \alias{Paradise_Encounter}
 \title{Paradise_Encounter}
 \usage{
-Paradise_Encounter(RKD_data)
+Paradise_Encounter(RKD_data, months_after_diagnosis = 6)
 }
 \arguments{
 \item{RKD_data}{RKD data from Demographic Filter RKD Data}
+
+\item{months_after_diagnosis}{Exclude encounters of only recently diagnosed patients (default: 6 months)}
 }
 \value{
 The data with the a variable that tell you if the Encounter match the paradise criteria
