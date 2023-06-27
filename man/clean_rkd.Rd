@@ -9,7 +9,7 @@ clean_rkd(rkd_data, output_path)
 \arguments{
 \item{rkd_data}{RKD data from \code{\link{load_rkd}} function}
 
-\item{ouput_path}{folder where the Redcap data will be saved}
+\item{output_path}{folder where the Redcap data will be saved}
 }
 \value{
 The Redcap data cleaned in your folder and in an object

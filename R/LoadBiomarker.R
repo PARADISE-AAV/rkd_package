@@ -7,22 +7,17 @@
 #'
 #' @param files_name Biomarkerdata used
 #' @return The Biomarker Data into DataFrame
-
-
-
-
-
+#' @import stringr
 LoadBiomarker=function(files_name){
   ####Test on the argument
-  library(stringr)
   if (is.character(files_name) == FALSE) {
     stop("The argument files_name need to be a character argument")
   }
   #extract the folder and the files 
   b <- max(gregexpr("\\/", files_name)[[1]])
   if(b > 0){
-    input_path <- str_sub(files_name, 1, b)
-    files_name1 <- str_sub(files_name, b+1, nchar(files_name))
+    input_path <- stringr::str_sub(files_name, 1, b)
+    files_name1 <- stringr::str_sub(files_name, b+1, nchar(files_name))
   }else{
     input_path <- getwd()
     files_name1 <- files_name

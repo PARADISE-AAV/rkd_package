@@ -4,6 +4,7 @@
 #' Date: 25-Jan-23
 #' Objective: The objective is to merge biomarker data with RKD data
 #' @import dplyr
+#' @importFrom rlang .data
 AddBiomarkerRKD <- function(data_rkd, data_bio){
 
   #colnames(data_bio)[colnames(data_bio) == 'Main.Study.ID'] <- 'RKD.ID'
@@ -16,7 +17,7 @@ AddBiomarkerRKD <- function(data_rkd, data_bio){
     ),
     match_fun = list(`==`, `>=`, `<=`)
   ) %>%
-    select(everything())
+    dplyr::select(dplyr::everything())
   
   
   rownames(merged_frame) <- NULL

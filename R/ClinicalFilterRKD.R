@@ -6,7 +6,7 @@
 #'
 #'
 #' @param RKDdata RKD data from ClassifyRKDCases function or AddBiomarker function
-#' @param ouput_path folder where the filter RKD data will be saved
+#' @param output_path folder where the filter RKD data will be saved
 #' @param algorithm The algorithm used in the ClassifyRKDCases function
 #' @return The Redcap data cleaned in your folder and in an object
 #' @export

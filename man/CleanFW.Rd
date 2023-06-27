@@ -9,7 +9,7 @@ CleanFW(FWdata, output_path)
 \arguments{
 \item{FWdata}{FW data from loadFW function}
 
-\item{ouput_path}{folder where the Redcap data will be saved}
+\item{output_path}{folder where the Redcap data will be saved}
 }
 \value{
 The Redcap data cleaned in your folder and in an object

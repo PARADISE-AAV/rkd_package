@@ -7,7 +7,7 @@
 #'
 #' @param FWdata FW data from CleanFW function
 #' @param RKDdata RKD data from ClinicalFilterRKD function
-#' @param ouput_path folder where the merged data will be saved
+#' @param output_path folder where the merged data will be saved
 #' @return The Redcap data cleaned in your folder and in an object
 #' @export
 
