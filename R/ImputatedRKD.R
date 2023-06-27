@@ -37,7 +37,7 @@ ImputationRKD <- function(RKDdata, output_path, algorithm){
     Imputed_RKD_data <- RemissionImplementation(RKD_data)
   }
   
-  if (!dir.exists(output_path))
+  if (!dir.exists(output_path)){
     stop("Your output folder doesn't exist")
   }
   output_filename <- file.path(
@@ -47,4 +47,5 @@ ImputationRKD <- function(RKDdata, output_path, algorithm){
   write.csv(Imputed_RKD_data, output_filename, row.names = FALSE)
   
   return(Imputed_RKD_data)
+  
 }
