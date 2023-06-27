@@ -4,40 +4,7 @@
 \alias{AddBiomarkerRKD}
 \title{AddBiomarkerRKD}
 \usage{
-AddBiomarkerRKD(
-  data_1,
-  data_2,
-  column_a1,
-  column_a2,
-  column_b1,
-  column_b2,
-  script_file_name_1,
-  script_file_name_2
-)
-}
-\arguments{
-\item{data_1}{Cleaned RKD data}
-
-\item{data_2}{Biomarker data}
-
-\item{column_a1}{RKD ID Column name in RKD Data}
-
-\item{column_a2}{Date of visit column name in RKD Data}
-
-\item{column_b1}{ID Column name in Biomarker Data}
-
-\item{column_b2}{Date of sample Column name in Biomarker Data}
-
-\item{script_file_name_1}{Name of R script which has CleanRKD Function}
-
-\item{script_file_name_2}{Name of R script which has LoadBiomarker Function}
-
-\item{input_path_1}{folder where the RKD data is}
-
-\item{input_path_2}{folder where the Biomarker data is}
-}
-\value{
-The merge data
+AddBiomarkerRKD(data_rkd, data_bio)
 }
 \description{
 AddBiomarkerRKD

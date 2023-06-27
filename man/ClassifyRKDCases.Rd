@@ -4,12 +4,19 @@
 \alias{ClassifyRKDCases}
 \title{ClassifyRKDCases}
 \usage{
-ClassifyRKDCases(RKDdata, output_path, algorithm)
+ClassifyRKDCases(
+  RKDdata,
+  output_path,
+  algorithm,
+  interval_from_diagnostics = 6
+)
 }
 \arguments{
 \item{RKDdata}{RKD data from DemographicFilterRKD function}
 
 \item{algorithm}{function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter"}
+
+\item{interval_from_diagnostics}{the interval from diagnostics for the algorithm Paradise_Encounter by default 6}
 
 \item{ouput_path}{folder where the Redcap data will be saved}
 }

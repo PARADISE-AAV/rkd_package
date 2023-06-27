@@ -4,15 +4,13 @@
 \alias{LoadBiomarker}
 \title{LoadBiomarker}
 \usage{
-LoadBiomarker(input_path, file_name)
+LoadBiomarker(files_name)
 }
 \arguments{
-\item{input_path}{folder where the Biomarker are}
-
-\item{file_name}{Biomarkerdata used}
+\item{files_name}{Biomarkerdata used}
 }
 \value{
-The Biomarker Data as datafrme
+The Biomarker Data into DataFrame
 }
 \description{
 LoadBiomarker
