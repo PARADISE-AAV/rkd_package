@@ -6,7 +6,7 @@
 #' Date: 24-Jan-23
 #'
 #' @param rkd_data RKD data from \code{\link{load_rkd}} function
-#' @param ouput_path folder where the Redcap data will be saved
+#' @param output_path folder where the Redcap data will be saved
 #' @return The Redcap data cleaned in your folder and in an object
 #' The function change the Date variable with the format "%Y-%m-%d".
 #' The function reduce the ethnicity to 6 group where different subgroup are regrouped.
@@ -17,6 +17,7 @@
 #' @import stringr
 #' @import dplyr
 #' @import forcats
+#' @importFrom rlang .data
 #' @export
 clean_rkd <- function(rkd_data, output_path) {
   # Check arguments
@@ -49,7 +50,7 @@ clean_rkd <- function(rkd_data, output_path) {
   # Add age variable
   rkd_data <- rkd_data %>%
     dplyr::mutate(Age_Encounters =
-      lubridate::year(Date.Of.Visit) - lubridate::year(Date.of.Birth))
+      lubridate::year(.data$Date.Of.Visit) - lubridate::year(.data$Date.of.Birth))
 
   # Anti MPO PR3
   rkd_data <- rkd_anti_mpo_pr3(rkd_data)
@@ -108,8 +109,8 @@ rkd_fix_ids <- function(data) {
     )
     data <- dplyr::mutate(data,
       RKD.ID = dplyr::coalesce(
-        RKD.ID,
-        Patient.ID
+        .data$RKD.ID,
+        .data$Patient.ID
       )
       # as.integer(Patient.Id))
     )
@@ -121,12 +122,12 @@ rkd_fix_ids <- function(data) {
 rkd_tidy_encounters <- function(data) {
   rkd_encounters <- dplyr::filter(
     data,
-    Repeat.Instrument == "Encounters"
+    .data$Repeat.Instrument == "Encounters"
   )
   rkd_initial <- dplyr::filter(
     data,
-    Repeat.Instrument == "",
-    Type.of.Patient != ""
+    .data$Repeat.Instrument == "",
+    .data$Type.of.Patient != ""
   )
   # Select the variables of encounters
   id_columns <- c(
@@ -150,7 +151,7 @@ rkd_tidy_encounters <- function(data) {
   rkd_encounter_filtered %>%
     dplyr::full_join(
       rkd_initial_filtered %>%
-        dplyr::select(-Patient.Id),
+        dplyr::select(-.data$Patient.Id),
       by = "RKD.ID"
     )
 }
@@ -158,10 +159,10 @@ rkd_tidy_encounters <- function(data) {
 #' @import dplyr
 rkd_anti_mpo_pr3 <- function(data) {
   dplyr::mutate(data, AntiMPO_PR3 = dplyr::case_when(
-    is.na(Anti.MPO.level) & is.na(Anti.PR3.level) ~ NA,
-    is.na(Anti.MPO.level) & !is.na(Anti.PR3.level) ~ "PR3",
-    !is.na(Anti.MPO.level) & is.na(Anti.PR3.level) ~ "MPO",
-    Anti.MPO.level > Anti.PR3.level ~ "MPO",
+    is.na(.data$Anti.MPO.level) & is.na(.data$Anti.PR3.level) ~ NA,
+    is.na(.data$Anti.MPO.level) & !is.na(.data$Anti.PR3.level) ~ "PR3",
+    !is.na(.data$Anti.MPO.level) & is.na(.data$Anti.PR3.level) ~ "MPO",
+    .data$Anti.MPO.level > .data$Anti.PR3.level ~ "MPO",
     TRUE ~ "PR3"
   ))
 }

@@ -6,7 +6,7 @@
 #'
 #'
 #' @param RKDdata RKD data from CleanRKD function or AddBiomarker function
-#' @param ouput_path folder where the filter RKD data will be saved
+#' @param output_path folder where the filter RKD data will be saved
 #' @return The Redcap data cleaned in your folder and in an object
 #' @export
 DemographicFilterRKD <- function(RKDdata, output_path) {

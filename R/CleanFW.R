@@ -6,7 +6,7 @@
 #'
 #'
 #' @param FWdata FW data from loadFW function
-#' @param ouput_path folder where the Redcap data will be saved
+#' @param output_path folder where the Redcap data will be saved
 #' @return The Redcap data cleaned in your folder and in an object
 #' @export
 

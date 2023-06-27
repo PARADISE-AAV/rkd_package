@@ -9,7 +9,7 @@ DemographicFilterRKD(RKDdata, output_path)
 \arguments{
 \item{RKDdata}{RKD data from CleanRKD function or AddBiomarker function}
 
-\item{ouput_path}{folder where the filter RKD data will be saved}
+\item{output_path}{folder where the filter RKD data will be saved}
 }
 \value{
 The Redcap data cleaned in your folder and in an object

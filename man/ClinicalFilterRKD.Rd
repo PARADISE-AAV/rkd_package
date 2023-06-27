@@ -9,9 +9,9 @@ ClinicalFilterRKD(RKDdata, output_path, algorithm)
 \arguments{
 \item{RKDdata}{RKD data from ClassifyRKDCases function or AddBiomarker function}
 
-\item{algorithm}{The algorithm used in the ClassifyRKDCases function}
+\item{output_path}{folder where the filter RKD data will be saved}
 
-\item{ouput_path}{folder where the filter RKD data will be saved}
+\item{algorithm}{The algorithm used in the ClassifyRKDCases function}
 }
 \value{
 The Redcap data cleaned in your folder and in an object

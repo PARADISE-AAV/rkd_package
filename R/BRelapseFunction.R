@@ -8,6 +8,7 @@
 #' @return The data with the patient in relapse
 #' @import dplyr
 #' @import forcats
+#' @importFrom rlang .data
 #' @export
 BRelapseFunction <- function(RKD_data) {
   # Step 1: Flare: consider three columns:
@@ -75,17 +76,17 @@ BRelapseFunction <- function(RKD_data) {
   # Step 2: determine the visit dates with interval less than 3 months of the date of diagnosis
   
   data <- data %>%
-    mutate(
+    dplyr::mutate(
       Flare_Edit_2 = ifelse(
-        `Interval.from.diagnosis..months.` <= 3 &
-          Flare_Edit_1 == "Definite Relapse" |
-          `Interval.from.diagnosis..months.` <= 3 &
-          Flare_Edit_1 == "Possible Relapse" |
-          `Interval.from.diagnosis..months.` <= 3 &
-          is.na(Flare_Edit_1)
+        .data$Interval.from.diagnosis..months. <= 3 &
+          .data$Flare_Edit_1 == "Definite Relapse" |
+          .data$Interval.from.diagnosis..months. <= 3 &
+          .data$Flare_Edit_1 == "Possible Relapse" |
+          .data$Interval.from.diagnosis..months. <= 3 &
+          is.na(.data$Flare_Edit_1)
         ,
         "No Relapse",
-        Flare_Edit_1
+        .data$Flare_Edit_1
       )
     )
   #table(data$Flare_Edit_2)
@@ -97,26 +98,26 @@ BRelapseFunction <- function(RKD_data) {
   data$`Date.Of.Visit` <-
     as.Date(data$`Date.Of.Visit`, "%d/%m/%Y")
   data <- data %>%
-    group_by(`RKD.ID`) %>%
-    mutate(Lagvisit = ifelse(
+    dplyr::group_by(`RKD.ID`) %>%
+    dplyr::mutate(Lagvisit = ifelse(
       is.na(difftime(
-        `Date.Of.Visit`, lag(`Date.Of.Visit`), units = "days"
+        .data$`Date.Of.Visit`, lag(.data$`Date.Of.Visit`), units = "days"
       )),
       "0",
-      difftime(`Date.Of.Visit`, lag(`Date.Of.Visit`), units =
+      difftime(.data$`Date.Of.Visit`, lag(.data$`Date.Of.Visit`), units =
                  "days")
     ))
   data$Lagvisit <- as.numeric(data$Lagvisit)
   
   
   data <- data %>%
-    group_by(`RKD.ID`) %>%
-    mutate(
+    dplyr::group_by(.data$`RKD.ID`) %>%
+    dplyr::mutate(
       Exc_Lagvisit = ifelse(
-        Flare_Edit_2 == "Definite Relapse" &
-          lag(Flare_Edit_2) == "Definite Relapse" &
-          Lagvisit < 60,
-        Lagvisit,
+        .data$Flare_Edit_2 == "Definite Relapse" &
+          lag(.data$Flare_Edit_2) == "Definite Relapse" &
+          .data$Lagvisit < 60,
+        .data$Lagvisit,
         NA
       )
     ) %>%

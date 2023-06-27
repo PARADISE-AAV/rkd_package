@@ -11,7 +11,7 @@ FindFWSample(FWdata, RKDdata, output_path)
 
 \item{RKDdata}{RKD data from ClinicalFilterRKD function}
 
-\item{ouput_path}{folder where the merged data will be saved}
+\item{output_path}{folder where the merged data will be saved}
 }
 \value{
 The Redcap data cleaned in your folder and in an object

@@ -14,11 +14,16 @@ ClassifyRKDCases(
 \arguments{
 \item{RKDdata}{RKD data from DemographicFilterRKD function}
 
+\item{output_path}{folder where the Redcap data will be saved}
+
 \item{algorithm}{function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter"}
 
 \item{interval_from_diagnostics}{the interval from diagnostics for the algorithm Paradise_Encounter by default 6}
 
+
 \item{ouput_path}{folder where the Redcap data will be saved}
+
+
 }
 \value{
 The Redcap data cleaned in your folder and in an object

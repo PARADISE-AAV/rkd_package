@@ -1,6 +1,6 @@
 Package: rkdpipeline
 Title: Pre-process RKD data
-Version: 0.0.0.9005
+Version: 0.0.1.9000
 Authors@R: 
     c(
     person("Matthieu", "Coq", , "coqm@tcd.ie", role = c("aut", "cre")),
@@ -22,5 +22,6 @@ Imports:
     dplyr (>= 1.1.2),
     forcats,
     lubridate,
+    rlang,
     stringr
 Config/testthat/edition: 3
