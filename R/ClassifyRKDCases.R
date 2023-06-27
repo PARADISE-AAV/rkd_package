@@ -8,9 +8,10 @@
 #' @param RKDdata RKD data from DemographicFilterRKD function
 #' @param ouput_path folder where the Redcap data will be saved
 #' @param algorithm function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter"
-#' @return The Redcap data cleaned in your folder and in an object
+#' @param interval_from_diagnostics the interval from diagnostics for the algorithm Paradise_Encounter by default 6
+#' @return The Redcap data cleaned in your folder and in an object 
 #' @export
-ClassifyRKDCases <- function(RKDdata, output_path, algorithm) {
+ClassifyRKDCases = function(RKDdata, output_path, algorithm, interval_from_diagnostics=6) {
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
@@ -30,13 +31,14 @@ ClassifyRKDCases <- function(RKDdata, output_path, algorithm) {
     Classify_RKD_data <- BRelapseFunction(RKD_data)
   }
   if (algorithm == "Paradise_Encounter") {
-    Classify_RKD_data <- Paradise_Encounter(RKD_data)
+    Classify_RKD_data <- Paradise_Encounter(RKD_data, interval_from_diagnostics)
   }
 
   files_test <-  list.dirs(output_path)
   if (identical(files_test, character(0)) == TRUE) {
     stop("Your output folder don't exist")
   }
+  
   output_filename <- file.path(output_path,
     paste0("Redcap_clinical_data_with-classification", Sys.Date(), ".csv"))
 

@@ -4,15 +4,16 @@
 #' Date: 03-May-23
 #' Objective: Selection of the Encounter that meet the Paradise criteria
 #' @param RKD_data RKD data from Demographic Filter RKD Data
+#' @param months_after_diagnosis Exclude encounters of only recently diagnosed patients (default: 6 months)
 #' @return The data with the a variable that tell you if the Encounter match the paradise criteria 
 #' @details The criteria to be a Paradise encounter are 1/ need to be in Remission, 2/ need to in remission >6 month 3/ Have more than 1 year follow up
 #' @import lubridate
 #' @import dplyr
 #' @export
-Paradise_Encounter <- function(RKD_data) {
+Paradise_Encounter <- function(RKD_data, months_after_diagnosis = 6) {
   interval_frame <- RKD_data %>%
     dplyr::filter(Disease.activity.since.last.return == 'Remission',
-                  Interval.from.diagnosis..months. > 6,
+                  Interval.from.diagnosis..months. > months_after_diagnosis,
                   !is.na(RKD.ID)) %>%
   dplyr::mutate(last_encounter = dplyr::case_when(
     Status == 'Alive' ~ Date.Of.Visit,

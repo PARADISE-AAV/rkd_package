@@ -40,8 +40,7 @@ FindFWSample=function(FWdata, RKDdata, output_path){
   if(identical(files_test, character(0)) == TRUE){
     stop("Your output folder don't exist")
   }
-  setwd(output_path)
-  write.csv(Merged_data, paste("Merged_FW_RKD_", Sys.Date() , ".csv", sep=""), row.names = F)
+  write.csv(Merged_data, paste(output_path, "/Merged_FW_RKD_", Sys.Date() , ".csv", sep=""), row.names = F)
   return(Merged_data)
   
 }
