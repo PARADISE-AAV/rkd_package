@@ -8,8 +8,6 @@
 #' @param RKDdata RKD data
 #' @return The Redcap data witht he remission labels corected
 #' @export
-#' 
-
 RemissionImplementation=function(RKDdata){
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
@@ -17,8 +15,8 @@ RemissionImplementation=function(RKDdata){
   }
   
   RKD_data <- RKDdata
-  if(ncol(RKD_data)==0 | nrow(RKD_data)==0){
-    stop("You give an empty files")
+  if (ncol(RKD_data)==0 | nrow(RKD_data)==0){
+    stop("You gave an empty file")
   }
   
   RKD_data_nonmissing <- RKD_data[which(RKD_data$Disease.activity.since.last.return != ""), ]

@@ -1,9 +1,19 @@
 ---
-title: "Pipeline_for_development"
-author: "Conor Finlay/Matthieu Coq"
-date: '`r Sys.Date()`'
-output: html_document
+title: "Pipeline for development"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Pipeline for development}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  collapse = TRUE,
+  comment = "#>"
+)
+```
 
 **Rationale**
 
@@ -21,15 +31,11 @@ This document will serve as a template for the development of the pipeline. We c
 
 # Setup
 
-Load required libraries and set markdown settings (for plotting, caching, etc)
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ## Project setup
 
 To run this pipeline locally, you need to setup a R project in Rstudio by selecting `File` and `New project` checkout the repo <https://github.com/PARADISE-AAV/rkd_package/> using git.
+
+Then install the package using **Ctrl** + **Shift** + **B** or equivalent.
 
 ### Data protection warning
 
@@ -37,18 +43,11 @@ Please familiarise yourself with github before using this pipeline. **Do not sto
 
 ## load libraries 
 
-```{r libary, include=FALSE}
-library(tidyverse)
-```
+We can make all functions of the package available by running
 
-## Working directories 
-
-The `.Rproj` file (which is ignored by GitHub and specific for each local instance of the repo) sets the working directory to wherever the project is located on your computer. This has the advantage of simplifying pathing by making them relative to this folder.
-
-```{r pathing}
-#print local directory 
-getwd()
-list.files()
+```{r library, include=FALSE}
+library(rkdpipeline)
+message(packageVersion('rkdpipeline'))
 ```
 
 ## Paths to data
@@ -58,15 +57,16 @@ in the future we may have a static path to a onedrive url or an API to Repcap. F
 There are 3 types of data
 
 -   RKD dataset
-
--   Bio marker Master
-
--   freezer works exports
+-   Biomarker master
+-   FreezerWorks exports
 
 For this pipeline to work each user should set these paths each time.
+Note the following code is not reproducible for other users.
 
 ```{r paths}
 #paths
+rkd_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Data exports/"
+biomarker_path <- "C:/Users/Administrator/Trinity College Dublin/THKC - Documents/Arlena Carney/Makala Carroll/Projects/Mini Biobank/Biomarker_master/Biomarker master-Data only.csv"
 RKD_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Data exports/"
 
 Biomarker_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Biomarker_master/Biomarker master_Data only.csv"
@@ -74,51 +74,39 @@ Biomarker_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Biom
 fw_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Freezerworks exports"
 
 #specific RKD version
-RKD_file <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Data exports/RareKidneyDiseaseRIT-FullVasculitisExport_DATA_LABELS_2023-04-24_1444.csv"
-```
-
-## Functions
-
-Here we will load the approved functions into the R session. It assumes that all functions are required.
-
-```{r load_functions}
-# find all files ending in ".R" and run source
-setwd("~/GitHub/rkd_package/function")
-for (f in list.files(pattern = "*.R$")) {
-    source(f)
-}
-
+rkd_file <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Data exports/RareKidneyDiseaseRIT-FullVasculitisExport_DATA_LABELS_2023-04-24_1444.csv"
 ```
 
 # Pipeline
 
-## loadRKD
-This function will load RKD dataset
+## Import the data
+
+This function will load the RKD dataset from disk.
+For the purposes of this example, we will pull in whichever CSV file is in the current working directory.
+
 ```{r load_RKD}
-setwd("~/GitHub/rkd_package")
-rkd  <- LoadRKD(files_name = RKD_file)
-head(rkd)[1:5,1:10]
+# rkd_xlsx <- list.files(pattern = 'DATA_LABELS.*\\.xlsx')
+# rkd <- readxl::read_excel(rkd_xlsx, .name_repair = 'universal')
+# The option 'universal' replaces spaces in colnames with dots, like base read.csv
+(rkd_csv <- list.files(pattern = 'DATA_LABELS.*\\.csv'))
+rkd <- load_rkd(rkd_csv[1])
+colnames(rkd)[1:10]
 ```
 
-
-```{r wd_check, warning=FALSE}
-a=getwd()
-dir.create(paste(a,"/output",sep=""))
-```
 ## Clean the data
 
-The CleanRKD function clean the in 5 step:
+The CleanRKD function clean the in 5 steps:
 
-* set the date variable to the format "%Y-%m-%d"
--   reduce the ethnicity to 6 group where different subgroup are regrouped
--   clean some RKD.ID trouble to be sure that we have no problem when we do any merge with other dataset
--   select the variable present only for the Encounters data and the Initial data (demographics, diagnostics and all other exams performed at the moment of the diagnostics)and merge the Encounter data and Initial data that the initial data are replicate for each Encounter
+* set the date variable to the format `"%Y-%m-%d"`
+-   reduce the ethnicity to 6 groups where different subgroup are regrouped
+-   clean some `RKD.ID` trouble to be sure that we have no problem when we do any merge with other dataset
+-   select the variable present only for the Encounters data and the Initial data (demographics, diagnostics and all other exams performed at the moment of the diagnostics) and merge the Encounter data and Initial data that the initial data are replicate for each Encounter
 -   create the following variable Age of the Encounter and ANCA titration (Anti MPO or Anti PR3 or NA)
 
-```{r, warning=FALSE}
-
-clean_rkd <- CleanRKD(rkd, paste(a,"/output",sep=""))
-head(clean_rkd)[1:5,1:10]
+```{r clean_rkd)}
+output_dir <- tempdir()
+clean_rkd <- clean_rkd(rkd, output_dir)
+colnames(clean_rkd)[1:10]
 ```
 ## Impute key variable for the Paradise project
 
@@ -144,10 +132,9 @@ The DemographicFilterRKD function use the Paradise filter:
 -   AND (ANCA subtype = PR3 / MPO / both) OR (biopsy = Definite vasculitis AND histologically confirmed = YES)
 
 
-```{r, warning=FALSE}
-
-Inclusion_Criteria_rkd <- DemographicFilterRKD(imputated_rkd, paste(a,"/output",sep=""))
-head(Inclusion_Criteria_rkd)[1:5,1:10]
+```{r demographic filter}
+Inclusion_Criteria_rkd <- DemographicFilterRKD(clean_rkd, output_dir)
+head(Inclusion_Criteria_rkd)[, 1:10]
 ```
 
 ## Classify the RKD patient
@@ -157,27 +144,33 @@ The ClassifyRKDCases function use different algorithm create by several previous
 * "BRelapse" algorithm perform the prediction of a Relapse. The output of the function is a variable that tell if the patient have a definite relapse, a possible relapse or no relapse fr one encounter.
 - "Paradise_Encounter" algorithm perform a selection of the encounter that reach the paradise project criteria.
 
-```{r, warning=FALSE}
-
-Classify_rkd_Paradise_Encounter <- ClassifyRKDCases(Inclusion_Criteria_rkd, paste(a,"/output",sep=""), "Paradise_Encounter")
-head(Classify_rkd_Paradise_Encounter)[1:5,1:10]
+```{r classify paradise}
+Classify_rkd_Paradise_Encounter <- ClassifyRKDCases(Inclusion_Criteria_rkd, output_dir, "Paradise_Encounter")
+head(Classify_rkd_Paradise_Encounter)[, 1:10]
 ```
-```{r, warning=FALSE}
 
-Classify_rkd_BRelapse <- ClassifyRKDCases(Classify_rkd_Paradise_Encounter, paste(a,"/output",sep=""), "BRelapse")
-head(Classify_rkd_BRelapse)[1:5,1:10]
+The following function is deprecated and will soon be replaced:
+
+```{r classify brelapse}
+Classify_rkd_BRelapse <- ClassifyRKDCases(Classify_rkd_Paradise_Encounter, output_dir, "BRelapse")
+head(Classify_rkd_BRelapse)[, 1:10]
 ```
 
 ## Filter with the classification
 
 The ClinicalFilterRKD function is a filter based on classify algorithm
 
-```{r, warning=FALSE}
-
-Filter_Classify_rkd <- ClinicalFilterRKD(Classify_rkd_BRelapse, paste(a,"/output",sep=""), "BRelapse")
-head(Classify_rkd)[1:5,1:10]
+```{r filter berelapse}
+Filter_Classify_rkd <- ClinicalFilterRKD(Classify_rkd_BRelapse, output_dir, "BRelapse")
+head(Filter_Classify_rkd)[, 1:10]
 ```
 
+Let's look at the outputs:
+
+```{r}
+list.files(output_dir, full.names = TRUE)
+knitr::knit_exit() # only render document up to this point
+```
 
 ## Load Freezer Work data
 

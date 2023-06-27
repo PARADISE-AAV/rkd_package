@@ -9,10 +9,7 @@
 #' @param ouput_path folder where the filter RKD data will be saved
 #' @return The Redcap data cleaned in your folder and in an object
 #' @export
-#' 
-
-
-DemographicFilterRKD=function(RKDdata, output_path){
+DemographicFilterRKD <- function(RKDdata, output_path) {
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
@@ -22,7 +19,7 @@ DemographicFilterRKD=function(RKDdata, output_path){
   }
   
   RKD_data <- RKDdata
-  if(ncol(RKD_data)==0 | nrow(RKD_data)==0){
+  if (ncol(RKD_data) == 0 | nrow(RKD_data) == 0) {
     stop("You give an empty files")
   }
   
@@ -68,10 +65,12 @@ DemographicFilterRKD=function(RKDdata, output_path){
   
   Filter_RKD_data <- RKD_data_LastFilter
   
-  files_test <-  list.dirs(output_path)
-  if(identical(files_test, character(0)) == TRUE){
+  if (!dir.exists(output_path)) {
     stop("Your output folder don't exist")
   }
-  write.csv(Filter_RKD_data, paste(output_path, "/Redcap_clinical_data_filter", Sys.Date() , ".csv", sep=""), row.names = F)
+
+  output_filename <- file.path(output_path, paste0("Redcap_clinical_data_filter", Sys.Date() , ".csv"))
+  write.csv(Filter_RKD_data, output_filename, row.names = FALSE)
+
   return(Filter_RKD_data)
 }

@@ -6,12 +6,11 @@
 #'
 #'
 #' @param RKDdata RKD data from DemographicFilterRKD function
-#' @param ouput_path folder where the Redcap data will be saved
+#' @param output_path folder where the Redcap data will be saved
 #' @param algorithm function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter"
 #' @return The Redcap data with the imputation at some variable
 #' @export
 #' 
-
 ImputationRKD <- function(RKDdata, output_path, algorithm){
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
@@ -35,14 +34,17 @@ ImputationRKD <- function(RKDdata, output_path, algorithm){
   }
   
   if (algorithm == "RemissionImplementation") {
-    Imputated_RKD_data <- RemissionImplementation(RKD_data)
+    Imputed_RKD_data <- RemissionImplementation(RKD_data)
   }
   
-  files_test <-  list.dirs(output_path)
-  if(identical(files_test, character(0)) == TRUE){
-    stop("Your output folder don't exist")
+  if (!dir.exists(output_path))
+    stop("Your output folder doesn't exist")
   }
-  write.csv(Imputated_RKD_data, paste(output_path, "/Redcap_imputated_data", Sys.Date() , ".csv", sep=""), row.names = F)
+  output_filename <- file.path(
+    output_path,
+    paste0('Redcap_imputated_data', Sys.Date(), '.csv')
+  )
+  write.csv(Imputed_RKD_data, output_filename, row.names = FALSE)
   
-  return(Imputated_RKD_data)
+  return(Imputed_RKD_data)
 }

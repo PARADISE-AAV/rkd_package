@@ -1,26 +1,20 @@
-#' @title BRelapse
+#' @title BRelapse (DEPRECATED)
 #' @author Yagmur Dogay
 #' Version:
 #' Date: 16-March-23
 #' Objective: Inputing the Relapse patient
 #'
-
-
 #' @param RKD_data RKD data from Demographic Filter RKD Data
-#' @return The data with the patient in relapse 
+#' @return The data with the patient in relapse
+#' @import dplyr
+#' @import forcats
 #' @export
-
-
-
 BRelapseFunction <- function(RKD_data) {
   # Step 1: Flare: consider three columns:
   # 1a.	"Adjudicated probability of relapse," "Definite"/"high probability" as "Yes" and "no"/ "Possible" as "No"
   # 2.	For empty cells go to the "Do you think Vasculitis is relapsing in this encounter" and "Definite"/"high probability" as "Yes" and "Unknown"/"Possibly"/"BLANK" go to step 3
   # 3a.	"Disease activity since the last visit" = "Active OR Low disease activity" > "Yes" and "Remission"/"BLANK" > "No"
   # Step 1:
-  library(plyr)
-  library(dplyr)
-  library(epiDisplay)
   data <- RKD_data
   m=nrow(data)
   for(j in 1:m){
@@ -64,9 +58,8 @@ BRelapseFunction <- function(RKD_data) {
   
   # Coding the observation of flare
   
-  data$Flare_Edit_1 <- revalue(
+  data$Flare_Edit_1 <- forcats::fct_recode(
     data$IntFlare,
-    c(
       "No" = "No Relapse",
       "Remission" = "No Relapse",
       "Possibly" = "Possible Relapse",
@@ -75,7 +68,6 @@ BRelapseFunction <- function(RKD_data) {
       "Low disease activity" = "Possible Relapse",
       "Definite" = "Definite Relapse",
       "High Probability" = "Definite Relapse"
-    )
   )
   #table(data$Flare_Edit_1)
   
@@ -357,12 +349,10 @@ BRelapseFunction <- function(RKD_data) {
   
   
   data$Relapse_Code <-
-    revalue(data$Relapse,
-            c(
+    forcats::fct_recode(as.factor(data$Relapse),
               "No Relapse" = "0",
               "Possible Relapse" = "1",
-              "Definite Relapse" = "2"
-            ))
+              "Definite Relapse" = "2")
   #table(data$Relapse_Code)
   
   return(data)
