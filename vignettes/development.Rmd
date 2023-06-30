@@ -71,7 +71,7 @@ RKD_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Dat
 
 Biomarker_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Biomarker_master/Biomarker master_Data only.csv"
    
-fw_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Freezerworks exports"
+fw_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Freezerworks exports/FW exports new"
 
 #specific RKD version
 rkd_file <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Data exports/RareKidneyDiseaseRIT-FullVasculitisExport_DATA_LABELS_2023-04-24_1444.csv"
@@ -185,7 +185,7 @@ This function load the data from Freezerwork database based on their blood matri
 
 ```{r, warning=FALSE}
 
-Load_FW <- LoadFW(fw_path, "Plasma_exp")
+Load_FW <- LoadFW(fw_path, "Plasma")
 head(Load_FW)[1:5,1:10]
 ```
 
