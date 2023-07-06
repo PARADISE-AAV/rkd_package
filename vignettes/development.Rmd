@@ -185,7 +185,7 @@ This function load the data from Freezerwork database based on their blood matri
 
 ```{r, warning=FALSE}
 
-Load_FW <- LoadFW(fw_path, "Plasma")
+Load_FW <- LoadFW(fw_path, "Urine")
 head(Load_FW)[1:5,1:10]
 ```
 
@@ -198,8 +198,8 @@ The CleanFW function is done in 2 step:
 - Remove sample without RKD.ID
 
 ```{r, warning=FALSE}
-
-Clean_FW <- CleanFW(Load_FW, paste(a,"/output",sep=""))
+output_dir <- tempdir()
+Clean_FW <- CleanFW(Load_FW, output_dir)
 head(Clean_FW)[1:5,1:10]
 ```
 
