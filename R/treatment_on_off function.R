@@ -54,4 +54,6 @@ Treatment_On_Off <- function(RKDdata){
       }
     }
   }
+  
+  return(RKD_data)
 }
