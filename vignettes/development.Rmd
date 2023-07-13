@@ -111,7 +111,7 @@ colnames(clean_rkd)[1:10]
 ## Impute key variable for the Paradise project
 
 ```{r}
-imputated_rkd <- ImputationRKD(clean_rkd, paste(a,"/output",sep=""),"RemissionImplementation")
+imputated_rkd <- ImputationRKD(clean_rkd, output_dir,"RemissionImplementation")
 head(imputated_rkd)[1:5,1:10]
 ```
 
