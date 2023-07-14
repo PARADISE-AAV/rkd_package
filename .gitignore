@@ -2,3 +2,4 @@ inst/doc
 *.xlsx
 *.csv
 .Rhistory
+.Rproj.user
