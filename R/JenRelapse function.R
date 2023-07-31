@@ -24,7 +24,8 @@ JenRelapse <- function(RKDdata){
   prep1_data <- prep1(RKD_data)
   prep2_data <- prep2(prep1_data)
   final_data <- cpd.relapse(prep2_data)
+  relapse_final_data <- Relapse_final(final_data)
   
-  return(final_data)
+  return(relapse_final_data)
   
 }
