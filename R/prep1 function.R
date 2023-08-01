@@ -108,10 +108,11 @@ prep1_demo <- function(RKDdata){
 #'
 #' @param RKDdata Data frame with the RKD data in
 #' @return The RKD data after the first part of the data preparation on encounter data
+#' @import dplyr
 #' @export
 
 prep1_enc <- function(RKDdata){
-  library(dplyr)
+  
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")

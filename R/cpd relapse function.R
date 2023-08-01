@@ -7,10 +7,10 @@
 #'
 #' @param RKDdata Data frame after the preparation of the data to apply this function
 #' @return The RKD data with the status if the patient is in remission
+#' @import dplyr
 #' @export
 
 cpd.relapse <- function (RKDdata){
-  library(dplyr)
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
