@@ -19,7 +19,7 @@ ClassifyRKDCases = function(RKDdata, output_path, algorithm, interval_from_diagn
   if (is.character(output_path) == FALSE) {
     stop("The argument output_path need to be a character argument")
   }
-  algorithm <- match.arg(algorithm, c('BRelapse', 'Paradise_Encounter'))
+  algorithm <- match.arg(algorithm, c('BRelapse', 'Paradise_Encounter', "JRelapse"))
 
   RKD_data <- RKDdata
   ###check that you load a real file
