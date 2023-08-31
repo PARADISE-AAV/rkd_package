@@ -9,4 +9,13 @@
 library(testthat)
 library(rkdpipeline)
 
-test_check("rkdpipeline")
+
+
+testthat::test_that("function Inclusion Criteria", {
+  rkd=clean_rkd
+  output_dir=tempdir()
+  testthat::expect_equal(nrow(DemographicFilterRKD(rkd, output_dir))<=nrow(rkd), TRUE)
+  testthat::expect_error(DemographicFilterRKD(rkd, output_dir), NA)
+  output_dir=1
+  testthat::expect_error(DemographicFilterRKD(rkd, output_dir), "The argument output_path need to be a character argument")
+})

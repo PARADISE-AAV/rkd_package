@@ -71,7 +71,7 @@ RKD_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Dat
 
 Biomarker_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Biomarker_master/Biomarker master_Data only.csv"
    
-fw_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Freezerworks exports"
+fw_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Freezerworks exports/FW exports new"
 
 #specific RKD version
 rkd_file <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Data exports/RareKidneyDiseaseRIT-FullVasculitisExport_DATA_LABELS_2023-04-24_1444.csv"
@@ -89,7 +89,7 @@ For the purposes of this example, we will pull in whichever CSV file is in the c
 # rkd <- readxl::read_excel(rkd_xlsx, .name_repair = 'universal')
 # The option 'universal' replaces spaces in colnames with dots, like base read.csv
 (rkd_csv <- list.files(pattern = 'DATA_LABELS.*\\.csv'))
-rkd <- load_rkd(rkd_csv[1])
+rkd <- load_rkd(rkd_file)
 colnames(rkd)[1:10]
 ```
 
@@ -111,7 +111,7 @@ colnames(clean_rkd)[1:10]
 ## Impute key variable for the Paradise project
 
 ```{r}
-imputated_rkd <- ImputationRKD(clean_rkd, paste(a,"/output",sep=""),"RemissionImplementation")
+imputated_rkd <- ImputationRKD(clean_rkd, output_dir,"RemissionImplementation")
 head(imputated_rkd)[1:5,1:10]
 ```
 
@@ -185,7 +185,7 @@ This function load the data from Freezerwork database based on their blood matri
 
 ```{r, warning=FALSE}
 
-Load_FW <- LoadFW(fw_path, "Plasma_exp")
+Load_FW <- LoadFW(fw_path, "Urine")
 head(Load_FW)[1:5,1:10]
 ```
 
@@ -198,8 +198,8 @@ The CleanFW function is done in 2 step:
 - Remove sample without RKD.ID
 
 ```{r, warning=FALSE}
-
-Clean_FW <- CleanFW(Load_FW, paste(a,"/output",sep=""))
+output_dir <- tempdir()
+Clean_FW <- CleanFW(Load_FW, output_dir)
 head(Clean_FW)[1:5,1:10]
 ```
 
