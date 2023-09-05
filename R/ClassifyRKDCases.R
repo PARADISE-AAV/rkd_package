@@ -34,7 +34,7 @@ ClassifyRKDCases = function(RKDdata, output_path, algorithm, interval_from_diagn
     Classify_RKD_data <- Paradise_Encounter(RKD_data, interval_from_diagnostics)
   }
   if(algorithm == "JRelapse"){
-    JenRelapse_data <- rkdpipeline::JenRelapse(RKD_data)
+    JenRelapse_data <- JenRelapse(RKD_data)
     Classify_RKD_data <- merge(RKD_data, JenRelapse_data, by.x = c("RKD.ID", "Date.Of.Visit"), by.y = c("ID", "Date.Of.Visit"))
     
   }
