@@ -8,13 +8,14 @@
 #' @param FWdata FW data from CleanFW function
 #' @param RKDdata RKD data from ClinicalFilterRKD function
 #' @param output_path folder where the merged data will be saved
+#' @param interval The number of day in which the merge need to be done
 #' @return The Redcap data cleaned in your folder and in an object
 #' @import DT
 #' @import dplyr
 #' @import fuzzyjoin
 #' @export
 
-FindFWSample=function(FWdata, RKDdata, output_path){
+FindFWSample=function(FWdata, RKDdata, output_path, interval){
   
   #Checking the argument
   if (is.data.frame(FWdata) == FALSE) {
@@ -26,6 +27,10 @@ FindFWSample=function(FWdata, RKDdata, output_path){
   if (is.character(output_path) == FALSE) {
     stop("The argument output_path need to be a character argument")
   }
+  if (is.integer(interval) == FALSE) {
+    stop("The argument output_path need to be a integer argument")
+  }
+  
   
   RKD_data <- RKDdata
   if(ncol(RKD_data)==0 | nrow(RKD_data)==0){
@@ -38,10 +43,10 @@ FindFWSample=function(FWdata, RKDdata, output_path){
   }
   
   FWdata$Start.date.of.date.range <-
-    as.Date(Clean_FW_chosen$Date.of.encounter) - 3
+    as.Date(Clean_FW_chosen$Date.of.encounter) - interval
   
   FWdata$End.date.of.date.range <-
-    as.Date(Clean_FW_chosen$Date.of.encounter) + 3
+    as.Date(Clean_FW_chosen$Date.of.encounter) + interval
   
   merged_frame <-fuzzy_inner_join(
     RKDdata, FWdata,
