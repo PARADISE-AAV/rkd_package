@@ -37,8 +37,14 @@ FindFWSample=function(FWdata, RKDdata, output_path){
     stop("You give an empty files")
   }
   
+  FWdata$Start.date.of.date.range <-
+    as.Date(Clean_FW_chosen$Date.of.encounter) - 3
+  
+  FWdata$End.date.of.date.range <-
+    as.Date(Clean_FW_chosen$Date.of.encounter) + 3
+  
   merged_frame <-fuzzy_inner_join(
-    data_urine, data_bio,
+    RKDdata, FWdata,
     by = c(
       "RKD.ID" = "RKD.ID",
       "Date.Of.Visit" = "Start.date.of.date.range",
