@@ -43,10 +43,10 @@ FindFWSample=function(FWdata, RKDdata, output_path, interval){
   }
   
   FWdata$Start.date.of.date.range <-
-    as.Date(Clean_FW_chosen$Date.of.encounter) - interval
+    as.Date(FWdata$Date.of.encounter) - interval
   
   FWdata$End.date.of.date.range <-
-    as.Date(Clean_FW_chosen$Date.of.encounter) + interval
+    as.Date(FWdata$Date.of.encounter) + interval
   
   merged_frame <-fuzzy_inner_join(
     RKDdata, FWdata,
