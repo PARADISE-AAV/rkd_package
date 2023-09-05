@@ -9,6 +9,9 @@
 #' @param RKDdata RKD data from ClinicalFilterRKD function
 #' @param output_path folder where the merged data will be saved
 #' @return The Redcap data cleaned in your folder and in an object
+#' @import DT
+#' @import dplyr
+#' @import fuzzyjoin
 #' @export
 
 FindFWSample=function(FWdata, RKDdata, output_path){
@@ -34,13 +37,25 @@ FindFWSample=function(FWdata, RKDdata, output_path){
     stop("You give an empty files")
   }
   
-  Merged_data <- merge(RKD_data, FW_data, by.x = c("RKD.ID", "Date.Of.Visit"), by.y = c("Main.Study.ID", "Date.of.encounter"))
+  merged_frame <-fuzzy_inner_join(
+    data_urine, data_bio,
+    by = c(
+      "RKD.ID" = "RKD.ID",
+      "Date.Of.Visit" = "Start.date.of.date.range",
+      "Date.Of.Visit" = "End.date.of.date.range"
+    ),
+    match_fun = list(`==`, `>=`, `<=`)
+  ) %>%
+    select(everything())
+  
+  
+  rownames(merged_frame) <- NULL
   
   files_test <-  list.dirs(output_path)
   if(identical(files_test, character(0)) == TRUE){
     stop("Your output folder don't exist")
   }
-  write.csv(Merged_data, paste(output_path, "/Merged_FW_RKD_", Sys.Date() , ".csv", sep=""), row.names = F)
-  return(Merged_data)
+  write.csv(merged_frame, paste(output_path, "/Merged_FW_RKD_", Sys.Date() , ".csv", sep=""), row.names = F)
+  return(merged_frame)
   
 }
