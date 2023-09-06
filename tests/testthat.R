@@ -18,3 +18,8 @@ testthat::test_that("function LoadRKD", {
   file_name="a/b"
   testthat::expect_error(load_rkd(file_name), 'Your input folder doesn\'t exist')
 })
+
+testthat::test_that("function LoadRKD", {
+  
+  
+}) 
