@@ -4,7 +4,7 @@
 \alias{complete.bvas}
 \title{complete.bvas}
 \usage{
-\method{complete}{bvas}(RKDdata)
+complete.bvas(RKDdata)
 }
 \arguments{
 \item{RKDdata}{Data frame with the RKD data in}

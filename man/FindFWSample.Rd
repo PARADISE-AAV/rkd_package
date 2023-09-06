@@ -4,7 +4,7 @@
 \alias{FindFWSample}
 \title{FindFWSample}
 \usage{
-FindFWSample(FWdata, RKDdata, output_path)
+FindFWSample(FWdata, RKDdata, output_path, interval)
 }
 \arguments{
 \item{FWdata}{FW data from CleanFW function}
@@ -12,6 +12,8 @@ FindFWSample(FWdata, RKDdata, output_path)
 \item{RKDdata}{RKD data from ClinicalFilterRKD function}
 
 \item{output_path}{folder where the merged data will be saved}
+
+\item{interval}{The number of day in which the merge need to be done}
 }
 \value{
 The Redcap data cleaned in your folder and in an object

@@ -13,7 +13,7 @@ library(rkdpipeline)
 
 testthat::test_that("function LoadRKD", {
   file_name=1
-  testthat::expect_error(load_rkd(file_name), 'is.character(file_name) is not TRUE')
+  testthat::expect_error(load_rkd(file_name), "Your argument need to be a character")
   
   file_name="a/b"
   testthat::expect_error(load_rkd(file_name), 'Your input folder doesn\'t exist')
