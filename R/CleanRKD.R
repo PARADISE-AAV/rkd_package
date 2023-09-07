@@ -21,8 +21,8 @@
 #' @export
 clean_rkd <- function(rkd_data, output_path) {
   # Check arguments
-  stopifnot(is.data.frame(rkd_data))
-  stopifnot(is.character(output_path))
+  stopifnot("Your argument need to be a data frame"=is.data.frame(rkd_data))
+  stopifnot("Your argument need to be a character"=is.character(output_path))
 
   # Check output directory
   if (!dir.exists(output_path)) {
