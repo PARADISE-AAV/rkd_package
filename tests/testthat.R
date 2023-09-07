@@ -20,6 +20,7 @@ testthat::test_that("function LoadRKD", {
 })
 
 testthat::test_that("function cleanRKD", {
+  
   rkd=as.data.frame(NULL)
   output_path=1
   testthat::expect_error(clean_rkd(rkd, output_path), "Your argument need to be a character")
@@ -35,5 +36,6 @@ testthat::test_that("function cleanRKD", {
   rkd=as.data.frame(NULL)
   output_path=getwd()
   testthat::expect_error(clean_rkd(rkd, output_path), "You supplied an empty file")
+  
   
 }) 
