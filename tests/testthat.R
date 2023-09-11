@@ -37,5 +37,10 @@ testthat::test_that("function cleanRKD", {
   output_path=getwd()
   testthat::expect_error(clean_rkd(rkd, output_path), "You supplied an empty file")
   
-  
+  rkd=cbind.data.frame(RKD.ID=c(1,1,2,2,3,3),
+                       Date.Of.Visit=c("1985/10/01","1987/12/02","1998/11/14", "1999/11/19", 
+                                       "1987/12/25", "2005/01/03"),
+                       Date.of.Birth.known.unknown=c("Known","Known", "Unknown", "Unknown", "Unknown", "Unknown"))
+  testthat::expect_equal(is.Date(rkd_parse_dates(rkd)$Date.Of.Visit), TRUE)
+  testthat::expect_equal(is.Date(rkd_parse_dates(rkd)$Date.of.Birth.known.unknown), FALSE)
 }) 
