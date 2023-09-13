@@ -54,4 +54,23 @@ testthat::test_that("function cleanRKD", {
                        Patient.ID=c(1,1,2,2,3,3,1,6)
                        )
   testthat::expect_equal(rkd_fix_ids(rkd3)$RKD.ID[7],"1")
+  
+  
+}) 
+
+
+testthat::test_that("function DemographicFilterRKD", {
+  
+  rkd=as.data.frame(NULL)
+  output_path=1
+  testthat::expect_error(DemographicFilterRKD(rkd, output_path), "The argument output_path need to be a character argument")
+  
+  rkd=NULL
+  output_path=getwd()
+  testthat::expect_error(DemographicFilterRKD(rkd, output_path), "The argument RKDdata need to be a dataframe argument")
+  
+  rkd=as.data.frame(NULL)
+  output_path=getwd()
+  testthat::expect_error(DemographicFilterRKD(rkd, output_path), "You give an empty files")
+  
 }) 
