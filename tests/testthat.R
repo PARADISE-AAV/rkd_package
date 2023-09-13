@@ -43,4 +43,8 @@ testthat::test_that("function cleanRKD", {
                        Date.of.Birth.known.unknown=c("Known","Known", "Unknown", "Unknown", "Unknown", "Unknown"))
   testthat::expect_equal(is.Date(rkd_parse_dates(rkd)$Date.Of.Visit), TRUE)
   testthat::expect_equal(is.Date(rkd_parse_dates(rkd)$Date.of.Birth.known.unknown), FALSE)
+  
+  rkd2=cbind.data.frame(RKD.ID=c(1,1,2,2,3,3,4,5,6,7),
+                        Ethnicity=c("White-Irish", "White-Irish","White-French", "White-French", "B2 - African", "Black","Asian", "Mixed-Balack-White", "NS - Not Stated", "Other"))
+  testthat::expect_equal(nrow(table(rkd_collapse_ethnicity(rkd2)$Ethnicity)),6)
 }) 
