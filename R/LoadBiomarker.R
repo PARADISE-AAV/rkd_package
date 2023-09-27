@@ -44,5 +44,9 @@ LoadBiomarker=function(files_name){
     warning("You have weird dates in your dataset can you check the format of the date of sample")
   }
   
+  if(length(which(is.na(Biomarker_data$Date.of.sample) == TRUE))>0){
+    warning("You have a problem of format of date in your files. Be sure that the format is YYYY-MM-DD")
+  }
+  
   return(Biomarker_data)
 }
