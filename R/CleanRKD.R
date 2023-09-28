@@ -46,6 +46,10 @@ clean_rkd <- function(rkd_data, output_path) {
 
   # Combine the single-row initial records with the (multi-row) encounters
   rkd_data <- rkd_tidy_encounters(rkd_data)
+  
+  if(length(which(rkd_data$Date.of.diagnosis<rkd_data$Date.of.Birth))>0){
+    warning("There is a problem with format of date")
+  }
 
   # Add age variable
   rkd_data <- rkd_data %>%
