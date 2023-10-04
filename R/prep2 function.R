@@ -62,7 +62,7 @@ inclusion_criteria <- function(RKDdata){
     stop("You give an empty files")
   }
   RKD_data <- RKD_data %>% 
-    filter(Interval.from.diagnosis..months. >= 3)
+    filter(Interval.from.diagnosis..months. >= 6)
   return (RKD_data)
 
 }
