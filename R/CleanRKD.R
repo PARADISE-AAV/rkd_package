@@ -50,6 +50,18 @@ clean_rkd <- function(rkd_data, output_path) {
   if(length(which(rkd_data$Date.of.diagnosis<rkd_data$Date.of.Birth))>0){
     warning("There is a problem with format of date")
   }
+  
+  a <- grep("Date",colnames(rkd_data))
+  a <- a[-grep("known.unknown",colnames(rkd_data)[a])]
+  for(i in a){
+    if(length(which(is.na(rkd_data[,i]) == TRUE))>0){
+      warning("You have a problem of format of date in your files. Be sure that the format is YYYY-MM-DD")
+    }
+    
+    if(min(year(rkd_data[,i]),na.rm=T)<1900){
+      warning("You have weird dates in your dataset can you check the format of the date of sample")
+    }
+  }
 
   # Add age variable
   rkd_data <- rkd_data %>%
