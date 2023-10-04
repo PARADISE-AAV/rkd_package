@@ -40,7 +40,7 @@ LoadBiomarker=function(files_name){
   
   Biomarker_data$Date.of.sample=as.Date(Biomarker_data$Date.of.sample)
   
-  if(min(year(Biomarker_data$Date.of.sample),na.rm=T)<1976){
+  if(min(year(Biomarker_data$Date.of.sample),na.rm=T)<1950){
     warning("You have weird dates in your dataset can you check the format of the date of sample")
   }
   
