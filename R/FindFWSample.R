@@ -8,10 +8,14 @@
 #' @param FWdata FW data from CleanFW function
 #' @param RKDdata RKD data from ClinicalFilterRKD function
 #' @param output_path folder where the merged data will be saved
+#' @param interval The number of day in which the merge need to be done
 #' @return The Redcap data cleaned in your folder and in an object
+#' @import DT
+#' @import dplyr
+#' @import fuzzyjoin
 #' @export
 
-FindFWSample=function(FWdata, RKDdata, output_path){
+FindFWSample=function(FWdata, RKDdata, output_path, interval){
   
   #Checking the argument
   if (is.data.frame(FWdata) == FALSE) {
@@ -23,6 +27,10 @@ FindFWSample=function(FWdata, RKDdata, output_path){
   if (is.character(output_path) == FALSE) {
     stop("The argument output_path need to be a character argument")
   }
+  if (is.integer(interval) == FALSE) {
+    stop("The argument output_path need to be a integer argument")
+  }
+  
   
   RKD_data <- RKDdata
   if(ncol(RKD_data)==0 | nrow(RKD_data)==0){
@@ -34,13 +42,31 @@ FindFWSample=function(FWdata, RKDdata, output_path){
     stop("You give an empty files")
   }
   
-  Merged_data <- merge(RKD_data, FW_data, by.x = c("RKD.ID", "Date.Of.Visit"), by.y = c("Main.Study.ID", "Date.of.encounter"))
+  FWdata$Start.date.of.date.range <-
+    as.Date(FWdata$Date.of.encounter) - interval
+  
+  FWdata$End.date.of.date.range <-
+    as.Date(FWdata$Date.of.encounter) + interval
+  
+  merged_frame <-fuzzy_inner_join(
+    RKDdata, FWdata,
+    by = c(
+      "RKD.ID" = "RKD.ID",
+      "Date.Of.Visit" = "Start.date.of.date.range",
+      "Date.Of.Visit" = "End.date.of.date.range"
+    ),
+    match_fun = list(`==`, `>=`, `<=`)
+  ) %>%
+    select(everything())
+  
+  
+  rownames(merged_frame) <- NULL
   
   files_test <-  list.dirs(output_path)
   if(identical(files_test, character(0)) == TRUE){
     stop("Your output folder don't exist")
   }
-  write.csv(Merged_data, paste(output_path, "/Merged_FW_RKD_", Sys.Date() , ".csv", sep=""), row.names = F)
-  return(Merged_data)
+  write.csv(merged_frame, paste(output_path, "/Merged_FW_RKD_", Sys.Date() , ".csv", sep=""), row.names = F)
+  return(merged_frame)
   
 }

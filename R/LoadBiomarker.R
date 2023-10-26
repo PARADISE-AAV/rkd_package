@@ -38,5 +38,15 @@ LoadBiomarker=function(files_name){
     stop("You give an empty files")
   }
   
+  Biomarker_data$Date.of.sample=as.Date(Biomarker_data$Date.of.sample)
+  
+  if(min(year(Biomarker_data$Date.of.sample),na.rm=T)<1950){
+    warning("You have weird dates in your dataset can you check the format of the date of sample")
+  }
+  
+  if(length(which(is.na(Biomarker_data$Date.of.sample) == TRUE))>0){
+    warning("You have a problem of format of date in your files. Be sure that the format is YYYY-MM-DD")
+  }
+  
   return(Biomarker_data)
 }

@@ -15,7 +15,7 @@
 #'
 #' @export
 load_rkd <- function (file_name) {
-  stopifnot(is.character(file_name))
+  stopifnot("Your argument need to be a character"=is.character(file_name))
   stopifnot(length(file_name) == 1)
   containing_dir <- dirname(file_name)
   if (!dir.exists(containing_dir)) {

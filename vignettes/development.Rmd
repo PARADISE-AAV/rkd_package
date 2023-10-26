@@ -65,9 +65,9 @@ Note the following code is not reproducible for other users.
 
 ```{r paths}
 #paths
-rkd_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Data exports/"
+
 biomarker_path <- "C:/Users/Administrator/Trinity College Dublin/THKC - Documents/Arlena Carney/Makala Carroll/Projects/Mini Biobank/Biomarker_master/Biomarker master-Data only.csv"
-RKD_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Data exports/"
+
 
 Biomarker_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Biomarker_master/Biomarker master_Data only.csv"
    
@@ -147,6 +147,7 @@ The ClassifyRKDCases function use different algorithm create by several previous
 ```{r classify paradise}
 Classify_rkd_Paradise_Encounter <- ClassifyRKDCases(Inclusion_Criteria_rkd, output_dir, "Paradise_Encounter")
 head(Classify_rkd_Paradise_Encounter)[, 1:10]
+colnames(Classify_rkd_Paradise_Encounter)[which(colnames(Classify_rkd_Paradise_Encounter)=="Status.x")]="Status"
 ```
 
 The following function is deprecated and will soon be replaced:

@@ -4,7 +4,7 @@
 \alias{AddBiomarkerRKD}
 \title{AddBiomarkerRKD}
 \usage{
-AddBiomarkerRKD(data_rkd, data_bio)
+AddBiomarkerRKD(data_rkd, data_bio, interval)
 }
 \description{
 AddBiomarkerRKD

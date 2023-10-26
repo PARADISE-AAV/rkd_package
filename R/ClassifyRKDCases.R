@@ -19,7 +19,7 @@ ClassifyRKDCases = function(RKDdata, output_path, algorithm, interval_from_diagn
   if (is.character(output_path) == FALSE) {
     stop("The argument output_path need to be a character argument")
   }
-  algorithm <- match.arg(algorithm, c('BRelapse', 'Paradise_Encounter'))
+  algorithm <- match.arg(algorithm, c('BRelapse', 'Paradise_Encounter', "JRelapse"))
 
   RKD_data <- RKDdata
   ###check that you load a real file
@@ -32,6 +32,11 @@ ClassifyRKDCases = function(RKDdata, output_path, algorithm, interval_from_diagn
   }
   if (algorithm == "Paradise_Encounter") {
     Classify_RKD_data <- Paradise_Encounter(RKD_data, interval_from_diagnostics)
+  }
+  if(algorithm == "JRelapse"){
+    JenRelapse_data <- JenRelapse(RKD_data)
+    Classify_RKD_data <- merge(RKD_data, JenRelapse_data, by.x = c("RKD.ID", "Date.Of.Visit"), by.y = c("ID", "Date.Of.Visit"))
+    
   }
 
   files_test <-  list.dirs(output_path)

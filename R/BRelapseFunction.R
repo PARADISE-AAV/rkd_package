@@ -19,9 +19,9 @@ BRelapseFunction <- function(RKD_data) {
   data <- RKD_data
   m=nrow(data)
   for(j in 1:m){
-      if(as.character(data$Adjudicated.probability.of.relapse[j])=="" & is.na(data$Adjudicated.probability.of.relapse[j])==F){
-        data$Adjudicated.probability.of.relapse[j]=NA
-      }
+    if(as.character(data$Adjudicated.probability.of.relapse[j])=="" & is.na(data$Adjudicated.probability.of.relapse[j])==F){
+      data$Adjudicated.probability.of.relapse[j]=NA
+    }
   }
   
   data$IntFlare <-
@@ -59,8 +59,9 @@ BRelapseFunction <- function(RKD_data) {
   
   # Coding the observation of flare
   
-  data$Flare_Edit_1 <- forcats::fct_recode(
+  data$Flare_Edit_1 <- revalue(
     data$IntFlare,
+    c(
       "No" = "No Relapse",
       "Remission" = "No Relapse",
       "Possibly" = "Possible Relapse",
@@ -69,6 +70,7 @@ BRelapseFunction <- function(RKD_data) {
       "Low disease activity" = "Possible Relapse",
       "Definite" = "Definite Relapse",
       "High Probability" = "Definite Relapse"
+    )
   )
   #table(data$Flare_Edit_1)
   
@@ -76,17 +78,17 @@ BRelapseFunction <- function(RKD_data) {
   # Step 2: determine the visit dates with interval less than 3 months of the date of diagnosis
   
   data <- data %>%
-    dplyr::mutate(
+    mutate(
       Flare_Edit_2 = ifelse(
-        .data$Interval.from.diagnosis..months. <= 3 &
-          .data$Flare_Edit_1 == "Definite Relapse" |
-          .data$Interval.from.diagnosis..months. <= 3 &
-          .data$Flare_Edit_1 == "Possible Relapse" |
-          .data$Interval.from.diagnosis..months. <= 3 &
-          is.na(.data$Flare_Edit_1)
+        `Interval.from.diagnosis..months.` <= 3 &
+          Flare_Edit_1 == "Definite Relapse" |
+          `Interval.from.diagnosis..months.` <= 3 &
+          Flare_Edit_1 == "Possible Relapse" |
+          `Interval.from.diagnosis..months.` <= 3 &
+          is.na(Flare_Edit_1)
         ,
         "No Relapse",
-        .data$Flare_Edit_1
+        Flare_Edit_1
       )
     )
   #table(data$Flare_Edit_2)
@@ -98,26 +100,26 @@ BRelapseFunction <- function(RKD_data) {
   data$`Date.Of.Visit` <-
     as.Date(data$`Date.Of.Visit`, "%d/%m/%Y")
   data <- data %>%
-    dplyr::group_by(`RKD.ID`) %>%
-    dplyr::mutate(Lagvisit = ifelse(
+    group_by(`RKD.ID`) %>%
+    mutate(Lagvisit = ifelse(
       is.na(difftime(
-        .data$`Date.Of.Visit`, lag(.data$`Date.Of.Visit`), units = "days"
+        `Date.Of.Visit`, lag(`Date.Of.Visit`), units = "days"
       )),
       "0",
-      difftime(.data$`Date.Of.Visit`, lag(.data$`Date.Of.Visit`), units =
+      difftime(`Date.Of.Visit`, lag(`Date.Of.Visit`), units =
                  "days")
     ))
   data$Lagvisit <- as.numeric(data$Lagvisit)
   
   
   data <- data %>%
-    dplyr::group_by(.data$`RKD.ID`) %>%
-    dplyr::mutate(
+    group_by(`RKD.ID`) %>%
+    mutate(
       Exc_Lagvisit = ifelse(
-        .data$Flare_Edit_2 == "Definite Relapse" &
-          lag(.data$Flare_Edit_2) == "Definite Relapse" &
-          .data$Lagvisit < 60,
-        .data$Lagvisit,
+        Flare_Edit_2 == "Definite Relapse" &
+          lag(Flare_Edit_2) == "Definite Relapse" &
+          Lagvisit < 60,
+        Lagvisit,
         NA
       )
     ) %>%
@@ -350,11 +352,12 @@ BRelapseFunction <- function(RKD_data) {
   
   
   data$Relapse_Code <-
-    forcats::fct_recode(as.factor(data$Relapse),
+    revalue(data$Relapse,
+            c(
               "No Relapse" = "0",
               "Possible Relapse" = "1",
-              "Definite Relapse" = "2")
-  #table(data$Relapse_Code)
+              "Definite Relapse" = "2"
+            ))
   
   return(data)
   
