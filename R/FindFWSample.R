@@ -51,7 +51,7 @@ FindFWSample=function(FWdata, RKDdata, output_path, interval){
   merged_frame <-fuzzy_inner_join(
     RKDdata, FWdata,
     by = c(
-      "RKD.ID" = "RKD.ID",
+      "RKD.ID" = "Main.Study.ID",
       "Date.Of.Visit" = "Start.date.of.date.range",
       "Date.Of.Visit" = "End.date.of.date.range"
     ),
