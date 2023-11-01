@@ -33,11 +33,11 @@ CleanFW=function(FWdata, output_path){
   
   FW_data_filter_amount$Date.of.encounter <- as.Date(FW_data_filter_amount$Date.of.encounter, format = '%d/%m/%Y')
   
-  if(min(year(Biomarker_data$Date.of.encounter),na.rm=T)<1976){
+  if(min(year(FW_data_filter_amount$Date.of.encounter),na.rm=T)<1976){
     warning("You have weird dates in your dataset can you check the format of the date of sample")
   }
   
-  if(length(which(is.na(Biomarker_data$Date.of.encounter) == TRUE))>0){
+  if(length(which(is.na(FW_data_filter_amount$Date.of.encounter) == TRUE))>0){
     warning("You have a problem of format of date in your files. Be sure that the format is YYYY-MM-DD")
   }
   
