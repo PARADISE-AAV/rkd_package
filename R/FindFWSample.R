@@ -27,8 +27,8 @@ FindFWSample=function(FWdata, RKDdata, output_path, interval){
   if (is.character(output_path) == FALSE) {
     stop("The argument output_path need to be a character argument")
   }
-  if (is.integer(interval) == FALSE) {
-    stop("The argument output_path need to be a integer argument")
+  if (is.numeric(interval) == FALSE) {
+    stop("The argument interval need to be a integer argument")
   }
   
   
