@@ -32,19 +32,19 @@ LoadBiomarker=function(files_name){
   }
   
   
-  Biomarker_data <- read.csv(files_name, header = TRUE)
+  Biomarker_data <- read.table(files_name, header = TRUE, sep = ",")
   ###check that you load a real file
   if(ncol(Biomarker_data)==0 | nrow(Biomarker_data)==0){
     stop("You give an empty files")
   }
   
-  Biomarker_data$Date.of.sample=as.Date(Biomarker_data$Date.of.sample)
+  Biomarker_data$Date.Of.Visit=as.Date(Biomarker_data$Date.Of.Visit)
   
-  if(min(year(Biomarker_data$Date.of.sample),na.rm=T)<1950){
+  if(min(year(Biomarker_data$Date.Of.Visit),na.rm=T)<1950){
     warning("You have weird dates in your dataset can you check the format of the date of sample")
   }
   
-  if(length(which(is.na(Biomarker_data$Date.of.sample) == TRUE))>0){
+  if(length(which(is.na(Biomarker_data$Date.Of.Visit) == TRUE))>0){
     warning("You have a problem of format of date in your files. Be sure that the format is YYYY-MM-DD")
   }
   
