@@ -13,7 +13,7 @@
 #' @details This function use different function to classify the encounter of RKD data. this function are described in their function.
 #' CPD Relapse tells us if an encounter is in relapse or not based on rules and models 
 #' BRelapse tells us if an encounter is in relapse or not based on rules
-#' Paradise_Encounter tells us if we can include 
+#' Paradise_Encounter tells us if we can include the Encounter or not in the Paradise project
 #' 
 #' @export
 ClassifyRKDCases = function(RKDdata, output_path, algorithm, interval_from_diagnostics=6) {
