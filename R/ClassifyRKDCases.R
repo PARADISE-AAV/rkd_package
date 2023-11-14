@@ -10,10 +10,10 @@
 #' @param algorithm function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter" or "CPD Relapse"
 #' @param interval_from_diagnostics the interval from diagnostics for the algorithm Paradise_Encounter by default 6
 #' @return The Redcap data cleaned in your folder and in an object 
-#' @details This function use different function to classify the encounter of RKD data. 
+#' @details This function use different function to classify the encounter of RKD data. this function are described in their function.
 #' CPD Relapse tells us if an encounter is in relapse or not based on rules and models 
-#' 
-#' 
+#' BRelapse tells us if an encounter is in relapse or not based on rules
+#' Paradise_Encounter tells us if we can include 
 #' 
 #' @export
 ClassifyRKDCases = function(RKDdata, output_path, algorithm, interval_from_diagnostics=6) {
