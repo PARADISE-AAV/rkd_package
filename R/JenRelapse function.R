@@ -1,4 +1,4 @@
-#' @title prep1_demo
+#' @title CPD_Relapse
 #' @author Matthieu COQ/Jennifer Scott
 #' @Version: 1.0
 #' @Date: 07-Jul-23
@@ -6,6 +6,10 @@
 #'
 #'
 #' @param RKDdata Data frame with the RKD data in
+#' @details
+#' 
+#' 
+#' 
 #' @return The RKD data with the relapse category
 #' @export
 
