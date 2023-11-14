@@ -7,9 +7,14 @@
 #'
 #' @param RKDdata RKD data from DemographicFilterRKD function
 #' @param output_path folder where the Redcap data will be saved
-#' @param algorithm function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter"
+#' @param algorithm function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter" or "CPD Relapse"
 #' @param interval_from_diagnostics the interval from diagnostics for the algorithm Paradise_Encounter by default 6
 #' @return The Redcap data cleaned in your folder and in an object 
+#' @details This function use different function to classify the encounter of RKD data. 
+#' CPD Relapse tells us if an encounter is in relapse or not based on rules and models 
+#' 
+#' 
+#' 
 #' @export
 ClassifyRKDCases = function(RKDdata, output_path, algorithm, interval_from_diagnostics=6) {
   ####Test on the argument
@@ -33,7 +38,7 @@ ClassifyRKDCases = function(RKDdata, output_path, algorithm, interval_from_diagn
   if (algorithm == "Paradise_Encounter") {
     Classify_RKD_data <- Paradise_Encounter(RKD_data, interval_from_diagnostics)
   }
-  if(algorithm == "JRelapse"){
+  if(algorithm == "CPD Relapse"){
     JenRelapse_data <- JenRelapse(RKD_data)
     Classify_RKD_data <- merge(RKD_data, JenRelapse_data, by.x = c("RKD.ID", "Date.Of.Visit"), by.y = c("ID", "Date.Of.Visit"))
     
