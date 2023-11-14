@@ -7,6 +7,9 @@
 #'
 #' @param files_name Biomarkerdata used
 #' @return The Biomarker Data into DataFrame
+#' @details The load of Biomarker data in a dataframe object is use to add the Biomarker data to the rkd data. Please mind that some verification of your files ad the date format can interrupt the function.
+#' 
+#' 
 #' @import stringr
 LoadBiomarker=function(files_name){
   ####Test on the argument
