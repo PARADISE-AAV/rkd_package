@@ -2,7 +2,7 @@
 #' @author Matthieu COQ/Yagmur DOGAY
 #' Version: 1.0
 #' Date: 24-Jan-23
-#' Objective: The objective is to load the Biomarker data in a datframe object
+#' Objective: The objective is to load the Biomarker data in a dataframe object
 #'
 #'
 #' @param files_name Biomarkerdata used

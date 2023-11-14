@@ -4,7 +4,7 @@
 \alias{complete.ANCA}
 \title{complete.ANCA}
 \usage{
-\method{complete}{ANCA}(RKDdata)
+complete.ANCA(RKDdata)
 }
 \arguments{
 \item{RKDdata}{Data frame with the RKD data in}
