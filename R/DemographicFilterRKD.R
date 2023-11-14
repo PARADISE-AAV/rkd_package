@@ -7,6 +7,10 @@
 #'
 #' @param RKDdata RKD data from CleanRKD function or AddBiomarker function
 #' @param output_path folder where the filter RKD data will be saved
+#' @details The filter of the RKD data are based on the following filter
+#' Definite MPA and GPA with no secondary Vasculitis
+#' 
+#' 
 #' @return The Redcap data cleaned in your folder and in an object
 #' @export
 DemographicFilterRKD <- function(RKDdata, output_path) {
