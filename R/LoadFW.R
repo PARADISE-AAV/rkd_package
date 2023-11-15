@@ -7,6 +7,10 @@
 #'
 #' @param folder_name folder name of the Freezerwork
 #' @param matrix_type type of blood matrix needed
+#' @details
+#' 
+#' 
+#' 
 #' @return The Redcap data in your folder and in an object
 #' @export
 
