@@ -11,7 +11,8 @@
 #' There is 4 sub-function
 #' prep1 and prep2 are function to prepare the data for the modelling and the classification
 #' cpd.relapse is the function to apply the model described in Jennifer Scott article
-#' Relapse_final is the function where 
+#' Relapse_final is the function where the last rules of the step1 and step2 are done
+#' The step3 of the function is done in this function.
 #' 
 #' @return The RKD data with the relapse category
 #' @export
