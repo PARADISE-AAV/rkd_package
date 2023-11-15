@@ -2,13 +2,18 @@
 #' @author Matthieu COQ
 #' Version: 1.0
 #' Date: 24-Jan-23
-#' Objective: The objective is to load the Freezerwork data in a datframe object
+#' Objective: The objective is to load the Freezerwork data in a dataframe object
 #'
 #'
 #' @param folder_name folder name of the Freezerwork
 #' @param matrix_type type of blood matrix needed
 #' @details
-#' 
+#' This function is for loading the Freezerwork depending of the following matrix
+#' -Serum
+#' -Urine
+#' -Plasma
+#' -DNA
+#' -RNA
 #' 
 #' 
 #' @return The Redcap data in your folder and in an object
