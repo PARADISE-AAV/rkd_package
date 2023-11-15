@@ -30,6 +30,8 @@ JenRelapse <- function(RKDdata){
   final_data <- cpd.relapse(prep2_data)
   relapse_final_data <- Relapse_final(final_data)
   
+  Classify_RKD_data <- merge(RKD_data, relapse_final_data, by.x = c("RKD.ID", "Date.Of.Visit"), by.y = c("ID", "Date.Of.Visit"))
+  
   return(relapse_final_data)
   
 }
