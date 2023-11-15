@@ -6,7 +6,7 @@
 #'
 #'
 #' @param RKDdata Data frame with the RKD data in
-#' @details
+#' @details The CPD relapse function have the objective to tell if an Encounter is in Relapse or not
 #' 
 #' 
 #' 
