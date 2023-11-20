@@ -9,7 +9,7 @@ FindFWSample(FWdata, RKDdata, output_path, interval)
 \arguments{
 \item{FWdata}{FW data from CleanFW function}
 
-\item{RKDdata}{RKD data from ClinicalFilterRKD function}
+\item{RKDdata}{RKD data from ClinicalFilterRKD or earlier function}
 
 \item{output_path}{folder where the merged data will be saved}
 
@@ -20,6 +20,10 @@ The Redcap data cleaned in your folder and in an object
 }
 \description{
 FindFWSample
+}
+\details{
+The merge between the Freezerwork data and the RKD data allows us to find the sample associated to the RKD data.
+The interval of day argument is here as we need flexibility in the date merging. The date of sample in the Freezerwork is the one when the sample arrive in the biobank and they can be a delay with the encounter date.
 }
 \author{
 Matthieu COQ

@@ -2,7 +2,7 @@
 % Please edit documentation in R/JenRelapse function.R
 \name{JenRelapse}
 \alias{JenRelapse}
-\title{prep1_demo}
+\title{CPD_Relapse}
 \usage{
 JenRelapse(RKDdata)
 }
@@ -13,7 +13,16 @@ JenRelapse(RKDdata)
 The RKD data with the relapse category
 }
 \description{
-prep1_demo
+CPD_Relapse
+}
+\details{
+The CPD relapse function have the objective to tell if an Encounter is in Relapse or not
+The algorithm is described in the following picture https://3.basecamp.com/3790396/buckets/31062049/uploads/6740235559
+There is 4 sub-function
+prep1 and prep2 are function to prepare the data for the modelling and the classification
+cpd.relapse is the function to apply the model described in Jennifer Scott article
+Relapse_final is the function where the last rules of the step1 and step2 are done
+The step3 of the function is done in this function.
 }
 \author{
 Matthieu COQ/Jennifer Scott

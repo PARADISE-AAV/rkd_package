@@ -16,7 +16,7 @@ ClassifyRKDCases(
 
 \item{output_path}{folder where the Redcap data will be saved}
 
-\item{algorithm}{function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter"}
+\item{algorithm}{function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter" or "CPD Relapse"}
 
 \item{interval_from_diagnostics}{the interval from diagnostics for the algorithm Paradise_Encounter by default 6}
 }
@@ -25,6 +25,12 @@ The Redcap data cleaned in your folder and in an object
 }
 \description{
 ClassifyRKDCases
+}
+\details{
+This function use different function to classify the encounter of RKD data. this function are described in their function.
+CPD Relapse tells us if an encounter is in relapse or not based on rules and models
+BRelapse tells us if an encounter is in relapse or not based on rules
+Paradise_Encounter tells us if we can include the Encounter or not in the Paradise project
 }
 \author{
 Matthieu COQ

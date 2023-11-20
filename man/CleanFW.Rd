@@ -17,6 +17,12 @@ The Redcap data cleaned in your folder and in an object
 \description{
 CleanFW
 }
+\details{
+The CleanFW function is a series of data transformation to clean Freezerwork data
+Remove the missing RKD.ID
+Remove the sample with a null amount of material
+Check the format of the date
+}
 \author{
 Matthieu COQ
 Version: 1.0

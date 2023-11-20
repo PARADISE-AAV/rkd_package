@@ -17,6 +17,10 @@ The Redcap data cleaned in your folder and in an object
 \description{
 DemographicFilterRKD
 }
+\details{
+The filter of the RKD data are based on the following filter
+Definite MPA and GPA with no secondary Vasculitis
+}
 \author{
 Matthieu COQ
 Version: 1.0
