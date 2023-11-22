@@ -13,7 +13,7 @@
 #'  - Methylprednisolone is 30 days
 #'  - Rituximab is 180 days
 #'  - Cyclophosphamide is 90 days
-#'If a patient have a visit betwen the injection data and the injection data + delay, the patient is declare on treatment.
+#'If a patient have a visit between the injection data and the injection data + delay, the patient is declare on treatment.
 #' 
 #' 
 #' @import DT
