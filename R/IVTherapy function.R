@@ -8,8 +8,12 @@
 #' @param RKD RKD data from LoadRKD function
 #' @param RKD_Treatment The RKD data after the treatment on/off function
 #' @return The RKD data with treatment on/off updated  with IV Therapy knowledge
-#' @details 
-#' 
+#' @details The IV Therapy function give what is the IV therapy for each encounter. 
+#' For this a delay after a injection is given to say if the patient is still under therapy or not.
+#'  - Methylprednisolone is 30 days
+#'  - Rituximab is 180 days
+#'  - Cyclophosphamide is 90 days
+#'If a patient have a visit betwen the injection data and the injection data + delay, the patient is declare on treatment.
 #' 
 #' 
 #' @import DT
