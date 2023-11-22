@@ -43,7 +43,7 @@ Treatment_On_Off <- function(RKDdata){
              (RKD_data$Current.corticosteroid.dose[i] == "11 - 20 mg/day" | RKD_data$Current.corticosteroid.dose[i] == "> 20 mg/day")){
             RKD_data$treatment.on.off[i] <- "On Treatment"
           }else{
-            if(RKD_data$Immunosuppressive.medication[i] == "No" & RKD_data$Immunosuppressive.medication[i] == "No"){
+            if(RKD_data$Immunosuppressive.medication[i] == "No" & RKD_data$Corticosteroids[i] == "No"){
               RKD_data$treatment.on.off[i] <- "Not On Treatment"
             }else{
               RKD_data$treatment.on.off[i] <- ""
