@@ -6,7 +6,10 @@
 #'
 #'
 #' @param RKDdata Data frame with the RKD data in
-#' @return The RKD data with the infrmation if a encounter is on or off treatment
+#' @return The RKD data with the information if a encounter is on or off treatment
+#' @details
+#' 
+#' 
 #' @export
 
 Treatment_On_Off <- function(RKDdata){
