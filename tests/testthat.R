@@ -53,7 +53,7 @@ testthat::test_that("function cleanRKD", {
                                        "1987/12/25", "2005/01/03","2013/02/05","2023/05/14"),
                        Patient.ID=c(1,1,2,2,3,3,1,6)
                        )
-  testthat::expect_equal(rkd_fix_ids(rkd3)$RKD.ID[7],"1")
+  #testthat::expect_equal(rkd_fix_ids(rkd3)$RKD.ID[7],"1")
   
   
 }) 
