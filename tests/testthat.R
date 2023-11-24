@@ -41,19 +41,19 @@ testthat::test_that("function cleanRKD", {
                        Date.Of.Visit=c("1985/10/01","1987/12/02","1998/11/14", "1999/11/19", 
                                        "1987/12/25", "2005/01/03"),
                        Date.of.Birth.known.unknown=c("Known","Known", "Unknown", "Unknown", "Unknown", "Unknown"))
-  #testthat::expect_equal(is.Date(rkd_parse_dates(rkd)$Date.Of.Visit), TRUE)
-  #testthat::expect_equal(is.Date(rkd_parse_dates(rkd)$Date.of.Birth.known.unknown), FALSE)
+  testthat::expect_equal(is.Date(rkdpipeline:::rkd_parse_dates(rkd)$Date.Of.Visit), TRUE)
+  testthat::expect_equal(is.Date(rkdpipeline:::rkd_parse_dates(rkd)$Date.of.Birth.known.unknown), FALSE)
   
   rkd2=cbind.data.frame(RKD.ID=c(1,1,2,2,3,3,4,5,6,7),
                         Ethnicity=c("White-Irish", "White-Irish","White-French", "White-French", "B2 - African", "Black","Asian", "Mixed-Black-White", "NS - Not Stated", "Other"))
-  #testthat::expect_equal(nrow(table(rkd_collapse_ethnicity(rkd2)$Ethnicity)),6)
+  testthat::expect_equal(nrow(table(rkdpipeline:::rkd_collapse_ethnicity(rkd2)$Ethnicity)),6)
   
   rkd3=cbind.data.frame(RKD.ID=c(1,1,2,2,3,3,"1",6),
                        Date.Of.Visit=c("1985/10/01","1987/12/02","1998/11/14", "1999/11/19", 
                                        "1987/12/25", "2005/01/03","2013/02/05","2023/05/14"),
                        Patient.ID=c(1,1,2,2,3,3,1,6)
                        )
-  #testthat::expect_equal(rkd_fix_ids(rkd3)$RKD.ID[7],"1")
+  testthat::expect_equal(rkdpipeline:::rkd_fix_ids(rkd3)$RKD.ID[7],"1")
   
   
 }) 
