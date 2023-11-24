@@ -25,6 +25,7 @@ Imports:
     rlang,
     stringr,
     DT,
-    fuzzyjoin
+    fuzzyjoin,
+    textclean
 Config/testthat/edition: 3
 LazyData: true

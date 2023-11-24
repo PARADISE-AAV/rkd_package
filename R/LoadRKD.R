@@ -12,7 +12,7 @@
 #' @param file_name String. Directory where the RKD files are kept.
 #'
 #' @return A data frame containing the RKD dataset.
-#'
+#' @import textclean
 #' @export
 load_rkd <- function (file_name) {
   stopifnot("Your argument need to be a character"=is.character(file_name))
@@ -22,10 +22,11 @@ load_rkd <- function (file_name) {
     stop('Your input folder doesn\'t exist')
   }
 
-  dataset <- read.csv(file_name, header = TRUE, check.names = TRUE)
+  dataset <- read.csv(file_name, check.names = TRUE)
   if (!ncol(dataset) | !nrow(dataset)) {
     stop('File is empty')
   }
+  colnames(dataset) <- textclean::replace_non_ascii(colnames(dataset))
 
   dataset
 }

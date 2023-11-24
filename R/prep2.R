@@ -278,7 +278,7 @@ is.status <- function(RKDdata){
   dat_fullT$Immunosuppressive.status[dat_fullT$Immunosuppressive.status == ""] <- NA
   dat_fullT$Corticosteroids[dat_fullT$Corticosteroids == ""] <- NA
   dat_fullT$Immunosuppressive.medication[dat_fullT$Immunosuppressive.medication == ""] <- NA
-  dat_fullT$Treatment.Naïve..Never.on.Immunosuppression.[dat_fullT$Treatment.Naïve..Never.on.Immunosuppression. == ""] <- NA
+  dat_fullT$Treatment.Naïve..Never.on.Immunosuppression.[dat_fullT$Treatment.Naive..Never.on.Immunosuppression. == ""] <- NA
   
   dat_fullT <- dat_fullT %>% 
     mutate(is.status = case_when(Immunosuppressive.medication != "No" ~ "Currently on immunosuppression",
