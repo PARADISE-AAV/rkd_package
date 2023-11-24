@@ -22,7 +22,7 @@ load_rkd <- function (file_name) {
     stop('Your input folder doesn\'t exist')
   }
 
-  dataset <- read.csv(file_name)
+  dataset <- read.csv(file_name, header = TRUE, check.names = TRUE)
   if (!ncol(dataset) | !nrow(dataset)) {
     stop('File is empty')
   }
