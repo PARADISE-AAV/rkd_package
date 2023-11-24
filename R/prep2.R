@@ -249,7 +249,7 @@ sug.blood <- function(RKDdata){
 
 #'  There are 2 conditions for corticosteroids (CCS), as a dose of >10mg is considered 'on' treatment =>
 #'  the field 'Corticosteroids' must equal Yes AND the dose must be >10mg (in the registry this can be ""(blank if historical entry) OR 11-20mg/day OR >20mg/day
-#'  If all 3 fields: Immunosuppressive.medication, Corticosteroids and Treatment.Naïve..Never.on.Immunosuppression. are blank (is.na()) then NA is assigned to is.status
+#'  If all 3 fields: Immunosuppressive.medication, Corticosteroids and Treatment.Naive..Never.on.Immunosuppression. are blank (is.na()) then NA is assigned to is.status
                                                                          
 #'
 #' @param RKDdata Data frame with the RKD data in
@@ -278,11 +278,11 @@ is.status <- function(RKDdata){
   dat_fullT$Immunosuppressive.status[dat_fullT$Immunosuppressive.status == ""] <- NA
   dat_fullT$Corticosteroids[dat_fullT$Corticosteroids == ""] <- NA
   dat_fullT$Immunosuppressive.medication[dat_fullT$Immunosuppressive.medication == ""] <- NA
-  dat_fullT$Treatment.Naïve..Never.on.Immunosuppression.[dat_fullT$Treatment.Naive..Never.on.Immunosuppression. == ""] <- NA
+  dat_fullT$Treatment.Naive..Never.on.Immunosuppression.[dat_fullT$Treatment.Naive..Never.on.Immunosuppression. == ""] <- NA
   
   dat_fullT <- dat_fullT %>% 
     mutate(is.status = case_when(Immunosuppressive.medication != "No" ~ "Currently on immunosuppression",
-                                 Treatment.Naïve..Never.on.Immunosuppression. == "Yes" ~ "Treatment Naïve",
+                                 Treatment.Naive..Never.on.Immunosuppression. == "Yes" ~ "Treatment Naïve",
                                  (Corticosteroids == "Yes" & (Current.corticosteroid.dose == "" |
                                                                 Current.corticosteroid.dose == "11 - 20 mg/day" |
                                                                 Current.corticosteroid.dose == "> 20 mg/day"))  ~ "Currently on immunosuppression",
@@ -290,9 +290,9 @@ is.status <- function(RKDdata){
                                                                 Current.corticosteroid.dose == "5 - 10 mg/day") &
                                     Immunosuppressive.medication == "No" )  ~ "Discontinuation of immunosuppression > 6 months prior to this encounter",
                                  (Immunosuppressive.medication == "No" & Corticosteroids == "No" & 
-                                    (Treatment.Naïve..Never.on.Immunosuppression. == "No" | is.na(Treatment.Naïve..Never.on.Immunosuppression.))) 
+                                    (Treatment.Naive..Never.on.Immunosuppression. == "No" | is.na(Treatment.Naive..Never.on.Immunosuppression.))) 
                                  ~ "Discontinuation of immunosuppression > 6 months prior to this encounter",
-                                 (is.na(Immunosuppressive.medication) & is.na(Corticosteroids) & is.na(Treatment.Naïve..Never.on.Immunosuppression.)) ~ NA_character_   ),
+                                 (is.na(Immunosuppressive.medication) & is.na(Corticosteroids) & is.na(Treatment.Naive..Never.on.Immunosuppression.)) ~ NA_character_   ),
            is.status = as.factor(is.status)) %>% # NB so that both below are factors are => if_else works ***
     mutate(is.status_OVERALL = if_else(!is.na(Immunosuppressive.status), Immunosuppressive.status, is.status)) 
   
