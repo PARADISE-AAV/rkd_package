@@ -12,6 +12,8 @@
 #' 
 #' 
 #' @import stringr
+#' @export
+#' 
 LoadBiomarker=function(files_name){
   ####Test on the argument
   if (is.character(files_name) == FALSE) {
