@@ -5,6 +5,7 @@
 #' Objective: The objective is to merge biomarker data with RKD data
 #' @import dplyr
 #' @importFrom rlang .data
+#' @export
 AddBiomarkerRKD <- function(data_rkd, data_bio, interval){
 
   
