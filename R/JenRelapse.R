@@ -2,7 +2,7 @@
 #' @author Matthieu COQ/Jennifer Scott
 #' @Version: 1.0
 #' @Date: 07-Jul-23
-#' @Objective: The objective is to apply CPD Relapse approach for relapse on RKD data
+#' @description The objective is to apply CPD Relapse approach for relapse on RKD data
 #'
 #'
 #' @param RKDdata Data frame with the RKD data in
