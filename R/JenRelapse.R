@@ -7,17 +7,18 @@
 #'
 #' @param RKDdata Data frame with the RKD data in
 #' @details The CPD relapse function have the objective to tell if an Encounter is in Relapse or not
-#' The algorithm is described in the following picture * https://3.basecamp.com/3790396/buckets/31062049/uploads/6740235559
+#' The algorithm is described in the following picture: \href{https://3.basecamp.com/3790396/buckets/31062049/uploads/6740235559}{Workflow of the CPD Relapse}
+#' 
 #' There is 4 sub-function
-#' prep1 and prep2 are function to prepare the data for the modelling and the classification
-#' cpd.relapse is the function to apply the model described in Jennifer Scott article
-#' Relapse_final is the function where the last rules of the step1 and step2 are done
-#' The step3 of the function is done in this function.
+#' * prep1 and prep2 are function to prepare the data for the modelling and the classification
+#' * cpd.relapse is the function to apply the model described in Jennifer Scott article
+#' * Relapse_final is the function where the last rules of the step1 and step2 are done
+#' * The step3 of the function is done in this function.
 #' 
 #' @return The RKD data with the relapse category
 #' @export
 
-JenRelapse <- function(RKDdata){
+CPD_Relapse <- function(RKDdata){
   
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
