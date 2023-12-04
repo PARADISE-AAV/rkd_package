@@ -39,7 +39,7 @@ ClassifyRKDCases = function(RKDdata, output_path, algorithm, interval_from_diagn
     Classify_RKD_data <- Paradise_Encounter(RKD_data, interval_from_diagnostics)
   }
   if(algorithm == "CPD Relapse"){
-    Classify_RKD_data <- JenRelapse(RKD_data)
+    Classify_RKD_data <- CPD_Relapse(RKD_data)
      
   }
 
