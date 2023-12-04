@@ -5,7 +5,7 @@
 #' @description The objective is to apply CPD Relapse approach on RKD data
 #'
 #'
-#' @param RKDdata Data frame with the RKD data in
+#' @param RKDdata Data frame with the RKD data
 #' @details The CPD relapse function have the objective to tell if an Encounter is in Relapse or not
 #' The algorithm is described in the following picture: \href{https://3.basecamp.com/3790396/buckets/31062049/uploads/6740235559}{Workflow of the CPD Relapse}
 #' 
