@@ -13,6 +13,9 @@ AddBiomarkerRKD(data_rkd, data_bio, interval)
 
 \item{interval}{number of day to merge RKD data and biomarker data}
 }
+\value{
+the merge of Biomarker data and RKD data within an defined interval
+}
 \description{
 The objective is to merge biomarker data with RKD data
 }
