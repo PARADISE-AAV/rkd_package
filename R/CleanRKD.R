@@ -1,7 +1,7 @@
 #' @title Clean rare kidney disease data
 #' @author Matthieu COQ
 #'
-#' The objective is to clean the RKD data and send the problematic data to the RKD person
+#' @description The objective is to clean the RKD data and send the problematic data to the RKD person
 #' Version: 1.0
 #' Date: 24-Jan-23
 #'
