@@ -20,12 +20,10 @@ The function select the variable present only for the Encounters data and the In
 The function create the following variable Age of the Encounter and ANCA titration (Anti MPO or Anti PR3 or NA)
 }
 \description{
-Clean rare kidney disease data
-}
-\author{
-Matthieu COQ
-
 The objective is to clean the RKD data and send the problematic data to the RKD person
 Version: 1.0
 Date: 24-Jan-23
+}
+\author{
+Matthieu COQ
 }
