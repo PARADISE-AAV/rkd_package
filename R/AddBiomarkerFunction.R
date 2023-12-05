@@ -1,8 +1,9 @@
 #' @title AddBiomarkerRKD
 #' @author Yagmur Dogay
-#' Version:
-#' Date: 25-Jan-23
-#' Objective: The objective is to merge biomarker data with RKD data
+#' @description The objective is to merge biomarker data with RKD data
+#' @param data_rkd Data frame linking with RKD data
+#' @param data_bio Data frame linking with the biomarker data
+#' @param interval number of day to merge RKD data and biomarker data
 #' @import dplyr
 #' @importFrom rlang .data
 #' @export
