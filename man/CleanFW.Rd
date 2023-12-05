@@ -15,7 +15,7 @@ CleanFW(FWdata, output_path)
 The Redcap data cleaned in your folder and in an object
 }
 \description{
-CleanFW
+The objective is to clean the Freezerwork data
 }
 \details{
 The CleanFW function is a series of data transformation to clean Freezerwork data
@@ -25,7 +25,4 @@ Check the format of the date
 }
 \author{
 Matthieu COQ
-Version: 1.0
-Date: 22-Mar-23
-Objective: The objective is to clean the Freezerwork data
 }
