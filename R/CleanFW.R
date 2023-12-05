@@ -1,8 +1,7 @@
 #' @title CleanFW
 #' @author Matthieu COQ
-#' Version: 1.0
-#' Date: 22-Mar-23
-#' Objective: The objective is to clean the Freezerwork data
+#' @description
+#' The objective is to clean the Freezerwork data
 #'
 #'
 #' @param FWdata FW data from loadFW function
