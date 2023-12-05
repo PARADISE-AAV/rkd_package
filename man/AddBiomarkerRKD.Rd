@@ -6,12 +6,16 @@
 \usage{
 AddBiomarkerRKD(data_rkd, data_bio, interval)
 }
+\arguments{
+\item{data_rkd}{Data frame linking with RKD data}
+
+\item{data_bio}{Data frame linking with the biomarker data}
+
+\item{interval}{number of day to merge RKD data and biomarker data}
+}
 \description{
-AddBiomarkerRKD
+The objective is to merge biomarker data with RKD data
 }
 \author{
 Yagmur Dogay
-Version:
-Date: 25-Jan-23
-Objective: The objective is to merge biomarker data with RKD data
 }
