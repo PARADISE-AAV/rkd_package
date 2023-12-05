@@ -24,17 +24,16 @@ ClassifyRKDCases(
 The Redcap data cleaned in your folder and in an object
 }
 \description{
-ClassifyRKDCases
+The objective is to classify the patient of RKD data based on criteria described in the function apply
 }
 \details{
 This function use different function to classify the encounter of RKD data. this function are described in their function.
-CPD Relapse tells us if an encounter is in relapse or not based on rules and models
-BRelapse tells us if an encounter is in relapse or not based on rules
-Paradise_Encounter tells us if we can include the Encounter or not in the Paradise project
+\itemize{
+\item CPD Relapse tells us if an encounter is in relapse or not based on rules and models
+\item BRelapse tells us if an encounter is in relapse or not based on rules
+\item Paradise_Encounter tells us if we can include the Encounter or not in the Paradise project
+}
 }
 \author{
 Matthieu COQ
-Version: 1.0
-Date: 15-Mar-23
-Objective: The objective is to classify the patient of RKD data based on criteria described in the function apply
 }
