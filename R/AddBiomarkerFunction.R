@@ -4,6 +4,7 @@
 #' @param data_rkd Data frame linking with RKD data
 #' @param data_bio Data frame linking with the biomarker data
 #' @param interval number of day to merge RKD data and biomarker data
+#' @returns the merge of Biomarker data and RKD data within an defined interval
 #' @import dplyr
 #' @importFrom rlang .data
 #' @export
