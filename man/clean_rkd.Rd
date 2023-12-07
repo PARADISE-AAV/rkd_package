@@ -11,7 +11,14 @@ clean_rkd(rkd_data, output_path)
 
 \item{output_path}{folder where the Redcap data will be saved}
 }
-\value{
+\description{
+The objective is to clean the RKD data and send the problematic data to the RKD person
+
+Version: 1.0
+
+Date: 24-Jan-23
+}
+\details{
 The Redcap data cleaned in your folder and in an object
 
 The function change the Date variable with the format "\%Y-\%m-\%d".
@@ -23,13 +30,6 @@ The function clean some RKD.ID trouble to be sure that we have no problem when w
 The function select the variable present only for the Encounters data and the Initial data (demographics, diagnostics and all other exams performed at the moment of the diagnostics)and merge the Encounter dtaa and Initail data that the initial data are replicate for each Encounter
 
 The function create the following variable Age of the Encounter and ANCA titration (Anti MPO or Anti PR3 or NA)
-}
-\description{
-The objective is to clean the RKD data and send the problematic data to the RKD person
-
-Version: 1.0
-
-Date: 24-Jan-23
 }
 \author{
 Matthieu COQ
