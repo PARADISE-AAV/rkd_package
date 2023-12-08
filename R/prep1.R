@@ -161,9 +161,10 @@ prep1_enc <- function(RKDdata){
 #' @title prep1_merged
 #' @author Matthieu COQ/Jennifer Scott
 #' @description
-#' A short description...
-#'  The objective is to do the first part of the data preparation on all data
+#' The objective is to do the first part of the data preparation on all data
+#' 
 #' Version: 1.0
+#' 
 #' Date: 07-Jul-23
 #'
 #' @param RKDdata Data frame with the RKD data in
