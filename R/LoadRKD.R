@@ -27,6 +27,7 @@ load_rkd <- function (file_name) {
     stop('File is empty')
   }
   colnames(dataset) <- textclean::replace_non_ascii(colnames(dataset))
+  dataset$Immunosuppressive.status <- textclean::replace_non_ascii(dataset$Immunosuppressive.status)
 
   dataset
 }
