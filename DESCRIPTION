@@ -26,6 +26,7 @@ Imports:
     stringr,
     DT,
     fuzzyjoin,
-    textclean
+    textclean,
+    tidyverse
 Config/testthat/edition: 3
 LazyData: true
