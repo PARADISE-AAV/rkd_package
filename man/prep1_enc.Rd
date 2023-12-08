@@ -13,7 +13,11 @@ prep1_enc(RKDdata)
 The RKD data after the first part of the data preparation on encounter data
 }
 \description{
-prep1_enc
+The objective is to do the first part of the data preparation on encounter data
+
+Version: 1.0
+
+Date: 07-Jul-23
 }
 \author{
 Matthieu COQ/Jennifer Scott
