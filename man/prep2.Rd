@@ -13,7 +13,9 @@ prep2(RKDdata)
 The RKD data after the second part of the data preparation
 }
 \description{
-prep2
+The objective is to do the second part of the data preparation
+Version: 1.0
+Date: 07-Jul-23
 }
 \author{
 Matthieu COQ/Jennifer Scott

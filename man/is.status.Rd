@@ -13,7 +13,9 @@ is.status(RKDdata)
 The RKD data after the second part of the data preparation
 }
 \description{
-is.status
+The objective is to do the second part of the data preparation in particularity the inference for immunosuppression status
+Version: 1.0
+Date: 07-Jul-23
 }
 \author{
 Matthieu COQ/Jennifer Scott

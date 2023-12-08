@@ -13,7 +13,11 @@ Treatment_On_Off(RKDdata)
 The RKD data with the information if a encounter is on or off treatment
 }
 \description{
-Treatment_On_Off
+The objective is to tell if a encounter is on or off treatment
+
+Version: 1.0
+
+Date: 11-Jul-23
 }
 \details{
 The function is composed of several rules  described in the step 1 to step3 to the following image.

@@ -13,7 +13,9 @@ sug.blood(RKDdata)
 The RKD data after the second part of the data preparation
 }
 \description{
-sug.blood
+The objective is to do the second part of the data preparation in particularity the inference for suggested blood answer
+Version: 1.0
+Date: 07-Jul-23
 }
 \author{
 Matthieu COQ/Jennifer Scott
