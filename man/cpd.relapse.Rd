@@ -13,7 +13,11 @@ cpd.relapse(RKDdata)
 The RKD data with the status if the patient is in remission
 }
 \description{
-cpd.relapse
+The objective is to assign to an encounter if he is in relapse stage or not
+
+Version: 1.0
+
+Date: 07-Jul-23
 }
 \author{
 Matthieu COQ/Jennifer Scott
