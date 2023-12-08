@@ -17,11 +17,10 @@ ClinicalFilterRKD(RKDdata, output_path, algorithm)
 The Redcap data cleaned in your folder and in an object
 }
 \description{
-ClinicalFilterRKD
+The objective is to filter the RKD data based on clinical criteria like the classification of patient
+Version: 1.0
+Date: 21-Mar-23
 }
 \author{
 Matthieu COQ
-Version: 1.0
-Date: 21-Mar-23
-Objective: The objective is to filter the RKD data based on clinical criteria like the classification of patient
 }
