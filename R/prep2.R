@@ -102,12 +102,13 @@ inclusion_criteria <- function(RKDdata){
 #'
 #' @param RKDdata Data frame with the RKD data in
 #' @return The RKD data after the second part of the data preparation
+#' @import dplyr
 #' @export
 
 
 
 ANCA.titre <- function(RKDdata){
-  library(dplyr)
+  
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
@@ -171,6 +172,8 @@ ANCA.titre <- function(RKDdata){
 #'
 #' @param RKDdata Data frame with the RKD data in
 #' @return The RKD data after the second part of the data preparation
+#' @import dplyr
+#' @import tidyverse
 #' @export
 
 sug.blood <- function(RKDdata){
