@@ -251,7 +251,8 @@ sug.blood <- function(RKDdata){
 #' Version: 1.0
 #' Date: 07-Jul-23 
 #' 
-#' @detail  Explanation of inferring 'is.status' from other fields (required as is.status is a relatively new field in the registry):
+#' @details
+#'  Explanation of inferring 'is.status' from other fields (required as is.status is a relatively new field in the registry):
 #'  easy to follow based on logic below, using case-when function. The logically statements are run in order - i.e. 
 #'  if the first statement is positive, the code stops there, e.g.
 #'  1. When Immunosuppressive.medication !=(not equals) No => "Currently on immunosuppression" is assigned to is.status,
