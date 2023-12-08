@@ -81,13 +81,13 @@ inclusion_criteria <- function(RKDdata){
 #' 
 #' ANCA.IF.Overall = ANCA_IF_infer, or ANCA.IF (original field) if ANCA_IF_infer is NA 
 #' 
-#' MPO_delta = % rise from previous MPO level in prior encounter (lag(MPO) [i.e. last encounter] must be within 12m of current date) // same for PR3 
+#' MPO_delta = % rise from previous MPO level in prior encounter (lag(MPO) i.e. last encounter must be within 12m of current date) // same for PR3 
 #' 
 #' ANCA.ELISA.delta = if anca specificity labelled as MPO -> use MPO_delta, if labelled as PR3 -> use PR3 delta, if labelled MPO and PR3, use the larger delta 
 #' 
 #' ANCA.ELISA.delta.cat = transform ANCA.ELISA.delta into the same categorical levels of the ANCA.titre field 
 #' 
-#' ANCA.if.delta = same categorical levels based on +/- of the IF (pragmatically chose a rise [i.e. negative to p/c] as = to "<4x rise in ANCA preceding")
+#' ANCA.if.delta = same categorical levels based on +/- of the IF (pragmatically chose a rise i.e. negative to p/c as = to "<4x rise in ANCA preceding")
 #' * if current encounter ANCA.IF.Overall = p/c, and last encounter = negative -> = to "<4x rise in ANCA preceding"
 #' * if current encounter ANCA.IF.Overall = negative, and last encounter = negative=> "ANCA unchanged",
 #' * if current encounter ANCA.IF.Overall = p/c, and last encounter = p/c -> = "ANCA unchanged"
