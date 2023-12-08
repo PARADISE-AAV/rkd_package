@@ -74,20 +74,28 @@ inclusion_criteria <- function(RKDdata){
 #' @Date: 07-Jul-23
 #' @Objective: The objective is to do the second part of the data preparation in particularity the inference of ANCA titre
 #' @details *** explanation of new & interim variables used below ** 
+#' 
 #' ANCA_IF_infer = if ANCA.IF = Not tested or "" (blank), & lag() (the last encounter) and lead() (the next encounter) are both "negative", then infer this encounter is also negative
+#' 
 #' ANCA.IF.Overall = ANCA_IF_infer, or ANCA.IF (original field) if ANCA_IF_infer is NA 
+#' 
 #' MPO_delta = % rise from previous MPO level in prior encounter (lag(MPO) [i.e. last encounter] must be within 12m of current date) // same for PR3 
+#' 
 #' ANCA.ELISA.delta = if anca specificity labelled as MPO -> use MPO_delta, if labelled as PR3 -> use PR3 delta, if labelled MPO and PR3, use the larger delta 
+#' 
 #' ANCA.ELISA.delta.cat = transform ANCA.ELISA.delta into the same categorical levels of the ANCA.titre field 
+#' 
 #' ANCA.if.delta = same categorical levels based on +/- of the IF (pragmatically chose a rise [i.e. negative to p/c] as = to "<4x rise in ANCA preceding")
-#' - if current encounter ANCA.IF.Overall = p/c, and last encounter = negative -> = to "<4x rise in ANCA preceding"
-#' - if current encounter ANCA.IF.Overall = negative, and last encounter = negative=> "ANCA unchanged",
-#' - if current encounter ANCA.IF.Overall = p/c, and last encounter = p/c -> = "ANCA unchanged"
-#' - if current encounter ANCA.IF.Overall = negative, and last encounter = p/c -> = "ANCA decrease"
+#' * if current encounter ANCA.IF.Overall = p/c, and last encounter = negative -> = to "<4x rise in ANCA preceding"
+#' * if current encounter ANCA.IF.Overall = negative, and last encounter = negative=> "ANCA unchanged",
+#' * if current encounter ANCA.IF.Overall = p/c, and last encounter = p/c -> = "ANCA unchanged"
+#' * if current encounter ANCA.IF.Overall = negative, and last encounter = p/c -> = "ANCA decrease"
+#' 
 #' ANCA.overall.delta is ELISA (ANCA.ELISA.delta.cat) if available, if not use ANCA.if.delta, if not = "No ANCA data"
-#' - if ELISA and IF delta are both negative -> then label "No ANCA data"
-#' ANCA.titre.overall = takes original 'anca.titre' registry field when completed, if not available, takes the new composite 'ANCA.overall.delta' [which is a combo of elisa > IF delta]
-#' manually checked - makes sense :)
+#' * if ELISA and IF delta are both negative -> then label "No ANCA data"
+#' 
+#' ANCA.titre.overall = takes original 'anca.titre' registry field when completed, if not available, takes the new composite 'ANCA.overall.delta' which is a combo of elisa > IF delta
+#' manually checked - makes sense 
 #'
 #' @param RKDdata Data frame with the RKD data in
 #' @return The RKD data after the second part of the data preparation
