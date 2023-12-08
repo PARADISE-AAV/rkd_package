@@ -70,9 +70,11 @@ inclusion_criteria <- function(RKDdata){
 
 #' @title ANCA.titre
 #' @author Matthieu COQ/Jennifer Scott
-#' @Version: 1.0
-#' @Date: 07-Jul-23
-#' @Objective: The objective is to do the second part of the data preparation in particularity the inference of ANCA titre
+#' @description
+#' The objective is to do the second part of the data preparation in particularity the inference of ANCA titre
+#' Version: 1.0
+#' Date: 07-Jul-23 
+#' 
 #' @details *** explanation of new & interim variables used below ** 
 #' 
 #' ANCA_IF_infer = if ANCA.IF = Not tested or "" (blank), & lag() (the last encounter) and lead() (the next encounter) are both "negative", then infer this encounter is also negative
