@@ -177,8 +177,7 @@ ANCA.titre <- function(RKDdata){
 #' @export
 
 sug.blood <- function(RKDdata){
-  library(dplyr)
-  library(tidyverse)
+
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
@@ -272,10 +271,11 @@ sug.blood <- function(RKDdata){
 #'
 #' @param RKDdata Data frame with the RKD data in
 #' @return The RKD data after the second part of the data preparation
+#' @import dplyr
 #' @export
 
 is.status <- function(RKDdata){
-  library(dplyr)
+  
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
@@ -341,10 +341,11 @@ is.status <- function(RKDdata){
 #'
 #' @param RKDdata Data frame with the RKD data in
 #' @return The RKD data after the second part of the data preparation
+#' @import dplyr
 #' @export
 
 complete.bvas <- function(RKDdata){
-  library(dplyr)
+  
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
@@ -390,10 +391,11 @@ complete.bvas <- function(RKDdata){
 #'
 #' @param RKDdata Data frame with the RKD data in
 #' @return The RKD data after the second part of the data preparation
+#' @import dplyr
 #' @export
 
 complete.ANCA <- function(RKDdata){
-  library(dplyr)
+  
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
