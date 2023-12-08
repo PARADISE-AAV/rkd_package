@@ -1,9 +1,9 @@
 #' @title prep2
 #' @author Matthieu COQ/Jennifer Scott
-#' @Version: 1.0
-#' @Date: 07-Jul-23
-#' @Objective: The objective is to do the second part of the data preparation
-#'
+#' @description
+#'  The objective is to do the second part of the data preparation
+#'  Version: 1.0
+#'  Date: 07-Jul-23
 #'
 #' @param RKDdata Data frame with the RKD data in
 #' @return The RKD data after the second part of the data preparation
@@ -40,10 +40,10 @@ prep2 <- function(RKDdata){
 
 #' @title inclusion_criteria
 #' @author Matthieu COQ/Jennifer Scott
-#' @Version: 1.0
-#' @Date: 07-Jul-23
-#' @Objective: The objective is to do the second part of the data preparation in particularity the inclusion criteria
-#'
+#' @description
+#' The objective is to do the second part of the data preparation in particularity the inclusion criteria
+#' Version: 1.0
+#' Date: 07-Jul-23
 #'
 #' @param RKDdata Data frame with the RKD data in
 #' @return The RKD data after the second part of the data preparation
