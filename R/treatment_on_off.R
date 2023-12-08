@@ -39,7 +39,7 @@ Treatment_On_Off <- function(RKDdata){
     if(RKD_data$Immunosuppressive.status[i] == "Currently on immunosuppression" | RKD_data$Immunosuppressive.status[i] == "Discontinuation of immunosuppression within 6 months prior to this encounter"){
       RKD_data$treatment.on.off[i] <- "On Treatment"
     }else{
-      if(RKD_data$Immunosuppressive.status[i] == "Treatment Naïve" | RKD_data$Immunosuppressive.status[i] == "Discontinuation of immunosuppression > 6 months prior to this encounter"){
+      if(RKD_data$Immunosuppressive.status[i] == "Treatment Naive" | RKD_data$Immunosuppressive.status[i] == "Discontinuation of immunosuppression > 6 months prior to this encounter"){
         RKD_data$treatment.on.off[i] <- "Not On Treatment"
       }else{
         if(RKD_data$Immunosuppressive.medication[i] != "No" & RKD_data$Immunosuppressive.medication[i] != ""){
