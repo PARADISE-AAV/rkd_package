@@ -10,6 +10,8 @@
 #'
 #' @param RKDdata Data frame with the RKD data in
 #' @return The RKD data after the first part of the data preparation on demographic data
+#' @import dplyr
+#' @import forcats
 #' @export
 
 prep1_demo <- function(RKDdata){
