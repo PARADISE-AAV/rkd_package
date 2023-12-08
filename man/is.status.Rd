@@ -17,6 +17,23 @@ The objective is to do the second part of the data preparation in particularity 
 Version: 1.0
 Date: 07-Jul-23
 }
+\details{
+Explanation of inferring 'is.status' from other fields (required as is.status is a relatively new field in the registry):
+easy to follow based on logic below, using case-when function. The logically statements are run in order - i.e.
+if the first statement is positive, the code stops there, e.g.
+\enumerate{
+\item When Immunosuppressive.medication !=(not equals) No => "Currently on immunosuppression" is assigned to is.status,
+if Immunosuppressive.medication == (equals) No, then the algorithm checks for the next statement and so on...
+}
+
+~ essentially means 'equals to'
+| means 'OR'
+
+There are 2 conditions for corticosteroids (CCS), as a dose of >10mg is considered 'on' treatment =>
+the field 'Corticosteroids' must equal Yes AND the dose must be >10mg (in the registry this can be ""(blank if historical entry) OR 11-20mg/day OR >20mg/day
+
+If all 3 fields: Immunosuppressive.medication, Corticosteroids and Treatment.Naive..Never.on.Immunosuppression. are blank (is.na()) then NA is assigned to is.status
+}
 \author{
 Matthieu COQ/Jennifer Scott
 }
