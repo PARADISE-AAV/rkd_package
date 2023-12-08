@@ -282,7 +282,7 @@ is.status <- function(RKDdata){
   
   dat_fullT <- dat_fullT %>% 
     mutate(is.status = case_when(Immunosuppressive.medication != "No" ~ "Currently on immunosuppression",
-                                 Treatment.Naive..Never.on.Immunosuppression. == "Yes" ~ "Treatment Naïve",
+                                 Treatment.Naive..Never.on.Immunosuppression. == "Yes" ~ "Treatment Naive",
                                  (Corticosteroids == "Yes" & (Current.corticosteroid.dose == "" |
                                                                 Current.corticosteroid.dose == "11 - 20 mg/day" |
                                                                 Current.corticosteroid.dose == "> 20 mg/day"))  ~ "Currently on immunosuppression",
@@ -300,13 +300,13 @@ is.status <- function(RKDdata){
     mutate(ccs_calc = case_when(
       Immunosuppressive.status == "Discontinuation of immunosuppression > 6 months prior to this encounter" | 
         Immunosuppressive.status ==   "Discontinuation of immunosuppression within 6 months prior to this encounter" |
-        Immunosuppressive.status ==    "Treatment Naïve" ~ "No"),
+        Immunosuppressive.status ==    "Treatment Naive" ~ "No"),
       ccs_calc = as.factor(ccs_calc),
       ccs_OVERALL = if_else(!is.na(Corticosteroids), Corticosteroids, ccs_calc),
       is.med_calc = case_when(
         Immunosuppressive.status == "Discontinuation of immunosuppression > 6 months prior to this encounter" | 
           Immunosuppressive.status ==   "Discontinuation of immunosuppression within 6 months prior to this encounter" |
-          Immunosuppressive.status ==    "Treatment Naïve" ~ "No"),
+          Immunosuppressive.status ==    "Treatment Naive" ~ "No"),
       is.med_calc = as.factor(is.med_calc),
       is.med_OVERALL = if_else(!is.na(Immunosuppressive.medication), Immunosuppressive.medication, is.med_calc)) 
   
@@ -423,7 +423,7 @@ complete.ANCA <- function(RKDdata){
            is.status_b = dplyr::recode(is.status_OVERALL,
                                        `Discontinuation of immunosuppression > 6 months prior to this encounter` = "Not on IS",
                                        `Discontinuation of immunosuppression within 6 months prior to this encounter` = "Not on IS",
-                                       `Treatment Naïve` = "Not on IS"),
+                                       `Treatment Naive` = "Not on IS"),
            is.status_b = as.factor(is.status_b),
            is.status_b = fct_relevel(is.status_b, "Not on IS"),
            is.response_b = dplyr::recode(Immunosuppressive.medication.in.response.to.this.encounter,
