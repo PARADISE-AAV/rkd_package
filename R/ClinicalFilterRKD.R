@@ -1,9 +1,11 @@
 #' @title ClinicalFilterRKD
 #' @author Matthieu COQ
-#' Version: 1.0
-#' Date: 21-Mar-23
-#' Objective: The objective is to filter the RKD data based on clinical criteria like the classification of patient
-#'
+#' 
+#' @description
+#' 
+#'  The objective is to filter the RKD data based on clinical criteria like the classification of patient
+#'  Version: 1.0
+#'  Date: 21-Mar-23
 #'
 #' @param RKDdata RKD data from ClassifyRKDCases function or AddBiomarker function
 #' @param output_path folder where the filter RKD data will be saved
