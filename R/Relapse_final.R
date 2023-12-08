@@ -1,9 +1,9 @@
 #' @title prep1_demo
 #' @author Matthieu COQ/Jennifer Scott
-#' @Version: 1.0
-#' @Date: 31-Jul-23
-#' @Objective: The objective is to do the first part of the data preparation on encounter data
-#'
+#' @description
+#'  The objective is to do the first part of the data preparation on encounter data
+#' Version: 1.0
+#' Date: 31-Jul-23
 #'
 #' @param RKDdata Data frame with the RKD data in
 #' @return The RKD data after the first part of the data preparation on demographic data
