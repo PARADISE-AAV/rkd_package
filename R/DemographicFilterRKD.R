@@ -1,9 +1,11 @@
 #' @title DemographicFilterRKD
 #' @author Matthieu COQ
+#' @description
+#' The objective is to filter the RKD data based on inclution criteria
+#' 
 #' Version: 1.0
+#' 
 #' Date: 24-Jan-23
-#' Objective: The objective is to filter the RKD data based on inclution criteria
-#'
 #'
 #' @param RKDdata RKD data from CleanRKD function or AddBiomarker function
 #' @param output_path folder where the filter RKD data will be saved
