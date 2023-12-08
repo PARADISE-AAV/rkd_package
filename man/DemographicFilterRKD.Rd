@@ -15,7 +15,11 @@ DemographicFilterRKD(RKDdata, output_path)
 The Redcap data cleaned in your folder and in an object
 }
 \description{
-DemographicFilterRKD
+The objective is to filter the RKD data based on inclution criteria
+
+Version: 1.0
+
+Date: 24-Jan-23
 }
 \details{
 The filter of the RKD data are based on the following filter
@@ -23,7 +27,4 @@ Definite MPA and GPA with no secondary Vasculitis
 }
 \author{
 Matthieu COQ
-Version: 1.0
-Date: 24-Jan-23
-Objective: The objective is to filter the RKD data based on inclution criteria
 }
