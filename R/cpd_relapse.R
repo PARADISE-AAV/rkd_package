@@ -1,9 +1,12 @@
 #' @title cpd.relapse
 #' @author Matthieu COQ/Jennifer Scott
-#' @Version: 1.0
-#' @Date: 07-Jul-23
-#' @Objective: The objective is to assign to an encounter if he is in relapse stage or not
-#'
+#' 
+#' @description
+#' The objective is to assign to an encounter if he is in relapse stage or not
+#' 
+#' Version: 1.0
+#' 
+#' Date: 07-Jul-23
 #'
 #' @param RKDdata Data frame after the preparation of the data to apply this function
 #' @return The RKD data with the status if the patient is in remission
