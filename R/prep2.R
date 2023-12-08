@@ -365,9 +365,11 @@ complete.bvas <- function(RKDdata){
 
 #' @title complete.ANCA
 #' @author Matthieu COQ/Jennifer Scott
-#' @Version: 1.0
-#' @Date: 07-Jul-23
-#' @Objective: The objective is to do the second part of the data preparation in particularity the inference for ANCA
+#' @description
+#' The objective is to do the second part of the data preparation in particularity the inference for ANCA
+#' Version: 1.0
+#' Date: 07-Jul-23 
+#' 
 #' @details **** final variables chosen ****
 #'  ANCA.overall.2_NA (creation explained in line 164: use ANCA.titre in redcap, if absent uses change in ANCA elisa, if absent change in ANCA IF ):
 #'    levels: no anca rise, <4x rise, 4x rise, NA
