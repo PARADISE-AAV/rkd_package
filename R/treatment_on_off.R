@@ -1,9 +1,11 @@
 #' @title Treatment_On_Off
 #' @author Matthieu COQ/Angel george
-#' @Version: 1.0
-#' @Date: 11-Jul-23
-#' @Objective: The objective is to tell if a encounter is on or off treatment
-#'
+#' @description
+#'  The objective is to tell if a encounter is on or off treatment
+#'  
+#'  Version: 1.0
+#'  
+#'  Date: 11-Jul-23
 #'
 #' @param RKDdata Data frame with the RKD data in
 #' @return The RKD data with the information if a encounter is on or off treatment
