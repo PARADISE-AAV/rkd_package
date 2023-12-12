@@ -12,10 +12,10 @@ AddBiomarkerRKD <- function(data_rkd, data_bio, interval){
 
   
   data_bio$Start.date.of.date.range <-
-    as.Date(data_bio$Date.of.encounter) - interval
+    as.Date(data_bio$Date.Of.Visit) - interval
   
   data_bio$End.date.of.date.range <-
-    as.Date(data_bio$Date.of.encounter) + interval
+    as.Date(data_bio$Date.Of.Visit) + interval
   
   #colnames(data_bio)[colnames(data_bio) == 'Main.Study.ID'] <- 'RKD.ID'
   merged_frame <- fuzzy_full_join(
