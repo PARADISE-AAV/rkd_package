@@ -174,6 +174,7 @@ ANCA.titre <- function(RKDdata){
 #' @return The RKD data after the second part of the data preparation
 #' @import dplyr
 #' @import tidyverse
+#' @import tidyr
 #' @export
 
 sug.blood <- function(RKDdata){
