@@ -23,7 +23,9 @@ Date: 24-Jan-23
 }
 \details{
 The filter of the RKD data are based on the following filter
-Definite MPA and GPA with no secondary Vasculitis
+\itemize{
+\item Definite MPA and GPA with no secondary Vasculitis
+}
 }
 \author{
 Matthieu COQ
