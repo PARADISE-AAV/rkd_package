@@ -1,10 +1,10 @@
-#' @title CleanFW
+#' @title Cleaning the Freezerwork data coming from \code{\link{LoadFW}}
 #' @author Matthieu COQ
 #' @description
 #' The objective is to clean the Freezerwork data
 #'
 #'
-#' @param FWdata FW data from loadFW function
+#' @param FWdata FW data from \code{\link{LoadFW}} function
 #' @param output_path folder where the Redcap data will be saved
 #' @details The CleanFW function is a series of data transformation to clean Freezerwork data
 #' Remove the missing RKD.ID
