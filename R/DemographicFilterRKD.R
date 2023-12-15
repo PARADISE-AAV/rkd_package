@@ -13,7 +13,7 @@
 #' * Definite MPA and GPA with no secondary Vasculitis
 #' 
 #' 
-#' @return The Redcap data cleaned in your folder and in an object
+#' @return The Redcap data filter in your folder and an R object
 #' @export
 DemographicFilterRKD <- function(RKDdata, output_path) {
   ####Test on the argument
