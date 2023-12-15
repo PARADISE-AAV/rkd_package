@@ -2,14 +2,14 @@
 % Please edit documentation in R/FindFWSample.R
 \name{FindFWSample}
 \alias{FindFWSample}
-\title{FindFWSample}
+\title{Merge the RKD data and the Freezerwork data}
 \usage{
 FindFWSample(FWdata, RKDdata, output_path, interval)
 }
 \arguments{
-\item{FWdata}{FW data from CleanFW function}
+\item{FWdata}{FW data from \code{\link{CleanFW}} function}
 
-\item{RKDdata}{RKD data from ClinicalFilterRKD or earlier function}
+\item{RKDdata}{RKD data from \code{\link{ClassifyRKDEncounter}} or earlier function}
 
 \item{output_path}{folder where the merged data will be saved}
 
@@ -19,7 +19,7 @@ FindFWSample(FWdata, RKDdata, output_path, interval)
 The Redcap data cleaned in your folder and in an object
 }
 \description{
-FindFWSample
+Merge the RKD data and the Freezerwork data
 }
 \details{
 The merge between the Freezerwork data and the RKD data allows us to find the sample associated to the RKD data.
