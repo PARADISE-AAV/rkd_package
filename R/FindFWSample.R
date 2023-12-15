@@ -1,12 +1,12 @@
-#' @title FindFWSample
+#' @title Merge the RKD data and the Freezerwork data
 #' @author Matthieu COQ
 #' Version: 1.0
 #' Date: 22-Mar-23
 #' Objective: The objective is to merge the RKD data filter and clean with the clean Freezer work data
 #'
 #'
-#' @param FWdata FW data from CleanFW function
-#' @param RKDdata RKD data from ClinicalFilterRKD or earlier function
+#' @param FWdata FW data from \code{\link{CleanFW}} function
+#' @param RKDdata RKD data from \code{\link{ClassifyRKDEncounter}} or earlier function
 #' @param output_path folder where the merged data will be saved
 #' @param interval The number of day in which the merge need to be done
 #' @details The merge between the Freezerwork data and the RKD data allows us to find the sample associated to the RKD data.
