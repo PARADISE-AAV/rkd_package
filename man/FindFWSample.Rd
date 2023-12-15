@@ -23,6 +23,7 @@ Merge the RKD data and the Freezerwork data
 }
 \details{
 The merge between the Freezerwork data and the RKD data allows us to find the sample associated to the RKD data.
+
 The interval of day argument is here as we need flexibility in the date merging. The date of sample in the Freezerwork is the one when the sample arrive in the biobank and they can be a delay with the encounter date.
 }
 \author{
