@@ -12,7 +12,7 @@ DemographicFilterRKD(RKDdata, output_path)
 \item{output_path}{folder where the filter RKD data will be saved}
 }
 \value{
-The Redcap data cleaned in your folder and in an object
+The Redcap data filter in your folder and an R object
 }
 \description{
 The objective is to filter the RKD data based on inclution criteria
