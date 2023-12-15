@@ -1,4 +1,4 @@
-#' @title AddBiomarkerRKD
+#' @title Adding Biomarker data to the RIV data
 #' @author Yagmur Dogay
 #' @description The objective is to merge biomarker data with RKD data
 #' @param data_rkd Data frame linking with RKD data

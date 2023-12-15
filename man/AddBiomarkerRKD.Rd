@@ -2,7 +2,7 @@
 % Please edit documentation in R/AddBiomarkerFunction.R
 \name{AddBiomarkerRKD}
 \alias{AddBiomarkerRKD}
-\title{AddBiomarkerRKD}
+\title{Adding Biomarker data to the RIV data}
 \usage{
 AddBiomarkerRKD(data_rkd, data_bio, interval)
 }
