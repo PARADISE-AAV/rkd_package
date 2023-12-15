@@ -10,7 +10,7 @@
 #' @param RKDdata RKD data from \code{\link{clean_rkd}} function
 #' @param output_path folder where the filter RKD data will be saved
 #' @details The filter of the RKD data are based on the following filter
-#' Definite MPA and GPA with no secondary Vasculitis
+#' * Definite MPA and GPA with no secondary Vasculitis
 #' 
 #' 
 #' @return The Redcap data cleaned in your folder and in an object
