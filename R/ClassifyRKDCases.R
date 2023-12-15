@@ -15,7 +15,7 @@
 #' * Paradise_Encounter tells us if we can include the Encounter or not in the Paradise project
 #' 
 #' @export
-ClassifyRKDCases = function(RKDdata, output_path, algorithm, interval_from_diagnostics=6) {
+ClassifyRKDEncounter = function(RKDdata, output_path, algorithm, interval_from_diagnostics=6) {
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
