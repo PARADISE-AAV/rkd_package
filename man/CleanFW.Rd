@@ -2,12 +2,12 @@
 % Please edit documentation in R/CleanFW.R
 \name{CleanFW}
 \alias{CleanFW}
-\title{CleanFW}
+\title{Cleaning the Freezerwork data coming from \code{\link{LoadFW}}}
 \usage{
 CleanFW(FWdata, output_path)
 }
 \arguments{
-\item{FWdata}{FW data from loadFW function}
+\item{FWdata}{FW data from \code{\link{LoadFW}} function}
 
 \item{output_path}{folder where the Redcap data will be saved}
 }
