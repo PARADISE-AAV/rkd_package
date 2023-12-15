@@ -1,4 +1,4 @@
-#' @title DemographicFilterRKD
+#' @title Filter the patient with different rules
 #' @author Matthieu COQ
 #' @description
 #' The objective is to filter the RKD data based on inclution criteria
@@ -7,7 +7,7 @@
 #' 
 #' Date: 24-Jan-23
 #'
-#' @param RKDdata RKD data from CleanRKD function or AddBiomarker function
+#' @param RKDdata RKD data from CleanRKD function
 #' @param output_path folder where the filter RKD data will be saved
 #' @details The filter of the RKD data are based on the following filter
 #' Definite MPA and GPA with no secondary Vasculitis
