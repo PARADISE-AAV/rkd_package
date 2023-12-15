@@ -1,4 +1,4 @@
-#' @title ClassifyRKDCases
+#' @title This function use the different CPD algorithms to classify the Encounter of RKD data
 #' @author Matthieu COQ
 #' @description
 #'  The objective is to classify the patient of RKD data based on criteria described in the function apply
