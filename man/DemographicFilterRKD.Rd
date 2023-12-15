@@ -2,12 +2,12 @@
 % Please edit documentation in R/DemographicFilterRKD.R
 \name{DemographicFilterRKD}
 \alias{DemographicFilterRKD}
-\title{DemographicFilterRKD}
+\title{Filter the patient with different rules}
 \usage{
 DemographicFilterRKD(RKDdata, output_path)
 }
 \arguments{
-\item{RKDdata}{RKD data from CleanRKD function or AddBiomarker function}
+\item{RKDdata}{RKD data from \code{\link{clean_rkd}} function}
 
 \item{output_path}{folder where the filter RKD data will be saved}
 }
