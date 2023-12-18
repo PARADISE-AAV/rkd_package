@@ -4,11 +4,11 @@
 #'  The objective is to classify the patient of RKD data based on criteria described in the function apply
 #'
 #'
-#' @param RKDdata RKD data from DemographicFilterRKD function
+#' @param RKDdata RKD data from \code{\link{DemographicFilterRKD}} function
 #' @param output_path folder where the Redcap data will be saved
 #' @param algorithm function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter" or "CPD Relapse"
 #' @param interval_from_diagnostics the interval from diagnostics for the algorithm Paradise_Encounter by default 6
-#' @param rawRKDdata Raw data from 
+#' @param rawRKDdata Raw data from \code{\link{load_rkd}} function
 #' @return The Redcap data cleaned in your folder and in an object 
 #' @details This function use different function to classify the encounter of RKD data. this function are described in their function.
 #' * CPD Relapse tells us if an encounter is in relapse or not based on rules and models 
