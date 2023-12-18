@@ -1,6 +1,6 @@
 Package: rkdpipeline
 Title: Pre-process RKD data
-Version: 0.0.1.9105
+Version: 0.0.1.9106
 Authors@R: 
     c(
     person("Matthieu", "Coq", , "coqm@tcd.ie", role = c("aut", "cre")),
