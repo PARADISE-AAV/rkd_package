@@ -6,7 +6,7 @@
 #'
 #' @param RKDdata RKD data from \code{\link{DemographicFilterRKD}} function
 #' @param output_path folder where the Redcap data will be saved
-#' @param algorithm function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter" or "CPD Relapse"
+#' @param algorithm function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off
 #' @param interval_from_diagnostics the interval from diagnostics for the algorithm Paradise_Encounter by default 6
 #' @param rawRKDdata Raw data from \code{\link{load_rkd}} function
 #' @return The Redcap data cleaned in your folder and in an object 
@@ -14,6 +14,7 @@
 #' * CPD Relapse tells us if an encounter is in relapse or not based on rules and models 
 #' * BRelapse tells us if an encounter is in relapse or not based on rules
 #' * Paradise_Encounter tells us if we can include the Encounter or not in the Paradise project
+#' * Treatment On/Off tells us if an Encounter is under treatment or not
 #' 
 #' @export
 ClassifyRKDEncounter = function(RKDdata, output_path, algorithm, interval_from_diagnostics=6, rawRKDdata) {
