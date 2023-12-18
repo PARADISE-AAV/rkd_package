@@ -8,17 +8,20 @@ ClassifyRKDEncounter(
   RKDdata,
   output_path,
   algorithm,
-  interval_from_diagnostics = 6
+  interval_from_diagnostics = 6,
+  rawRKDdata
 )
 }
 \arguments{
-\item{RKDdata}{RKD data from DemographicFilterRKD function}
+\item{RKDdata}{RKD data from \code{\link{DemographicFilterRKD}} function}
 
 \item{output_path}{folder where the Redcap data will be saved}
 
-\item{algorithm}{function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter" or "CPD Relapse"}
+\item{algorithm}{function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off}
 
 \item{interval_from_diagnostics}{the interval from diagnostics for the algorithm Paradise_Encounter by default 6}
+
+\item{rawRKDdata}{Raw data from \code{\link{load_rkd}} function}
 }
 \value{
 The Redcap data cleaned in your folder and in an object
@@ -32,6 +35,7 @@ This function use different function to classify the encounter of RKD data. this
 \item CPD Relapse tells us if an encounter is in relapse or not based on rules and models
 \item BRelapse tells us if an encounter is in relapse or not based on rules
 \item Paradise_Encounter tells us if we can include the Encounter or not in the Paradise project
+\item Treatment On/Off tells us if an Encounter is under treatment or not
 }
 }
 \author{
