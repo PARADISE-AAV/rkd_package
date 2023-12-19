@@ -32,7 +32,7 @@ The objective is to classify the patient of RKD data based on criteria described
 \details{
 This function allows you to call one of  multiple functions to create a classification variable for each RKD encounter. The possible functions each create one new variable
 \itemize{
-\item \code{\link{CPD_Relapse}} tells us if an encounter is in relapse or not based on rules and models
+\item \code{\link{CPDRelapse}} tells us if an encounter is in relapse or not based on rules and models
 \item \code{\link{BRelapse}} tells us if an encounter is in relapse or not based on rules
 \item \code{\link{Paradise_Encounter}} tells us if we can include the Encounter or not in the Paradise project
 \item \code{\link{Treatment_On_Off}} in addition of \code{\link{IVTherapy}} tells us if an Encounter is under treatment or not
