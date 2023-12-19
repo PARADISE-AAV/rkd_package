@@ -9,6 +9,9 @@
 #' @return The RKD data after the second part of the data preparation
 #' @details The second part for the data preparation in the \code{\link{CPD_Relapse}}
 #' 
+#' The second part of the data preparation is done with several function as described below
+#' * \code{\link{inclusion_criteria}} that look at the inclusion criteria fo each encounter
+#' 
 #' 
 #' 
 #' @import dplyr
