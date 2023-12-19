@@ -7,7 +7,7 @@
 cpd.relapse(RKDdata)
 }
 \arguments{
-\item{RKDdata}{Data frame after the preparation of the data to apply this function}
+\item{RKDdata}{Data frame after the preparation of the data (\code{\link{prep2}}) to apply this function}
 }
 \value{
 The RKD data with the status if the patient is in remission
