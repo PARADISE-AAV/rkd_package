@@ -1,7 +1,7 @@
 #' @title prep2
 #' @author Matthieu COQ/Jennifer Scott
 #' @description
-#'  The objective is to do the second part of the data preparation in the \code{\link{CPD_Relapse}}
+#'  The objective is to do the second part of the data preparation in the \code{\link{CPDRelapse}}
 #'  
 #'  Version: 1.0
 #'  
@@ -9,7 +9,7 @@
 #'
 #' @param RKDdata Data frame with the RKD data from \code{\link{prep1}}
 #' @return The RKD data after the second part of the data preparation
-#' @details The second part for the data preparation in the \code{\link{CPD_Relapse}} is done with several function as described below
+#' @details The second part for the data preparation in the \code{\link{CPDRelapse}} is done with several function as described below
 #' * \code{\link{inclusion_criteria}} that look at the inclusion criteria fo each encounter
 #' * \code{\link{ANCA_titre}} that interfere the ANCA titre
 #' * \code{\link{sug_blood}} that interfere the suggested blood answer
