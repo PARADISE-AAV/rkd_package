@@ -9,11 +9,11 @@
 #' @return The RKD data after the second part of the data preparation
 #' @details The second part for the data preparation in the \code{\link{CPD_Relapse}} is done with several function as described below
 #' * \code{\link{inclusion_criteria}} that look at the inclusion criteria fo each encounter
-#' * \code{\link{ANCA.titre}} that interfere the ANCA titre
-#' * \code{\link{sug.blood}} that interfere the suggested blood answer
-#' * \code{\link{is.status}} that interfere the immuno suppression status
-#' * \code{\link{complete.bvas}} that interfere the BVAS calculation
-#' * \code{\link{complete.ANCA}} that interfere the last variable like ANCA and finalize the preparation of data for the modelling
+#' * \code{\link{ANCA_titre}} that interfere the ANCA titre
+#' * \code{\link{sug_blood}} that interfere the suggested blood answer
+#' * \code{\link{is_status}} that interfere the immuno suppression status
+#' * \code{\link{complete_bvas}} that interfere the BVAS calculation
+#' * \code{\link{complete_ANCA}} that interfere the last variable like ANCA and finalize the preparation of data for the modelling
 #' 
 #' 
 #' @import dplyr
@@ -36,11 +36,11 @@ prep2 <- function(RKDdata){
     group_by(RKD.ID) %>% 
     arrange(Date.Of.Visit)
   RKD_inclusion <- inclusion_criteria(RKD_data)
-  RKD_ANCA <- ANCA.titre(RKD_inclusion)
-  RKD_blood <- sug.blood(RKD_ANCA)
-  RKD_status <- is.status(RKD_blood)
-  RKD_BVAS <- complete.bvas(RKD_status)
-  RKD_ANCA_all <- complete.ANCA(RKD_BVAS)
+  RKD_ANCA <- ANCA_titre(RKD_inclusion)
+  RKD_blood <- sug_blood(RKD_ANCA)
+  RKD_status <- is_status(RKD_blood)
+  RKD_BVAS <- complete_bvas(RKD_status)
+  RKD_ANCA_all <- complete_ANCA(RKD_BVAS)
   
   return(RKD_ANCA_all)
   
@@ -116,7 +116,7 @@ inclusion_criteria <- function(RKDdata){
 
 
 
-ANCA.titre <- function(RKDdata){
+ANCA_titre <- function(RKDdata){
   
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
@@ -186,7 +186,7 @@ ANCA.titre <- function(RKDdata){
 #' @import tidyr
 #' @export
 
-sug.blood <- function(RKDdata){
+sug_blood <- function(RKDdata){
 
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
@@ -284,7 +284,7 @@ sug.blood <- function(RKDdata){
 #' @import dplyr
 #' @export
 
-is.status <- function(RKDdata){
+is_status <- function(RKDdata){
   
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
@@ -354,7 +354,7 @@ is.status <- function(RKDdata){
 #' @import dplyr
 #' @export
 
-complete.bvas <- function(RKDdata){
+complete_bvas <- function(RKDdata){
   
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
@@ -404,7 +404,7 @@ complete.bvas <- function(RKDdata){
 #' @import dplyr
 #' @export
 
-complete.ANCA <- function(RKDdata){
+complete_ANCA <- function(RKDdata){
   
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
