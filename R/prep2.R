@@ -12,7 +12,8 @@
 #' * \code{\link{ANCA.titre}} that interfere the ANCA titre
 #' * \code{\link{sug.blood}} that interfere the suggested blood answer
 #' * \code{\link{is.status}} that interfere the immuno suppression status
-#' * \code{\link{complete.bvas}} 
+#' * \code{\link{complete.bvas}} that interfere the BVAS calculation
+#' * \code{\link{complete.ANCA}} that interfere the last variable like ANCA and finalize the preparation of data for the modelling
 #' 
 #' 
 #' @import dplyr
