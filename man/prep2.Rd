@@ -13,14 +13,14 @@ prep2(RKDdata)
 The RKD data after the second part of the data preparation
 }
 \description{
-The objective is to do the second part of the data preparation in the \code{\link{CPD_Relapse}}
+The objective is to do the second part of the data preparation in the \code{\link{CPDRelapse}}
 
 Version: 1.0
 
 Date: 07-Jul-23
 }
 \details{
-The second part for the data preparation in the \code{\link{CPD_Relapse}} is done with several function as described below
+The second part for the data preparation in the \code{\link{CPDRelapse}} is done with several function as described below
 \itemize{
 \item \code{\link{inclusion_criteria}} that look at the inclusion criteria fo each encounter
 \item \code{\link{ANCA_titre}} that interfere the ANCA titre
