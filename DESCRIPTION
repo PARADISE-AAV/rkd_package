@@ -9,6 +9,8 @@ Authors@R:
            comment = c(ORCID = "0000-0001-8026-5663"))
     )
 Description: A reproducible pre-processing pipeline for analysis of Rare Kidney Disease (RKD) data.
+        The pipeline is described in the following link: 
+        https://public.3.basecamp.com/p/aTm6kScGVgynEgfPZKMJgDcm/.
 License: file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
