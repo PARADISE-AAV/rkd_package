@@ -7,9 +7,9 @@
 #' @param FWdata FW data from \code{\link{LoadFW}} function
 #' @param output_path folder where the Redcap data will be saved
 #' @details The CleanFW function is a series of data transformation to clean Freezerwork data
-#' Remove the missing RKD.ID
-#' Remove the sample with a null amount of material
-#' Check the format of the date
+#' * Remove the missing RKD.ID
+#' * Remove the sample with a null amount of material
+#' * Check the format of the date
 #' 
 #' 
 #' @return The Redcap data cleaned in your folder and in an object
