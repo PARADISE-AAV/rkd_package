@@ -13,7 +13,9 @@ inclusion_criteria(RKDdata)
 The RKD data after the second part of the data preparation
 }
 \description{
-
+The objective is to do the second part of the data preparation (\code{\link{prep2}}) in particularity the inclusion criteria
+Version: 1.0
+Date: 07-Jul-23
 }
 \author{
 Matthieu COQ/Jennifer Scott
