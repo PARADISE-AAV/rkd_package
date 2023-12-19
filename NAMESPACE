@@ -3,7 +3,7 @@
 export(ANCA_titre)
 export(AddBiomarkerRKD)
 export(BRelapseFunction)
-export(CPD_Relapse)
+export(CPDRelapse)
 export(ClassifyRKDEncounter)
 export(CleanFW)
 export(DemographicFilterRKD)
