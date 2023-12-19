@@ -13,7 +13,7 @@
 #' @import dplyr
 #' @export
 
-cpd.relapse <- function (RKDdata){
+cpd_relapse <- function (RKDdata){
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
