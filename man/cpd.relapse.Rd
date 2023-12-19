@@ -13,7 +13,7 @@ cpd.relapse(RKDdata)
 The RKD data with the status if the patient is in remission
 }
 \description{
-The objective is to assign to an encounter if he is in relapse stage or not
+The objective is to assign to an encounter if he is in relapse stage or not. This function is apply after \code{\link{prep2}} function
 
 Version: 1.0
 
