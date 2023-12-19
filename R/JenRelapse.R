@@ -9,7 +9,7 @@
 #' 
 #' There is 4 sub-function
 #' * \code{\link{prep1}} and \code{\link{prep2}} are function to prepare the data for the modelling and the classification
-#' * \code{\link{cpd.relapse}} is the function to apply the model described in Jennifer Scott article
+#' * \code{\link{cpd_relapse}} is the function to apply the model described in Jennifer Scott article
 #' * \code{\link{Relapse_final}} is the function where the last rules of the step1 and step2 are done
 #' * The step3 of the function is done in this function.
 #' 
@@ -30,7 +30,7 @@ CPD_Relapse <- function(RKDdata){
   }
   prep1_data <- prep1(RKD_data)
   prep2_data <- prep2(prep1_data)
-  final_data <- cpd.relapse(prep2_data)
+  final_data <- cpd_relapse(prep2_data)
   relapse_final_data <- Relapse_final(final_data)
   
   CPD_Relapse_RKD_data <- merge(RKD_data, relapse_final_data, by.x = c("RKD.ID", "Date.Of.Visit"), by.y = c("ID", "Date.Of.Visit"))
