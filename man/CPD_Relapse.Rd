@@ -21,9 +21,9 @@ The algorithm is described in the following picture: \href{https://3.basecamp.co
 
 There is 4 sub-function
 \itemize{
-\item prep1 and prep2 are function to prepare the data for the modelling and the classification
-\item cpd.relapse is the function to apply the model described in Jennifer Scott article
-\item Relapse_final is the function where the last rules of the step1 and step2 are done
+\item \code{\link{prep1}} and \code{\link{prep2}} are function to prepare the data for the modelling and the classification
+\item \code{\link{cpd.relapse}} is the function to apply the model described in Jennifer Scott article
+\item \code{\link{Relapse_final}} is the function where the last rules of the step1 and step2 are done
 \item The step3 of the function is done in this function.
 }
 }
