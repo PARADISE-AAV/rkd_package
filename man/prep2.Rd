@@ -7,15 +7,23 @@
 prep2(RKDdata)
 }
 \arguments{
-\item{RKDdata}{Data frame with the RKD data in}
+\item{RKDdata}{Data frame with the RKD data from \code{\link{prep1}}}
 }
 \value{
 The RKD data after the second part of the data preparation
 }
 \description{
-The objective is to do the second part of the data preparation
+The objective is to do the second part of the data preparation in the \code{\link{CPD_Relapse}}
 Version: 1.0
 Date: 07-Jul-23
+}
+\details{
+The second part for the data preparation in the \code{\link{CPD_Relapse}}
+
+The second part of the data preparation is done with several function as described below
+\itemize{
+\item \code{\link{inclusion_criteria}} that look at the inclusion criteria fo each encounter
+}
 }
 \author{
 Matthieu COQ/Jennifer Scott
