@@ -16,7 +16,7 @@
 #' @return The RKD data with the relapse category
 #' @export
 
-CPD_Relapse <- function(RKDdata){
+CPDRelapse <- function(RKDdata){
   
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
