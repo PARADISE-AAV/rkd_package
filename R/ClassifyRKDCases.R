@@ -9,8 +9,8 @@
 #' @param algorithm function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off
 #' @param interval_from_diagnostics the interval from diagnostics for the algorithm Paradise_Encounter by default 6
 #' @param rawRKDdata Raw data from \code{\link{load_rkd}} function
-#' @return The Redcap data cleaned in your folder and in an object 
-#' @details This function use different function to classify the encounter of RKD data. this function are described in their function.
+#' @return The Redcap data with the classification variables in your folder and in an R object 
+#' @details This function allows you to call one of  multiple functions to create a classification variable for each RKD encounter. The possible functions each create one new variable
 #' * \code{\link{CPD_Relapse}} tells us if an encounter is in relapse or not based on rules and models 
 #' * \code{\link{BRelapse}} tells us if an encounter is in relapse or not based on rules
 #' * \code{\link{Paradise_Encounter}} tells us if we can include the Encounter or not in the Paradise project
