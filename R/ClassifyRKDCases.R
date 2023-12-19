@@ -11,7 +11,7 @@
 #' @param rawRKDdata Raw data from \code{\link{load_rkd}} function
 #' @return The Redcap data with the classification variables in your folder and in an R object 
 #' @details This function allows you to call one of  multiple functions to create a classification variable for each RKD encounter. The possible functions each create one new variable
-#' * \code{\link{CPD_Relapse}} tells us if an encounter is in relapse or not based on rules and models 
+#' * \code{\link{CPDRelapse}} tells us if an encounter is in relapse or not based on rules and models 
 #' * \code{\link{BRelapse}} tells us if an encounter is in relapse or not based on rules
 #' * \code{\link{Paradise_Encounter}} tells us if we can include the Encounter or not in the Paradise project
 #' * \code{\link{Treatment_On_Off}} in addition of \code{\link{IVTherapy}} tells us if an Encounter is under treatment or not
@@ -40,7 +40,7 @@ ClassifyRKDEncounter = function(RKDdata, output_path, algorithm, interval_from_d
     Classify_RKD_data <- Paradise_Encounter(RKD_data, interval_from_diagnostics)
   }
   if(algorithm == "CPD Relapse"){
-    Classify_RKD_data <- CPD_Relapse(RKD_data)
+    Classify_RKD_data <- CPDRelapse(RKD_data)
      
   }
   if(algorithm == "Treatment On/Off"){
