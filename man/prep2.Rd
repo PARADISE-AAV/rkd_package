@@ -21,11 +21,11 @@ Date: 07-Jul-23
 The second part for the data preparation in the \code{\link{CPD_Relapse}} is done with several function as described below
 \itemize{
 \item \code{\link{inclusion_criteria}} that look at the inclusion criteria fo each encounter
-\item \code{\link{ANCA.titre}} that interfere the ANCA titre
-\item \code{\link{sug.blood}} that interfere the suggested blood answer
-\item \code{\link{is.status}} that interfere the immuno suppression status
-\item \code{\link{complete.bvas}} that interfere the BVAS calculation
-\item \code{\link{complete.ANCA}} that interfere the last variable like ANCA and finalize the preparation of data for the modelling
+\item \code{\link{ANCA_titre}} that interfere the ANCA titre
+\item \code{\link{sug_blood}} that interfere the suggested blood answer
+\item \code{\link{is_status}} that interfere the immuno suppression status
+\item \code{\link{complete_bvas}} that interfere the BVAS calculation
+\item \code{\link{complete_ANCA}} that interfere the last variable like ANCA and finalize the preparation of data for the modelling
 }
 }
 \author{
