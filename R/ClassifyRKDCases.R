@@ -11,10 +11,10 @@
 #' @param rawRKDdata Raw data from \code{\link{load_rkd}} function
 #' @return The Redcap data cleaned in your folder and in an object 
 #' @details This function use different function to classify the encounter of RKD data. this function are described in their function.
-#' * CPD Relapse tells us if an encounter is in relapse or not based on rules and models 
-#' * BRelapse tells us if an encounter is in relapse or not based on rules
-#' * Paradise_Encounter tells us if we can include the Encounter or not in the Paradise project
-#' * Treatment On/Off tells us if an Encounter is under treatment or not
+#' * \code{\link{CPD_Relapse}} tells us if an encounter is in relapse or not based on rules and models 
+#' * \code{\link{BRelapse}} tells us if an encounter is in relapse or not based on rules
+#' * \code{\link{Paradise_Encounter}} tells us if we can include the Encounter or not in the Paradise project
+#' * \code{\link{Treatment_On_Off}} in addition of \code{\link{IVTherapy}} tells us if an Encounter is under treatment or not
 #' 
 #' @export
 ClassifyRKDEncounter = function(RKDdata, output_path, algorithm, interval_from_diagnostics=6, rawRKDdata) {
