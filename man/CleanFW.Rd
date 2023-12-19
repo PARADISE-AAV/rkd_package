@@ -19,9 +19,11 @@ The objective is to clean the Freezerwork data
 }
 \details{
 The CleanFW function is a series of data transformation to clean Freezerwork data
-Remove the missing RKD.ID
-Remove the sample with a null amount of material
-Check the format of the date
+\itemize{
+\item Remove the missing RKD.ID
+\item Remove the sample with a null amount of material
+\item Check the format of the date
+}
 }
 \author{
 Matthieu COQ
