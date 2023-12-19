@@ -24,13 +24,13 @@ ClassifyRKDEncounter(
 \item{rawRKDdata}{Raw data from \code{\link{load_rkd}} function}
 }
 \value{
-The Redcap data cleaned in your folder and in an object
+The Redcap data with the classification variables in your folder and in an R object
 }
 \description{
 The objective is to classify the patient of RKD data based on criteria described in the function apply
 }
 \details{
-This function use different function to classify the encounter of RKD data. this function are described in their function.
+This function allows you to call one of  multiple functions to create a classification variable for each RKD encounter. The possible functions each create one new variable
 \itemize{
 \item \code{\link{CPD_Relapse}} tells us if an encounter is in relapse or not based on rules and models
 \item \code{\link{BRelapse}} tells us if an encounter is in relapse or not based on rules
