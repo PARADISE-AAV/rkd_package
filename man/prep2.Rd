@@ -18,9 +18,7 @@ Version: 1.0
 Date: 07-Jul-23
 }
 \details{
-The second part for the data preparation in the \code{\link{CPD_Relapse}}
-
-The second part of the data preparation is done with several function as described below
+The second part for the data preparation in the \code{\link{CPD_Relapse}}is done with several function as described below
 \itemize{
 \item \code{\link{inclusion_criteria}} that look at the inclusion criteria fo each encounter
 }
