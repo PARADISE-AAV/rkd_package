@@ -9,7 +9,10 @@
 #' @return The RKD data after the second part of the data preparation
 #' @details The second part for the data preparation in the \code{\link{CPD_Relapse}} is done with several function as described below
 #' * \code{\link{inclusion_criteria}} that look at the inclusion criteria fo each encounter
-#' 
+#' * \code{\link{ANCA.titre}} that interfere the ANCA titre
+#' * \code{\link{sug.blood}} that interfere the suggested blood answer
+#' * \code{\link{is.status}} that interfere the immuno suppression status
+#' * \code{\link{complete.bvas}} 
 #' 
 #' 
 #' @import dplyr
