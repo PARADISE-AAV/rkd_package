@@ -2,7 +2,9 @@
 #' @author Matthieu COQ/Jennifer Scott
 #' @description
 #'  The objective is to do the second part of the data preparation in the \code{\link{CPD_Relapse}}
+#'  
 #'  Version: 1.0
+#'  
 #'  Date: 07-Jul-23
 #'
 #' @param RKDdata Data frame with the RKD data from \code{\link{prep1}}
