@@ -10,7 +10,6 @@
 #' @return The RKD data with the LTROT category
 #' @import dplyr
 #' @import tidyverse 
-#' @import tidylog
 #' @export
 
 CPD_LTROT= function(RKDdata, duration){
