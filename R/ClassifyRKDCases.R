@@ -45,7 +45,7 @@ ClassifyRKDEncounter = function(RKDdata, output_path, algorithm, interval_from_d
   }
   if(algorithm == "Treatment On/Off"){
     rkd_treatment <- Treatment_On_Off(RKDdata)
-    Classify_RKD_data <- rkdpipeline:::IVTherapy(rkd, rkd_treatment)
+    Classify_RKD_data <- IVTherapy(rkd, rkd_treatment)
   }
 
   files_test <-  list.dirs(output_path)
