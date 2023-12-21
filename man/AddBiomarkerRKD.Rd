@@ -9,7 +9,7 @@ AddBiomarkerRKD(data_rkd, data_bio, interval)
 \arguments{
 \item{data_rkd}{Data frame linking with RKD data coming from \code{\link{ClassifyRKDEncounter}}}
 
-\item{data_bio}{Data frame linking with the biomarker data coming from \code{\link{LoadBM}}}
+\item{data_bio}{Data frame linking with the biomarker data coming from \code{\link{LoadBiomarker}}}
 
 \item{interval}{The interval is a tolerance of number of days that the biomarker date is before and after the encounter date.}
 }
