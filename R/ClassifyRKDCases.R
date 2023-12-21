@@ -12,7 +12,7 @@
 #' @return The Redcap data with the classification variables in your folder and in an R object 
 #' @details This function allows you to call one of  multiple functions to create a classification variable for each RKD encounter. The possible functions each create one new variable
 #' * \code{\link{CPDRelapse}} tells us if an encounter is in relapse or not based on rules and models 
-#' * \code{\link{BRelapse}} tells us if an encounter is in relapse or not based on rules
+#' * \code{\link{BRelapseFunction}} tells us if an encounter is in relapse or not based on rules
 #' * \code{\link{Paradise_Encounter}} tells us if we can include the Encounter or not in the Paradise project
 #' * \code{\link{Treatment_On_Off}} in addition of \code{\link{IVTherapy}} tells us if an Encounter is under treatment or not
 #' 
