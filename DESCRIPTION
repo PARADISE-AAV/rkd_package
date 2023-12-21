@@ -30,7 +30,6 @@ Imports:
     fuzzyjoin,
     textclean,
     tidyverse,
-    tidyr,
-    tidylog
+    tidyr
 Config/testthat/edition: 3
 LazyData: true
