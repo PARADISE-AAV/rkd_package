@@ -6,9 +6,10 @@
 #'
 #' @param RKDdata RKD data from \code{\link{DemographicFilterRKD}} function
 #' @param output_path folder where the Redcap data will be saved
-#' @param algorithm function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off
+#' @param algorithm function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT"
 #' @param interval_from_diagnostics the interval from diagnostics for the algorithm Paradise_Encounter by default 6
-#' @param rawRKDdata Raw data from \code{\link{load_rkd}} function
+#' @param rawRKDdata Raw data from \code{\link{load_rkd}} function for the Treatment On/Off algorithm
+#' @param nb_month Number of month out of treatment for the CPD LTROT function
 #' @return The Redcap data with the classification variables in your folder and in an R object 
 #' @details This function allows you to call one of  multiple functions to create a classification variable for each RKD encounter. The possible functions each create one new variable
 #' * \code{\link{CPDRelapse}} tells us if an encounter is in relapse or not based on rules and models 
@@ -17,7 +18,7 @@
 #' * \code{\link{Treatment_On_Off}} in addition of \code{\link{IVTherapy}} tells us if an Encounter is under treatment or not
 #' 
 #' @export
-ClassifyRKDEncounter = function(RKDdata, output_path, algorithm, interval_from_diagnostics=6, rawRKDdata) {
+ClassifyRKDEncounter = function(RKDdata, output_path, algorithm, interval_from_diagnostics=6, rawRKDdata=NULL, nb_month=NULL) {
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
@@ -46,6 +47,10 @@ ClassifyRKDEncounter = function(RKDdata, output_path, algorithm, interval_from_d
   if(algorithm == "Treatment On/Off"){
     rkd_treatment <- Treatment_On_Off(RKDdata)
     Classify_RKD_data <- IVTherapy(rkd, rkd_treatment)
+  }
+  if(algorithm == "CPD LTROT"){
+    Classify_RKD_data <- CPD_LTROT(RKD_data, nb_month)
+    
   }
 
   files_test <-  list.dirs(output_path)
