@@ -9,7 +9,8 @@ ClassifyRKDEncounter(
   output_path,
   algorithm,
   interval_from_diagnostics = 6,
-  rawRKDdata
+  rawRKDdata = NULL,
+  nb_month = NULL
 )
 }
 \arguments{
@@ -17,11 +18,13 @@ ClassifyRKDEncounter(
 
 \item{output_path}{folder where the Redcap data will be saved}
 
-\item{algorithm}{function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off}
+\item{algorithm}{function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT"}
 
 \item{interval_from_diagnostics}{the interval from diagnostics for the algorithm Paradise_Encounter by default 6}
 
-\item{rawRKDdata}{Raw data from \code{\link{load_rkd}} function}
+\item{rawRKDdata}{Raw data from \code{\link{load_rkd}} function for the Treatment On/Off algorithm}
+
+\item{nb_month}{Number of month out of treatment for the CPD LTROT function}
 }
 \value{
 The Redcap data with the classification variables in your folder and in an R object
