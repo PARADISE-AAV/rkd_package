@@ -18,7 +18,7 @@
 #' * \code{\link{Treatment_On_Off}} in addition of \code{\link{IVTherapy}} tells us if an Encounter is under treatment or not
 #' 
 #' @export
-ClassifyRKDEncounter = function(RKDdata, output_path, algorithm, interval_from_diagnostics=6, rawRKDdata=NULL, nb_month=NULL) {
+ClassifyRKDEncounter = function(RKDdata, output_path, algorithm, interval_from_diagnostics=6, rawRKDdata=NULL, nb_month=24) {
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
