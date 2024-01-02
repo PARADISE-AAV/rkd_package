@@ -52,7 +52,7 @@ CleanFW=function(FWdata, output_path){
   if(identical(files_test, character(0)) == TRUE){
     stop("Your output folder don't exist")
   }
-  write.csv(Clean_FW_data, paste(output_path, "/Freezerwork_data_clean", Sys.Date() , ".csv", sep=""), row.names = F)
+  write.csv(Clean_FW_data, paste(output_path, "/Freezerwork_data_clean", "_version", packageVersion('rkdpipeline'), "_Date", Sys.Date() , ".csv", sep=""), row.names = F)
   return(Clean_FW_data)
   
 }
