@@ -10,7 +10,7 @@ ClassifyRKDEncounter(
   algorithm,
   interval_from_diagnostics = 6,
   rawRKDdata = NULL,
-  nb_month = NULL
+  nb_month = 24
 )
 }
 \arguments{
