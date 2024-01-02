@@ -59,7 +59,7 @@ ClassifyRKDEncounter = function(RKDdata, output_path, algorithm, interval_from_d
   }
 
   output_filename <- file.path(output_path,
-    paste0("Redcap_clinical_data_with-classification", Sys.Date(), ".csv"))
+    paste0("Redcap_clinical_data_with-classification", "_version", packageVersion('rkdpipeline'), "_Date", Sys.Date(), ".csv"))
 
   write.csv(Classify_RKD_data, output_filename, row.names = FALSE)
   return(Classify_RKD_data)
