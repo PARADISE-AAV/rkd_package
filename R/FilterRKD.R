@@ -18,7 +18,7 @@ FilterRKD = function(RKDdata, output_path, algorithm) {
   if (is.character(output_path) == FALSE) {
     stop("The argument output_path need to be a character argument")
   }
-  algorithm <- match.arg(algorithm, c('BRelapse'))
+  algorithm <- match.arg(algorithm, c("Definite GPA/MPA"))
   
   RKD_data <- RKDdata
   ###check that you load a real file
@@ -26,8 +26,8 @@ FilterRKD = function(RKDdata, output_path, algorithm) {
     stop("You give an empty files")
   }
   
-  if (algorithm == "BRelapse") {
-    Filter_RKD_data <- BRelapseFunction(RKD_data)
+  if (algorithm == "Definite GPA/MPA") {
+    Filter_RKD_data <- DemographicFilterRKD(RKD_data)
   }
   
   
@@ -37,7 +37,7 @@ FilterRKD = function(RKDdata, output_path, algorithm) {
   }
   
   output_filename <- file.path(output_path,
-                               paste0("Redcap_clinical_data_with-classification", "_version", packageVersion('rkdpipeline'), "_Date", Sys.Date(), ".csv"))
+                               paste0("Redcap_clinical_data_filter", "_version", packageVersion('rkdpipeline'), "_Date", Sys.Date(), ".csv"))
   
   write.csv(Filter_RKD_data, output_filename, row.names = FALSE)
   return(Filter_RKD_data)
