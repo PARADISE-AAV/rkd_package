@@ -75,7 +75,7 @@ DemographicFilterRKD <- function(RKDdata, output_path) {
     stop("Your output folder don't exist")
   }
 
-  output_filename <- file.path(output_path, paste0("Redcap_clinical_data_filter", Sys.Date() , ".csv"))
+  output_filename <- file.path(output_path, paste0("Redcap_clinical_data_filter", "_version", packageVersion('rkdpipeline'), "_Date", Sys.Date() , ".csv"))
   write.csv(Filter_RKD_data, output_filename, row.names = FALSE)
 
   return(Filter_RKD_data)
