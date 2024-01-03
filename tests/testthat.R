@@ -61,17 +61,14 @@ testthat::test_that("function cleanRKD", {
 
 testthat::test_that("function DemographicFilterRKD", {
   
-  rkd=as.data.frame(NULL)
-  output_path=1
-  testthat::expect_error(DemographicFilterRKD(rkd, output_path), "The argument output_path need to be a character argument")
   
   rkd=NULL
   output_path=getwd()
-  testthat::expect_error(DemographicFilterRKD(rkd, output_path), "The argument RKDdata need to be a dataframe argument")
+  testthat::expect_error(DemographicFilterRKD(rkd), "The argument RKDdata need to be a dataframe argument")
   
   rkd=as.data.frame(NULL)
   output_path=getwd()
-  testthat::expect_error(DemographicFilterRKD(rkd, output_path), "You give an empty files")
+  testthat::expect_error(DemographicFilterRKD(rkd), "You give an empty files")
   
   output_path=getwd()
   rkd=cbind.data.frame(RKD.ID=c(1,2,3,4,5,6),
@@ -86,6 +83,6 @@ testthat::test_that("function DemographicFilterRKD", {
                        At.any.point.ANCA.specificity=c("PR3", "MPO", "", "", "", ""),
                        Biopsy.performed.=c("Yes", "no", "", "Yes", "No", "Yes"),
                        Histologically.confirmed.diagnosis=c("No", "Yes", "No", "Yes", "Yes", "Yes"))
-  testthat::expect_equal(nrow(DemographicFilterRKD(rkd, output_path)), 2)
+  testthat::expect_equal(nrow(DemographicFilterRKD(rkd)), 2)
   
 }) 
