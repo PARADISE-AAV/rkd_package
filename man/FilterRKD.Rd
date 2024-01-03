@@ -17,10 +17,18 @@ FilterRKD(RKDdata, output_path, algorithm)
 The Redcap data with the classification variables in your folder and in an R object
 }
 \description{
-to be added
+The objective is to filter the RKD data based on inclusion criteria defined in several algorithms
+
+Version: 1.0
+
+Date: 03-Jan-24
 }
 \details{
-to be added
+The filter of the RKD data are based on the following filter
+\itemize{
+\item Definite MPA/GPA without secondary vasculitis
+\item Definite MPA/GPA/EGPA without secondary vasculitis
+}
 }
 \author{
 Matthieu COQ
