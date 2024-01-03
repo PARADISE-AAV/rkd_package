@@ -240,6 +240,11 @@ prep1_merged <- function(RKDdata){
 #' Version: 1.0
 #'
 #' @param RKDdata Data frame with the RKD data 
+#' @details The different step of the first part of the data preparation in the \code{\link{CPDRelapse}} are the following
+#' * \code{\link{prep1_demo}}
+#' * \code{\link{prep1_enc}} 
+#' * \code{\link{prep1_merged}} 
+#' 
 #' @return The RKD data after the first part of the data preparation in the \code{\link{CPDRelapse}} and ready for the \code{\link{prep2}}
 #' @export
 
