@@ -1,13 +1,18 @@
 #' @title LoadBiomarker
 #' @author Matthieu COQ/Yagmur DOGAY
+#' @description
+#' 
+#' The objective is to load the Biomarker data in a dataframe object
+#' 
 #' Version: 1.0
+#' 
 #' Date: 24-Jan-23
-#' Objective: The objective is to load the Biomarker data in a dataframe object
-#'
+#' 
 #'
 #' @param files_name Biomarkerdata used
 #' @return The Biomarker Data into DataFrame
 #' @details The load of Biomarker data in a dataframe object is use to add the Biomarker data to the rkd data. 
+#' 
 #' Please mind that some verification of your files ad the date format can interrupt the function.
 #' 
 #' 
