@@ -1,7 +1,11 @@
 #' @title This function use the different algorithms to filter the patient of RKD data
 #' @author Matthieu COQ
 #' @description
-#'  to be added
+#' The objective is to filter the RKD data based on inclusion criteria defined in several algorithms
+#' 
+#' Version: 1.0
+#' 
+#' Date: 03-Jan-24
 #'
 #' @param RKDdata RKD data from \code{\link{clean_rkd}} function
 #' @param output_path folder where the Redcap data will be saved
