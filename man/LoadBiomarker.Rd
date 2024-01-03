@@ -2,7 +2,7 @@
 % Please edit documentation in R/LoadBiomarker.R
 \name{LoadBiomarker}
 \alias{LoadBiomarker}
-\title{LoadBiomarker}
+\title{Load Biomarkerdata}
 \usage{
 LoadBiomarker(files_name)
 }
