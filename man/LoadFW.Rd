@@ -15,19 +15,22 @@ LoadFW(folder_name, matrix_type)
 The Redcap data in your folder and in an object
 }
 \description{
-LoadFW
+The objective is to load the Freezerwork data in a dataframe object
+
+Version: 1.0
+
+Date: 24-Jan-23
 }
 \details{
 This function is for loading the Freezerwork depending of the following matrix
--Serum
--Urine
--Plasma
--DNA
--RNA
+\itemize{
+\item Serum
+\item Urine
+\item Plasma
+\item DNA
+\item RNA
+}
 }
 \author{
 Matthieu COQ
-Version: 1.0
-Date: 24-Jan-23
-Objective: The objective is to load the Freezerwork data in a dataframe object
 }
