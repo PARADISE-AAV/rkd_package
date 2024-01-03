@@ -1,9 +1,12 @@
 #' @title Merge the RKD data and the Freezerwork data
 #' @author Matthieu COQ
-#' Version: 1.0
-#' Date: 22-Mar-23
+#' @description
 #' Objective: The objective is to merge the RKD data filter and clean with the clean Freezer work data
 #'
+#' Date: 22-Mar-23
+#' 
+#' Version: 1.0
+#' 
 #'
 #' @param FWdata FW data from \code{\link{CleanFW}} function
 #' @param RKDdata RKD data from \code{\link{ClassifyRKDEncounter}} or earlier function
