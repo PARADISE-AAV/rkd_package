@@ -7,17 +7,25 @@
 prep1(RKDdata)
 }
 \arguments{
-\item{RKDdata}{Data frame with the RKD data in}
+\item{RKDdata}{Data frame with the RKD data}
 }
 \value{
-The RKD data after the first part of the data preparation
+The RKD data after the first part of the data preparation in the \code{\link{CPDRelapse}} and ready for the \code{\link{prep2}}
 }
 \description{
-The objective is to do the first part of the data preparation
+The objective is to do the first part of the data  in the \code{\link{CPDRelapse}}
 
 Date: 07-Jul-23
 
 Version: 1.0
+}
+\details{
+The different step of the first part of the data preparation in the \code{\link{CPDRelapse}} are the following
+\itemize{
+\item \code{\link{prep1_demo}}
+\item \code{\link{prep1_enc}}
+\item \code{\link{prep1_merged}}
+}
 }
 \author{
 Matthieu COQ/Jennifer Scott
