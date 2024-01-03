@@ -2,7 +2,7 @@
 % Please edit documentation in R/CPD_LTROT.R
 \name{CPD_LTROT}
 \alias{CPD_LTROT}
-\title{CPD LTROT}
+\title{CPD Long Term Remission Out of Treatment (LTROT)}
 \usage{
 CPD_LTROT(RKDdata, duration)
 }
@@ -15,7 +15,11 @@ CPD_LTROT(RKDdata, duration)
 The RKD data with the LTROT category
 }
 \description{
-description to add
+The function have the goal to tell us if a patient is LTROT patient or not
+
+Date: 03-Jan-24
+
+Version 1.0
 }
 \details{
 detail to add
