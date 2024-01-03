@@ -16,6 +16,7 @@
 #' * \code{\link{BRelapseFunction}} tells us if an encounter is in relapse or not based on rules
 #' * \code{\link{Paradise_Encounter}} tells us if we can include the Encounter or not in the Paradise project
 #' * \code{\link{Treatment_On_Off}} in addition of \code{\link{IVTherapy}} tells us if an Encounter is under treatment or not
+#' * \code{\link{CPD_LTROT}} tells us if a patient is in Long Term Remission Out of Treatment (LTROT)
 #' 
 #' @export
 ClassifyRKDEncounter = function(RKDdata, output_path, algorithm, interval_from_diagnostics=6, rawRKDdata=NULL, nb_month=24) {
