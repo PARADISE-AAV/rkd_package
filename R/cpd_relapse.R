@@ -1,4 +1,4 @@
-#' @title cpd.relapse
+#' @title The application of the CPD relapse model to each encounter
 #' @author Matthieu COQ/Jennifer Scott
 #' 
 #' @description
