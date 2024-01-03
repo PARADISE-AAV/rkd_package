@@ -1,18 +1,22 @@
 #' @title IVTherapy
 #' @author Matthieu COQ
-#' Version: 1.0
-#' Date: 22-Nov-23
+#' @description
 #' Objective: The objective is to add the IV Therapy at each encounter
+#'  
+#' Date: 22-Nov-23
+#' 
+#' Version: 1.0
 #'
-#'
-#' @param RKD RKD data from LoadRKD function
+#' @param RKD RKD data from \code{\link{load_rkd}} function
 #' @param RKD_Treatment The RKD data after the treatment on/off function
 #' @return The RKD data with treatment on/off updated  with IV Therapy knowledge
 #' @details The IV Therapy function give what is the IV therapy for each encounter. 
+#' 
 #' For this a delay after a injection is given to say if the patient is still under therapy or not.
-#'  - Methylprednisolone is 30 days
-#'  - Rituximab is 180 days
-#'  - Cyclophosphamide is 90 days
+#'  * Methylprednisolone is 30 days
+#'  * Rituximab is 180 days
+#'  * Cyclophosphamide is 90 days
+#'  
 #'If a patient have a visit between the injection data and the injection data + delay, the patient is declare on treatment.
 #' 
 #' 
