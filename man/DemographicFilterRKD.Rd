@@ -4,7 +4,7 @@
 \alias{DemographicFilterRKD}
 \title{Filter the patient with different rules}
 \usage{
-DemographicFilterRKD(RKDdata, output_path)
+DemographicFilterRKD(RKDdata)
 }
 \arguments{
 \item{RKDdata}{RKD data from \code{\link{clean_rkd}} function}
