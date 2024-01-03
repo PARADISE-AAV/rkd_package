@@ -15,7 +15,7 @@ The Redcap data filter in your folder and an R object
 \description{
 The objective is to filter the RKD data based on inclusion criteria as Definite MPA/GPA
 
-Version: 1.0
+Version: 2.0
 
 Date: 24-Jan-23
 }
