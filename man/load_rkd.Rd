@@ -14,6 +14,10 @@ A data frame containing the RKD dataset.
 }
 \description{
 The objective is to load the RKD data from disk into an R dataframe object.
+
+Version: 1.0
+
+Date: 24-Jan-23
 }
 \details{
 The output of this function is re-used in the other functions of the package.
@@ -21,6 +25,4 @@ An empty or non-existent file or folder will result in an error.
 }
 \author{
 Matthieu COQ
-Version: 1.0
-Date: 24-Jan-23
 }
