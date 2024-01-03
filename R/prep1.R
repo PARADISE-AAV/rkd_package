@@ -162,14 +162,14 @@ prep1_enc <- function(RKDdata){
 #' @title prep1_merged
 #' @author Matthieu COQ/Jennifer Scott
 #' @description
-#' The objective is to do the first part of the data preparation in the \code{\link{CPDRelapse}} on all data
+#' The objective is to summarize the induction treatment receive (Induction.treatment.received) and add this summary to the data
 #' 
 #' Version: 1.0
 #' 
 #' Date: 07-Jul-23
 #'
 #' @param RKDdata Data frame with the RKD data in
-#' @return The RKD data after the first part of the data preparation on all data
+#' @return The RKD data with the summary of induction treatment
 #' @import dplyr
 #' @export
 
@@ -226,6 +226,7 @@ prep1_merged <- function(RKDdata){
   rx.sum <- rx_explore %>%
     select(RKD.ID, induc.rx, cyc.rtx)
   dat_demo <- full_join(RKD_data, rx.sum, by = "RKD.ID")
+  return(dat_demo)
 }
 
 #' @title prep1
@@ -243,7 +244,7 @@ prep1_merged <- function(RKDdata){
 #' @details The different step of the first part of the data preparation in the \code{\link{CPDRelapse}} are the following
 #' * \code{\link{prep1_demo}} that prepare the demographic data (At.any.point.ANCA.specificity, End.stage.kidney.disease, Systems.involved.at.any.point, Induction.treatment.received)
 #' * \code{\link{prep1_enc}} that prepare the encounter data (Adjudicated.probability.of.relapse, BVAS.score..calculator. and Diagnostic.biopsy)
-#' * \code{\link{prep1_merged}} 
+#' * \code{\link{prep1_merged}} that summarize the induction treatment receive (Induction.treatment.received) and add this summary to the data
 #' 
 #' @return The RKD data after the first part of the data preparation in the \code{\link{CPDRelapse}} and ready for the \code{\link{prep2}}
 #' @export
