@@ -7,7 +7,9 @@
 #' @param output_path folder where the Redcap data will be saved
 #' @param algorithm function use to filter the RKD patient, the possibility are "Definite GPA/MPA" or "Definite GPA/MPA/EGPA"
 #' @return The Redcap data with the classification variables in your folder and in an R object 
-#' @details to be added
+#' @details The filter of the RKD data are based on the following filter
+#' * Definite MPA/GPA without secondary vasculitis
+#' * Definite MPA/GPA/EGPA without secondary vasculitis
 #' 
 #' @export
 FilterRKD = function(RKDdata, output_path, algorithm) {
