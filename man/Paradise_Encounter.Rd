@@ -15,14 +15,15 @@ Paradise_Encounter(RKD_data, months_after_diagnosis = 6)
 The data with the a variable that tell you if the Encounter match the paradise criteria
 }
 \description{
-Paradise_Encounter
+Selection of the Encounter that meet the Paradise criteria
+
+Version: 1.0
+
+Date: 03-May-23
 }
 \details{
 The criteria to be a Paradise encounter are 1/ need to be in Remission, 2/ need to in remission >6 month 3/ Have more than 1 year follow up
 }
 \author{
 Yagmur Dogay/Matthieu Coq
-Version: 1.0
-Date: 03-May-23
-Objective: Selection of the Encounter that meet the Paradise criteria
 }
