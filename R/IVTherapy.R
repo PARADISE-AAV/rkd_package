@@ -1,4 +1,4 @@
-#' @title IVTherapy
+#' @title IV Therapy add on for Treatment On/off function
 #' @author Matthieu COQ
 #' @description
 #' Objective: The objective is to add the IV Therapy at each encounter
