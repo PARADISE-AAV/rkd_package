@@ -1,4 +1,4 @@
-#' @title LoadBiomarker
+#' @title Load Biomarkerdata
 #' @author Matthieu COQ/Yagmur DOGAY
 #' @description
 #' 
