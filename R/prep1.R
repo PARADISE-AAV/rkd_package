@@ -2,7 +2,7 @@
 #' @author Matthieu COQ/Jennifer Scott
 #' 
 #' @description
-#' The objective is to do the first part of the data preparation on encounter data
+#' The objective is to do the first part of the data preparation in the \code{\link{CPDRelapse}} for the demographic data
 #' 
 #' Version: 1.0
 #' 
