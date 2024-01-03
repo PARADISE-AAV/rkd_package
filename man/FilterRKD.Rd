@@ -11,7 +11,7 @@ FilterRKD(RKDdata, output_path, algorithm)
 
 \item{output_path}{folder where the Redcap data will be saved}
 
-\item{algorithm}{function use to filter the RKD patient, the possibility are "Definite GPA/MPA"}
+\item{algorithm}{function use to filter the RKD patient, the possibility are "Definite GPA/MPA" or "Definite GPA/MPA/EGPA"}
 }
 \value{
 The Redcap data with the classification variables in your folder and in an R object
