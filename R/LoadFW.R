@@ -1,4 +1,4 @@
-#' @title LoadFW
+#' @title Load FreezerWork (FW) data
 #' @author Matthieu COQ
 
 #' @description
