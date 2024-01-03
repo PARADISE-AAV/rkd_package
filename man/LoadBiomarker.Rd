@@ -13,15 +13,17 @@ LoadBiomarker(files_name)
 The Biomarker Data into DataFrame
 }
 \description{
-LoadBiomarker
+The objective is to load the Biomarker data in a dataframe object
+
+Version: 1.0
+
+Date: 24-Jan-23
 }
 \details{
 The load of Biomarker data in a dataframe object is use to add the Biomarker data to the rkd data.
+
 Please mind that some verification of your files ad the date format can interrupt the function.
 }
 \author{
 Matthieu COQ/Yagmur DOGAY
-Version: 1.0
-Date: 24-Jan-23
-Objective: The objective is to load the Biomarker data in a dataframe object
 }
