@@ -26,8 +26,8 @@ Date: 03-Jan-24
 \details{
 The filter of the RKD data are based on the following filter
 \itemize{
-\item Definite MPA/GPA without secondary vasculitis
-\item Definite MPA/GPA/EGPA without secondary vasculitis
+\item Definite MPA/GPA without secondary vasculitis with more explanation in \code{\link{DemographicFilterRKD}}
+\item Definite MPA/GPA/EGPA without secondary vasculitis with more explanation in \code{\link{DemographicFilterRKD_EGPA}}
 }
 }
 \author{
