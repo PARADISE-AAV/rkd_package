@@ -8,7 +8,7 @@
 #' Date: 24-Jan-23
 #'
 #' @param RKDdata RKD data from \code{\link{clean_rkd}} function
-#' @details The filter of the RKD data for Definite GPA/MPA are based on the following filter
+#' @details The filter of the RKD data for Definite GPA/MPA/EGPA are based on the following filter
 #' *  SVV = GPA / MPA / EGPA
 #' *  AND diagnosis confidence = definite
 #' *  AND SVV (IC) != Anti-GBM, IgA, cryo
