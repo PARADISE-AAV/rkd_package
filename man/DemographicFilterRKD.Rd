@@ -2,7 +2,7 @@
 % Please edit documentation in R/DemographicFilterRKD.R
 \name{DemographicFilterRKD}
 \alias{DemographicFilterRKD}
-\title{Filter the patient with different rules}
+\title{Filter the patient with the rule for definite MPA/GPA}
 \usage{
 DemographicFilterRKD(RKDdata)
 }
@@ -13,16 +13,24 @@ DemographicFilterRKD(RKDdata)
 The Redcap data filter in your folder and an R object
 }
 \description{
-The objective is to filter the RKD data based on inclution criteria
+The objective is to filter the RKD data based on inclusion criteria as Definite MPA/GPA
 
 Version: 1.0
 
 Date: 24-Jan-23
 }
 \details{
-The filter of the RKD data are based on the following filter
+The filter of the RKD data for Definite GPA/MPA are based on the following filter
 \itemize{
-\item Definite MPA and GPA with no secondary Vasculitis
+\item SVV = GPA / MPA
+\item AND diagnosis confidence = definite
+\item AND SVV (IC) != Anti-GBM, IgA, cryo
+\item AND Secondary vasculitis != Yes
+\item AND 'Other' != Yes
+\item AND 'Medium vessel' != 1 or 2
+\item AND 'large vessel' != 1 or 2
+\item AND 'variable vessel' != 1 or 2
+\item AND (ANCA subtype = PR3 / MPO / both) OR (biopsy = Definite vasculitis AND histologically confirmed = YES)
 }
 }
 \author{
