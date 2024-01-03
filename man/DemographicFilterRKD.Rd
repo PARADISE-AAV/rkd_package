@@ -8,8 +8,6 @@ DemographicFilterRKD(RKDdata)
 }
 \arguments{
 \item{RKDdata}{RKD data from \code{\link{clean_rkd}} function}
-
-\item{output_path}{folder where the filter RKD data will be saved}
 }
 \value{
 The Redcap data filter in your folder and an R object
