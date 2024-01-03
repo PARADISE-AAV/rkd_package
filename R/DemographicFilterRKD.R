@@ -1,15 +1,23 @@
-#' @title Filter the patient with different rules
+#' @title Filter the patient with the rule for definite MPA/GPA
 #' @author Matthieu COQ
 #' @description
-#' The objective is to filter the RKD data based on inclution criteria
+#' The objective is to filter the RKD data based on inclusion criteria as Definite MPA/GPA 
 #' 
 #' Version: 1.0
 #' 
 #' Date: 24-Jan-23
 #'
 #' @param RKDdata RKD data from \code{\link{clean_rkd}} function
-#' @details The filter of the RKD data are based on the following filter
-#' * Definite MPA and GPA with no secondary Vasculitis
+#' @details The filter of the RKD data for Definite GPA/MPA are based on the following filter
+#' *  SVV = GPA / MPA
+#' *  AND diagnosis confidence = definite
+#' *  AND SVV (IC) != Anti-GBM, IgA, cryo
+#' *  AND Secondary vasculitis != Yes
+#' *  AND 'Other' != Yes
+#' *  AND 'Medium vessel' != 1 or 2
+#' *  AND 'large vessel' != 1 or 2
+#' *  AND 'variable vessel' != 1 or 2
+#' *  AND (ANCA subtype = PR3 / MPO / both) OR (biopsy = Definite vasculitis AND histologically confirmed = YES)
 #' 
 #' 
 #' @return The Redcap data filter in your folder and an R object
