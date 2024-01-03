@@ -15,13 +15,10 @@
 #' 
 #' @return The Redcap data filter in your folder and an R object
 #' @export
-DemographicFilterRKD <- function(RKDdata, output_path) {
+DemographicFilterRKD <- function(RKDdata) {
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
-  }
-  if (is.character(output_path) == FALSE) {
-    stop("The argument output_path need to be a character argument")
   }
   
   RKD_data <- RKDdata
