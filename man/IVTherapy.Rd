@@ -7,7 +7,7 @@
 IVTherapy(RKD, RKD_Treatment)
 }
 \arguments{
-\item{RKD}{RKD data from LoadRKD function}
+\item{RKD}{RKD data from \code{\link{load_rkd}} function}
 
 \item{RKD_Treatment}{The RKD data after the treatment on/off function}
 }
@@ -15,21 +15,24 @@ IVTherapy(RKD, RKD_Treatment)
 The RKD data with treatment on/off updated  with IV Therapy knowledge
 }
 \description{
-IVTherapy
+Objective: The objective is to add the IV Therapy at each encounter
+
+Date: 22-Nov-23
+
+Version: 1.0
 }
 \details{
 The IV Therapy function give what is the IV therapy for each encounter.
+
 For this a delay after a injection is given to say if the patient is still under therapy or not.
 \itemize{
 \item Methylprednisolone is 30 days
 \item Rituximab is 180 days
 \item Cyclophosphamide is 90 days
-If a patient have a visit between the injection data and the injection data + delay, the patient is declare on treatment.
 }
+
+If a patient have a visit between the injection data and the injection data + delay, the patient is declare on treatment.
 }
 \author{
 Matthieu COQ
-Version: 1.0
-Date: 22-Nov-23
-Objective: The objective is to add the IV Therapy at each encounter
 }
