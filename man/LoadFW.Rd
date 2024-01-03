@@ -2,7 +2,7 @@
 % Please edit documentation in R/LoadFW.R
 \name{LoadFW}
 \alias{LoadFW}
-\title{LoadFW}
+\title{Load FreezerWork (FW) data}
 \usage{
 LoadFW(folder_name, matrix_type)
 }
