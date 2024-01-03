@@ -19,7 +19,11 @@ FindFWSample(FWdata, RKDdata, output_path, interval)
 The Redcap data cleaned in your folder and in an object
 }
 \description{
-Merge the RKD data and the Freezerwork data
+Objective: The objective is to merge the RKD data filter and clean with the clean Freezer work data
+
+Date: 22-Mar-23
+
+Version: 1.0
 }
 \details{
 The merge between the Freezerwork data and the RKD data allows us to find the sample associated to the RKD data.
@@ -28,7 +32,4 @@ The interval of day argument is here as we need flexibility in the date merging.
 }
 \author{
 Matthieu COQ
-Version: 1.0
-Date: 22-Mar-23
-Objective: The objective is to merge the RKD data filter and clean with the clean Freezer work data
 }
