@@ -2,7 +2,7 @@
 % Please edit documentation in R/IVTherapy.R
 \name{IVTherapy}
 \alias{IVTherapy}
-\title{IV Therapy add on for Treatment On/off function}
+\title{IV Therapy add on for Treatment On/Off function}
 \usage{
 IVTherapy(RKD, RKD_Treatment)
 }
