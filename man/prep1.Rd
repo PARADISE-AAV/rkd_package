@@ -22,9 +22,9 @@ Version: 1.0
 \details{
 The different step of the first part of the data preparation in the \code{\link{CPDRelapse}} are the following
 \itemize{
-\item \code{\link{prep1_demo}}
-\item \code{\link{prep1_enc}}
-\item \code{\link{prep1_merged}}
+\item \code{\link{prep1_demo}} that prepare the demographic data (At.any.point.ANCA.specificity, End.stage.kidney.disease, Systems.involved.at.any.point, Induction.treatment.received)
+\item \code{\link{prep1_enc}} that prepare the encounter data (Adjudicated.probability.of.relapse, BVAS.score..calculator. and Diagnostic.biopsy)
+\item \code{\link{prep1_merged}} that summarize the induction treatment receive (Induction.treatment.received) and add this summary to the data
 }
 }
 \author{
