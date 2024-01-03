@@ -39,6 +39,7 @@ This function allows you to call one of  multiple functions to create a classifi
 \item \code{\link{BRelapseFunction}} tells us if an encounter is in relapse or not based on rules
 \item \code{\link{Paradise_Encounter}} tells us if we can include the Encounter or not in the Paradise project
 \item \code{\link{Treatment_On_Off}} in addition of \code{\link{IVTherapy}} tells us if an Encounter is under treatment or not
+\item \code{\link{CPD_LTROT}} tells us if a patient is in Long Term Remission Out of Treatment (LTROT)
 }
 }
 \author{
