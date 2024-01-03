@@ -5,7 +5,7 @@
 #'
 #' @param RKDdata RKD data from \code{\link{clean_rkd}} function
 #' @param output_path folder where the Redcap data will be saved
-#' @param algorithm function use to filter the RKD patient, the possibility are "Definite GPA/MPA"
+#' @param algorithm function use to filter the RKD patient, the possibility are "Definite GPA/MPA" or "Definite GPA/MPA/EGPA"
 #' @return The Redcap data with the classification variables in your folder and in an R object 
 #' @details to be added
 #' 
