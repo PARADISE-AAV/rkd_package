@@ -18,7 +18,7 @@ FilterRKD = function(RKDdata, output_path, algorithm) {
   if (is.character(output_path) == FALSE) {
     stop("The argument output_path need to be a character argument")
   }
-  algorithm <- match.arg(algorithm, c("Definite GPA/MPA"))
+  algorithm <- match.arg(algorithm, c("Definite GPA/MPA","Definite GPA/MPA/EGPA"))
   
   RKD_data <- RKDdata
   ###check that you load a real file
@@ -29,7 +29,9 @@ FilterRKD = function(RKDdata, output_path, algorithm) {
   if (algorithm == "Definite GPA/MPA") {
     Filter_RKD_data <- DemographicFilterRKD(RKD_data)
   }
-  
+  if (algorithm == "Definite GPA/MPA/EGPA") {
+    Filter_RKD_data <- DemographicFilterRKD_EGPA(RKD_data)
+  }
   
   files_test <-  list.dirs(output_path)
   if (identical(files_test, character(0)) == TRUE) {
