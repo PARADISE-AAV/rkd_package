@@ -10,10 +10,10 @@ prep1_merged(RKDdata)
 \item{RKDdata}{Data frame with the RKD data in}
 }
 \value{
-The RKD data after the first part of the data preparation on all data
+The RKD data with the summary of induction treatment
 }
 \description{
-The objective is to do the first part of the data preparation in the \code{\link{CPDRelapse}} on all data
+The objective is to summarize the induction treatment receive (Induction.treatment.received) and add this summary to the data
 
 Version: 1.0
 
