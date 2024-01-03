@@ -1,8 +1,13 @@
 #' @title Paradise_Encounter
 #' @author Yagmur Dogay/Matthieu Coq
+#' 
+#' @description
+#' Selection of the Encounter that meet the Paradise criteria
+#' 
 #' Version: 1.0
+#' 
 #' Date: 03-May-23
-#' Objective: Selection of the Encounter that meet the Paradise criteria
+#'  
 #' @param RKD_data RKD data from Demographic Filter RKD Data
 #' @param months_after_diagnosis Exclude encounters of only recently diagnosed patients (default: 6 months)
 #' @return The data with the a variable that tell you if the Encounter match the paradise criteria 
