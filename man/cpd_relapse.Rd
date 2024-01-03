@@ -2,7 +2,7 @@
 % Please edit documentation in R/cpd_relapse.R
 \name{cpd_relapse}
 \alias{cpd_relapse}
-\title{cpd.relapse}
+\title{The application of the CPD relapse model to each encounter}
 \usage{
 cpd_relapse(RKDdata)
 }
