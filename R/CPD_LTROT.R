@@ -1,7 +1,12 @@
-#' @title CPD LTROT
+#' @title CPD Long Term Remission Out of Treatment (LTROT)
 #' @author Matthieu COQ/Jennifer Scott
-#' @description description to add
-#'
+#' @description 
+#' The function have the goal to tell us if a patient is LTROT patient or not
+#' 
+#' Date: 03-Jan-24
+#' 
+#' Version 1.0
+#' 
 #' @param RKDdata Data frame with the RKD data
 #' @param duration Duration without treatment
 #' @details detail to add
