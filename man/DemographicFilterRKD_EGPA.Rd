@@ -20,7 +20,7 @@ Version: 1.0
 Date: 24-Jan-23
 }
 \details{
-The filter of the RKD data for Definite GPA/MPA are based on the following filter
+The filter of the RKD data for Definite GPA/MPA/EGPA are based on the following filter
 \itemize{
 \item SVV = GPA / MPA / EGPA
 \item AND diagnosis confidence = definite
