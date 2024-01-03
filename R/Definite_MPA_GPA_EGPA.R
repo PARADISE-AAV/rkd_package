@@ -5,7 +5,7 @@
 #' 
 #' Version: 1.0
 #' 
-#' Date: 24-Jan-23
+#' Date: 03-Jan-24
 #'
 #' @param RKDdata RKD data from \code{\link{clean_rkd}} function
 #' @details The filter of the RKD data for Definite GPA/MPA/EGPA are based on the following filter
