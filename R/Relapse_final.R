@@ -1,12 +1,12 @@
-#' @title prep1_demo
+#' @title The application of the rules defned in the details of \code{\link{CPDRelapse}}
 #' @author Matthieu COQ/Jennifer Scott
 #' @description
-#'  The objective is to do the first part of the data preparation on encounter data
+#'  The objective is to apply the clinical rules of \code{\link{CPDRelapse}}
 #' Version: 1.0
 #' Date: 31-Jul-23
 #'
-#' @param RKDdata Data frame with the RKD data in
-#' @return The RKD data after the first part of the data preparation on demographic data
+#' @param RKDdata Data frame from \code{\link{cpd_relapse}}
+#' @return The RKD data with a relapse variable
 #' @import dplyr
 #' @export
 
