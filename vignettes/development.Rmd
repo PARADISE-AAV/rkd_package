@@ -64,17 +64,13 @@ For this pipeline to work each user should set these paths each time.
 Note the following code is not reproducible for other users.
 
 ```{r paths}
-#paths
 
-biomarker_path <- "C:/Users/Administrator/Trinity College Dublin/THKC - Documents/Arlena Carney/Makala Carroll/Projects/Mini Biobank/Biomarker_master/Biomarker master-Data only.csv"
-
-
-Biomarker_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Biomarker_master/Biomarker master_Data only.csv"
+Biomarker_path <- "C:/Users/matthAdministrator/OneDrive - Trinity College Dublin/Biomarker_master/Biomarker master_Data only.csv"
    
-fw_path <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Freezerworks exports/FW exports new"
+fw_path <- "C:/Users/matth/OneDrive - Trinity College Dublin/Freezerworks exports/FW Exports (2023)"
 
 #specific RKD version
-rkd_file <- "C:/Users/Administrator/OneDrive - Trinity College Dublin/Redcap Data exports/RareKidneyDiseaseRIT-FullVasculitisExport_DATA_LABELS_2023-04-24_1444.csv"
+rkd_file <- "C:/Users/matth/OneDrive - Trinity College Dublin/Redcap Data exports/RareKidneyDiseaseRIT-PARADISE_DATA_LABELS_2024-01-02_1910.csv"
 ```
 
 # Pipeline
