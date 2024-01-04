@@ -2,7 +2,7 @@
 % Please edit documentation in R/JenRelapse.R
 \name{CPDRelapse}
 \alias{CPDRelapse}
-\title{CPD_Relapse}
+\title{CPD Relapse}
 \usage{
 CPDRelapse(RKDdata)
 }
