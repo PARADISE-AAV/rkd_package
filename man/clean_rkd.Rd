@@ -19,7 +19,7 @@ Version: 1.0
 Date: 24-Jan-23
 }
 \details{
-The Redcap data cleaned in your folder and in an object
+The Redcap data cleaned in your folder and in an R object
 
 The function change the Date variable with the format "\%Y-\%m-\%d".
 
