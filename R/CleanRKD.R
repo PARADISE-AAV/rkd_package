@@ -10,7 +10,7 @@
 #' @param rkd_data RKD data from \code{\link{load_rkd}} function
 #' @param output_path folder where the Redcap data will be saved
 #' @details
-#' The Redcap data cleaned in your folder and in an object
+#' The Redcap data cleaned in your folder and in an R object
 #' 
 #' The function change the Date variable with the format "%Y-%m-%d".
 #' 
