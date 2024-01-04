@@ -1,5 +1,5 @@
 #' @title Treatment_On_Off
-#' @author Matthieu COQ/Angel george
+#' @author Matthieu COQ/Angel George
 #' @description
 #'  The objective is to tell if a encounter is on or off treatment
 #'  
