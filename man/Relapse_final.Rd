@@ -2,18 +2,18 @@
 % Please edit documentation in R/Relapse_final.R
 \name{Relapse_final}
 \alias{Relapse_final}
-\title{prep1_demo}
+\title{The application of the rules defned in the details of \code{\link{CPDRelapse}}}
 \usage{
 Relapse_final(RKDdata)
 }
 \arguments{
-\item{RKDdata}{Data frame with the RKD data in}
+\item{RKDdata}{Data frame from \code{\link{cpd_relapse}}}
 }
 \value{
-The RKD data after the first part of the data preparation on demographic data
+The RKD data with a relapse variable
 }
 \description{
-The objective is to do the first part of the data preparation on encounter data
+The objective is to apply the clinical rules of \code{\link{CPDRelapse}}
 Version: 1.0
 Date: 31-Jul-23
 }
