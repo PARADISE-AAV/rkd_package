@@ -198,7 +198,7 @@ The Goal of the FindFWSample function is to find the best sample to measure to a
 
 ```{r, warning=FALSE}
 
-Finding_Good_Sample <- FindFWSample(Clean_FW, Classify_rkd_BRelapse , paste(a,"/output",sep=""))
+Finding_Good_Sample <- rkdpipeline:::FindFWSample(Serum2,Filter_RKD_data, output_dir, 3)
 head(Finding_Good_Sample)[1:5,1:10]
 ```
 
