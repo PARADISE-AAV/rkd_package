@@ -24,5 +24,5 @@ The function is composed of several rules  described in the step 1 to step3 to t
 https://3.basecamp.com/3790396/buckets/31062049/uploads/6749234062
 }
 \author{
-Matthieu COQ/Angel george
+Matthieu COQ/Angel George
 }
