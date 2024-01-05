@@ -234,7 +234,7 @@ prep1_merged <- function(RKDdata){
 #' 
 #' 
 #' @description
-#'  The objective is to do the first part of the data  in the \code{\link{CPDRelapse}}
+#'  The objective is to do the first part of the data preparation for the \code{\link{CPDRelapse}}
 #'  
 #' Date: 07-Jul-23
 #' 
