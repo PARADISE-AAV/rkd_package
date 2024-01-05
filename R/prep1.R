@@ -115,8 +115,8 @@ prep1_demo <- function(RKDdata){
 #' Date: 07-Jul-23
 #'
 #'
-#' @param RKDdata Data frame with the RKD data in
-#' @return The RKD data after the first part of the data preparation on encounter data
+#' @param RKDdata Data frame with the RKD data coming from \code{\link{prep1_demo}}
+#' @return The RKD data after the first part of the data preparation on encounter data ready for \code{\link{prep1_merged}}
 #' @import dplyr
 #' @export
 
