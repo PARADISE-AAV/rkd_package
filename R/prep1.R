@@ -240,7 +240,7 @@ prep1_merged <- function(RKDdata){
 #' 
 #' Version: 1.0
 #'
-#' @param RKDdata Data frame with the RKD data 
+#' @param RKDdata Data frame with the RKD data coming from \code{\link{FilterRKD}}
 #' @details The different step of the first part of the data preparation in the \code{\link{CPDRelapse}} are the following
 #' * \code{\link{prep1_demo}} that prepare the demographic data (At.any.point.ANCA.specificity, End.stage.kidney.disease, Systems.involved.at.any.point, Induction.treatment.received)
 #' * \code{\link{prep1_enc}} that prepare the encounter data (Adjudicated.probability.of.relapse, BVAS.score..calculator. and Diagnostic.biopsy)
