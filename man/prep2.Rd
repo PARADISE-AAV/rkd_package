@@ -10,7 +10,7 @@ prep2(RKDdata)
 \item{RKDdata}{Data frame with the RKD data from \code{\link{prep1}}}
 }
 \value{
-The RKD data after the second part of the data preparation
+The RKD data after the second part of the data preparation and ready for \code{\link{cpd_relapse}}
 }
 \description{
 The objective is to do the second part of the data preparation in the \code{\link{CPDRelapse}}
