@@ -7,10 +7,10 @@
 prep1_merged(RKDdata)
 }
 \arguments{
-\item{RKDdata}{Data frame with the RKD data in}
+\item{RKDdata}{Data frame with the RKD data coming from \code{\link{prep1_enc}}}
 }
 \value{
-The RKD data with the summary of induction treatment
+The RKD data with the summary of induction treatment and ready for \code{\link{prep2}}
 }
 \description{
 The objective is to summarize the induction treatment receive (Induction.treatment.received) and add this summary to the data
