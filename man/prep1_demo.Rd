@@ -7,10 +7,10 @@
 prep1_demo(RKDdata)
 }
 \arguments{
-\item{RKDdata}{Data frame with the RKD data in}
+\item{RKDdata}{Data frame with the RKD data coming from \code{\link{FilterRKD}}}
 }
 \value{
-The RKD data after the first part of the data preparation on demographic data
+The RKD data after the first part of the data preparation on demographic data ready for \code{\link{prep1_enc}}
 }
 \description{
 The objective is to do the first part of the data preparation in the \code{\link{CPDRelapse}} for the demographic data (At.any.point.ANCA.specificity, End.stage.kidney.disease, Systems.involved.at.any.point, Induction.treatment.received)
