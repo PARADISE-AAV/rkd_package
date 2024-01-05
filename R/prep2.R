@@ -8,7 +8,7 @@
 #'  Date: 07-Jul-23
 #'
 #' @param RKDdata Data frame with the RKD data from \code{\link{prep1}}
-#' @return The RKD data after the second part of the data preparation
+#' @return The RKD data after the second part of the data preparation and ready for \code{\link{cpd_relapse}}
 #' @details The second part for the data preparation in the \code{\link{CPDRelapse}} is done with several function as described below
 #' * \code{\link{inclusion_criteria}} that look at the inclusion criteria fo each encounter
 #' * \code{\link{ANCA_titre}} that interfere the ANCA titre
