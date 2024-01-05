@@ -2,7 +2,7 @@
 #' @author Matthieu COQ/Jennifer Scott
 #' 
 #' @description
-#' The objective is to do the first part of the data preparation in the \code{\link{CPDRelapse}} for the demographic data
+#' The objective is to do the first part of the data preparation in the \code{\link{CPDRelapse}} for the demographic data (At.any.point.ANCA.specificity, End.stage.kidney.disease, Systems.involved.at.any.point, Induction.treatment.received)
 #' 
 #' Version: 1.0
 #' 
