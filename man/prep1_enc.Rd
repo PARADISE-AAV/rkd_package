@@ -13,7 +13,7 @@ prep1_enc(RKDdata)
 The RKD data after the first part of the data preparation on encounter data
 }
 \description{
-The objective is to do the first part of the data preparation in the \code{\link{CPDRelapse}} with encounter data
+The objective is to do the first part of the data preparation in the \code{\link{CPDRelapse}} with encounter data (Adjudicated.probability.of.relapse, BVAS.score..calculator. and Diagnostic.biopsy)
 
 Version: 1.0
 
