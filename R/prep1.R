@@ -168,8 +168,8 @@ prep1_enc <- function(RKDdata){
 #' 
 #' Date: 07-Jul-23
 #'
-#' @param RKDdata Data frame with the RKD data in
-#' @return The RKD data with the summary of induction treatment
+#' @param RKDdata Data frame with the RKD data coming from \code{\link{prep1_enc}}
+#' @return The RKD data with the summary of induction treatment and ready for \code{\link{prep2}}
 #' @import dplyr
 #' @export
 
