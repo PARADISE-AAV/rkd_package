@@ -13,7 +13,7 @@ prep1(RKDdata)
 The RKD data after the first part of the data preparation in the \code{\link{CPDRelapse}} and ready for the \code{\link{prep2}}
 }
 \description{
-The objective is to do the first part of the data  in the \code{\link{CPDRelapse}}
+The objective is to do the first part of the data preparation for the \code{\link{CPDRelapse}}
 
 Date: 07-Jul-23
 
