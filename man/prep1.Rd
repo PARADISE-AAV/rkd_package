@@ -7,7 +7,7 @@
 prep1(RKDdata)
 }
 \arguments{
-\item{RKDdata}{Data frame with the RKD data}
+\item{RKDdata}{Data frame with the RKD data coming from \code{\link{FilterRKD}}}
 }
 \value{
 The RKD data after the first part of the data preparation in the \code{\link{CPDRelapse}} and ready for the \code{\link{prep2}}
