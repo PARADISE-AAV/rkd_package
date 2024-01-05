@@ -9,7 +9,10 @@
 #' Date: 07-Jul-23
 #'
 #' @param RKDdata Data frame after the preparation of the data (\code{\link{prep2}}) to apply this function
-#' @return The RKD data with the status if the patient is in remission
+#' @return The RKD data with the status if the patient is in remission and ready for \code{\link{Relapse_final}}
+#' @details
+#' 
+#' 
 #' @import dplyr
 #' @export
 
