@@ -6,7 +6,7 @@
 #' Date: 31-Jul-23
 #'
 #' @param RKDdata Data frame from \code{\link{cpd_relapse}}
-#' @return The RKD data with a relapse variable
+#' @return The RKD data with a relapse variable ready to finalized \code{\link{CPDRelapse}}
 #' @import dplyr
 #' @export
 
