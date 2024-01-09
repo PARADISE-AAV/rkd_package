@@ -78,14 +78,19 @@ clean_rkd <- function(rkd_data, output_path) {
 
   # Anti MPO PR3
   rkd_data <- rkd_anti_mpo_pr3(rkd_data)
+  
+  rkd_data$Paradise.ID <- paste("RIV", rkd_data$RKD.ID, sep = "")
+  rkd_data2=rkd_data[,c("RKD.ID", "Paradise.ID",colnames(rkd_data)[-c(grep("RKD.ID",colnames(rkd_data)),grep("Paradise.ID",colnames(rkd_data)))])]
+  
+  
 
   output_filename <- file.path(
     output_path,
     paste0('Redcap_clinical_data_clean', "_version", packageVersion('rkdpipeline'), "_Date"
            , Sys.Date(), '.csv')
   )
-  write.csv(rkd_data, output_filename, row.names = FALSE)
-  return(rkd_data)
+  write.csv(rkd_data2, output_filename, row.names = FALSE)
+  return(rkd_data2)
 }
 
 #' @import stringr
