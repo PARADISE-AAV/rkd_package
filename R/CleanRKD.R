@@ -178,9 +178,9 @@ rkd_tidy_encounters <- function(data) {
   # Merge together so we go from a sparse block-structure table
   # to a wide table, effectively with initial values carried forward
   # TODO: switch this to na.locf?
-  rkd_encounter_filtered %>%
+  rkd_initial_filtered %>%
     dplyr::full_join(
-      rkd_initial_filtered %>%
+      rkd_encounter_filtered %>%
         dplyr::select(-.data$Patient.Id),
       by = "RKD.ID"
     )
