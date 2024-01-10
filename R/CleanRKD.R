@@ -82,6 +82,7 @@ clean_rkd <- function(rkd_data, output_path) {
   rkd_data$Paradise.ID <- paste("RIV", rkd_data$RKD.ID, sep = "")
   rkd_data2=rkd_data[,c("RKD.ID", "Paradise.ID",colnames(rkd_data)[-c(grep("RKD.ID",colnames(rkd_data)),grep("Paradise.ID",colnames(rkd_data)))])]
   
+  rkd_data2$interval_from_diagnosis=as.numeric(rkd_data2$Date.Of.Visit-rkd_data2$Date.of.diagnosis)
   
 
   output_filename <- file.path(
