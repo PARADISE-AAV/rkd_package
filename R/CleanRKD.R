@@ -181,7 +181,7 @@ rkd_tidy_encounters <- function(data) {
   rkd_initial_filtered %>%
     dplyr::full_join(
       rkd_encounter_filtered %>%
-        dplyr::select(-.data$Patient.Id),
+        dplyr::select(-.data$Patient.ID),
       by = "RKD.ID"
     )
 }
