@@ -7,14 +7,14 @@
 AddBiomarkerRIV(data_rkd, data_bio, interval)
 }
 \arguments{
-\item{data_rkd}{Data frame linking with RKD data coming from \code{\link{ClassifyRKDEncounter}}}
+\item{data_rkd}{Data frame linking with RKD data coming from \code{\link{ClassifyRIVEncounter}}}
 
 \item{data_bio}{Data frame linking with the biomarker data coming from \code{\link{LoadBiomarker}}}
 
 \item{interval}{The interval is a tolerance of number of days that the biomarker date is before and after the encounter date.}
 }
 \value{
-the merge of Biomarker data and RKD data within an defined interval
+the merge of Biomarker data and RIV data within an defined interval
 }
 \description{
 The objective is to merge biomarker data with RKD data
