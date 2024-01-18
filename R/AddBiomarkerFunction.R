@@ -8,7 +8,7 @@
 #' @import dplyr
 #' @importFrom rlang .data
 #' @export
-AddBiomarkerRKD <- function(data_rkd, data_bio, interval){
+AddBiomarkerRIV <- function(data_rkd, data_bio, interval){
 
   
   data_bio$Start.date.of.date.range <-

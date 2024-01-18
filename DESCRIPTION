@@ -1,6 +1,6 @@
 Package: rivpipeline
 Title: Pre-process RIV data
-Version: 0.0.1.9303
+Version: 0.0.2.0003
 Authors@R: 
     c(
     person("Matthieu", "Coq", , "coqm@tcd.ie", role = c("aut", "cre")),
