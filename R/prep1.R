@@ -8,8 +8,8 @@
 #' 
 #' Date: 07-Jul-23
 #'
-#' @param RKDdata Data frame with the RKD data coming from \code{\link{FilterRKD}}
-#' @return The RKD data after the first part of the data preparation on demographic data ready for \code{\link{prep1_enc}}
+#' @param RKDdata Data frame with the RKD data coming from \code{\link{FilterRIV}}
+#' @return The RIV data after the first part of the data preparation on demographic data ready for \code{\link{prep1_enc}}
 #' @import dplyr
 #' @import forcats
 #' @export
