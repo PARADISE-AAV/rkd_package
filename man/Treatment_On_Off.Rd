@@ -7,10 +7,10 @@
 Treatment_On_Off(RKDdata)
 }
 \arguments{
-\item{RKDdata}{Data frame with the RKD data in}
+\item{RKDdata}{Data frame with the RIV data in}
 }
 \value{
-The RKD data with the information if a encounter is on or off treatment
+The RIV data with the information if a encounter is on or off treatment
 }
 \description{
 The objective is to tell if a encounter is on or off treatment
