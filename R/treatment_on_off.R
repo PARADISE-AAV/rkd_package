@@ -7,8 +7,8 @@
 #'  
 #'  Date: 11-Jul-23
 #'
-#' @param RKDdata Data frame with the RKD data in
-#' @return The RKD data with the information if a encounter is on or off treatment
+#' @param RKDdata Data frame with the RIV data in
+#' @return The RIV data with the information if a encounter is on or off treatment
 #' @details
 #' The function is composed of several rules  described in the step 1 to step3 to the following image.
 #' https://3.basecamp.com/3790396/buckets/31062049/uploads/6749234062
