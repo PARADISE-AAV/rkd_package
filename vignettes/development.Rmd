@@ -85,7 +85,7 @@ For the purposes of this example, we will pull in whichever CSV file is in the c
 # rkd <- readxl::read_excel(rkd_xlsx, .name_repair = 'universal')
 # The option 'universal' replaces spaces in colnames with dots, like base read.csv
 (rkd_csv <- list.files(pattern = 'DATA_LABELS.*\\.csv'))
-rkd <- load_rkd(rkd_file)
+rkd <- load_riv(rkd_file)
 colnames(rkd)[1:10]
 ```
 
@@ -101,7 +101,7 @@ The CleanRKD function clean the in 5 steps:
 
 ```{r clean_rkd)}
 output_dir <- tempdir()
-clean_rkd <- clean_rkd(rkd, output_dir)
+clean_rkd <- clean_riv(rkd, output_dir)
 colnames(clean_rkd)[1:10]
 ```
 
@@ -124,7 +124,7 @@ The DemographicFilterRKD function use the Paradise filter:
 
 
 ```{r demographic filter}
-Inclusion_Criteria_rkd <- FilterRKD(clean_rkd, tempdir(),"Definite GPA/MPA")
+Inclusion_Criteria_rkd <- FilterRIV(clean_rkd, tempdir(),"Definite GPA/MPA")
 head(Inclusion_Criteria_rkd)[, 1:10]
 ```
 
@@ -136,20 +136,20 @@ The ClassifyRKDCases function use different algorithm create by several previous
 - "Paradise_Encounter" algorithm perform a selection of the encounter that reach the paradise project criteria.
 
 ```{r classify jrelapse}
-Classify_rkd_JRelapse <- ClassifyRKDEncounter(Inclusion_Criteria_rkd, tempdir(), "CPD Relapse")
+Classify_rkd_JRelapse <- ClassifyRIVEncounter(Inclusion_Criteria_rkd, tempdir(), "CPD Relapse")
 head(Classify_rkd_JRelapse)[, 1:10]
 
 ```
 
 
 ```{r classify treatment_on/off}
-Classify_rkd_treatment <- ClassifyRKDEncounter(Classify_rkd_JRelapse, tempdir(), "Treatment On/Off",rawRKDdata=rkd)
+Classify_rkd_treatment <- ClassifyRIVEncounter(Classify_rkd_JRelapse, tempdir(), "Treatment On/Off",rawRKDdata=rkd)
 head(Classify_rkd_treatment)[, 1:10]
 
 ```
 
 ```{r classify ltrot}
-Classify_rkd_ltrot <- ClassifyRKDEncounter(Classify_rkd_treatment, tempdir(), "CPD LTROT", nb_month=24)
+Classify_rkd_ltrot <- ClassifyRIVEncounter(Classify_rkd_treatment, tempdir(), "CPD LTROT", nb_month=24)
 head(Classify_rkd_ltrot)[, 1:10]
 
 ```
