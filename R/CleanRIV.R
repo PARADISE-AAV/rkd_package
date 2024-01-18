@@ -1,13 +1,13 @@
 #' @title Clean rare kidney disease data
 #' @author Matthieu COQ
 #'
-#' @description The objective is to clean the RKD data and send the problematic data to the RKD person
+#' @description The objective is to clean the RIV data and send the problematic data to the RKD person
 #' 
 #' Version: 1.0
 #' 
 #' Date: 24-Jan-23
 #'
-#' @param rkd_data RKD data from \code{\link{load_rkd}} function
+#' @param rkd_data RIV data from \code{\link{load_rkd}} function
 #' @param output_path folder where the Redcap data will be saved
 #' @details
 #' The Redcap data cleaned in your folder and in an R object
@@ -27,7 +27,7 @@
 #' @import forcats
 #' @importFrom rlang .data
 #' @export
-clean_rkd <- function(rkd_data, output_path) {
+clean_riv <- function(rkd_data, output_path) {
   # Check arguments
   stopifnot("Your argument need to be a data frame"=is.data.frame(rkd_data))
   stopifnot("Your argument need to be a character"=is.character(output_path))
