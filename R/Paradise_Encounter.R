@@ -8,10 +8,13 @@
 #' 
 #' Date: 03-May-23
 #'  
-#' @param RKD_data RKD data from Demographic Filter RKD Data
+#' @param RKD_data RIV data from Demographic Filter RKD Data
 #' @param months_after_diagnosis Exclude encounters of only recently diagnosed patients (default: 6 months)
 #' @return The data with the a variable that tell you if the Encounter match the paradise criteria 
-#' @details The criteria to be a Paradise encounter are 1/ need to be in Remission, 2/ need to in remission >6 month 3/ Have more than 1 year follow up
+#' @details The criteria to be a Paradise encounter are 
+#' * 1/ need to be in Remission 
+#' * 2/ need to in remission >6 month 
+#' * 3/ Have more than 1 year follow up
 #' @import lubridate
 #' @import dplyr
 #' @export
