@@ -4,11 +4,11 @@
 #'  The objective is to classify the patient of RIV data based on criteria described in the function apply
 #'
 #'
-#' @param RKDdata RIV data from \code{\link{DemographicFilterRKD}} function
+#' @param RKDdata RIV data from \code{\link{DemographicFilterRIV}} function
 #' @param output_path folder where the Redcap data will be saved
-#' @param algorithm function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT"
+#' @param algorithm function use to classify the RIV patient, the possibility are "BRelapse" or "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT"
 #' @param interval_from_diagnostics the interval from diagnostics for the algorithm Paradise_Encounter by default 6
-#' @param rawRKDdata Raw data from \code{\link{load_rkd}} function for the Treatment On/Off algorithm
+#' @param rawRKDdata Raw data from \code{\link{load_riv}} function for the Treatment On/Off algorithm
 #' @param nb_month Number of month out of treatment for the CPD LTROT function
 #' @return The Redcap data with the classification variables in your folder and in an R object 
 #' @details This function allows you to call one of  multiple functions to create a classification variable for each RKD encounter. The possible functions each create one new variable
