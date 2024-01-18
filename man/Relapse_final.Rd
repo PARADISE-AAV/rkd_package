@@ -10,7 +10,7 @@ Relapse_final(RKDdata)
 \item{RKDdata}{Data frame from \code{\link{cpd_relapse}}}
 }
 \value{
-The RKD data with a relapse variable ready to finalized \code{\link{CPDRelapse}}
+The RIV data with a relapse variable ready to finalized \code{\link{CPDRelapse}}
 }
 \description{
 The objective is to apply the clinical rules of \code{\link{CPDRelapse}}
