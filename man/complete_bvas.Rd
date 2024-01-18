@@ -10,7 +10,7 @@ complete_bvas(RKDdata)
 \item{RKDdata}{Data frame with the RKD data in}
 }
 \value{
-The RKD data after the second part of the data preparation
+The RIV data after the second part of the data preparation
 }
 \description{
 The objective is to do the second part of the data preparation in particularity the inference for BVAS
