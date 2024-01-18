@@ -10,10 +10,10 @@ CPDRelapse(RKDdata)
 \item{RKDdata}{Data frame with the RKD data}
 }
 \value{
-The RKD data with the relapse category
+The RIV data with the relapse category
 }
 \description{
-The objective is to apply CPD Relapse approach on RKD data
+The objective is to apply CPD Relapse approach on RIV data
 }
 \details{
 The CPD relapse function have the objective to tell if an Encounter is in Relapse or not
