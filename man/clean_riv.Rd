@@ -7,7 +7,7 @@
 clean_riv(rkd_data, output_path)
 }
 \arguments{
-\item{rkd_data}{RIV data from \code{\link{load_rkd}} function}
+\item{rkd_data}{RIV data from \code{\link{load_riv}} function}
 
 \item{output_path}{folder where the Redcap data will be saved}
 }
