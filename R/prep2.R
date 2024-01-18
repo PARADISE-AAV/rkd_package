@@ -8,7 +8,7 @@
 #'  Date: 07-Jul-23
 #'
 #' @param RKDdata Data frame with the RKD data from \code{\link{prep1}}
-#' @return The RKD data after the second part of the data preparation and ready for \code{\link{cpd_relapse}}
+#' @return The RIV data after the second part of the data preparation and ready for \code{\link{cpd_relapse}}
 #' @details The second part for the data preparation in the \code{\link{CPDRelapse}} is done with several function as described below
 #' * \code{\link{inclusion_criteria}} that look at the inclusion criteria fo each encounter
 #' * \code{\link{ANCA_titre}} that interfere the ANCA titre
@@ -59,7 +59,7 @@ prep2 <- function(RKDdata){
 #' Date: 07-Jul-23
 #'
 #' @param RKDdata Data frame with the RKD data in
-#' @return The RKD data after the second part of the data preparation
+#' @return The RIV data after the second part of the data preparation
 #' @import dplyr
 #' @export
 
@@ -114,7 +114,7 @@ inclusion_criteria <- function(RKDdata){
 #' manually checked - makes sense 
 #'
 #' @param RKDdata Data frame with the RKD data in
-#' @return The RKD data after the second part of the data preparation
+#' @return The RIV data after the second part of the data preparation
 #' @import dplyr
 #' @export
 
@@ -184,7 +184,7 @@ ANCA_titre <- function(RKDdata){
 #' Date: 07-Jul-23
 #'
 #' @param RKDdata Data frame with the RKD data in
-#' @return The RKD data after the second part of the data preparation
+#' @return The RIV data after the second part of the data preparation
 #' @import dplyr
 #' @import tidyverse
 #' @import tidyr
@@ -284,7 +284,7 @@ sug_blood <- function(RKDdata){
 #'  If all 3 fields: Immunosuppressive.medication, Corticosteroids and Treatment.Naive..Never.on.Immunosuppression. are blank (is.na()) then NA is assigned to is.status
 #'
 #' @param RKDdata Data frame with the RKD data in
-#' @return The RKD data after the second part of the data preparation
+#' @return The RIV data after the second part of the data preparation
 #' @import dplyr
 #' @export
 
@@ -354,7 +354,7 @@ is_status <- function(RKDdata){
 #' Date: 07-Jul-23
 #'
 #' @param RKDdata Data frame with the RKD data in
-#' @return The RKD data after the second part of the data preparation
+#' @return The RIV data after the second part of the data preparation
 #' @import dplyr
 #' @export
 
@@ -404,7 +404,7 @@ complete_bvas <- function(RKDdata){
 #' 
 #'
 #' @param RKDdata Data frame with the RKD data in
-#' @return The RKD data after the second part of the data preparation
+#' @return The RIV data after the second part of the data preparation
 #' @import dplyr
 #' @export
 
