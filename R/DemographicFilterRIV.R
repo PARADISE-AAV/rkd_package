@@ -1,14 +1,14 @@
 #' @title Filter the patient with the rule for definite MPA/GPA
 #' @author Matthieu COQ
 #' @description
-#' The objective is to filter the RKD data based on inclusion criteria as Definite MPA/GPA 
+#' The objective is to filter the RIV data based on inclusion criteria as Definite MPA/GPA 
 #' 
 #' Version: 2.0
 #' 
 #' Date: 24-Jan-23
 #'
-#' @param RKDdata RKD data from \code{\link{clean_rkd}} function
-#' @details The filter of the RKD data for Definite GPA/MPA are based on the following filter
+#' @param RKDdata RIV data from \code{\link{clean_riv}} function
+#' @details The filter of the RIV data for Definite GPA/MPA are based on the following filter
 #' *  SVV = GPA / MPA
 #' *  AND diagnosis confidence = definite
 #' *  AND SVV (IC) != Anti-GBM, IgA, cryo
@@ -22,7 +22,7 @@
 #' 
 #' @return The Redcap data filter in your folder and an R object
 #' @export
-DemographicFilterRKD <- function(RKDdata) {
+DemographicFilterRIV <- function(RKDdata) {
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
