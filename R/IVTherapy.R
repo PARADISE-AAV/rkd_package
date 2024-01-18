@@ -7,9 +7,9 @@
 #' 
 #' Version: 1.0
 #'
-#' @param RKD RKD data from \code{\link{load_rkd}} function
-#' @param RKD_Treatment The RKD data after the treatment on/off function
-#' @return The RKD data with treatment on/off updated  with IV Therapy knowledge
+#' @param RKD RIV data from \code{\link{load_riv}} function
+#' @param RKD_Treatment The RIV data after the treatment on/off function
+#' @return The RIV data with treatment on/off updated  with IV Therapy knowledge
 #' @details The IV Therapy function give what is the IV therapy for each encounter. 
 #' 
 #' For this a delay after a injection is given to say if the patient is still under therapy or not.
