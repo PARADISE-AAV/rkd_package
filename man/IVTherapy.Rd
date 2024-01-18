@@ -7,12 +7,12 @@
 IVTherapy(RKD, RKD_Treatment)
 }
 \arguments{
-\item{RKD}{RKD data from \code{\link{load_rkd}} function}
+\item{RKD}{RIV data from \code{\link{load_riv}} function}
 
-\item{RKD_Treatment}{The RKD data after the treatment on/off function}
+\item{RKD_Treatment}{The RIV data after the treatment on/off function}
 }
 \value{
-The RKD data with treatment on/off updated  with IV Therapy knowledge
+The RIV data with treatment on/off updated  with IV Therapy knowledge
 }
 \description{
 Objective: The objective is to add the IV Therapy at each encounter
