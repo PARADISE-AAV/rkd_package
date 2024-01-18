@@ -7,7 +7,7 @@
 Paradise_Encounter(RKD_data, months_after_diagnosis = 6)
 }
 \arguments{
-\item{RKD_data}{RKD data from Demographic Filter RKD Data}
+\item{RKD_data}{RIV data from Demographic Filter RKD Data}
 
 \item{months_after_diagnosis}{Exclude encounters of only recently diagnosed patients (default: 6 months)}
 }
@@ -22,7 +22,12 @@ Version: 1.0
 Date: 03-May-23
 }
 \details{
-The criteria to be a Paradise encounter are 1/ need to be in Remission, 2/ need to in remission >6 month 3/ Have more than 1 year follow up
+The criteria to be a Paradise encounter are
+\itemize{
+\item 1/ need to be in Remission
+\item 2/ need to in remission >6 month
+\item 3/ Have more than 1 year follow up
+}
 }
 \author{
 Yagmur Dogay/Matthieu Coq
