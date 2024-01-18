@@ -116,7 +116,7 @@ prep1_demo <- function(RKDdata){
 #'
 #'
 #' @param RKDdata Data frame with the RKD data coming from \code{\link{prep1_demo}}
-#' @return The RKD data after the first part of the data preparation on encounter data ready for \code{\link{prep1_merged}}
+#' @return The RIV data after the first part of the data preparation on encounter data ready for \code{\link{prep1_merged}}
 #' @import dplyr
 #' @export
 
@@ -169,7 +169,7 @@ prep1_enc <- function(RKDdata){
 #' Date: 07-Jul-23
 #'
 #' @param RKDdata Data frame with the RKD data coming from \code{\link{prep1_enc}}
-#' @return The RKD data with the summary of induction treatment and ready for \code{\link{prep2}}
+#' @return The RIV data with the summary of induction treatment and ready for \code{\link{prep2}}
 #' @import dplyr
 #' @export
 
@@ -240,13 +240,13 @@ prep1_merged <- function(RKDdata){
 #' 
 #' Version: 1.0
 #'
-#' @param RKDdata Data frame with the RKD data coming from \code{\link{FilterRKD}}
+#' @param RKDdata Data frame with the RIV data coming from \code{\link{FilterRIV}}
 #' @details The different step of the first part of the data preparation in the \code{\link{CPDRelapse}} are the following
 #' * \code{\link{prep1_demo}} that prepare the demographic data (At.any.point.ANCA.specificity, End.stage.kidney.disease, Systems.involved.at.any.point, Induction.treatment.received)
 #' * \code{\link{prep1_enc}} that prepare the encounter data (Adjudicated.probability.of.relapse, BVAS.score..calculator. and Diagnostic.biopsy)
 #' * \code{\link{prep1_merged}} that summarize the induction treatment receive (Induction.treatment.received) and add this summary to the data
 #' 
-#' @return The RKD data after the first part of the data preparation in the \code{\link{CPDRelapse}} and ready for the \code{\link{prep2}}
+#' @return The RIV data after the first part of the data preparation in the \code{\link{CPDRelapse}} and ready for the \code{\link{prep2}}
 #' @export
 
 prep1 <- function(RKDdata){
