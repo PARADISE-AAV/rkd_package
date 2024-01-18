@@ -13,7 +13,7 @@
 #' * \code{\link{Relapse_final}} is the function where the last rules of the step1 and step2 are done
 #' * The step3 of the function is done in this function.
 #' 
-#' @return The RKD data with the relapse category
+#' @return The RIV data with the relapse category
 #' @export
 
 CPDRelapse <- function(RKDdata){
