@@ -1,10 +1,10 @@
-#' @title This function use the different CPD algorithms to classify the Encounter of RKD data
+#' @title This function use the different CPD algorithms to classify the Encounter of RIV data
 #' @author Matthieu COQ
 #' @description
-#'  The objective is to classify the patient of RKD data based on criteria described in the function apply
+#'  The objective is to classify the patient of RIV data based on criteria described in the function apply
 #'
 #'
-#' @param RKDdata RKD data from \code{\link{DemographicFilterRKD}} function
+#' @param RKDdata RIV data from \code{\link{DemographicFilterRKD}} function
 #' @param output_path folder where the Redcap data will be saved
 #' @param algorithm function use to classify the RKD patient, the possibility are "BRelapse" or "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT"
 #' @param interval_from_diagnostics the interval from diagnostics for the algorithm Paradise_Encounter by default 6
@@ -19,7 +19,7 @@
 #' * \code{\link{CPD_LTROT}} tells us if a patient is in Long Term Remission Out of Treatment (LTROT)
 #' 
 #' @export
-ClassifyRKDEncounter = function(RKDdata, output_path, algorithm, interval_from_diagnostics=6, rawRKDdata=NULL, nb_month=24) {
+ClassifyRIVEncounter = function(RKDdata, output_path, algorithm, interval_from_diagnostics=6, rawRKDdata=NULL, nb_month=24) {
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
