@@ -1,7 +1,7 @@
-#' @title Load the Rare Kidney Disease dataset
+#' @title Load the RIV dataset
 #' @description
 #'  
-#' The objective is to load the RKD data from disk into an R dataframe object.
+#' The objective is to load the RIV data from disk into an R dataframe object.
 #' 
 #' Version: 1.0
 #' 
@@ -13,12 +13,12 @@
 #'
 #' @author Matthieu COQ
 #'
-#' @param file_name String. Directory where the RKD files are kept.
+#' @param file_name String. Directory where the RIV files are kept.
 #'
 #' @return A data frame containing the RKD dataset.
 #' @import textclean
 #' @export
-load_rkd <- function (file_name) {
+load_riv <- function (file_name) {
   stopifnot("Your argument need to be a character"=is.character(file_name))
   stopifnot(length(file_name) == 1)
   containing_dir <- dirname(file_name)
