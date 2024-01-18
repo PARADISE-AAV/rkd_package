@@ -10,7 +10,7 @@ prep1_enc(RKDdata)
 \item{RKDdata}{Data frame with the RKD data coming from \code{\link{prep1_demo}}}
 }
 \value{
-The RKD data after the first part of the data preparation on encounter data ready for \code{\link{prep1_merged}}
+The RIV data after the first part of the data preparation on encounter data ready for \code{\link{prep1_merged}}
 }
 \description{
 The objective is to do the first part of the data preparation in the \code{\link{CPDRelapse}} with encounter data (Adjudicated.probability.of.relapse, BVAS.score..calculator. and Diagnostic.biopsy)
