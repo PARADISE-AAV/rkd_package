@@ -10,7 +10,7 @@ cpd_relapse(RKDdata)
 \item{RKDdata}{Data frame after the preparation of the data (\code{\link{prep2}}) to apply this function}
 }
 \value{
-The RKD data with the status if the patient is in remission and ready for \code{\link{Relapse_final}}
+The RIV data with the status if the patient is in remission and ready for \code{\link{Relapse_final}}
 }
 \description{
 The objective is to assign to an encounter if he is in relapse stage or not. This function is apply after \code{\link{prep2}} function
