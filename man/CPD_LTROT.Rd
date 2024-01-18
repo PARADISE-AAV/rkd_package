@@ -7,12 +7,12 @@
 CPD_LTROT(RKDdata, duration)
 }
 \arguments{
-\item{RKDdata}{Data frame with the RKD data}
+\item{RKDdata}{Data frame with the RIV data}
 
 \item{duration}{Duration without treatment}
 }
 \value{
-The RKD data with the LTROT category
+The RIV data with the LTROT category
 }
 \description{
 The function have the goal to tell us if a patient is LTROT patient or not
