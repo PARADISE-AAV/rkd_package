@@ -10,7 +10,7 @@ inclusion_criteria(RKDdata)
 \item{RKDdata}{Data frame with the RKD data in}
 }
 \value{
-The RKD data after the second part of the data preparation
+The RIV data after the second part of the data preparation
 }
 \description{
 The objective is to do the second part of the data preparation (\code{\link{prep2}}) in particularity the inclusion criteria
