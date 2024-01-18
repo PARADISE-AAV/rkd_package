@@ -1,22 +1,22 @@
-#' @title This function use the different algorithms to filter the patient of RKD data
+#' @title This function use the different algorithms to filter the patient of RIV data
 #' @author Matthieu COQ
 #' @description
-#' The objective is to filter the RKD data based on inclusion criteria defined in several algorithms
+#' The objective is to filter the RIV data based on inclusion criteria defined in several algorithms
 #' 
 #' Version: 1.0
 #' 
 #' Date: 03-Jan-24
 #'
-#' @param RKDdata RKD data from \code{\link{clean_rkd}} function
+#' @param RKDdata RIV data from \code{\link{clean_riv}} function
 #' @param output_path folder where the Redcap data will be saved
 #' @param algorithm function use to filter the RKD patient, the possibility are "Definite GPA/MPA" or "Definite GPA/MPA/EGPA"
 #' @return The Redcap data with the classification variables in your folder and in an R object 
 #' @details The filter of the RKD data are based on the following filter
-#' * Definite MPA/GPA without secondary vasculitis with more explanation in \code{\link{DemographicFilterRKD}}
-#' * Definite MPA/GPA/EGPA without secondary vasculitis with more explanation in \code{\link{DemographicFilterRKD_EGPA}}
+#' * Definite MPA/GPA without secondary vasculitis with more explanation in \code{\link{DemographicFilterRIV}}
+#' * Definite MPA/GPA/EGPA without secondary vasculitis with more explanation in \code{\link{DemographicFilterRIV_EGPA}}
 #' 
 #' @export
-FilterRKD = function(RKDdata, output_path, algorithm) {
+FilterRIV = function(RKDdata, output_path, algorithm) {
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
@@ -33,10 +33,10 @@ FilterRKD = function(RKDdata, output_path, algorithm) {
   }
   
   if (algorithm == "Definite GPA/MPA") {
-    Filter_RKD_data <- DemographicFilterRKD(RKD_data)
+    Filter_RKD_data <- DemographicFilterRIV(RKD_data)
   }
   if (algorithm == "Definite GPA/MPA/EGPA") {
-    Filter_RKD_data <- DemographicFilterRKD_EGPA(RKD_data)
+    Filter_RKD_data <- DemographicFilterRIV_EGPA(RKD_data)
   }
   
   files_test <-  list.dirs(output_path)
