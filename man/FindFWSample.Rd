@@ -2,31 +2,31 @@
 % Please edit documentation in R/FindFWSample.R
 \name{FindFWSample}
 \alias{FindFWSample}
-\title{Merge the RKD data and the Freezerwork data}
+\title{Merge the RIV data and the Freezerwork data}
 \usage{
 FindFWSample(FWdata, RKDdata, output_path, interval)
 }
 \arguments{
 \item{FWdata}{FW data from \code{\link{CleanFW}} function}
 
-\item{RKDdata}{RKD data from \code{\link{ClassifyRKDEncounter}} or earlier function}
+\item{RKDdata}{RKD data from \code{\link{ClassifyRIVEncounter}} or earlier function}
 
 \item{output_path}{folder where the merged data will be saved}
 
 \item{interval}{The number of day in which the merge need to be done}
 }
 \value{
-The Redcap data cleaned in your folder and in an object
+to add
 }
 \description{
-Objective: The objective is to merge the RKD data filter and clean with the clean Freezer work data
+Objective: The objective is to merge the RIV data filter and clean with the clean Freezer work data
 
 Date: 22-Mar-23
 
 Version: 1.0
 }
 \details{
-The merge between the Freezerwork data and the RKD data allows us to find the sample associated to the RKD data.
+The merge between the Freezerwork data and the RIV data allows us to find the sample associated to the RKD data.
 
 The interval of day argument is here as we need flexibility in the date merging. The date of sample in the Freezerwork is the one when the sample arrive in the biobank and they can be a delay with the encounter date.
 }
