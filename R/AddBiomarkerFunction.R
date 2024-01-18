@@ -1,10 +1,10 @@
 #' @title Adding Biomarker data to the RIV data
 #' @author Yagmur Dogay
 #' @description The objective is to merge biomarker data with RKD data
-#' @param data_rkd Data frame linking with RKD data coming from \code{\link{ClassifyRKDEncounter}}
+#' @param data_rkd Data frame linking with RKD data coming from \code{\link{ClassifyRIVEncounter}}
 #' @param data_bio Data frame linking with the biomarker data coming from \code{\link{LoadBiomarker}}
 #' @param interval The interval is a tolerance of number of days that the biomarker date is before and after the encounter date.
-#' @returns the merge of Biomarker data and RKD data within an defined interval
+#' @returns the merge of Biomarker data and RIV data within an defined interval
 #' @import dplyr
 #' @importFrom rlang .data
 #' @export
