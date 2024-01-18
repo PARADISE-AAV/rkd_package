@@ -7,12 +7,12 @@
 #' 
 #' Version 1.0
 #' 
-#' @param RKDdata Data frame with the RKD data
+#' @param RKDdata Data frame with the RIV data
 #' @param duration Duration without treatment
 #' @details detail to add
 #' 
 #' 
-#' @return The RKD data with the LTROT category
+#' @return The RIV data with the LTROT category
 #' @import dplyr
 #' @import tidyverse 
 #' @export
