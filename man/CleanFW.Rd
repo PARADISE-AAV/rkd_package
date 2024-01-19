@@ -4,12 +4,14 @@
 \alias{CleanFW}
 \title{Cleaning the Freezerwork data coming from \code{\link{LoadFW}}}
 \usage{
-CleanFW(FWdata, output_path)
+CleanFW(FWdata, output_path, amount = 0)
 }
 \arguments{
 \item{FWdata}{FW data from \code{\link{LoadFW}} function}
 
 \item{output_path}{folder where the Redcap data will be saved}
+
+\item{amount}{The current volume of blood in the tube at least needed}
 }
 \value{
 The Redcap data cleaned in your folder and in an object
