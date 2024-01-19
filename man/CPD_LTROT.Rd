@@ -22,7 +22,7 @@ Date: 03-Jan-24
 Version 1.0
 }
 \details{
-detail to add
+This function need to be execute after \code{\link{Treatment_On_Off}} and \code{\link{CPDRelapse}}
 }
 \author{
 Matthieu COQ/Jennifer Scott
