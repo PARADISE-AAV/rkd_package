@@ -6,6 +6,7 @@
 #'
 #' @param FWdata FW data from \code{\link{LoadFW}} function
 #' @param output_path folder where the Redcap data will be saved
+#' @param amount The current volume of blood in the tube at least needed
 #' @details The CleanFW function is a series of data transformation to clean Freezerwork data
 #' * Remove the missing RKD.ID
 #' * Remove the sample with a null amount of material
@@ -16,7 +17,7 @@
 #' @export
 
 
-CleanFW=function(FWdata, output_path){
+CleanFW=function(FWdata, output_path, amount=0){
   
   ####Test on the argument
   if (is.data.frame(FWdata) == FALSE) {
@@ -34,7 +35,7 @@ CleanFW=function(FWdata, output_path){
   
   FW_data_filter_RKID <- FW_data[which(is.na(as.numeric(FW_data$Main.Study.ID)) == FALSE), ]
   
-  FW_data_filter_amount <- FW_data_filter_RKID[which(FW_data_filter_RKID$Current.Amount > 0),]
+  FW_data_filter_amount <- FW_data_filter_RKID[which(FW_data_filter_RKID$Current.Amount > amount),]
   
   FW_data_filter_amount$Date.of.encounter <- as.Date(FW_data_filter_amount$Date.of.encounter, format = '%d/%m/%Y')
   
