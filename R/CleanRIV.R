@@ -87,7 +87,7 @@ clean_riv <- function(rkd_data, output_path) {
 
   output_filename <- file.path(
     output_path,
-    paste0('Redcap_clinical_data_clean', "_version", packageVersion('rkdpipeline'), "_Date"
+    paste0('Redcap_clinical_data_clean', "_version", packageVersion('rivpipeline'), "_Date"
            , Sys.Date(), '.csv')
   )
   write.csv(rkd_data2, output_filename, row.names = FALSE)
