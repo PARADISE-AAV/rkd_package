@@ -73,7 +73,7 @@ FindFWSample=function(FWdata, RKDdata, output_path, interval){
   if(identical(files_test, character(0)) == TRUE){
     stop("Your output folder don't exist")
   }
-  write.csv(merged_frame, paste(output_path, "/Merged_FW_RKD_", "_version", packageVersion('rkdpipeline'), "_Date", Sys.Date() , ".csv", sep=""), row.names = F)
+  write.csv(merged_frame, paste(output_path, "/Merged_FW_RKD_", "_version", packageVersion('rivpipeline'), "_Date", Sys.Date() , ".csv", sep=""), row.names = F)
   return(merged_frame)
   
 }
