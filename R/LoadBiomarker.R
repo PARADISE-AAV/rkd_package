@@ -55,6 +55,9 @@ LoadBiomarker=function(files_name){
   if(min(year(Biomarker_data$Date.Of.Visit),na.rm=T)<1950){
     warning("You have weird dates in your dataset can you check the format of the date of sample")
   }
+  if(max(year(Biomarker_data$Date.Of.Visit),na.rm=T)>year(Sys.time())){
+    warning("The DeLorean is still not created. You have a date in the future")
+  }
   
   if(length(which(is.na(Biomarker_data$Date.Of.Visit) == TRUE))>0){
     warning("You have a problem of format of date in your files. Be sure that the format is YYYY-MM-DD")
