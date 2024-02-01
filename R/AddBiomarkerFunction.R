@@ -18,7 +18,7 @@ AddBiomarkerRIV <- function(data_rkd, data_bio, interval){
     as.Date(data_bio$Date.Of.Visit) + interval
   
   #colnames(data_bio)[colnames(data_bio) == 'Main.Study.ID'] <- 'RKD.ID'
-  merged_frame <- fuzzy_full_join(
+  merged_frame <- fuzzy_inner_join(
     data_rkd, data_bio,
     by = c(
       "RKD.ID" = "RKD.ID",
