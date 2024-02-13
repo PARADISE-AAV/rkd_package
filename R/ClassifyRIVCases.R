@@ -47,7 +47,7 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm, interval_from_d
   }
   if(algorithm == "Treatment On/Off"){
     rkd_treatment <- Treatment_On_Off(RKDdata)
-    Classify_RKD_data <- IVTherapy(rkd, rkd_treatment)
+    Classify_RKD_data <- IVTherapy(rawRKDdata, rkd_treatment)
   }
   if(algorithm == "CPD LTROT"){
     Classify_RKD_data <- CPD_LTROT(RKD_data, nb_month)
