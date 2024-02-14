@@ -26,7 +26,7 @@ Paradise_Encounter <- function(RKD_data, months_after_diagnosis = 6) {
   }
   
   interval_frame <- RKD_data %>%
-    dplyr::filter(Disease.activity.since.last.return == 'Remission',
+    dplyr::filter(CPD_relapse == 'No Relapse',
                   Interval.from.diagnosis..months. > months_after_diagnosis,
                   !is.na(RKD.ID)) %>%
   dplyr::mutate(last_encounter = dplyr::case_when(
