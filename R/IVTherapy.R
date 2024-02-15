@@ -53,7 +53,7 @@ IVTherapy <- function(RKD, RKD_Treatment){
       "Date.Of.Visit" = "Start.date.of.date.range",
       "Date.Of.Visit" = "End.date.of.date.range"
     ),
-    match_fun = list(`==`, `>=`, `<=`)
+    match_fun = list(`==`, `>=`, `<`)
   ) %>%
     select(everything())
   
