@@ -3,3 +3,6 @@ inst/doc
 *.csv
 .Rhistory
 .Rproj.user
+renv/
+*.Rproj
+.Rprofile
