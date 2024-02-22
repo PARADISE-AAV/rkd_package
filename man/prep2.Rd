@@ -8,6 +8,8 @@ prep2(RKDdata, interval_from_diagnostics)
 }
 \arguments{
 \item{RKDdata}{Data frame with the RKD data from \code{\link{prep1}}}
+
+\item{interval_from_diagnostics}{the interval from diagnostics for the algorithm Paradise_Encounter by default 6}
 }
 \value{
 The RIV data after the second part of the data preparation and ready for \code{\link{cpd_relapse}}

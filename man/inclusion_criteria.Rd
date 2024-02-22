@@ -8,6 +8,8 @@ inclusion_criteria(RKDdata, interval_from_diagnostics)
 }
 \arguments{
 \item{RKDdata}{Data frame with the RKD data in}
+
+\item{interval_from_diagnostics}{the interval from diagnostics for the algorithm Paradise_Encounter by default 6}
 }
 \value{
 The RIV data after the second part of the data preparation

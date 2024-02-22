@@ -8,6 +8,8 @@ CPDRelapse(RKDdata, interval_from_diagnostics = 6)
 }
 \arguments{
 \item{RKDdata}{Data frame with the RKD data}
+
+\item{interval_from_diagnostics}{the interval from diagnostics for the algorithm Paradise_Encounter by default 6}
 }
 \value{
 The RIV data with the relapse category

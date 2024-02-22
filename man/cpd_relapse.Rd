@@ -8,6 +8,8 @@ cpd_relapse(RKDdata, interval_from_diagnostics)
 }
 \arguments{
 \item{RKDdata}{Data frame after the preparation of the data (\code{\link{prep2}}) to apply this function}
+
+\item{interval_from_diagnostics}{the interval from diagnostics for the algorithm Paradise_Encounter by default 6}
 }
 \value{
 The RIV data with the status if the patient is in remission and ready for \code{\link{Relapse_final}}
