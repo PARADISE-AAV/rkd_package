@@ -16,7 +16,7 @@
 #' @import dplyr
 #' @export
 
-cpd_relapse <- function (RKDdata){
+cpd_relapse <- function (RKDdata, interval_from_diagnostics){
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
@@ -30,7 +30,7 @@ cpd_relapse <- function (RKDdata){
   dat_fullT <- RKD_data
   
   dat <- dat_fullT %>%
-    filter(Interval.from.diagnosis..months. >= 6) %>% 
+    filter(Interval.from.diagnosis..months. >= interval_from_diagnostics) %>% 
     select(RKD.ID, Date.Of.Visit, 
            Repeat.Instance, Interval.from.diagnosis..months., 
            diag_bx_3, ANCA.overall.2_NA, sugg.blo.ur_overall_na, Suggestive.imaging, is.status_OVERALL, is.response_b,
