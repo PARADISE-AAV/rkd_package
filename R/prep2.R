@@ -8,6 +8,7 @@
 #'  Date: 07-Jul-23
 #'
 #' @param RKDdata Data frame with the RKD data from \code{\link{prep1}}
+#' @param interval_from_diagnostics the interval from diagnostics for the algorithm Paradise_Encounter by default 6
 #' @return The RIV data after the second part of the data preparation and ready for \code{\link{cpd_relapse}}
 #' @details The second part for the data preparation in the \code{\link{CPDRelapse}} is done with several function as described below
 #' * \code{\link{inclusion_criteria}} that look at the inclusion criteria fo each encounter
@@ -59,6 +60,7 @@ prep2 <- function(RKDdata, interval_from_diagnostics){
 #' Date: 07-Jul-23
 #'
 #' @param RKDdata Data frame with the RKD data in
+#' @param interval_from_diagnostics the interval from diagnostics for the algorithm Paradise_Encounter by default 6
 #' @return The RIV data after the second part of the data preparation
 #' @import dplyr
 #' @export

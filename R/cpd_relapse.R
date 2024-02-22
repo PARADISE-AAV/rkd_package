@@ -9,6 +9,7 @@
 #' Date: 07-Jul-23
 #'
 #' @param RKDdata Data frame after the preparation of the data (\code{\link{prep2}}) to apply this function
+#' @param interval_from_diagnostics the interval from diagnostics for the algorithm Paradise_Encounter by default 6
 #' @return The RIV data with the status if the patient is in remission and ready for \code{\link{Relapse_final}}
 #' @details
 #' During this function, the model described by the article written by Dr Jennifer Scott. This model give us the possibility to tell if an encounter of a patient is in relapse or not despite we don't have the information given by the clinician.

@@ -4,7 +4,7 @@
 \alias{prep2}
 \title{prep2}
 \usage{
-prep2(RKDdata)
+prep2(RKDdata, interval_from_diagnostics)
 }
 \arguments{
 \item{RKDdata}{Data frame with the RKD data from \code{\link{prep1}}}

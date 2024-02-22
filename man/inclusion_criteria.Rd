@@ -4,7 +4,7 @@
 \alias{inclusion_criteria}
 \title{inclusion_criteria}
 \usage{
-inclusion_criteria(RKDdata)
+inclusion_criteria(RKDdata, interval_from_diagnostics)
 }
 \arguments{
 \item{RKDdata}{Data frame with the RKD data in}

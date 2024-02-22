@@ -4,7 +4,7 @@
 \alias{cpd_relapse}
 \title{The application of the CPD relapse model to each encounter}
 \usage{
-cpd_relapse(RKDdata)
+cpd_relapse(RKDdata, interval_from_diagnostics)
 }
 \arguments{
 \item{RKDdata}{Data frame after the preparation of the data (\code{\link{prep2}}) to apply this function}
