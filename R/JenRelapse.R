@@ -16,7 +16,7 @@
 #' @return The RIV data with the relapse category
 #' @export
 
-CPDRelapse <- function(RKDdata){
+CPDRelapse <- function(RKDdata, interval_from_diagnostics = 6){
   
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
@@ -29,8 +29,8 @@ CPDRelapse <- function(RKDdata){
     stop("You give an empty files")
   }
   prep1_data <- prep1(RKD_data)
-  prep2_data <- prep2(prep1_data)
-  final_data <- cpd_relapse(prep2_data)
+  prep2_data <- prep2(prep1_data, interval_from_diagnostics)
+  final_data <- cpd_relapse(prep2_data, interval_from_diagnostics)
   relapse_final_data <- Relapse_final(final_data)
   
   CPD_Relapse_RKD_data <- merge(RKD_data, relapse_final_data, by.x = c("RKD.ID", "Date.Of.Visit"), by.y = c("ID", "Date.Of.Visit"))
