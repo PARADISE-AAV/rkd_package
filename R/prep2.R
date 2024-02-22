@@ -21,7 +21,7 @@
 #' @import dplyr
 #' @export
 
-prep2 <- function(RKDdata){
+prep2 <- function(RKDdata, interval_from_diagnostics){
   
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
@@ -37,7 +37,7 @@ prep2 <- function(RKDdata){
   RKD_data <- RKD_data %>% 
     group_by(RKD.ID) %>% 
     arrange(Date.Of.Visit)
-  RKD_inclusion <- inclusion_criteria(RKD_data)
+  RKD_inclusion <- inclusion_criteria(RKD_data, interval_from_diagnostics)
   RKD_ANCA <- ANCA_titre(RKD_inclusion)
   RKD_blood <- sug_blood(RKD_ANCA)
   RKD_status <- is_status(RKD_blood)
@@ -63,7 +63,7 @@ prep2 <- function(RKDdata){
 #' @import dplyr
 #' @export
 
-inclusion_criteria <- function(RKDdata){
+inclusion_criteria <- function(RKDdata, interval_from_diagnostics){
   
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
@@ -76,7 +76,7 @@ inclusion_criteria <- function(RKDdata){
     stop("You give an empty files")
   }
   RKD_data <- RKD_data %>% 
-    filter(Interval.from.diagnosis..months. >= 6)
+    filter(Interval.from.diagnosis..months. >= interval_from_diagnostics)
   return (RKD_data)
 
 }
