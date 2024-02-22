@@ -42,7 +42,7 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm, interval_from_d
     Classify_RKD_data <- Paradise_Encounter(RKD_data, interval_from_diagnostics)
   }
   if(algorithm == "CPD Relapse"){
-    Classify_RKD_data <- CPDRelapse(RKD_data)
+    Classify_RKD_data <- CPDRelapse(RKD_data, interval_from_diagnostics)
      
   }
   if(algorithm == "Treatment On/Off"){
