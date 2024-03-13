@@ -109,5 +109,10 @@ SplitRIV <- function(RIVdata, output_dir){
   write.csv(rkd_Complication_filtered, paste(output_dir,"/Redcap_Complication frame", "_version", packageVersion('rivpipeline'), "_Date"
                                              , Sys.Date(), '.csv',sep=""), row.names = F)
   
+  rkd_frame <- list(Encounter=rkd_encounter_filtered, Initial=rkd_initial_filtered, IVTherapy=rkd_IVTherapy_filtered, 
+                    Medication=rkd_Continuous_medication_filtered, Biopsy=rkd_Biopsy_filtered, 
+                    Transplant=rkd_Transplantation_filtered, Complication=rkd_Complication_filtered)
   
+  return(rkd_frame)
+
 }
