@@ -7,9 +7,9 @@
 SplitRIV(RIVdata, output_dir)
 }
 \arguments{
-\item{rkd_data}{RIV data from \code{\link{load_riv}} function}
+\item{RIVdata}{RIV data from \code{\link{load_riv}} function}
 
-\item{output_path}{folder where the Redcap data will be saved}
+\item{output_dir}{folder where the Redcap data will be saved}
 }
 \description{
 The objective is to split the RIV RedCap export in different frame
