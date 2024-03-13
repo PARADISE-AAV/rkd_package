@@ -7,8 +7,8 @@
 #' 
 #' Date: 13-Mar-23
 #'
-#' @param rkd_data RIV data from \code{\link{load_riv}} function
-#' @param output_path folder where the Redcap data will be saved
+#' @param RIVdata RIV data from \code{\link{load_riv}} function
+#' @param output_dir folder where the Redcap data will be saved
 #' @details
 #' Need to be added
 #' @import dplyr
