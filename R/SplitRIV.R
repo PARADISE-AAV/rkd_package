@@ -94,20 +94,20 @@ SplitRIV <- function(RIVdata, output_dir){
     dplyr::select(!dplyr::where(~ all(is.na(.x)))) %>%
     dplyr::select(!dplyr::where(~ is.character(.x) && all(.x == "")))
   
-  write.csv(rkd_encounter_filtered, paste("Redcap_Encounter frame", "_version", packageVersion('rivpipeline'), "_Date"
-                                          , Sys.Date(), '.csv'), row.names = F)
-  write.csv(rkd_initial_filtered, paste("Redcap_General charcteristic frame", "_version", packageVersion('rivpipeline'), "_Date"
-                                        , Sys.Date(), '.csv'), row.names = F)
-  write.csv(rkd_IVTherapy_filtered, paste("Redcap_IVTherapy frame", "_version", packageVersion('rivpipeline'), "_Date"
-                                          , Sys.Date(), '.csv'), row.names = F)
-  write.csv(rkd_Continuous_medication_filtered, paste("Redcap_Continuous medication frame", "_version", packageVersion('rivpipeline'), "_Date"
-                                                      , Sys.Date(), '.csv'), row.names = F)
-  write.csv(rkd_Biopsy_filtered, paste("Redcap_Biopsy frame", "_version", packageVersion('rivpipeline'), "_Date"
-                                       , Sys.Date(), '.csv'), row.names = F)
-  write.csv(rkd_Transplantation_filtered, paste("Redcap_Renal Transplant frame", "_version", packageVersion('rivpipeline'), "_Date"
-                                                , Sys.Date(), '.csv'), row.names = F)
-  write.csv(rkd_Complication_filtered, paste("Redcap_Complication frame", "_version", packageVersion('rivpipeline'), "_Date"
-                                             , Sys.Date(), '.csv'), row.names = F)
+  write.csv(rkd_encounter_filtered, paste(output_dir,"/Redcap_Encounter frame", "_version", packageVersion('rivpipeline'), "_Date"
+                                          , Sys.Date(), '.csv',sep=""), row.names = F)
+  write.csv(rkd_initial_filtered, paste(output_dir,"/Redcap_General charcteristic frame", "_version", packageVersion('rivpipeline'), "_Date"
+                                        , Sys.Date(), '.csv',sep=""), row.names = F)
+  write.csv(rkd_IVTherapy_filtered, paste(output_dir,"/Redcap_IVTherapy frame", "_version", packageVersion('rivpipeline'), "_Date"
+                                          , Sys.Date(), '.csv',sep=""), row.names = F)
+  write.csv(rkd_Continuous_medication_filtered, paste(output_dir,"/Redcap_Continuous medication frame", "_version", packageVersion('rivpipeline'), "_Date"
+                                                      , Sys.Date(), '.csv',sep=""), row.names = F)
+  write.csv(rkd_Biopsy_filtered, paste(output_dir,"/Redcap_Biopsy frame", "_version", packageVersion('rivpipeline'), "_Date"
+                                       , Sys.Date(), '.csv',sep=""), row.names = F)
+  write.csv(rkd_Transplantation_filtered, paste(output_dir,"/Redcap_Renal Transplant frame", "_version", packageVersion('rivpipeline'), "_Date"
+                                                , Sys.Date(), '.csv',sep=""), row.names = F)
+  write.csv(rkd_Complication_filtered, paste(output_dir,"/Redcap_Complication frame", "_version", packageVersion('rivpipeline'), "_Date"
+                                             , Sys.Date(), '.csv',sep=""), row.names = F)
   
   
 }
