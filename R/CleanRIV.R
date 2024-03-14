@@ -94,17 +94,7 @@ clean_riv <- function(rkd_data, output_path) {
   return(rkd_data2)
 }
 
-#' @import stringr
-#' @import dplyr
-#' @import lubridate
-rkd_parse_dates <- function(data) {
-  date_columns <- stringr::str_subset(colnames(data), "Date")
-  date_columns <- stringr::str_subset(date_columns, "known.unknown", negate = TRUE)
-  dplyr::mutate(
-    data,
-    dplyr::across(dplyr::all_of(date_columns), lubridate::as_date)
-  )
-}
+
 
 #' @import forcats
 #' @import stringr
