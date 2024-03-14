@@ -42,8 +42,7 @@ clean_riv <- function(rkd_data, output_path) {
     stop("You supplied an empty file")
   }
 
-  # Parse all date columns
-  rkd_data <- rkd_parse_dates(rkd_data)
+
 
   # Collapse ethnicities
   rkd_data <- rkd_collapse_ethnicity(rkd_data)
