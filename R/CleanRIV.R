@@ -51,24 +51,9 @@ clean_riv <- function(rkd_data, output_path) {
   # If the RKD ID contains a '-', replace it with Patient ID
   rkd_data <- rkd_fix_ids(rkd_data)
 
-
-  
-  
-
-  # Add age variable
-  rkd_data <- rkd_data %>%
-    dplyr::mutate(Age_Encounters =
-      lubridate::year(.data$Date.Of.Visit) - lubridate::year(.data$Date.of.Birth))
-
-  # Anti MPO PR3
-  rkd_data <- rkd_anti_mpo_pr3(rkd_data)
-  
   rkd_data$Paradise.ID <- paste("RIV", rkd_data$RKD.ID, sep = "")
   rkd_data2=rkd_data[,c("RKD.ID", "Paradise.ID",colnames(rkd_data)[-c(grep("RKD.ID",colnames(rkd_data)),grep("Paradise.ID",colnames(rkd_data)))])]
   
-  rkd_data2$interval_from_diagnosis=as.numeric(rkd_data2$Date.Of.Visit-rkd_data2$Date.of.diagnosis)
-  
-
   output_filename <- file.path(
     output_path,
     paste0('Redcap_clinical_data_clean', "_version", packageVersion('rivpipeline'), "_Date"
