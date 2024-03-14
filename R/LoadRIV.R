@@ -33,8 +33,21 @@ load_riv <- function (file_name) {
   colnames(dataset) <- textclean::replace_non_ascii(colnames(dataset))
   dataset$Immunosuppressive.status <- textclean::replace_non_ascii(dataset$Immunosuppressive.status)
 
+  rkd_data <- rkd_parse_dates(dataset)
   
+  rkd_data
   
-  dataset
-  
+}
+
+
+#' @import stringr
+#' @import dplyr
+#' @import lubridate
+rkd_parse_dates <- function(data) {
+  date_columns <- stringr::str_subset(colnames(data), "Date")
+  date_columns <- stringr::str_subset(date_columns, "known.unknown", negate = TRUE)
+  dplyr::mutate(
+    data,
+    dplyr::across(dplyr::all_of(date_columns), lubridate::as_date)
+  )
 }
