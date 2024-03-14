@@ -22,6 +22,7 @@ Date: 24-Jan-23
 \details{
 The output of this function is re-used in the other functions of the package.
 An empty or non-existent file or folder will result in an error.
+The variable consider as date format  are transformin Date format and check if there is no problem.
 }
 \author{
 Matthieu COQ
