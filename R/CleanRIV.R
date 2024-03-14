@@ -51,8 +51,7 @@ clean_riv <- function(rkd_data, output_path) {
   # If the RKD ID contains a '-', replace it with Patient ID
   rkd_data <- rkd_fix_ids(rkd_data)
 
-  # Combine the single-row initial records with the (multi-row) encounters
-  rkd_data <- rkd_tidy_encounters(rkd_data)
+
   
   
 
@@ -123,51 +122,5 @@ rkd_fix_ids <- function(data) {
   return(data)
 }
 
-#' @import dplyr
-rkd_tidy_encounters <- function(data) {
-  rkd_encounters <- dplyr::filter(
-    data,
-    .data$Repeat.Instrument == "Encounters"
-  )
-  rkd_initial <- dplyr::filter(
-    data,
-    .data$Repeat.Instrument == "",
-    .data$Type.of.Patient != ""
-  )
-  # Select the variables of encounters
-  id_columns <- c(
-    "RKD.ID", "Repeat.Instrument",
-    "Repeat.Instance", "Patient.Id"
-  )
-  # TODO: it is not necessary to store 'empty_encounters' or 'empty_initials'
-  # because we can just remove these columns inline using dplyr::where(!.)
 
-  # Get rid of empty / all-missing variables
-  rkd_encounter_filtered <- rkd_encounters %>%
-    dplyr::select(!dplyr::where(~ all(is.na(.x)))) %>%
-    dplyr::select(!dplyr::where(~ is.character(.x) && all(.x == "")))
-  rkd_initial_filtered <- rkd_initial %>%
-    dplyr::select(!dplyr::where(~ all(is.na(.x)))) %>%
-    dplyr::select(!dplyr::where(~ is.character(.x) && all(.x == "")))
 
-  # Merge together so we go from a sparse block-structure table
-  # to a wide table, effectively with initial values carried forward
-  # TODO: switch this to na.locf?
-  rkd_initial_filtered %>%
-    dplyr::full_join(
-      rkd_encounter_filtered %>%
-        dplyr::select(-.data$Patient.ID),
-      by = "RKD.ID"
-    )
-}
-
-#' @import dplyr
-rkd_anti_mpo_pr3 <- function(data) {
-  dplyr::mutate(data, AntiMPO_PR3 = dplyr::case_when(
-    is.na(.data$Anti.MPO.level) & is.na(.data$Anti.PR3.level) ~ NA,
-    is.na(.data$Anti.MPO.level) & !is.na(.data$Anti.PR3.level) ~ "PR3",
-    !is.na(.data$Anti.MPO.level) & is.na(.data$Anti.PR3.level) ~ "MPO",
-    .data$Anti.MPO.level > .data$Anti.PR3.level ~ "MPO",
-    TRUE ~ "PR3"
-  ))
-}
