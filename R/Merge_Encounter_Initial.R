@@ -32,6 +32,13 @@ Merge_Encounter_initial <- function(Encounter, Initial, output_dir){
   
   rkd_data2$interval_from_diagnosis=as.numeric(rkd_data2$Date.Of.Visit-rkd_data2$Date.of.diagnosis)
   
+  output_filename <- file.path(
+    output_dir,
+    paste0('Redcap_clinical_data_clean', "_version", packageVersion('rivpipeline'), "_Date"
+           , Sys.Date(), '.csv')
+  )
+  write.csv(rkd_data, output_filename, row.names = FALSE)
+  return(rkd_data)
   
 }
 
