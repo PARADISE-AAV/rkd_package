@@ -33,5 +33,8 @@ load_riv <- function (file_name) {
   colnames(dataset) <- textclean::replace_non_ascii(colnames(dataset))
   dataset$Immunosuppressive.status <- textclean::replace_non_ascii(dataset$Immunosuppressive.status)
 
+  
+  
   dataset
+  
 }
