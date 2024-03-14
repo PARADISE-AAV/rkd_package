@@ -10,6 +10,8 @@
 #'  
 #' The output of this function is re-used in the other functions of the package.
 #' An empty or non-existent file or folder will result in an error.
+#' The variable consider as date format  are transformin Date format and check if there is no problem.
+#' 
 #'
 #' @author Matthieu COQ
 #'
@@ -49,7 +51,13 @@ load_riv <- function (file_name) {
     if(min(year(rkd_data[,i]),na.rm=T)<1900){
       warning("You have weird dates in your dataset can you check the format of the date of sample")
     }
+    
+    if(max(year(rkd_data[,i]),na.rm=T)>year(Sys.time())){
+      warning("The time machine is still not created. You have a date in the future")
+    }
   }
+  
+  
   
   rkd_data
   
