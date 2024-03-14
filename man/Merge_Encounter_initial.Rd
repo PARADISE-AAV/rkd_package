@@ -11,7 +11,7 @@ Merge_Encounter_initial(Encounter, Initial, output_dir)
 
 \item{Initial}{General Characteristics data from \code{\link{SplitRIV}} function}
 
-\item{output_path}{folder where the Redcap data will be saved}
+\item{output_dir}{folder where the Redcap data will be saved}
 }
 \description{
 The Goal is to merge the Encounter and general characteristics from \code{\link{SplitRIV}} function
