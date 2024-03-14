@@ -34,7 +34,7 @@ Merge_Encounter_initial <- function(Encounter, Initial, output_dir){
   
   output_filename <- file.path(
     output_dir,
-    paste0('Redcap_clinical_data_clean', "_version", packageVersion('rivpipeline'), "_Date"
+    paste0('Redcap_clinical_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
            , Sys.Date(), '.csv')
   )
   write.csv(rkd_data, output_filename, row.names = FALSE)
