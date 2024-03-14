@@ -9,7 +9,7 @@
 #'
 #' @param Encounter Encounter data from \code{\link{SplitRIV}} function
 #' @param Initial General Characteristics data from \code{\link{SplitRIV}} function
-#' @param output_path folder where the Redcap data will be saved
+#' @param output_dir folder where the Redcap data will be saved
 #' @details
 #' to be added
 #' @import lubridate
