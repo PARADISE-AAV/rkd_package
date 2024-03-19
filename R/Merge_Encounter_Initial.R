@@ -30,7 +30,7 @@ Merge_Encounter_initial <- function(Encounter, Initial, output_dir){
   # Anti MPO PR3
   rkd_data <- rkd_anti_mpo_pr3(rkd_data)
   
-  rkd_data2$interval_from_diagnosis=as.numeric(rkd_data2$Date.Of.Visit-rkd_data2$Date.of.diagnosis)
+  rkd_data$interval_from_diagnosis=as.numeric(rkd_data$Date.Of.Visit-rkd_data$Date.of.diagnosis)
   
   output_filename <- file.path(
     output_dir,
