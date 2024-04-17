@@ -1,7 +1,7 @@
 #' @title CPD Continuous medication
 #' @author Matthieu COQ
 #'
-#' @description The Goal is to merge the Continous medication and general characteristics from \code{\link{SplitRIV}} function
+#' @description The Goal is to merge the Continuous medication and general characteristics from \code{\link{SplitRIV}} function
 #' 
 #' Version: 1.0
 #' 
