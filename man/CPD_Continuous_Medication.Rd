@@ -33,7 +33,7 @@ Version: 1.0
 
 Date: 17-Apr-23
 
-The Goal is to merge the Continous medication and general characteristics from \code{\link{SplitRIV}} function
+The Goal is to merge the Continuous medication and general characteristics from \code{\link{SplitRIV}} function
 
 Version: 1.0
 
