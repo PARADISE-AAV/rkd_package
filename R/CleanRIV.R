@@ -51,6 +51,10 @@ clean_riv <- function(rkd_data, output_path) {
   rkd_data$Paradise.ID <- paste("RIV", rkd_data$RKD.ID, sep = "")
   rkd_data2=rkd_data[,c("RKD.ID", "Paradise.ID",colnames(rkd_data)[-c(grep("RKD.ID",colnames(rkd_data)),grep("Paradise.ID",colnames(rkd_data)))])]
   
+  rkd_data2$ESKD_time <- days(rkd_data$Date.of.end.stage.kidney.disease..date.of.commencement.on.dialysis.or.transplant..whichever.first.)-days(rkd_data$Date.of.diagnosis)
+  rkd_data2$renal_recovery_time <- days(rkd_data$Date.of.renal.recovery)-days(rkd_data$Date.of.diagnosis)
+  
+  
   output_filename <- file.path(
     output_path,
     paste0('Redcap_clinical_data_clean', "_version", packageVersion('rivpipeline'), "_Date"
