@@ -5,7 +5,7 @@
 #' 
 #' Version: 1.0
 #' 
-#' Date: 19-Mar-23
+#' Date: 17-Apr-23
 #'
 #' @param Medication_data Continuous medication data from \code{\link{SplitRIV}} function
 #' @param Initial_data General Characteristics data from \code{\link{SplitRIV}} function
