@@ -29,11 +29,11 @@ CPD_Continuous_Medication <- function (Complication_data, Initial_data, output_d
   }
   
   rkd_data <- merge(Complication_data, Initial_data[,c("RKD.ID", "Date.of.diagnosis")], by="RKD.ID")
-  rkd_data$IVTherapy_interval_from_diagnosis <- days(rkd_data$Date.of.event.1)-days(rkd_data$Date.of.diagnosis)
+  rkd_data$Complication_interval_from_diagnosis <- days(rkd_data$Date.of.event.1)-days(rkd_data$Date.of.diagnosis)
   
   output_filename <- file.path(
     output_dir,
-    paste0('Redcap_IVTherapy_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
+    paste0('Redcap_Complication_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
            , Sys.Date(), '.csv')
   )
   write.csv(rkd_data, output_filename, row.names = FALSE)
