@@ -7,7 +7,7 @@
 #' 
 #' Date: 19-Mar-23
 #'
-#' @param IVTherapy_data Continuous medication data from \code{\link{SplitRIV}} function
+#' @param IVTherapy_data IV Therapy data from \code{\link{SplitRIV}} function
 #' @param Initial_data General Characteristics data from \code{\link{SplitRIV}} function
 #' @param output_dir folder where the Redcap data will be saved
 #' @details
