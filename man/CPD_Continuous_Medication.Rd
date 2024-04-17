@@ -14,7 +14,7 @@ CPD_Continuous_Medication(Medication_data, Initial_data, output_dir)
 \item{output_dir}{folder where the Redcap data will be saved}
 }
 \description{
-The Goal is to merge the Encounter and general characteristics from \code{\link{SplitRIV}} function
+The Goal is to merge the Continous medication and general characteristics from \code{\link{SplitRIV}} function
 
 Version: 1.0
 
