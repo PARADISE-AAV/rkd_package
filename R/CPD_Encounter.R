@@ -1,0 +1,58 @@
+#' @title CPD Encounter
+#' @author Matthieu COQ
+#'
+#' @description The Goal is to get modification done before the merge with general characteristics from \code{\link{SplitRIV}} function
+#' 
+#' Version: 1.0
+#' 
+#' Date: 18-Apr-23
+#'
+#' @param Encounter_data General Characteristics data from \code{\link{SplitRIV}} function
+#' @param output_dir folder where the Redcap data will be saved
+#' @details
+#' to be added
+#' @import lubridate
+#' @import stringr
+#' @import dplyr
+#' @import forcats
+#' @importFrom rlang .data
+#' @export
+CPD_Continuous_Medication <- function (Encounter_data, output_dir){
+  stopifnot("Your argument need to be a data frame"=is.data.frame(Encounter_data))
+  stopifnot("Your argument need to be a character"=is.character(output_dir))
+  
+  # Check output directory
+  if (!dir.exists(output_dir)) {
+    stop('Specified output folder does not exist')
+  }
+  
+  rkd_data <- Encounter_data
+  for (i in 1:16){
+    a=paste("immunosup_med_",i,sep="")
+    rkd_data$b=NA
+    colnames(rkd_data)[which(colnames(rkd_data)=="b")]=a
+  }
+  n=nrow(rkd_data)
+  for(i in 1:n){
+    if(rkd_data$Immunosuppressive.medication[i]=="Daily oral cyclophosphamide - UATC/LC01AA01"){
+      rkd_data$immunosup_med_1[i]="Yes"
+    }else{
+      rkd_data$immunosup_med_1[i]="No"
+    }
+    if(rkd_data$Immunosuppressive.medication[i]=="Mycophenolate mofetil - UATC/L04AA06"){
+      rkd_data$immunosup_med_2[i]="Yes"
+    }else{
+      rkd_data$immunosup_med_2[i]="No"
+    }
+  }
+  
+  
+  output_filename <- file.path(
+    output_dir,
+    paste0('Redcap_Encounter_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
+           , Sys.Date(), '.csv')
+  )
+  write.csv(rkd_data, output_filename, row.names = FALSE)
+  return(rkd_data)
+  
+}
