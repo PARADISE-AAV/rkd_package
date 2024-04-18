@@ -30,6 +30,7 @@ CPD_Continuous_Medication <- function (Renal_data, Initial_data, output_dir){
   
   rkd_data <- merge(Renal_data, Initial_data[,c("RKD.ID", "Date.of.diagnosis")], by="RKD.ID")
   rkd_data$Renal_interval_from_diagnosis <- days(rkd_data$Date.of.transplant.)-days(rkd_data$Date.of.diagnosis)
+  rkd_data$txfail_interval_from_diagnosis <- days(rkd_data$Date.of.graft.failure)-days(rkd_data$Date.of.diagnosis)
   
   output_filename <- file.path(
     output_dir,
