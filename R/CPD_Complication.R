@@ -18,7 +18,7 @@
 #' @import forcats
 #' @importFrom rlang .data
 #' @export
-CPD_Continuous_Medication <- function (Complication_data, Initial_data, output_dir){
+CPD_Complication <- function (Complication_data, Initial_data, output_dir){
   stopifnot("Your argument need to be a data frame"=is.data.frame(Complication_data))
   stopifnot("Your argument need to be a data frame"=is.data.frame(Initial_data))
   stopifnot("Your argument need to be a character"=is.character(output_dir))
