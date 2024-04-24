@@ -104,7 +104,16 @@ CPD_Encounter <- function (Encounter_data, output_dir){
     }else{
       rkd_data$immunosup_med_14[i]="No"
     }
-    
+    if(rkd_data$Immunosuppressive.medication[i]=="Avacopan (C5aR inhibitor)"){
+      rkd_data$immunosup_med_15[i]="Yes"
+    }else{
+      rkd_data$immunosup_med_15[i]="No"
+    }
+    if(rkd_data$Immunosuppressive.medication[i]=="Ruxience: Rituximab - UATC/L01XCO2"){
+      rkd_data$immunosup_med_16[i]="Yes"
+    }else{
+      rkd_data$immunosup_med_16[i]="No"
+    }
   }
   
   
