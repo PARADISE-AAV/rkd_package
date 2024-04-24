@@ -57,7 +57,7 @@ load_riv <- function (file_name) {
     }
   }
   for(i in 1: nrow(rkd)){
-    if(is.na(rkd$Date.of.diagnosis[i])== F &is.na(rkd$Date.of.onset.of.symptons.[i])== F  & rkd$Date.of.diagnosis[i]<rkd$Date.of.onset.of.symptons.[i]){
+    if(is.na(rkd$Date.of.diagnosis[i])== F & is.na(rkd$Date.of.onset.of.symptons.[i])== F  & rkd$Date.of.diagnosis[i]<rkd$Date.of.onset.of.symptons.[i]){
       warning("We have a problem with the Date of diagnosis")
       print(rkd$RKD.ID[i])
     }
