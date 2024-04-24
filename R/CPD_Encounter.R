@@ -59,11 +59,22 @@ CPD_Encounter <- function (Encounter_data, output_dir){
     }else{
       rkd_data$immunosup_med_5[i]="No"
     }
-    if(rkd_data$Immunosuppressive.medication[i]=="IV Cyclophosphamide - UATC/L01AA01"){
+    if(rkd_data$Immunosuppressive.medication[i]=="Other (ATC ontology)"){
       rkd_data$immunosup_med_6[i]="Yes"
     }else{
       rkd_data$immunosup_med_6[i]="No"
     }
+    if(rkd_data$Immunosuppressive.medication[i]=="No"){
+      rkd_data$immunosup_med_7[i]="Yes"
+    }else{
+      rkd_data$immunosup_med_7[i]="No"
+    }
+    if(rkd_data$Immunosuppressive.medication[i]=="IV Cyclophosphamide - UATC/L01AA01"){
+      rkd_data$immunosup_med_8[i]="Yes"
+    }else{
+      rkd_data$immunosup_med_8[i]="No"
+    }
+    
   }
   
   
