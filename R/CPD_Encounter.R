@@ -49,10 +49,15 @@ CPD_Encounter <- function (Encounter_data, output_dir){
     }else{
       rkd_data$immunosup_med_3[i]="No"
     }
-    if(rkd_data$Immunosuppressive.medication[i]=="Azathioprine - UATC/L04AX01"){
+    if(rkd_data$Immunosuppressive.medication[i]=="Methotrexate - UATC/L01BA00"){
       rkd_data$immunosup_med_4[i]="Yes"
     }else{
       rkd_data$immunosup_med_4[i]="No"
+    }
+    if(rkd_data$Immunosuppressive.medication[i]=="Leflunomide - UATC/L04AA13"){
+      rkd_data$immunosup_med_5[i]="Yes"
+    }else{
+      rkd_data$immunosup_med_5[i]="No"
     }
   }
   
