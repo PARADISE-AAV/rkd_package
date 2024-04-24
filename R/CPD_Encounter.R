@@ -74,6 +74,21 @@ CPD_Encounter <- function (Encounter_data, output_dir){
     }else{
       rkd_data$immunosup_med_8[i]="No"
     }
+    if(rkd_data$Immunosuppressive.medication[i]=="Mabthera: Rituximab - UATC/L01XCO2"){
+      rkd_data$immunosup_med_9[i]="Yes"
+    }else{
+      rkd_data$immunosup_med_9[i]="No"
+    }
+    if(rkd_data$Immunosuppressive.medication[i]=="Ustekinumab - UATC/L04AC05"){
+      rkd_data$immunosup_med_10[i]="Yes"
+    }else{
+      rkd_data$immunosup_med_10[i]="No"
+    }
+    if(rkd_data$Immunosuppressive.medication[i]=="Tacrolimus (including Advagraf, Prograf, etc.) - UATC/L04AD02"){
+      rkd_data$immunosup_med_11[i]="Yes"
+    }else{
+      rkd_data$immunosup_med_11[i]="No"
+    }
     
   }
   
