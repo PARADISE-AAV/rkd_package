@@ -56,10 +56,10 @@ load_riv <- function (file_name) {
       warning("The time machine is still not created. You have a date in the future")
     }
   }
-  for(i in 1: nrow(rkd)){
-    if(is.na(rkd$Date.of.diagnosis[i])== F & is.na(rkd$Date.of.onset.of.symptons.[i])== F  & rkd$Date.of.diagnosis[i]<rkd$Date.of.onset.of.symptons.[i]){
+  for(i in 1: nrow(rkd_data)){
+    if(is.na(rkd_data$Date.of.diagnosis[i])== F & is.na(rkd_data$Date.of.onset.of.symptons.[i])== F  & rkd_data$Date.of.diagnosis[i]<rkd_data$Date.of.onset.of.symptons.[i]){
       warning("We have a problem with the Date of diagnosis")
-      print(rkd$RKD.ID[i])
+      print(rkd_data$RKD.ID[i])
     }
   }
   
