@@ -49,6 +49,11 @@ CPD_Encounter <- function (Encounter_data, output_dir){
     }else{
       rkd_data$immunosup_med_3[i]="No"
     }
+    if(rkd_data$Immunosuppressive.medication[i]=="Azathioprine - UATC/L04AX01"){
+      rkd_data$immunosup_med_4[i]="Yes"
+    }else{
+      rkd_data$immunosup_med_4[i]="No"
+    }
   }
   
   
