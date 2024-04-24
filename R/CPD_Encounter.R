@@ -89,7 +89,16 @@ CPD_Encounter <- function (Encounter_data, output_dir){
     }else{
       rkd_data$immunosup_med_11[i]="No"
     }
-    
+    if(rkd_data$Immunosuppressive.medication[i]=="Mepolizumab - UATC/R03DX09"){
+      rkd_data$immunosup_med_12[i]="Yes"
+    }else{
+      rkd_data$immunosup_med_12[i]="No"
+    }
+    if(rkd_data$Immunosuppressive.medication[i]=="Methotrexate - UATC/L01BA01"){
+      rkd_data$immunosup_med_13[i]="Yes"
+    }else{
+      rkd_data$immunosup_med_13[i]="No"
+    }
   }
   
   
