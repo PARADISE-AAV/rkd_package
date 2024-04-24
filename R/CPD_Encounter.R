@@ -99,6 +99,12 @@ CPD_Encounter <- function (Encounter_data, output_dir){
     }else{
       rkd_data$immunosup_med_13[i]="No"
     }
+    if(rkd_data$Immunosuppressive.medication[i]=="Truxima: Rituximab - UATC/L01XCO2"){
+      rkd_data$immunosup_med_14[i]="Yes"
+    }else{
+      rkd_data$immunosup_med_14[i]="No"
+    }
+    
   }
   
   
