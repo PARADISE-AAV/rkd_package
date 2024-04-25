@@ -23,4 +23,10 @@ CPD_ANCA <- function(merge_data, output_dir){
   }
   rkd=merge_data[,c("RKD.ID", "Date.Of.Visit","At.any.point.ANCA.specificity", "Anti.PR3.level", "Anti.MPO.level", "ANCA.IF")]
   
+  rkd$ANCA_Status=NA
+  n=nrow(rkd)
+  for(i in 1:n){
+    if
+  }
+  
 }
