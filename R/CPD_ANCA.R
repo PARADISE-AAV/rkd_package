@@ -21,4 +21,6 @@ CPD_ANCA <- function(merge_data, output_dir){
   if (!dir.exists(output_dir)) {
     stop('Specified output folder does not exist')
   }
+  rkd=merge_data[,c("RKD.ID", "Date.Of.Visit","At.any.point.ANCA.specificity", "Anti.PR3.level", "Anti.MPO.level", "ANCA.IF")]
+  
 }
