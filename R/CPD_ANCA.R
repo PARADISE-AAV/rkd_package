@@ -23,7 +23,7 @@ CPD_ANCA <- function(merge_data, output_dir){
   if (!dir.exists(output_dir)) {
     stop('Specified output folder does not exist')
   }
-  rkd=merge_data[,c("RKD.ID", "Date.Of.Visit","At.any.point.ANCA.specificity", "Anti.PR3.level", "Anti.MPO.level", "ANCA.IF")]
+  rkd=merge_data[,c("RKD.ID", "Date.Of.Visit", "CPD_relapse","At.any.point.ANCA.specificity", "Anti.PR3.level", "Anti.MPO.level", "ANCA.IF")]
   
   rkd$ANCA_Levels="Unknown"
   n=nrow(rkd)
@@ -49,13 +49,23 @@ CPD_ANCA <- function(merge_data, output_dir){
     }
     
   }
-  rkd$ANCA_Switch = "Switch statut Unknown"
+  rkd$ANCA_Switch = NA
   n=nrow(rkd)
   for( i in 2:n){
-    if(rkd$RKD.ID[i] == rkd$RKD.ID[i-1]){
-      if(month(rkd$Date.Of.Visit[i])-month(rkd$Date.Of.Visit[i-1])<=18){
-        
+    if(rkd$RKD.ID[i] == rkd$RKD.ID[i-1] & month(rkd$Date.Of.Visit[i])-month(rkd$Date.Of.Visit[i-1])<=18 & rkd$CPD_relapse[i] == "No Relapse" & rkd$CPD_relapse[i-1] == "No Relapse"){
+      if(rkd$ANCA_Statuts[i-1] == "ANCA Negative" & rkd$ANCA_Statuts[i] == "ANCA Negative"){
+        rkd$ANCA_Switch[i] = "Neg-Neg Switch"
       }
+      if(rkd$ANCA_Statuts[i-1] == "ANCA Negative" & rkd$ANCA_Statuts[i] == "ANCA Positive"){
+        rkd$ANCA_Switch[i] = "Neg-Pos Switch"
+      }
+      if(rkd$ANCA_Statuts[i-1] == "ANCA Positive" & rkd$ANCA_Statuts[i] == "ANCA Positive"){
+        rkd$ANCA_Switch[i] = "Pos-Pos Switch"
+      }
+      if(rkd$ANCA_Statuts[i-1] == "ANCA Positive" & rkd$ANCA_Statuts[i] == "ANCA negative"){
+        rkd$ANCA_Switch[i] = "Pos-Neg Switch"
+      }
+      
     }
   }
 }
