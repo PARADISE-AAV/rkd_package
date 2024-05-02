@@ -7,7 +7,7 @@
 CPD_ANCA(merge_data, output_dir)
 }
 \arguments{
-\item{merge_data}{Encounter and general Characteristic data from \code{\link{Merge_Encounter_initial}} function}
+\item{merge_data}{Data after CPD_Relapse from \code{\link{ClassifyRIVEncounter}} function}
 
 \item{output_dir}{folder where the Redcap data will be saved}
 }
