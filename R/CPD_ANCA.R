@@ -7,10 +7,12 @@
 #' 
 #' Date: 17-Apr-23
 #'
-#' @param merge_data Encounter and general Characteristic data from \code{\link{Merge_Encounter_initial}} function
+#' @param merge_data Data after CPD_Relapse from \code{\link{ClassifyRIVEncounter}} function
 #' @param output_dir folder where the Redcap data will be saved
 #' @details
 #' to be added
+#' 
+#' @import lubridate
 #' @export
 
 CPD_ANCA <- function(merge_data, output_dir){
@@ -39,13 +41,21 @@ CPD_ANCA <- function(merge_data, output_dir){
   rkd$ANCA_Statuts="ANCA Status Unknown"
   n=nrow(rkd)
   for(i in 1:n){
-    if(rkd$ANCA_Levels[i] > 2 | rkd$ANCA.IF[i] == "Atypical" | rkd$ANCA.IF[i]  == "P" | rkd$ANCA.IF[i]  == "C"){
+    if(( is.na(rkd$ANCA_Levels[i])== FALSE & rkd$ANCA_Levels[i] > 2) | rkd$ANCA.IF[i] == "Atypical" | rkd$ANCA.IF[i]  == "P" | rkd$ANCA.IF[i]  == "C"){
       rkd$ANCA_Statuts[i] = "ANCA Positive"
     }
-    if(rkd$ANCA_Levels[i] <= 2 | rkd$ANCA.IF[i] == "Negative" ){
-      rkd$ANCA_Statuts[i] = rkd$Anti.MPO.level[i]
+    if(( is.na(rkd$ANCA_Levels[i])== FALSE & rkd$ANCA_Levels[i] <= 2) | rkd$ANCA.IF[i] == "Negative" ){
+      rkd$ANCA_Statuts[i] = "ANCA Negative"
     }
     
   }
-  
+  rkd$ANCA_Switch = "Switch statut Unknown"
+  n=nrow(rkd)
+  for( i in 2:n){
+    if(rkd$RKD.ID[i] == rkd$RKD.ID[i-1]){
+      if(month(rkd$Date.Of.Visit[i])-month(rkd$Date.Of.Visit[i-1])<=18){
+        
+      }
+    }
+  }
 }
