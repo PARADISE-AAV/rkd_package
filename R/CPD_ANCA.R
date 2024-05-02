@@ -23,10 +23,31 @@ CPD_ANCA <- function(merge_data, output_dir){
   }
   rkd=merge_data[,c("RKD.ID", "Date.Of.Visit","At.any.point.ANCA.specificity", "Anti.PR3.level", "Anti.MPO.level", "ANCA.IF")]
   
-  rkd$ANCA_Status=NA
+  rkd$ANCA_Levels=NA
   n=nrow(rkd)
   for(i in 1:n){
-    if
+    if(rkd$At.any.point.ANCA.specificity[i] == "PR3"){
+      rkd$ANCA_Levels[i] = rkd$Anti.PR3.level[i]
+    }
+    if(rkd$At.any.point.ANCA.specificity[i] == "MPO"){
+      rkd$ANCA_Levels[i] = rkd$Anti.MPO.level[i]
+    }
+    if(rkd$At.any.point.ANCA.specificity[i] == "MPO and PR3"){
+      rkd$ANCA_Levels[i] = max(rkd$Anti.MPO.level[i], rkd$Anti.PR3.level[i], na.rm=T)
+    }
+  }
+  rkd$ANCA_Statuts="ANCA Status Unknown"
+  n=nrow(rkd)
+  for(i in 1:n){
+    if(rkd$ANCA_Levels[i] == "PR3"){
+      rkd$ANCA_Levels[i] = rkd$Anti.PR3.level[i]
+    }
+    if(rkd$$At.any.point.ANCA.specificity[i] == "MPO"){
+      rkd$ANCA_Levels[i] = rkd$Anti.MPO.level[i]
+    }
+    if(rkd$$At.any.point.ANCA.specificity[i] == "MPO and PR3"){
+      rkd$ANCA_Levels[i] = max(rkd$Anti.MPO.level[i], rkd$Anti.PR3.level[i], na.rm=T)
+    }
   }
   
 }
