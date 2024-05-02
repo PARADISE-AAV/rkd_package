@@ -62,10 +62,12 @@ CPD_ANCA <- function(merge_data, output_dir){
       if(rkd$ANCA_Statuts[i-1] == "ANCA Positive" & rkd$ANCA_Statuts[i] == "ANCA Positive"){
         rkd$ANCA_Switch[i] = "Pos-Pos Switch"
       }
-      if(rkd$ANCA_Statuts[i-1] == "ANCA Positive" & rkd$ANCA_Statuts[i] == "ANCA negative"){
+      if(rkd$ANCA_Statuts[i-1] == "ANCA Positive" & rkd$ANCA_Statuts[i] == "ANCA Negative"){
         rkd$ANCA_Switch[i] = "Pos-Neg Switch"
       }
-      
+      if(rkd$ANCA_Statuts[i-1] == "ANCA Status Unknown" & rkd$ANCA_Statuts[i] == "ANCA Status Unknown"){
+        rkd$ANCA_Switch[i] = "Switch statuts Unknown"
+      }
     }
   }
 }
