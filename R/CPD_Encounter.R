@@ -115,7 +115,11 @@ CPD_Encounter <- function (Encounter_data, output_dir){
       rkd_data$immunosup_med_16[i]="No"
     }
   }
-  
+  for(i in 1:n){
+    if(rkd_data$Dialysis.dependent[i] == "Yes"){
+      rkd_data$Creatinine[i]=sample(500:800,1)
+    }
+  }
   
   output_filename <- file.path(
     output_dir,
