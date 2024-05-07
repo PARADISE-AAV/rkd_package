@@ -70,4 +70,14 @@ CPD_ANCA <- function(merge_data, output_dir){
       }
     }
   }
+  
+  rkd_data=merge(merge_data, rkd, by=c("RKD.ID", "Date.Of.Visit"))
+  
+  output_filename <- file.path(
+    output_dir,
+    paste0('Redcap_Encounter_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
+           , Sys.Date(), '.csv')
+  )
+  write.csv(rkd_data, output_filename, row.names = FALSE)
+  return(rkd_data)
 }
