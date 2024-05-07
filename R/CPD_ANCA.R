@@ -52,7 +52,7 @@ CPD_ANCA <- function(merge_data, output_dir){
   rkd$ANCA_Switch = NA
   n=nrow(rkd)
   for( i in 2:n){
-    if(rkd$RKD.ID[i] == rkd$RKD.ID[i-1] & interval(rkd$Date.Of.Visit[i-1], rkd$Date.Of.Visit[i]) %/% months(1)<=18 &  rkd$CPD_relapse[i] == "No Relapse" & rkd$CPD_relapse[i-1] == "No Relapse"){
+    if(rkd$RKD.ID[i] == rkd$RKD.ID[i-1] & interval(rkd$Date.Of.Visit[i-1], rkd$Date.Of.Visit[i]) %/% months(1)<=18 &  (is.na(rkd$CPD_relapse[i])== FALSE & rkd$CPD_relapse[i] == "No Relapse") & (is.na(rkd$CPD_relapse[i-1])== FALSE & rkd$CPD_relapse[i-1] == "No Relapse")){
       if(rkd$ANCA_Statuts[i-1] == "ANCA Negative" & rkd$ANCA_Statuts[i] == "ANCA Negative"){
         rkd$ANCA_Switch[i] = "Neg-Neg Switch"
       }
