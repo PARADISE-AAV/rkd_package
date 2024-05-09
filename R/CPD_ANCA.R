@@ -53,16 +53,16 @@ CPD_ANCA <- function(merge_data, output_dir){
   n=nrow(rkd)
   for( i in 2:n){
     if(rkd$RKD.ID[i] == rkd$RKD.ID[i-1] & interval(rkd$Date.Of.Visit[i-1], rkd$Date.Of.Visit[i]) %/% months(1)<=18 & interval(rkd$Date.Of.Visit[i-1], rkd$Date.Of.Visit[i]) %/% months(1)>=1 &  (is.na(rkd$CPD_relapse[i])== FALSE & rkd$CPD_relapse[i] == "No Relapse") & (is.na(rkd$CPD_relapse[i-1])== FALSE & rkd$CPD_relapse[i-1] == "No Relapse")){
-      if(rkd$ANCA_Statuts[i-1] == "ANCA Negative" & rkd$ANCA_Statuts[i] == "ANCA Negative"){
+      if(rkd$ANCA_Status[i-1] == "ANCA Negative" & rkd$ANCA_Status[i] == "ANCA Negative"){
         rkd$ANCA_Switch[i] = "Neg-Neg Switch"
       }
-      if(rkd$ANCA_Statuts[i-1] == "ANCA Negative" & rkd$ANCA_Statuts[i] == "ANCA Positive"){
+      if(rkd$ANCA_Status[i-1] == "ANCA Negative" & rkd$ANCA_Status[i] == "ANCA Positive"){
         rkd$ANCA_Switch[i] = "Neg-Pos Switch"
       }
-      if(rkd$ANCA_Statuts[i-1] == "ANCA Positive" & rkd$ANCA_Statuts[i] == "ANCA Positive"){
+      if(rkd$ANCA_Status[i-1] == "ANCA Positive" & rkd$ANCA_Status[i] == "ANCA Positive"){
         rkd$ANCA_Switch[i] = "Pos-Pos Switch"
       }
-      if(rkd$ANCA_Statuts[i-1] == "ANCA Positive" & rkd$ANCA_Statuts[i] == "ANCA Negative"){
+      if(rkd$ANCA_Status[i-1] == "ANCA Positive" & rkd$ANCA_Status[i] == "ANCA Negative"){
         rkd$ANCA_Switch[i] = "Pos-Neg Switch"
       }
       
