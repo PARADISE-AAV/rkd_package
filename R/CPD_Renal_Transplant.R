@@ -7,8 +7,7 @@
 #' 
 #' Date: 17-Apr-23
 #'
-#' @param Renal_data Renal Transplant data from \code{\link{SplitRIV}} function
-#' @param Initial_data General Characteristics data from \code{\link{SplitRIV}} function
+#' @param Renal_data list of dataframe from \code{\link{SplitRIV}} function
 #' @param output_dir folder where the Redcap data will be saved
 #' @details
 #' to be added
@@ -18,9 +17,8 @@
 #' @import forcats
 #' @importFrom rlang .data
 #' @export
-CPD_Renal <- function (Renal_data, Initial_data, output_dir){
-  stopifnot("Your argument need to be a data frame"=is.data.frame(Renal_data))
-  stopifnot("Your argument need to be a data frame"=is.data.frame(Initial_data))
+CPD_Renal <- function (Renal_data, output_dir){
+  stopifnot("Your argument need to be a data frame"=is.list(Renal_data))
   stopifnot("Your argument need to be a character"=is.character(output_dir))
   
   # Check output directory
@@ -28,7 +26,7 @@ CPD_Renal <- function (Renal_data, Initial_data, output_dir){
     stop('Specified output folder does not exist')
   }
   
-  rkd_data <- merge(Renal_data, Initial_data[,c("RKD.ID", "Date.of.diagnosis")], by="RKD.ID")
+  rkd_data <- merge(Renal_data$Transplant, Renal_data$Initial[,c("RKD.ID", "Date.of.diagnosis")], by="RKD.ID")
   rkd_data$Renal_interval_from_diagnosis <- days(rkd_data$Date.of.transplant.)-days(rkd_data$Date.of.diagnosis)
   rkd_data$txfail_interval_from_diagnosis <- days(rkd_data$Date.of.graft.failure)-days(rkd_data$Date.of.diagnosis)
   
