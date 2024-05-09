@@ -4,7 +4,7 @@
 \alias{CPD_Complication}
 \title{CPD Complication}
 \usage{
-CPD_Complication(Complication_data, Initial_data, output_dir)
+CPD_Complication(Complication_data, output_dir)
 }
 \arguments{
 \item{Complication_data}{list of data frame from \code{\link{SplitRIV}} function}
