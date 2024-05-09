@@ -4,7 +4,7 @@
 \alias{CPD_Biopsy}
 \title{CPD Biopsy}
 \usage{
-CPD_Biopsy(Biopsy_data, Initial_data, output_dir)
+CPD_Biopsy(Biopsy_data, output_dir)
 }
 \arguments{
 \item{Biopsy_data}{Split_RIV list from \code{\link{SplitRIV}} function}
