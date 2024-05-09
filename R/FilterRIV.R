@@ -7,7 +7,7 @@
 #' 
 #' Date: 03-Jan-24
 #'
-#' @param RKDdata RIV data from \code{\link{clean_riv}} function
+#' @param RKDdata a list from \code{\link{SplitRIV}} function
 #' @param output_path folder where the Redcap data will be saved
 #' @param algorithm function use to filter the RKD patient, the possibility are "Definite GPA/MPA" or "Definite GPA/MPA/EGPA"
 #' @return The Redcap data with the classification variables in your folder and in an R object 
@@ -26,7 +26,7 @@ FilterRIV = function(RKDdata, output_path, algorithm) {
   }
   algorithm <- match.arg(algorithm, c("Definite GPA/MPA","Definite GPA/MPA/EGPA"))
   
-  RKD_data <- RKDdata
+  RKD_data <- RKDdata$Initial
   ###check that you load a real file
   if (ncol(RKD_data) == 0 | nrow(RKD_data) == 0) {
     stop("You give an empty files")
