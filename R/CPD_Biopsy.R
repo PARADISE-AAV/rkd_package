@@ -17,7 +17,7 @@
 #' @import forcats
 #' @importFrom rlang .data
 #' @export
-CPD_Biopsy <- function (Biopsy_data, Initial_data, output_dir){
+CPD_Biopsy <- function (Biopsy_data, output_dir){
   stopifnot("Your argument need to be a data frame"=is.list(Biopsy_data))
 stopifnot("Your argument need to be a character"=is.character(output_dir))
   
