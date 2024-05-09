@@ -4,12 +4,10 @@
 \alias{CPD_Renal}
 \title{CPD Renal Transplant}
 \usage{
-CPD_Renal(Renal_data, Initial_data, output_dir)
+CPD_Renal(Renal_data, output_dir)
 }
 \arguments{
-\item{Renal_data}{Renal Transplant data from \code{\link{SplitRIV}} function}
-
-\item{Initial_data}{General Characteristics data from \code{\link{SplitRIV}} function}
+\item{Renal_data}{list of dataframe from \code{\link{SplitRIV}} function}
 
 \item{output_dir}{folder where the Redcap data will be saved}
 }
