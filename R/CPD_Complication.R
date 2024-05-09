@@ -7,8 +7,7 @@
 #' 
 #' Date: 17-Apr-23
 #'
-#' @param Complication_data Complication data from \code{\link{SplitRIV}} function
-#' @param Initial_data General Characteristics data from \code{\link{SplitRIV}} function
+#' @param Complication_data list of data frame from \code{\link{SplitRIV}} function
 #' @param output_dir folder where the Redcap data will be saved
 #' @details
 #' to be added
@@ -19,8 +18,7 @@
 #' @importFrom rlang .data
 #' @export
 CPD_Complication <- function (Complication_data, Initial_data, output_dir){
-  stopifnot("Your argument need to be a data frame"=is.data.frame(Complication_data))
-  stopifnot("Your argument need to be a data frame"=is.data.frame(Initial_data))
+  stopifnot("Your argument need to be a data frame"=is.list(Complication_data))
   stopifnot("Your argument need to be a character"=is.character(output_dir))
   
   # Check output directory
@@ -28,7 +26,7 @@ CPD_Complication <- function (Complication_data, Initial_data, output_dir){
     stop('Specified output folder does not exist')
   }
   
-  rkd_data <- merge(Complication_data, Initial_data[,c("RKD.ID", "Date.of.diagnosis")], by="RKD.ID")
+  rkd_data <- merge(Complication_data$Complication, Complication_data$Initial[,c("RKD.ID", "Date.of.diagnosis")], by="RKD.ID")
   rkd_data$Complication_interval_from_diagnosis <- days(rkd_data$Date.of.event.1)-days(rkd_data$Date.of.diagnosis)
   
   output_filename <- file.path(
