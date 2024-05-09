@@ -7,7 +7,7 @@
 #' 
 #' Date: 18-Apr-23
 #'
-#' @param Encounter_data General Characteristics data from \code{\link{SplitRIV}} function
+#' @param Encounter_data Split_RIV list from \code{\link{SplitRIV}} function
 #' @param output_dir folder where the Redcap data will be saved
 #' @details
 #' to be added
@@ -18,7 +18,7 @@
 #' @importFrom rlang .data
 #' @export
 CPD_Encounter <- function (Encounter_data, output_dir){
-  stopifnot("Your argument need to be a data frame"=is.data.frame(Encounter_data))
+  stopifnot("Your argument need to be a data frame"=is.list(Encounter_data))
   stopifnot("Your argument need to be a character"=is.character(output_dir))
   
   # Check output directory
@@ -26,7 +26,7 @@ CPD_Encounter <- function (Encounter_data, output_dir){
     stop('Specified output folder does not exist')
   }
   
-  rkd_data <- Encounter_data
+  rkd_data <- Encounter_data$Encounter
   for (i in 1:16){
     a=paste("immunosup_med_",i,sep="")
     rkd_data$b=NA
