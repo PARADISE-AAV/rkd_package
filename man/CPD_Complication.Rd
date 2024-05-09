@@ -7,9 +7,7 @@
 CPD_Complication(Complication_data, Initial_data, output_dir)
 }
 \arguments{
-\item{Complication_data}{Complication data from \code{\link{SplitRIV}} function}
-
-\item{Initial_data}{General Characteristics data from \code{\link{SplitRIV}} function}
+\item{Complication_data}{list of data frame from \code{\link{SplitRIV}} function}
 
 \item{output_dir}{folder where the Redcap data will be saved}
 }
