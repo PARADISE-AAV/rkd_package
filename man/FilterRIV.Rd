@@ -7,7 +7,7 @@
 FilterRIV(RKDdata, output_path, algorithm)
 }
 \arguments{
-\item{RKDdata}{RIV data from \code{\link{clean_riv}} function}
+\item{RKDdata}{a list from \code{\link{SplitRIV}} function}
 
 \item{output_path}{folder where the Redcap data will be saved}
 
