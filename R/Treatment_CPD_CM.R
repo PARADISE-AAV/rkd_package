@@ -25,4 +25,7 @@ Treatment_CPD_CM <- function(Medication, output_dir){
     stop('Specified output folder does not exist')
   }
   medication_filter <- Medication[which(Medication$Drug!=""), c("RKD.ID", "Drug", "Dose", "Start.Date", "Stop.Date")]
+  
+  
+  
 }
