@@ -38,7 +38,7 @@ CPD_ANCA <- function(merge_data, output_dir){
       rkd$ANCA_Levels[i] = max(rkd$Anti.MPO.level[i], rkd$Anti.PR3.level[i], na.rm=T)
     }
   }
-  rkd$ANCA_Statuts="ANCA Status Unknown"
+  rkd$ANCA_Status="ANCA Status Unknown"
   n=nrow(rkd)
   for(i in 1:n){
     if(( is.na(rkd$ANCA_Levels[i])== FALSE & rkd$ANCA_Levels[i] > 2) | rkd$ANCA.IF[i] == "Atypical" | rkd$ANCA.IF[i]  == "P" | rkd$ANCA.IF[i]  == "C"){
@@ -49,7 +49,7 @@ CPD_ANCA <- function(merge_data, output_dir){
     }
     
   }
-  rkd$ANCA_Switch = "Switch statuts Unknown"
+  rkd$ANCA_Switch = "Switch status Unknown"
   n=nrow(rkd)
   for( i in 2:n){
     if(rkd$RKD.ID[i] == rkd$RKD.ID[i-1] & interval(rkd$Date.Of.Visit[i-1], rkd$Date.Of.Visit[i]) %/% months(1)<=18 & interval(rkd$Date.Of.Visit[i-1], rkd$Date.Of.Visit[i]) %/% months(1)>=1 &  (is.na(rkd$CPD_relapse[i])== FALSE & rkd$CPD_relapse[i] == "No Relapse") & (is.na(rkd$CPD_relapse[i-1])== FALSE & rkd$CPD_relapse[i-1] == "No Relapse")){
@@ -69,7 +69,7 @@ CPD_ANCA <- function(merge_data, output_dir){
     }
   }
   
-  rkd_data=merge(merge_data[,c("RKD.ID", "Date.Of.Visit", "ANCA_Levels", "ANCA_Statuts", "ANCA_Switch")], rkd, by=c("RKD.ID", "Date.Of.Visit"))
+  rkd_data=merge(merge_data[,c("RKD.ID", "Date.Of.Visit", "ANCA_Levels", "ANCA_Status", "ANCA_Switch")], rkd, by=c("RKD.ID", "Date.Of.Visit"))
   
   output_filename <- file.path(
     output_dir,
