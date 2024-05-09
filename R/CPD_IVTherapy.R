@@ -7,8 +7,7 @@
 #' 
 #' Date: 17-Apr-23
 #'
-#' @param IVTherapy_data IV Therapy data from \code{\link{SplitRIV}} function
-#' @param Initial_data General Characteristics data from \code{\link{SplitRIV}} function
+#' @param IVTherapy_data list of dataframe from \code{\link{SplitRIV}} function
 #' @param output_dir folder where the Redcap data will be saved
 #' @details
 #' to be added
@@ -18,9 +17,8 @@
 #' @import forcats
 #' @importFrom rlang .data
 #' @export
-CPD_IVTherapy <- function (IVTherapy_data, Initial_data, output_dir){
-  stopifnot("Your argument need to be a data frame"=is.data.frame(IVTherapy_data))
-  stopifnot("Your argument need to be a data frame"=is.data.frame(Initial_data))
+CPD_IVTherapy <- function (IVTherapy_data, output_dir){
+  stopifnot("Your argument need to be a data frame"=is.list(IVTherapy_data))
   stopifnot("Your argument need to be a character"=is.character(output_dir))
   
   # Check output directory
@@ -28,7 +26,7 @@ CPD_IVTherapy <- function (IVTherapy_data, Initial_data, output_dir){
     stop('Specified output folder does not exist')
   }
   
-  rkd_data <- merge(IVTherapy_data, Initial_data[,c("RKD.ID", "Date.of.diagnosis")], by="RKD.ID")
+  rkd_data <- merge(IVTherapy_data$IVTherapy, IVTherapy_data$Initial[,c("RKD.ID", "Date.of.diagnosis")], by="RKD.ID")
   rkd_data$IVTherapy_interval_from_diagnosis <- days(rkd_data$Date.of.IV.therapy)-days(rkd_data$Date.of.diagnosis)
   
   output_filename <- file.path(
