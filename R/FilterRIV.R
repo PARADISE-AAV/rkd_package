@@ -18,7 +18,7 @@
 #' @export
 FilterRIV = function(RKDdata, output_path, algorithm) {
   ####Test on the argument
-  if (is.data.frame(RKDdata) == FALSE) {
+  if (is.list(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
   }
   if (is.character(output_path) == FALSE) {
