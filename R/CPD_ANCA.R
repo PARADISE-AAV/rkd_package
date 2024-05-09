@@ -71,7 +71,7 @@ CPD_ANCA <- function(merge_data, output_dir){
     }
   }
   
-  rkd_data=merge(merge_data[,c(1,2,8:10)], rkd, by=c("RKD.ID", "Date.Of.Visit"))
+  rkd_data=merge(merge_data[,c("RKD.ID", "Date.Of.Visit", "ANCA_Levels", "ANCA_Statuts", "ANCA_Switch")], rkd, by=c("RKD.ID", "Date.Of.Visit"))
   
   output_filename <- file.path(
     output_dir,
