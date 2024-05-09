@@ -4,12 +4,10 @@
 \alias{CPD_IVTherapy}
 \title{CPD IV Therapy}
 \usage{
-CPD_IVTherapy(IVTherapy_data, Initial_data, output_dir)
+CPD_IVTherapy(IVTherapy_data, output_dir)
 }
 \arguments{
-\item{IVTherapy_data}{IV Therapy data from \code{\link{SplitRIV}} function}
-
-\item{Initial_data}{General Characteristics data from \code{\link{SplitRIV}} function}
+\item{IVTherapy_data}{list of dataframe from \code{\link{SplitRIV}} function}
 
 \item{output_dir}{folder where the Redcap data will be saved}
 }
