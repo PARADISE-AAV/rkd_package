@@ -7,7 +7,7 @@
 CPD_Encounter(Encounter_data, output_dir)
 }
 \arguments{
-\item{Encounter_data}{General Characteristics data from \code{\link{SplitRIV}} function}
+\item{Encounter_data}{Split_RIV list from \code{\link{SplitRIV}} function}
 
 \item{output_dir}{folder where the Redcap data will be saved}
 }
