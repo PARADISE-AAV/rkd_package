@@ -17,7 +17,7 @@
 #' @import forcats
 #' @importFrom rlang .data
 #' @export
-CPD_Complication <- function (Complication_data, Initial_data, output_dir){
+CPD_Complication <- function (Complication_data, output_dir){
   stopifnot("Your argument need to be a data frame"=is.list(Complication_data))
   stopifnot("Your argument need to be a character"=is.character(output_dir))
   
