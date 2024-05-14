@@ -6,14 +6,13 @@
 #'
 #' @param RKDdata RIV data from \code{\link{DemographicFilterRIV}} function
 #' @param output_path folder where the Redcap data will be saved
-#' @param algorithm function use to classify the RIV patient, the possibility are "BRelapse" or "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT"
+#' @param algorithm function use to classify the RIV patient, the possibility are "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT"
 #' @param interval_from_diagnostics the interval from diagnostics for the algorithm Paradise_Encounter by default 6
 #' @param rawRKDdata Raw data from \code{\link{load_riv}} function for the Treatment On/Off algorithm
 #' @param nb_month Number of month out of treatment for the CPD LTROT function
 #' @return The Redcap data with the classification variables in your folder and in an R object 
 #' @details This function allows you to call one of  multiple functions to create a classification variable for each RKD encounter. The possible functions each create one new variable
 #' * \code{\link{CPDRelapse}} tells us if an encounter is in relapse or not based on rules and models 
-#' * \code{\link{BRelapseFunction}} tells us if an encounter is in relapse or not based on rules
 #' * \code{\link{Paradise_Encounter}} tells us if we can include the Encounter or not in the Paradise project
 #' * \code{\link{Treatment_On_Off}} in addition of \code{\link{IVTherapy}} tells us if an Encounter is under treatment or not
 #' * \code{\link{CPD_LTROT}} tells us if a patient is in Long Term Remission Out of Treatment (LTROT)
@@ -27,7 +26,7 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm, interval_from_d
   if (is.character(output_path) == FALSE) {
     stop("The argument output_path need to be a character argument")
   }
-  algorithm <- match.arg(algorithm, c('BRelapse', 'Paradise_Encounter', "CPD Relapse", "Treatment On/Off", "CPD LTROT"))
+  algorithm <- match.arg(algorithm, c( 'Paradise_Encounter', "CPD Relapse", "Treatment On/Off", "CPD LTROT"))
 
   RKD_data <- RKDdata
   ###check that you load a real file
@@ -35,9 +34,7 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm, interval_from_d
     stop("You give an empty files")
   }
 
-  if (algorithm == "BRelapse") {
-    Classify_RKD_data <- BRelapseFunction(RKD_data)
-  }
+  
   if (algorithm == "Paradise_Encounter") {
     Classify_RKD_data <- Paradise_Encounter(RKD_data, interval_from_diagnostics)
   }
