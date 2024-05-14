@@ -6,7 +6,7 @@
 #'
 #' @param RKDdata RIV data from \code{\link{DemographicFilterRIV}} function
 #' @param output_path folder where the Redcap data will be saved
-#' @param algorithm function use to classify the RIV patient, the possibility are "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT"
+#' @param algorithm function use to classify the RIV patient, the possibility are "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT" or "CPD ANCA"
 #' @param interval_from_diagnostics the interval from diagnostics for the algorithm Paradise_Encounter by default 6
 #' @param rawRKDdata Raw data from \code{\link{load_riv}} function for the Treatment On/Off algorithm
 #' @param nb_month Number of month out of treatment for the CPD LTROT function
@@ -16,6 +16,7 @@
 #' * \code{\link{Paradise_Encounter}} tells us if we can include the Encounter or not in the Paradise project
 #' * \code{\link{Treatment_On_Off}} in addition of \code{\link{IVTherapy}} tells us if an Encounter is under treatment or not
 #' * \code{\link{CPD_LTROT}} tells us if a patient is in Long Term Remission Out of Treatment (LTROT)
+#' * \code{\link{CPD_ANCA}} tells us the switch of ANCA from one Encounter to the other.
 #' 
 #' @export
 ClassifyRIVEncounter = function(RKDdata, output_path, algorithm, interval_from_diagnostics=6, rawRKDdata=NULL, nb_month=24) {
@@ -48,6 +49,10 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm, interval_from_d
   }
   if(algorithm == "CPD LTROT"){
     Classify_RKD_data <- CPD_LTROT(RKD_data, nb_month)
+    
+  }
+  if(algorithm == "CPD ANCA"){
+    Classify_RKD_data <- CPD_ANCA(RKD_data)
     
   }
 
