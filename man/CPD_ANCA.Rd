@@ -4,12 +4,10 @@
 \alias{CPD_ANCA}
 \title{CPD ANCA Switch}
 \usage{
-CPD_ANCA(merge_data, output_dir)
+CPD_ANCA(merge_data)
 }
 \arguments{
 \item{merge_data}{Data after CPD_Relapse from \code{\link{ClassifyRIVEncounter}} function}
-
-\item{output_dir}{folder where the Redcap data will be saved}
 }
 \description{
 The Goal is to do CPD ANCA Switch
