@@ -8,21 +8,15 @@
 #' Date: 17-Apr-23
 #'
 #' @param merge_data Data after CPD_Relapse from \code{\link{ClassifyRIVEncounter}} function
-#' @param output_dir folder where the Redcap data will be saved
 #' @details
 #' to be added
 #' 
 #' @import lubridate
 #' @export
 
-CPD_ANCA <- function(merge_data, output_dir){
+CPD_ANCA <- function(merge_data){
   stopifnot("Your argument need to be a data frame"=is.data.frame(merge_data))
-  stopifnot("Your argument need to be a character"=is.character(output_dir))
-  
-  # Check output directory
-  if (!dir.exists(output_dir)) {
-    stop('Specified output folder does not exist')
-  }
+
   rkd=merge_data[,c("RKD.ID", "Date.Of.Visit", "CPD_relapse","At.any.point.ANCA.specificity", "Anti.PR3.level", "Anti.MPO.level", "ANCA.IF")]
   
   rkd$ANCA_Levels="Unknown"
@@ -79,11 +73,6 @@ CPD_ANCA <- function(merge_data, output_dir){
   
   rkd_data=merge(merge_data[,c("RKD.ID", "Date.Of.Visit", "ANCA_Levels", "ANCA_Status", "ANCA_Switch")], rkd, by=c("RKD.ID", "Date.Of.Visit"))
   
-  output_filename <- file.path(
-    output_dir,
-    paste0('Redcap_Encounter_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
-           , Sys.Date(), '.csv')
-  )
-  write.csv(rkd_data, output_filename, row.names = FALSE)
+
   return(rkd_data)
 }
