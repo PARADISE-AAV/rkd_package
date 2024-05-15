@@ -17,7 +17,7 @@
 
 CPD_IS_Imputation <- function(Encounter, output_dir){
   
-  stopifnot("Your argument need to be a data frame"=is.data.frame(merge_data))
+  stopifnot("Your argument need to be a data frame"=is.data.frame(Encounter))
   stopifnot("Your argument need to be a character"=is.character(output_dir))
   
   # Check output directory
