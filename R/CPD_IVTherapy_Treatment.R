@@ -17,6 +17,13 @@
 
 CPD_IVTherapy_Treatment= function(IV_Therapy, output_dir){
   
+  stopifnot("Your argument need to be a data frame"=is.data.frame(merge_data))
+  stopifnot("Your argument need to be a character"=is.character(output_dir))
+  
+  # Check output directory
+  if (!dir.exists(output_dir)) {
+    stop('Specified output folder does not exist')
+  }
   
   IV_Therapy_filter <- IV_Therapy[which(IV_Therapy$IV.therapy == "Methylprednisolone - UATC/D07AA01" 
                                         | IV_Therapy$IV.therapy == "Rituximab - UATC/L01XC02 -- Mabthera" 
