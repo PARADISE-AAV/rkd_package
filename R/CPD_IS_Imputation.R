@@ -29,7 +29,7 @@ CPD_IS_Imputation <- function(Encounter, output_dir){
   for(i in 2:n){
     if((Encounter$RKD.ID[i-1]==Encounter$RKD.ID[i] & Encounter$RKD.ID[i+1]==Encounter$RKD.ID[i]) & Encounter$Immunosuppressive.medication[i]==""
        & Encounter$Immunosuppressive.medication[i-1] == Encounter$Immunosuppressive.medication[i+1] & as.numeric(Encounter$Date.Of.Visit[i+1]-Encounter$Date.Of.Visit[i-1])<=730){
-      print(i)
+      Encounter$Immunosuppressive.medication[i] = Encounter$Immunosuppressive.medication[i-1]
     }
   }
   
