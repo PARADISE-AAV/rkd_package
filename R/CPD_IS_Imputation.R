@@ -32,5 +32,5 @@ CPD_IS_Imputation <- function(Encounter, output_dir){
       Encounter$Immunosuppressive.medication[i] = Encounter$Immunosuppressive.medication[i-1]
     }
   }
-  
+  return(Encounter)
 }
