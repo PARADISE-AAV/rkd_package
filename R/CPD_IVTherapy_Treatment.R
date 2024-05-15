@@ -8,6 +8,7 @@
 #' Date: 9-May-23
 #'
 #' @param IVTherapy Data from Encounter from \code{\link{CPD_IVTherapy}} function
+#' @param merged_data Data from the merge of encounter and General characteristics in the \code{\link{Merge_Encounter_initial}} function
 #' @param output_dir folder where the Redcap data will be saved
 #' @details
 #' to be added
@@ -15,7 +16,7 @@
 #' @import lubridate
 #' @export
 
-CPD_IVTherapy_Treatment= function(IV_Therapy, output_dir){
+CPD_IVTherapy_Treatment= function(IV_Therapy, merged_data, output_dir){
   
   stopifnot("Your argument need to be a data frame"=is.data.frame(merge_data))
   stopifnot("Your argument need to be a character"=is.character(output_dir))
@@ -44,7 +45,7 @@ CPD_IVTherapy_Treatment= function(IV_Therapy, output_dir){
   
   
   merged_frame_methyl <-fuzzy_inner_join(
-    Inclusion_Criteria_rkd[, c("RKD.ID", "Date.Of.Visit")], Methyl,
+    merged_data[, c("RKD.ID", "Date.Of.Visit")], Methyl,
     by = c(
       "RKD.ID" = "RKD.ID",
       "Date.Of.Visit" = "Start.date.of.date.range",
@@ -65,7 +66,7 @@ CPD_IVTherapy_Treatment= function(IV_Therapy, output_dir){
     as.Date(Cyclo$Date.of.IV.therapy) + 90
   
   merged_frame_Cyclo <-fuzzy_inner_join(
-    Inclusion_Criteria_rkd[, c("RKD.ID", "Date.Of.Visit")], Cyclo,
+    merged_data[, c("RKD.ID", "Date.Of.Visit")], Cyclo,
     by = c(
       "RKD.ID" = "RKD.ID",
       "Date.Of.Visit" = "Start.date.of.date.range",
@@ -86,7 +87,7 @@ CPD_IVTherapy_Treatment= function(IV_Therapy, output_dir){
     as.Date(Ritu$Date.of.IV.therapy) + 180
   
   merged_frame_Ritu <-fuzzy_inner_join(
-    Inclusion_Criteria_rkd[, c("RKD.ID", "Date.Of.Visit")], Ritu,
+    merged_data[, c("RKD.ID", "Date.Of.Visit")], Ritu,
     by = c(
       "RKD.ID" = "RKD.ID",
       "Date.Of.Visit" = "Start.date.of.date.range",
