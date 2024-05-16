@@ -7,8 +7,7 @@
 #' 
 #' Date: 17-Apr-23
 #'
-#' @param Medication_data Continuous medication data from \code{\link{SplitRIV}} function
-#' @param Initial_data General Characteristics data from \code{\link{SplitRIV}} function
+#' @param Medication_data list of data frame from \code{\link{SplitRIV}} function
 #' @param output_dir folder where the Redcap data will be saved
 #' @details
 #' to be added
@@ -18,9 +17,8 @@
 #' @import forcats
 #' @importFrom rlang .data
 #' @export
-CPD_Continuous_Medication <- function (Medication_data, Initial_data, output_dir){
-  stopifnot("Your argument need to be a data frame"=is.data.frame(Medication_data))
-  stopifnot("Your argument need to be a data frame"=is.data.frame(Initial_data))
+CPD_Continuous_Medication <- function (Medication_data, output_dir){
+  stopifnot("Your argument need to be a data frame"=is.list(Medication_data))
   stopifnot("Your argument need to be a character"=is.character(output_dir))
   
   # Check output directory
@@ -28,7 +26,8 @@ CPD_Continuous_Medication <- function (Medication_data, Initial_data, output_dir
     stop('Specified output folder does not exist')
   }
 
-  rkd_data <- merge(Medication_data, Initial_data[,c("RKD.ID", "Date.of.diagnosis")], by="RKD.ID")
+  
+  rkd_data <- merge(Medication_data$Medication, Medication_data$Initial[,c("RKD.ID", "Date.of.diagnosis")], by="RKD.ID")
   rkd_data$medstart_interval_from_diagnosis <- days(rkd_data$Start.Date)-days(rkd_data$Date.of.diagnosis)
   rkd_data$medstop_interval_from_diagnosis <- days(rkd_data$Stop.Date)-days(rkd_data$Date.of.diagnosis)
   
