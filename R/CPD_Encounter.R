@@ -121,15 +121,6 @@ CPD_Encounter <- function (Encounter_data, output_dir){
     }
   }
   
-  rkd_data=rkd_data %>% 
-    dplyr::mutate(last_encounter = dplyr::case_when(
-      Status == 'Alive' ~ Date.Of.Visit,
-      Status == 'Dead' ~ Date.of.event,
-      Status == 'Lost to follow-up' ~ Date.of..opt.out..or..Lost.to.follow.up.
-      )) %>%
-    dplyr::group_by(RKD.ID) %>%
-    dplyr::mutate(Date_Last_Follow_up = max_if_any(last_encounter))%>%
-    dplyr::ungroup()
   
   output_filename <- file.path(
     output_dir,
