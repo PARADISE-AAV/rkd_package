@@ -27,8 +27,8 @@ Merge_Encounter_initial <- function(Encounter, Initial, output_dir){
     dplyr::mutate(Age_Encounters =
                     lubridate::year(.data$Date.Of.Visit) - lubridate::year(.data$Date.of.Birth))
   
-  # Anti MPO PR3
-  rkd_data <- rkd_anti_mpo_pr3(rkd_data)
+  
+  
   
   rkd_data$interval_from_diagnosis=as.numeric(rkd_data$Date.Of.Visit-rkd_data$Date.of.diagnosis)
   
@@ -53,13 +53,3 @@ Merge_Encounter_initial <- function(Encounter, Initial, output_dir){
 }
 
 
-#' @import dplyr
-rkd_anti_mpo_pr3 <- function(data) {
-  dplyr::mutate(data, AntiMPO_PR3 = dplyr::case_when(
-    is.na(.data$Anti.MPO.level) & is.na(.data$Anti.PR3.level) ~ NA,
-    is.na(.data$Anti.MPO.level) & !is.na(.data$Anti.PR3.level) ~ "PR3",
-    !is.na(.data$Anti.MPO.level) & is.na(.data$Anti.PR3.level) ~ "MPO",
-    .data$Anti.MPO.level > .data$Anti.PR3.level ~ "MPO",
-    TRUE ~ "PR3"
-  ))
-}
