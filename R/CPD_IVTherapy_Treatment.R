@@ -14,6 +14,9 @@
 #' to be added
 #' 
 #' @import lubridate
+#' @import DT
+#' @import dplyr
+#' @import fuzzyjoin
 #' @export
 
 CPD_IVTherapy_Treatment= function(IV_Therapy, merged_data, output_dir){
