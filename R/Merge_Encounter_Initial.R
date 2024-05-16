@@ -32,6 +32,16 @@ Merge_Encounter_initial <- function(Encounter, Initial, output_dir){
   
   rkd_data$interval_from_diagnosis=as.numeric(rkd_data$Date.Of.Visit-rkd_data$Date.of.diagnosis)
   
+  rkd_data=rkd_data %>% 
+    dplyr::mutate(last_encounter = dplyr::case_when(
+      Status == 'Alive' ~ Date.Of.Visit,
+      Status == 'Dead' ~ Date.of.event,
+      Status == 'Lost to follow-up' ~ Date.of..opt.out..or..Lost.to.follow.up.
+    )) %>%
+    dplyr::group_by(RKD.ID) %>%
+    dplyr::mutate(Date_Last_Follow_up = max_if_any(last_encounter))%>%
+    dplyr::ungroup()
+  
   output_filename <- file.path(
     output_dir,
     paste0('Redcap_clinical_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
