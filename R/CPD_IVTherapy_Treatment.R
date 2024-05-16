@@ -22,6 +22,7 @@
 CPD_IVTherapy_Treatment= function(IV_Therapy, merged_data, output_dir){
   
   stopifnot("Your argument need to be a data frame"=is.data.frame(merge_data))
+  stopifnot("Your argument need to be a data frame"=is.data.frame(IV_Therapy))
   stopifnot("Your argument need to be a character"=is.character(output_dir))
   
   # Check output directory
