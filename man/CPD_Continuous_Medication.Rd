@@ -4,12 +4,10 @@
 \alias{CPD_Continuous_Medication}
 \title{CPD Continuous medication}
 \usage{
-CPD_Continuous_Medication(Medication_data, Initial_data, output_dir)
+CPD_Continuous_Medication(Medication_data, output_dir)
 }
 \arguments{
-\item{Medication_data}{Continuous medication data from \code{\link{SplitRIV}} function}
-
-\item{Initial_data}{General Characteristics data from \code{\link{SplitRIV}} function}
+\item{Medication_data}{list of data frame from \code{\link{SplitRIV}} function}
 
 \item{output_dir}{folder where the Redcap data will be saved}
 }
