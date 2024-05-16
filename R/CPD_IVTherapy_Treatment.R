@@ -109,4 +109,7 @@ CPD_IVTherapy_Treatment= function(IV_Therapy, merged_data, output_dir){
     mutate(IVtherapy = list(c(IV.therapy.x, IV.therapy.y, IV.therapy)))%>%
     ungroup
   merged_frame_unique <- merged_frame_all[!duplicated(merged_frame_all[,c(1:2,6)]), ]
+  
+  return(merged_frame_unique)
+  
 }
