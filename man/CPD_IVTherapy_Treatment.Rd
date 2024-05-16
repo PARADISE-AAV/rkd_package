@@ -11,7 +11,7 @@ CPD_IVTherapy_Treatment(IV_Therapy, merged_data, output_dir)
 
 \item{output_dir}{folder where the Redcap data will be saved}
 
-\item{IVTherapy}{Data from Encounter from \code{\link{CPD_IVTherapy}} function}
+\item{IVTherapy}{Data from IVTherapy from \code{\link{CPD_IVTherapy}} function}
 }
 \description{
 The Goal is to do CPD IS Imputation for Treatment On/Off
