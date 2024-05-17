@@ -117,7 +117,7 @@ CPD_Encounter <- function (Encounter_data, output_dir){
   }
   for(i in 1:n){
     if(rkd_data$Dialysis.dependent[i] == "Yes"){
-      rkd_data$Creatinine[i]=">500"
+      rkd_data$Creatinine[i]=sample(500:800,1)
     }
   }
   
