@@ -32,5 +32,6 @@ CPD_Medication_Treatment= function(Medication, merged_data, output_dir){
   
   medication_filter <- Medication[which(Medication$Drug!=""), c("RKD.ID", "Drug", "Dose", "Start.Date", "Stop.Date")]
   
+  medication_last <- merge(merged_data[!duplicated(merged_data[,c("RKD.ID", "Date_Last_Follow_up")]),c("RKD.ID", "Date_Last_Follow_up")], medication_filter, by="RKD.ID")
   
 }
