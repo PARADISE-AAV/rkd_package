@@ -71,4 +71,9 @@ CPD_Medication_Treatment= function(Medication, merged_data, output_dir){
     match_fun = list(`==`, `>=`, `<`)
   ) %>%
     select(everything())
+  
+  rownames(merged_frame) <- NULL
+  
+  return(merged_frame)
+  
 }
