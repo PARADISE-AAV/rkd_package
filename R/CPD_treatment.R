@@ -22,4 +22,14 @@
 
 CDP_Treatment <- function(IV_Therapy, Con_med, merged_data, output_dir){
   
+  topifnot("Your argument need to be a data frame"=is.data.frame(merged_data))
+  stopifnot("Your argument need to be a data frame"=is.data.frame(IV_Therapy))
+  stopifnot("Your argument need to be a data frame"=is.data.frame(Con_med))
+  stopifnot("Your argument need to be a character"=is.character(output_dir))
+  
+  # Check output directory
+  if (!dir.exists(output_dir)) {
+    stop('Specified output folder does not exist')
+  }
+  
 }
