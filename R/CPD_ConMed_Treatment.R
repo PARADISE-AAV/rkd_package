@@ -41,7 +41,7 @@ CPD_Medication_Treatment= function(Medication, merged_data, output_dir){
     dat1=dat[order(c(dat$Start.Date)),]
     dat2=dat1[order(c(dat1$Drug)),]
     for(j in 1:nrow(dat2)){
-      if(is.na(dat2$Stop.Date[j])==TRUE & is.na(dat2$Start.Date[j])==FALSE){
+      if(is.na(dat2$Stop.Date[j])==TRUE & is.na(dat2$Start.Date[j])==FALSE & is.na(dat2$Date_Last_Follow_up[j])==FALSE){
           if(j == nrow(dat2) & interval(dat2$Start.Date[j], dat2$Date_Last_Follow_up[j]) %/% months(1)<=6){
             dat2$Stop.Date[j]= dat2$Date_Last_Follow_up[j]
           }else{
@@ -53,4 +53,22 @@ CPD_Medication_Treatment= function(Medication, merged_data, output_dir){
     medication_inputed=rbind(medication_inputed, dat2)
   }
   
+  
+  medication_inputed$Start.date.of.date.range <-
+    as.Date(medication_inputed$Start.Date)
+  
+  medication_inputed$End.date.of.date.range <-
+    as.Date(medication_inputed$Stop.Date)
+  
+  
+  merged_frame <-fuzzy_inner_join(
+    merged_data[, c("RKD.ID", "Date.Of.Visit")], medication_inputed,
+    by = c(
+      "RKD.ID" = "RKD.ID",
+      "Date.Of.Visit" = "Start.date.of.date.range",
+      "Date.Of.Visit" = "End.date.of.date.range"
+    ),
+    match_fun = list(`==`, `>=`, `<`)
+  ) %>%
+    select(everything())
 }
