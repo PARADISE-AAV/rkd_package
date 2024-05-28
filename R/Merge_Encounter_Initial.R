@@ -36,7 +36,7 @@ Merge_Encounter_initial <- function(Encounter, Initial, output_dir){
     dplyr::mutate(last_encounter = dplyr::case_when(
       Status == 'Alive' ~ Date.Of.Visit,
       Status == 'Dead' ~ Date.of.event,
-      Status == 'Lost to follow-up' ~ Date.of..opt.out..or..Lost.to.follow.up.
+      Status == 'Lost to follow-up' ~ Date.Of.Visit
     )) %>%
     dplyr::group_by(RKD.ID) %>%
     dplyr::mutate(Date_Last_Follow_up = max(last_encounter, na.rm=TRUE))%>%
