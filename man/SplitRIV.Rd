@@ -2,7 +2,7 @@
 % Please edit documentation in R/SplitRIV.R
 \name{SplitRIV}
 \alias{SplitRIV}
-\title{Clean rare kidney disease data}
+\title{Split RIV data in 7 frame}
 \usage{
 SplitRIV(RIVdata, output_dir)
 }
