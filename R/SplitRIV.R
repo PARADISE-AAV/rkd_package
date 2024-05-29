@@ -1,4 +1,4 @@
-#' @title Clean rare kidney disease data
+#' @title Split RIV data in 7 frame
 #' @author Matthieu COQ
 #'
 #' @description The objective is to split the RIV RedCap export in different frame
