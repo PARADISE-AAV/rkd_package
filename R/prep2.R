@@ -205,8 +205,8 @@ sug_blood <- function(RKDdata){
     stop("You give an empty files")
   }
   dat_fullT <- RKD_data
-  dat_fullT$Uninalysis.Blood[dat_fullT$Uninalysis.Blood == ""] <- NA
-  dat_fullT$Uninalysis.Protein[dat_fullT$Uninalysis.Protein == ""] <- NA
+  dat_fullT$Urinalysis.Blood[dat_fullT$Urinalysis.Blood == ""] <- NA
+  dat_fullT$Urinalysis.Protein[dat_fullT$Urinalysis.Protein == ""] <- NA
   dat_fullT$Suggestive.bloods.OR.urine.tests..excluding.ANCA.[dat_fullT$Suggestive.bloods.OR.urine.tests..excluding.ANCA. == "No blood/urine tests available"] <- NA
   dat_fullT <- dat_fullT %>% 
     group_by(RKD.ID) %>%
@@ -217,16 +217,16 @@ sug_blood <- function(RKDdata){
                                   ifelse(is.na(ucd163_delta.pct), NA, 0))) %>% 
     mutate(crp_G5 = ifelse(CRP > 5, 1, 0)) %>% 
     # urine.blood.OVERALL = if urinalysis NA & interval between enc <6m -> carry forward last observation (urine.pro the same)
-    mutate(urine.blo.orig = Uninalysis.Blood,
+    mutate(urine.blo.orig = Urinalysis.Blood,
            u.blo_guide = ifelse(Interval.btwn.enc <6, 1, NA)) %>% 
-    fill(Uninalysis.Blood, .direction = "down") %>% 
+    fill(Urinalysis.Blood, .direction = "down") %>% 
     mutate(urine.blood.OVERALL = case_when(!is.na(urine.blo.orig) ~ urine.blo.orig,
-                                           u.blo_guide == 1 ~ Uninalysis.Blood)) %>% 
-    mutate(urine.pro.orig = Uninalysis.Protein) %>% 
-    fill(Uninalysis.Protein, .direction = "down") %>% 
+                                           u.blo_guide == 1 ~ Urinalysis.Blood)) %>% 
+    mutate(urine.pro.orig = Urinalysis.Protein) %>% 
+    fill(Urinalysis.Protein, .direction = "down") %>% 
     mutate(urine.protein.OVERALL = case_when(!is.na(urine.pro.orig) ~ urine.pro.orig,
-                                             u.blo_guide == 1 ~ Uninalysis.Protein)) %>% 
-    relocate(Uninalysis.Protein, .before = urine.protein.OVERALL) %>% 
+                                             u.blo_guide == 1 ~ Urinalysis.Protein)) %>% 
+    relocate(Urinalysis.Protein, .before = urine.protein.OVERALL) %>% 
     mutate(new_haematuria = ifelse(lag(urine.blood.OVERALL) == "Negative" & urine.blood.OVERALL == ">=+3", 1,
                                    ifelse(urine.blood.OVERALL == "Negative", 0,
                                           ifelse((is.na(lag(urine.blood.OVERALL))) | is.na(urine.blood.OVERALL), NA, 0)))) %>% 
