@@ -151,7 +151,7 @@ prep1_enc <- function(RKDdata){
   dat_enc <- dat_enc %>% 
     relocate(c(Number.of.major.BVAS.items, Number.of.minor.BVAS.items), .after = BVAS.score..calculator.) %>% 
     relocate(Adjudicated.probability.of.relapse.interval.calculation, .after = Adjudicated.probability.of.relapse) %>% 
-    relocate(c(Uninalysis.Protein, Uninalysis.Blood), .after = Treatment.Naive..Never.on.Immunosuppression.) %>% 
+    relocate(c(Urinalysis.Protein, Urinalysis.Blood), .after = Treatment.Naive..Never.on.Immunosuppression.) %>% 
     relocate(c(relapse_def_hp, rel_def_hp_pos, rel_def_hp_excludePOSS), .after = Adjudicated.probability.of.relapse.interval.calculation) %>% 
     relocate(BVAS.use, .after = BVAS.score..calculator.)
   dat_enc$Diagnostic.biopsy <- as.character(dat_enc$Diagnostic.biopsy)
