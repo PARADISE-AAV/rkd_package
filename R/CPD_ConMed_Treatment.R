@@ -21,7 +21,7 @@
 
 CPD_Medication_Treatment= function(Medication, merged_data, output_dir){
   
-  stopifnot("Your argument need to be a data frame"=is.data.frame(merge_data))
+  stopifnot("Your argument need to be a data frame"=is.data.frame(merged_data))
   stopifnot("Your argument need to be a data frame"=is.data.frame(Medication))
   stopifnot("Your argument need to be a character"=is.character(output_dir))
   
