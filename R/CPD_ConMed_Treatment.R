@@ -74,6 +74,9 @@ CPD_Medication_Treatment= function(Medication, merged_data, output_dir){
   
   rownames(merged_frame) <- NULL
   
+  colnames(merged_frame)[1]="RKD.ID"
+  
+  
   return(merged_frame)
   
 }
