@@ -94,6 +94,6 @@ CPD_Medication_Treatment= function(Medication, merged_data, output_dir){
   
   merged_frame_unique <- merged_frame_all[!duplicated(merged_frame_all[,c(1:2,17)]), ]
   
-  return(merged_frame)
+  return(merged_frame_unique)
   
 }
