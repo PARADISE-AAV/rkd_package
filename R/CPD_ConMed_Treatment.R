@@ -78,11 +78,21 @@ CPD_Medication_Treatment= function(Medication, merged_data, output_dir){
   
   
   n <- length(levels(as.factor(merged_frame$Drug)))
-  merged_frame_drug <- merged_frame[which(merged_frame$Drug == levels(as.factor(merged_frame$Drug))[1]), ]
-  for (i in 2:n){
-    dat <- merged_frame[which(merged_frame$Drug == levels(as.factor(merged_frame$Drug))[i]), ]
+  merged_frame_drug <- merged_frame[, c("RKD.ID", "Date.Of.Visit")]
+  for (i in 1:n){
+    dat <- merged_frame[which(merged_frame$Drug == levels(as.factor(merged_frame$Drug))[i]), c("RKD.ID", "Date.Of.Visit", "Drug", "Dose")]
+    colnames(dat)[3:4] <- paste(colnames(dat)[3:4], levels(as.factor(merged_frame$Drug))[i], sep="_")
+    merged_frame_drug <- merge(merged_frame_drug, dat, by = c("RKD.ID", "Date.Of.Visit"), all.x = TRUE)
+    
   }
   
+  merged_frame_all <- merged_frame_drug %>% rowwise %>%
+    mutate(Drug = list(c("Drug_Avacopan (C5aR inhibitor)", "Drug_Azathioprine - UATC/L04AX01",
+                         "Drug_Cyclophosphamide - UATC/L01AA01", "Drug_Methotrexate - UATC/L01BA01", 
+                         "Drug_Mycophenolate mofetil - UATC/L04AA06", "Drug_Other", "Drug_Prednisolone - UATC/H02AB06")))%>%
+    ungroup
+  
+  merged_frame_unique <- merged_frame_all[!duplicated(merged_frame_all[,c(1:2,17)]), ]
   
   return(merged_frame)
   
