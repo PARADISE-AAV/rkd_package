@@ -74,7 +74,14 @@ CPD_Medication_Treatment= function(Medication, merged_data, output_dir){
   
   rownames(merged_frame) <- NULL
   
-  colnames(merged_frame)[1]="RKD.ID"
+  colnames(merged_frame)[1] <- "RKD.ID"
+  
+  
+  n <- length(levels(as.factor(merged_frame$Drug)))
+  merged_frame_drug <- merged_frame[which(merged_frame$Drug == levels(as.factor(merged_frame$Drug))[1]), ]
+  for (i in 2:n){
+    dat <- merged_frame[which(merged_frame$Drug == levels(as.factor(merged_frame$Drug))[i]), ]
+  }
   
   
   return(merged_frame)
