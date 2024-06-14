@@ -7,7 +7,7 @@
 CPD_Medication_Treatment(Medication, merged_data, output_dir)
 }
 \arguments{
-\item{Medication}{Data from Encounter from \code{\link{CPD_IVTherapy}} function}
+\item{Medication}{Data from Encounter from \code{\link{CPD_Continuous_Medication}} function}
 
 \item{merged_data}{Data from the merge of encounter and General characteristics in the \code{\link{Merge_Encounter_initial}} function}
 
