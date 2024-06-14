@@ -1,0 +1,35 @@
+#' @title CPD IV Therapy treatment
+#' @author Matthieu COQ
+#'
+#' @description The Goal is to do CPD IS Imputation for Treatment On/Off
+#' 
+#' Version: 1.0
+#' 
+#' Date: 9-May-23
+#'
+#' @param IV_Therapy Data from IVTherapy from \code{\link{CPD_IVTherapy_Treatment}} function
+#' @param ConMed Data from Continous medication from \code{\link{CPD_IVTherapy}} function
+#' @param merged_data Data from the merge of encounter and General characteristics in the \code{\link{Merge_Encounter_initial}} function
+#' @param output_dir folder where the Redcap data will be saved
+#' @details
+#' to be added
+#' 
+#' @import lubridate
+#' @import DT
+#' @import dplyr
+#' @import fuzzyjoin
+#' @export
+
+CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data, output_dir){
+  
+  stopifnot("Your argument need to be a data frame"=is.data.frame(merged_data))
+  stopifnot("Your argument need to be a data frame"=is.data.frame(IV_Therapy))
+  stopifnot("Your argument need to be a data frame"=is.data.frame(ConMed))
+  stopifnot("Your argument need to be a character"=is.character(output_dir))
+  
+  # Check output directory
+  if (!dir.exists(output_dir)) {
+    stop('Specified output folder does not exist')
+  }
+  
+}
