@@ -28,8 +28,8 @@ CPD_Continuous_Medication <- function (Medication_data, output_dir){
 
   
   rkd_data <- merge(Medication_data$Medication, Medication_data$Initial[,c("RKD.ID", "Date.of.diagnosis")], by="RKD.ID")
-  rkd_data$medstart_interval_from_diagnosis <- days(rkd_data$Start.Date)-days(rkd_data$Date.of.diagnosis)
-  rkd_data$medstop_interval_from_diagnosis <- days(rkd_data$Stop.Date)-days(rkd_data$Date.of.diagnosis)
+  rkd_data$medstart_interval_from_diagnosis <- as.numeric(rkd_data$Start.Date-rkd_data$Date.of.diagnosis)
+  rkd_data$medstop_interval_from_diagnosis <- as.numeric(rkd_data$Stop.Date-rkd_data$Date.of.diagnosis)
   
   output_filename <- file.path(
     output_dir,
