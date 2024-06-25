@@ -34,7 +34,7 @@ Paradise_Encounter <- function(RKD_data, months_after_diagnosis = 6) {
   dplyr::mutate(last_encounter = dplyr::case_when(
     Status == 'Alive' ~ Date.Of.Visit,
     Status == 'Dead' ~ Date.of.event,
-    Status == 'Lost to follow-up' ~ Date.of..opt.out..or..Lost.to.follow.up.
+    Status == 'Lost to follow-up' ~ Date.Of.Visit
   )) %>%
     dplyr::group_by(RKD.ID) %>%
     dplyr::mutate(Date_Last_Follow_up = max_if_any(last_encounter),
