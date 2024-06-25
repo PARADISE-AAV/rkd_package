@@ -17,7 +17,7 @@
 #' @import forcats
 #' @importFrom rlang .data
 #' @export
-CPD_IVTherapy <- function (IVTherapy_data, output_dir){
+CPD_IVTherapy_interval <- function (IVTherapy_data, output_dir){
   stopifnot("Your argument need to be a data frame"=is.list(IVTherapy_data))
   stopifnot("Your argument need to be a character"=is.character(output_dir))
   
