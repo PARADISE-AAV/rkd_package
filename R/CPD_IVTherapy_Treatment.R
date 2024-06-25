@@ -7,7 +7,7 @@
 #' 
 #' Date: 9-May-23
 #'
-#' @param IV_Therapy Data from IVTherapy from \code{\link{CPD_IVTherapy}} function
+#' @param IV_Therapy Data from IVTherapy from \code{\link{CPD_IVTherapy_interval}} function
 #' @param merged_data Data from the merge of encounter and General characteristics in the \code{\link{Merge_Encounter_initial}} function
 #' @param output_dir folder where the Redcap data will be saved
 #' @details
