@@ -121,6 +121,22 @@ CPD_Encounter <- function (Encounter_data, output_dir){
     }
   }
   
+  MPO_geom_mean=exp(mean(log(rkd_data$Anti.MPO.level [rkd_data$Anti.MPO.level>0]), na.rm = TRUE))
+  PR3_geom_mean=exp(mean(log(rkd_data$Anti.PR3.level [rkd_data$Anti.PR3.level>0]), na.rm = TRUE))
+  
+  rkd_data <- rkd_data %>%
+    dplyr::mutate(MPO.titre = dplyr::case_when(
+      Anti.MPO.level < 2 ~ "Negative",
+      is.na(Anti.MPO.level) == TRUE ~ "Not available",
+      Anti.MPO.level > 2 & Anti.MPO.level < MPO_geom_mean ~ "Low positive",
+      Anti.MPO.level > MPO_geom_mean ~ "High positive"
+    ))%>%
+    dplyr::mutate(PR3.titre = dplyr::case_when(
+      Anti.PR3.level < 2 ~ "Negative",
+      is.na(Anti.PR3.level) == TRUE ~ "Not available",
+      Anti.PR3.level > 2 & Anti.PR3.level < PR3_geom_mean ~ "Low positive",
+      Anti.PR3.level > PR3_geom_mean ~ "High positive"
+    ))
   
   output_filename <- file.path(
     output_dir,
