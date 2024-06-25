@@ -9,7 +9,7 @@ CPD_Treatment_OnOff(IV_Therapy, ConMed, merged_data, output_dir)
 \arguments{
 \item{IV_Therapy}{Data from IVTherapy from \code{\link{CPD_IVTherapy_Treatment}} function}
 
-\item{ConMed}{Data from Continous medication from \code{\link{CPD_IVTherapy}} function}
+\item{ConMed}{Data from Continous medication from \code{\link{CPD_Medication_Treatment}} function}
 
 \item{merged_data}{Data from the merge of encounter and General characteristics in the \code{\link{Merge_Encounter_initial}} function}
 
