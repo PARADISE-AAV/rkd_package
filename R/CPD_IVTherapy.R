@@ -27,7 +27,7 @@ CPD_IVTherapy <- function (IVTherapy_data, output_dir){
   }
   
   rkd_data <- merge(IVTherapy_data$IVTherapy, IVTherapy_data$Initial[,c("RKD.ID", "Date.of.diagnosis")], by="RKD.ID")
-  rkd_data$IVTherapy_interval_from_diagnosis <- days(rkd_data$Date.of.IV.therapy)-days(rkd_data$Date.of.diagnosis)
+  rkd_data$IVTherapy_interval_from_diagnosis <- as.numericrkd_data$Date.of.IV.therapy)-days(rkd_data$Date.of.diagnosis)
   
   output_filename <- file.path(
     output_dir,
