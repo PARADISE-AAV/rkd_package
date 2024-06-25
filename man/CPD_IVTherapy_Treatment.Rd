@@ -7,7 +7,7 @@
 CPD_IVTherapy_Treatment(IV_Therapy, merged_data, output_dir)
 }
 \arguments{
-\item{IV_Therapy}{Data from IVTherapy from \code{\link{CPD_IVTherapy}} function}
+\item{IV_Therapy}{Data from IVTherapy from \code{\link{CPD_IVTherapy_interval}} function}
 
 \item{merged_data}{Data from the merge of encounter and General characteristics in the \code{\link{Merge_Encounter_initial}} function}
 
