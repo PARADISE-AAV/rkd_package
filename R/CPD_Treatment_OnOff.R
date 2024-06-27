@@ -36,6 +36,6 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data, output_dir){
   
   data_merged <- merge(merged_data, IV_ConMed, by = c("RKD.ID", "Date.Of.Visit"), all = TRUE)
   
-  
+  data_merged$treatment=Map(c,data_merged$IVtherapy, data_merged$Drug)
   
 }
