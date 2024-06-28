@@ -28,4 +28,13 @@ CPD_Kidney_function <- function (renal, output_dir){
     stop('Specified output folder does not exist')
   }
   
+  
+  output_filename <- file.path(
+    output_dir,
+    paste0('Redcap_kidney_function_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
+           , Sys.Date(), '.csv')
+  )
+  write.csv(rkd_data, output_filename, row.names = FALSE)
+  return(rkd_data)
+  
 }
