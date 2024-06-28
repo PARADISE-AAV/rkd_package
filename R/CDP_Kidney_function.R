@@ -8,7 +8,7 @@
 #' Date: 17-Apr-23
 #'
 #' @param renal Data from renal from \code{\link{CPD_Renal}} function
-#' @param merged_data Data from the merge of encounter and General characteristics in the \code{\link{Merge_Encounter_initial}} function
+#' @param merge_data Data from the merge of encounter and General characteristics in the \code{\link{Merge_Encounter_initial}} function
 #' @param output_dir folder where the Redcap data will be saved
 #' @details
 #' to be added
