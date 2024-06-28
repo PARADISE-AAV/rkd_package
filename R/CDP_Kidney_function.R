@@ -30,7 +30,7 @@ CPD_Kidney_function <- function (merge_data, renal, output_dir){
     stop('Specified output folder does not exist')
   }
   
-
+  
   
   
   
