@@ -18,7 +18,7 @@
 #' @importFrom rlang .data
 #' @export
 
-CPD_Kidney-function <- function (renal, output_dir){
+CPD_Kidney_function <- function (renal, output_dir){
   
   
 }
