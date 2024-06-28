@@ -7,9 +7,9 @@
 CPD_ANCA_kinetics(merge_data, output_dir)
 }
 \arguments{
-\item{output_dir}{folder where the Redcap data will be saved}
+\item{merge_data}{Data from the \code{\link{CPD_ANCA}} function}
 
-\item{merged_data}{Data from the \code{\link{CPD_ANCA}} function}
+\item{output_dir}{folder where the Redcap data will be saved}
 }
 \description{
 The Goal is to do CPD ANCA kinetic longterm
