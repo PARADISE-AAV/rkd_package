@@ -7,7 +7,7 @@
 #' 
 #' Date: 9-May-23
 #'
-#' @param merged_data Data from the \code{\link{CPD_ANCA}} function
+#' @param merge_data Data from the \code{\link{CPD_ANCA}} function
 #' @param output_dir folder where the Redcap data will be saved
 #' @details
 #' to be added
