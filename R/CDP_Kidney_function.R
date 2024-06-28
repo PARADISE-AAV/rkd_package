@@ -28,6 +28,8 @@ CPD_Kidney_function <- function (renal, output_dir){
     stop('Specified output folder does not exist')
   }
   
+  transplant <- renal$Transplant
+  encounter <- renal$Encounter
   
   output_filename <- file.path(
     output_dir,
