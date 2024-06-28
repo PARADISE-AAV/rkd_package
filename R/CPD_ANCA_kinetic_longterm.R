@@ -18,7 +18,7 @@
 #' @import fuzzyjoin
 #' @export
 
-CPD_ANCA <- function(merge_data,output_dir){
+CPD_ANCA_kinetics <- function(merge_data,output_dir){
   
   
   
