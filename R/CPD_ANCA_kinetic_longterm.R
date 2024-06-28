@@ -20,7 +20,15 @@
 
 CPD_ANCA_kinetics <- function(merge_data,output_dir){
   
+  stopifnot("Your argument need to be a data frame"=is.data.frame(merge_data))
   
+  merge_data$anca_kinetics_longterm <- "Unknown ANCA level"
+  n=nrow(merge_data)
+  for(i in 3:n){
+    if(merge_data$RKD.ID[i]==merge_data$RKD.ID[i-1] & merge_data$RKD.ID[i]==merge_data$RKD.ID[i-2]){
+      
+    }
+  }
   
   
 }
