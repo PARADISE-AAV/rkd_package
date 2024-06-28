@@ -20,5 +20,12 @@
 
 CPD_Kidney_function <- function (renal, output_dir){
   
+  stopifnot("Your argument need to be a list"=is.list(renal))
+  stopifnot("Your argument need to be a character"=is.character(output_dir))
+  
+  # Check output directory
+  if (!dir.exists(output_dir)) {
+    stop('Specified output folder does not exist')
+  }
   
 }
