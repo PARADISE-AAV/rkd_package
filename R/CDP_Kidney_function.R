@@ -7,7 +7,8 @@
 #' 
 #' Date: 17-Apr-23
 #'
-#' @param renal list of data frame from \code{\link{SplitRIV}} function
+#' @param renal Data from renal from \code{\link{CPD_Renal}} function
+#' @param merged_data Data from the merge of encounter and General characteristics in the \code{\link{Merge_Encounter_initial}} function
 #' @param output_dir folder where the Redcap data will be saved
 #' @details
 #' to be added
@@ -18,9 +19,10 @@
 #' @importFrom rlang .data
 #' @export
 
-CPD_Kidney_function <- function (renal, output_dir){
+CPD_Kidney_function <- function (merge_data, renal, output_dir){
   
-  stopifnot("Your argument need to be a list"=is.list(renal))
+  stopifnot("Your argument need to be a data frame"=is.data.frame(merge_data))
+  stopifnot("Your argument need to be a data frame"=is.data.frame(renal))
   stopifnot("Your argument need to be a character"=is.character(output_dir))
   
   # Check output directory
@@ -28,8 +30,9 @@ CPD_Kidney_function <- function (renal, output_dir){
     stop('Specified output folder does not exist')
   }
   
-  transplant <- renal$Transplant
-  encounter <- renal$Encounter
+
+  
+  
   
   output_filename <- file.path(
     output_dir,
