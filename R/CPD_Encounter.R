@@ -27,7 +27,7 @@ CPD_Encounter <- function (Encounter_data, output_dir){
   }
   
   rkd_data <- Encounter_data$Encounter
-  
+  n=nrow(rkd_data)
   for(i in 1:n){
     if(rkd_data$Dialysis.dependent[i] == "Yes"){
       rkd_data$Creatinine[i]=999
