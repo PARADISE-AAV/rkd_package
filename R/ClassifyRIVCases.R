@@ -27,7 +27,7 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm, interval_from_d
   if (is.character(output_path) == FALSE) {
     stop("The argument output_path need to be a character argument")
   }
-  algorithm <- match.arg(algorithm, c( 'Paradise_Encounter', "CPD Relapse", "Treatment On/Off", "CPD LTROT"))
+  algorithm <- match.arg(algorithm, c( 'Paradise_Encounter', "CPD Relapse", "Treatment On/Off", "CPD LTROT", "CPD ANCA"))
 
   RKD_data <- RKDdata
   ###check that you load a real file
