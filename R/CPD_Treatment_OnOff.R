@@ -41,15 +41,30 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data, output_dir){
   
   data_merged <- data_merged %>%
     dplyr::mutate(Step1 = dplyr::case_when(
-      Immunosuppressive.status == 'Treatment Naive' | Immunosuppressive.status == 'Discontinuation of immunosuppression > 6 months prior to this encounter' ~ "Off treatment",
-      Immunosuppressive.status != 'Treatment Naive' & Immunosuppressive.status != 'Discontinuation of immunosuppression > 6 months prior to this encounter' ~ NA
+      Immunosuppressive.status == 'Treatment Naive' & Interval.from.diagnosis..months. <= 12 ~ "Off treatment",
+      Immunosuppressive.status != 'Treatment Naive' | Interval.from.diagnosis..months. > 12  ~ NA
     ))
   data_merged <- data_merged %>%
     dplyr::mutate(Step2 = dplyr::case_when(
     Current.corticosteroid.dose == "> 20 mg/day" | Current.corticosteroid.dose == "11 - 20 mg/day" ~ "On treatment",
     Current.corticosteroid.dose != "> 20 mg/day" & Current.corticosteroid.dose != "11 - 20 mg/day" ~ NA
   ))
-  
+  data_merged$Step3 <- NA
+  n=nrow(data_merged)
+  for (i in 1:n) {
+    if(any(data_merged$IVtherapy[i] %like% "Rituximab - UATC/L01XC02 -- Mabthera") == TRUE){
+      data_merged$Step3[i] ="On treatment"
+    }
+    if(any(data_merged$IVtherapy[i] %like% "Cyclophosphamide Injectable Solution - UATC/ L01AA01") == TRUE){
+      data_merged$Step3[i] ="On treatment"
+    }
+    if(any(data_merged$IVtherapy[i] %like% "Methylprednisolone - UATC/D07AA01") == TRUE){
+      data_merged$Step3[i] ="On treatment"
+    }
+    if(any(data_merged$IVtherapy[i] %like% "Rituximab - UATC/L01XC02 -- Ruxience") == TRUE){
+      data_merged$Step3[i] ="On treatment"
+    }
+  }
   
   
 }
