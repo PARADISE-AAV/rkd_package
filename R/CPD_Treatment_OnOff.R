@@ -18,6 +18,7 @@
 #' @import DT
 #' @import dplyr
 #' @import fuzzyjoin
+#' @import data.table
 #' @export
 
 CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data, output_dir){
