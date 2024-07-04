@@ -73,7 +73,7 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data, output_dir){
       Immunosuppressive.status == "Discontinuation of immunosuppression > 6 months prior to this encounter" | Immunosuppressive.status == "Discontinuation of immunosuppression within 6 months prior to this encounter" ~ "Off treatment"
     ))
   data_merged <- data_merged %>%
-    dplyr::mutate(Step4 = dplyr::case_when(
+    dplyr::mutate(Step5 = dplyr::case_when(
       Immunosuppressive.medication == "No" ~ "Off treatment",
       Immunosuppressive.medication != "No" | Immunosuppressive.medication != "" ~ "On treatment"
     ))
