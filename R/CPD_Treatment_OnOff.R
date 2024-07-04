@@ -38,4 +38,17 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data, output_dir){
   
   data_merged$treatment=Map(c,data_merged$IVtherapy, data_merged$Drug)
   
+  data_merged <- data_merged %>%
+    dplyr::mutate(Step1 = dplyr::case_when(
+      Immunosuppressive.status == 'Treatment Naive' | Immunosuppressive.status == 'Discontinuation of immunosuppression > 6 months prior to this encounter' ~ "Off treatment",
+      Immunosuppressive.status != 'Treatment Naive' & Immunosuppressive.status != 'Discontinuation of immunosuppression > 6 months prior to this encounter' ~ NA
+    ))
+  data_merged <- data_merged %>%
+    dplyr::mutate(Step2 = dplyr::case_when(
+    Current.corticosteroid.dose == "> 20 mg/day" | Current.corticosteroid.dose == "11 - 20 mg/day" ~ "On treatment",
+    Current.corticosteroid.dose != "> 20 mg/day" & Current.corticosteroid.dose != "11 - 20 mg/day" ~ NA
+  ))
+  
+  
+  
 }
