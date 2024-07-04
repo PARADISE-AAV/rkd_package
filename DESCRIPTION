@@ -1,6 +1,6 @@
 Package: rivpipeline
 Title: Pre-process RIV data
-Version: 0.0.3.0100
+Version: 0.0.3.0110
 Authors@R: 
     c(
     person("Matthieu", "Coq", , "coqm@tcd.ie", role = c("aut", "cre")),
@@ -30,6 +30,7 @@ Imports:
     fuzzyjoin,
     textclean,
     tidyverse,
-    tidyr
+    tidyr,
+    data.table
 Config/testthat/edition: 3
 LazyData: true
