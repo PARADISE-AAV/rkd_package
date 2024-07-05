@@ -117,13 +117,16 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data, output_dir){
     }
   }
   
-  if(output_dir == tempdir()){
-    return(data_merged)
-  }else{
-    data_merged$IVtherapy=as.character(data_merged$IVtherapy)
-    data_merged$Drug=as.character(data_merged$Drug)
-    data_merged$treatment=as.character(data_merged$treatment)
-    
-  }
+  data_merged$IVtherapy=as.character(data_merged$IVtherapy)
+  data_merged$Drug=as.character(data_merged$Drug)
+  data_merged$treatment=as.character(data_merged$treatment)
+  output_filename <- file.path(
+    output_dir,
+    paste0('Redcap_CPDTreatment_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
+           , Sys.Date(), '.csv')
+  )
+  write.csv(rkd_data, output_filename, row.names = FALSE)
+  return(rkd_data)
+  
   
 }
