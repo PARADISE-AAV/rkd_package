@@ -102,7 +102,7 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data, output_dir){
   data_merged$CPD_treatment <- "Manual review"
   n=nrow(data_merged)
   for (i in 1:n){
-    if(is.na(data_merged$Step1[i]) == TRUE & (is.na(data_merged$Step2[i]) == FALSE | data_merged$Step3[i] == "On treatment" | data_merged$Step4[i] == "On treatment"| data_merged$Step5[i] == "On treatment"| data_merged$Step6[i] == "On treatment" | is.na (data_merged$Step4[i])==TRUE)){
+    if(is.na(data_merged$Step1[i]) == TRUE & (is.na(data_merged$Step2[i]) == FALSE | is.na(data_merged$Step3[i]) == FALSE | data_merged$Step4[i] == "On treatment"| data_merged$Step5[i] == "On treatment"| data_merged$Step6[i] == "On treatment" | is.na (data_merged$Step4[i])==TRUE)){
       data_merged$CPD_treatment[i]="On Treatment"
     }
     if(is.na(data_merged$Step1[i]) == TRUE & is.na(data_merged$Step2[i]) == TRUE & is.na(data_merged$Step3[i]) == TRUE & is.na(data_merged$Step4[i]) == TRUE & is.na(data_merged$Step5[i]) == TRUE & is.na(data_merged$Step6[i]) == TRUE){
