@@ -61,6 +61,7 @@ CPD_Kidney_function <- function (merge_data, renal, output_dir){
   merge_renal_frame = merge(merge_data, merged_frame[,c("RKD.ID", "Date.Of.Visit", "Dialysis")], by= c("RKD.ID", "Date.Of.Visit"),all.x = TRUE)
   
   
+  
   output_filename <- file.path(
     output_dir,
     paste0('Redcap_kidney_function_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
