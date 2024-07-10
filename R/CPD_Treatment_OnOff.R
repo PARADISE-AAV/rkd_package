@@ -94,7 +94,7 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data, output_dir){
     }
     if(is.na(data_merged$`Drug_Avacopan (C5aR inhibitor)`[i]) == TRUE & is.na(data_merged$`Drug_Azathioprine - UATC/L04AX01`[i]) == TRUE & is.na(data_merged$`Drug_Cyclophosphamide - UATC/L01AA01`[i]) == TRUE 
        & is.na(data_merged$`Drug_Methotrexate - UATC/L01BA01`[i]) == TRUE & is.na(data_merged$`Drug_Mycophenolate mofetil - UATC/L04AA06`[i]) == TRUE 
-       & is.na(data_merged$`Drug_Other`[i]) == TRUE){
+       & is.na(data_merged$`Drug_Other`[i]) == TRUE & is.na(data_merged$`Dose_Prednisolone - UATC/H02AB06`[i]) == TRUE){
       data_merged$Step6[i]="Treatment Status Unknown"
     }
   }
