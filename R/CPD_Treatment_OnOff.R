@@ -111,7 +111,7 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data, output_dir){
     if(is.na(data_merged$Step1[i]) == TRUE & is.na(data_merged$Step2[i]) == TRUE & is.na(data_merged$Step3[i]) == TRUE & is.na(data_merged$Step4[i]) == TRUE & is.na(data_merged$Step5[i]) == TRUE & data_merged$Step6[i] == "Prednisolone<=10"){
       data_merged$CPD_treatment[i]="Prednisolone<=10"
     }
-    if(is.na(data_merged$Step1[i]) == FALSE & (is.na(data_merged$Step2[i]) == TRUE & is.na(data_merged$Step3[i]) == TRUE & (is.na(data_merged$Step4[i]) == TRUE | data_merged$Step4[i] == "Off treatment")& (is.na(data_merged$Step5[i]) == TRUE |  data_merged$Step5[i] == "Off treatment")& (is.na (data_merged$Step6[i])==TRUE | data_merged$Step6[i] == "Off treatment") 
+    if(is.na(data_merged$Step1[i]) == FALSE | (is.na(data_merged$Step2[i]) == TRUE & is.na(data_merged$Step3[i]) == TRUE & (is.na(data_merged$Step4[i]) == TRUE | data_merged$Step4[i] == "Off treatment")& (is.na(data_merged$Step5[i]) == TRUE |  data_merged$Step5[i] == "Off treatment")& (is.na (data_merged$Step6[i])==TRUE | data_merged$Step6[i] == "Off treatment") 
                                                   )){
       data_merged$CPD_treatment[i]="Off treatment"
     }
@@ -125,8 +125,8 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data, output_dir){
     paste0('Redcap_CPDTreatment_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
            , Sys.Date(), '.csv')
   )
-  write.csv(rkd_data, output_filename, row.names = FALSE)
-  return(rkd_data)
+  write.csv(data_merged, output_filename, row.names = FALSE)
+  return(data_merged)
   
   
 }
