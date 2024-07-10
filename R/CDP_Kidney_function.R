@@ -30,8 +30,8 @@ CPD_Kidney_function <- function (merge_data, renal, output_dir){
     stop('Specified output folder does not exist')
   }
   
-  
-  
+  renal_frame <- merge(renal, merge_data[, c("RKD.ID", "Date_Last_Follow_up")], by= "RKD.ID")
+  renal_frame <- renal_frame %>% distinct(RKD.ID, Date.of.transplant., .keep_all=TRUE)
   
   
   output_filename <- file.path(
