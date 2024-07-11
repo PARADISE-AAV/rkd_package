@@ -102,13 +102,16 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data, output_dir){
   data_merged$CPD_treatment <- ""
   n=nrow(data_merged)
   for (i in 1:n){
-    if(is.na(data_merged$Step1[i]) == TRUE & is.na(data_merged$Step2[i]) == FALSE & (is.na(data_merged$Step4[i])==T | data_merged$Step4[i] == "On treatment") & (is.na(data_merged$Step5[i])==T | data_merged$Step5[i] == "On treatment")){
+    if(is.na(data_merged$Step1[i]) == TRUE & is.na(data_merged$Step2[i]) == FALSE & (is.na(data_merged$Step4[i])==TRUE | data_merged$Step4[i] == "On treatment") & (is.na(data_merged$Step5[i])==T | data_merged$Step5[i] == "On treatment")){
       data_merged$CPD_treatment[i]="On Treatment"
     }
-    if(is.na(data_merged$Step1[i]) == TRUE & is.na(data_merged$Step2[i]) == FALSE & (is.na(data_merged$Step4[i])==F | data_merged$Step4[i] == "Off treatment")){
+    if(is.na(data_merged$Step1[i]) == TRUE & is.na(data_merged$Step2[i]) == FALSE & (is.na(data_merged$Step4[i])==FALSE & data_merged$Step4[i] == "Off treatment")){
       data_merged$CPD_treatment[i]="Manual review"
     }
-    if(is.na(data_merged$Step1[i]) == TRUE & is.na(data_merged$Step2[i]) == FALSE & is.na(data_merged$Step3[i])==FALSE & (is.na(data_merged$Step4[i])==T | data_merged$Step4[i] == "On treatment") & (is.na(data_merged$Step5[i])==T | data_merged$Step5[i] == "On treatment")){
+    if(is.na(data_merged$Step1[i]) == TRUE & is.na(data_merged$Step2[i]) == FALSE & is.na(data_merged$Step3[i])==FALSE & (is.na(data_merged$Step4[i])==TRUE | data_merged$Step4[i] == "On treatment") & (is.na(data_merged$Step5[i])==T | data_merged$Step5[i] == "On treatment")){
+      data_merged$CPD_treatment[i]="On Treatment"
+    }
+    if(is.na(data_merged$Step1[i]) == TRUE & is.na(data_merged$Step2[i]) == FALSE & is.na(data_merged$Step3[i])==TRUE & (is.na(data_merged$Step4[i])==FALSE | data_merged$Step4[i] == "On treatment") & (is.na(data_merged$Step5[i])==T | data_merged$Step5[i] == "On treatment")){
       data_merged$CPD_treatment[i]="On Treatment"
     }
   }
