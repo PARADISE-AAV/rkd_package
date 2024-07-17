@@ -68,7 +68,7 @@ CPD_Medication_Treatment= function(Medication, merged_data, output_dir){
       "Date.Of.Visit" = "Start.date.of.date.range",
       "Date.Of.Visit" = "End.date.of.date.range"
     ),
-    match_fun = list(`==`, `>`, `<`)
+    match_fun = list(`==`, `>`, `=<`)
   ) %>%
     select(everything())
   
