@@ -47,10 +47,10 @@ cpd_relapse <- function (RKDdata, interval_from_diagnostics){
                             "Discontinuation of immunosuppression within 6 months prior to this encounter", NA))
   set.seed(9582)
   
-  model_master_list <- readRDS(file = system.file("extdata/model_master_list_17.1.23.rds",package = "rkdpipeline"))
+  model_master_list <- readRDS(file = system.file("extdata/model_master_list_17.1.23.rds",package = "rivpipeline"))
   
   
-  cut_point_master <- readRDS(file = system.file("extdata/cut_point_master_17.1.23.rds",package = "rkdpipeline"))
+  cut_point_master <- readRDS(file = system.file("extdata/cut_point_master_17.1.23.rds",package = "rivpipeline"))
   model_ind <- expand.grid(c(0,1), c(0, 1), c(0, 1), c(0, 1), c(0, 1)) %>% apply(1, as.logical) %>% t
   model_ind <- model_ind[-1, ]
   id <- dat %>% 
