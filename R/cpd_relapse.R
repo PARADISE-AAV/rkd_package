@@ -15,6 +15,7 @@
 #' During this function, the model described by the article written by Dr Jennifer Scott. This model give us the possibility to tell if an encounter of a patient is in relapse or not despite we don't have the information given by the clinician.
 #' 
 #' @import dplyr
+#' @import lme4
 #' @export
 
 cpd_relapse <- function (RKDdata, interval_from_diagnostics){
