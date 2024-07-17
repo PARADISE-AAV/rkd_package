@@ -28,6 +28,7 @@ prep1_demo <- function(RKDdata){
   if(ncol(RKD_data)==0 | nrow(RKD_data)==0){
     stop("You give an empty files")
   }
+  RKD_data=as.data.frame(RKD_data)
   RKD_data$At.any.point.ANCA.specificity <- as.factor(RKD_data$At.any.point.ANCA.specificity)
   RKD_data$Small.vessel.vasculitis..ANCA.associated. <- as.factor(RKD_data$Small.vessel.vasculitis..ANCA.associated.)
   RKD_data$End.stage.kidney.disease <- as.factor(RKD_data$End.stage.kidney.disease)
