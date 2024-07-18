@@ -9,6 +9,7 @@
 #'
 #' @param merge_data Data from the merge of encounter and General characteristics in the \code{\link{Merge_Encounter_initial}} function
 #' @param output_dir folder where the Redcap data will be saved
+#' @param interval Number of month to be off treatment
 #' @details
 #' to be added
 #' @import lubridate
@@ -18,15 +19,18 @@
 #' @importFrom rlang .data
 #' @export
 
-CPD_LTROT_current <- function(merge_data, output_dir){
+CPD_LTROT_current <- function(merge_data, interval, output_dir){
   
   stopifnot("Your argument need to be a data frame"=is.data.frame(merge_data))
   stopifnot("Your argument need to be a character"=is.character(output_dir))
+  stopifnot("Your argument need to be a numeric"=is.numeric(interval))
   
   # Check output directory
   if (!dir.exists(output_dir)) {
     stop('Specified output folder does not exist')
   }
+  
+  
   
   
   output_filename <- file.path(
