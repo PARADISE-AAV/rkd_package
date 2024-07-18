@@ -32,6 +32,8 @@ CPD_LTROT_current <- function(merge_data, interval, output_dir){
     if(interval(min(dat$Date.Of.Visit), max(dat$Date.Of.Visit)) %/% months(1)>=interval){
       m=nrow(dat)
       for(j in 1:m){
+        intermax=dat$Date.Of.Visit[j]+interval*365/12
+        dat1 <- dat[which(dat$Date.Of.Visit>=dat$Date.Of.Visit[j] & dat$Date.Of.Visit<=intermax),]
         
       }
     }
