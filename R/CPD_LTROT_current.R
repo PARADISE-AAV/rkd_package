@@ -13,10 +13,6 @@
 #' @details
 #' to be added
 #' @import lubridate
-#' @import stringr
-#' @import dplyr
-#' @import forcats
-#' @importFrom rlang .data
 #' @export
 
 CPD_LTROT_current <- function(merge_data, interval, output_dir){
@@ -30,7 +26,13 @@ CPD_LTROT_current <- function(merge_data, interval, output_dir){
     stop('Specified output folder does not exist')
   }
   
-  
+  n=length(levels(as.factor(merge_data$RKD.ID)))
+  for (i in 1:n){
+    dat <- merge_data[which(merge_data$RKD.ID == levels(as.factor(merge_data$RKD.ID))[i] ),]
+    if(interval(min(dat$Date.Of.Visit), max(dat$Date.Of.Visit)) %/% months(1)>=interval){
+      
+    }
+  }
   
   
   output_filename <- file.path(
