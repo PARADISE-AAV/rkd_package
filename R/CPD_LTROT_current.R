@@ -30,7 +30,10 @@ CPD_LTROT_current <- function(merge_data, interval, output_dir){
   for (i in 1:n){
     dat <- merge_data[which(merge_data$RKD.ID == levels(as.factor(merge_data$RKD.ID))[i] ),]
     if(interval(min(dat$Date.Of.Visit), max(dat$Date.Of.Visit)) %/% months(1)>=interval){
-      
+      m=nrow(dat)
+      for(j in 1:m){
+        
+      }
     }
   }
   
