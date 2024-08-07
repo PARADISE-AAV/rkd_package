@@ -75,12 +75,14 @@ CPD_Kidney_function <- function (merge_data, renal, output_dir){
       Dialysis.1 == "" ~ "Functioning native kidneys"
     ))
   
+  merge_renal_frame <- merge_renal_frame[, -c("Dialysis.1", "Dialysis1")]
+  
   output_filename <- file.path(
     output_dir,
     paste0('Redcap_kidney_function_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
            , Sys.Date(), '.csv')
   )
-  write.csv(rkd_data, output_filename, row.names = FALSE)
-  return(rkd_data)
+  write.csv(merge_renal_frame, output_filename, row.names = FALSE)
+  return(merge_renal_frame)
   
 }
