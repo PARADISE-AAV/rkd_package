@@ -54,17 +54,25 @@ CPD_Kidney_function <- function (merge_data, renal, output_dir){
   
   rownames(merged_frame) <- NULL
   
-  merged_frame$Dialysis = "Transplant"
+  merged_frame$Dialysis1 = "Transplant"
   
   colnames(merged_frame)[1] = "RKD.ID"
   
-  merge_renal_frame = merge(merge_data, merged_frame[,c("RKD.ID", "Date.Of.Visit", "Date.of.transplant.", "Date.of.graft.failure", "Dialysis")], by= c("RKD.ID", "Date.Of.Visit"),all.x = TRUE)
+  merge_renal_frame = merge(merge_data, merged_frame[,c("RKD.ID", "Date.Of.Visit", "Date.of.transplant.", "Date.of.graft.failure", "Dialysis1")], by= c("RKD.ID", "Date.Of.Visit"),all.x = TRUE)
   
   merge_renal_frame <- merge_renal_frame %>% 
     dplyr::mutate(Dialysis.1 = dplyr::case_when(
       Dialysis.dependent == "Yes" ~ "On Dialysis",
       Dialysis.dependent == "No" ~ "Off Dialysis",
       Dialysis.dependent == "" ~ ""
+    ))
+  
+  merge_renal_frame <- merge_renal_frame %>% 
+    dplyr::mutate(Dialysis = dplyr::case_when(
+      Dialysis.1 == "On Dialysis" ~ "On Dialysis",
+      Dialysis.1 == "Off Dialysis" & is.na(Dialysis1) == TRUE ~ "Off Dialysis",
+      Dialysis.1 == "Off Dialysis"  & is.na(Dialysis1) == FALSE ~ "Transplant",
+      Dialysis.1 == "" ~ "Functioning native kidneys"
     ))
   
   output_filename <- file.path(
