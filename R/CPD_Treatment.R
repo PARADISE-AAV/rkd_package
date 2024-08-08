@@ -52,7 +52,15 @@ CPD_Treatment = function(treatment_data, output_dir){
     if(is.na(treatment_data$`Drug_Methotrexate - UATC/L01BA01`[i])==FALSE){
       treatment_data$treatment[i] = paste(treatment_data$treatment[i], ", ", treatment_data$`Drug_Methotrexate - UATC/L01BA01`[i], sep="")
     }
-    
+    if(is.na(treatment_data$`Drug_Mycophenolate mofetil - UATC/L04AA06`[i])==FALSE){
+      treatment_data$treatment[i] = paste(treatment_data$treatment[i], ", ", treatment_data$`Drug_Mycophenolate mofetil - UATC/L04AA06`[i], sep="")
+    }
+    if(is.na(treatment_data$`Drug_Prednisolone - UATC/H02AB06`[i])==FALSE){
+      treatment_data$treatment[i] = paste(treatment_data$treatment[i], ", ", treatment_data$`Drug_Prednisolone - UATC/H02AB06`[i], sep="")
+    }
+    if(is.na(treatment_data$`Drug_Other`[i])==FALSE){
+      treatment_data$treatment[i] = paste(treatment_data$treatment[i], ", ", treatment_data$`Drug_Other`[i], sep="")
+    }
   }
   
 }
