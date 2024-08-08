@@ -31,15 +31,28 @@ CPD_Treatment = function(treatment_data, output_dir){
   treatment_data$treatment = NA
   n=nrow(treatment_data)
   for(i in 1:n){
-    if(is.na(treatment_data$IV.therapy.x[i])==F){
+    if(is.na(treatment_data$IV.therapy.x[i])==FALSE){
       treatment_data$treatment[i] = paste(treatment_data$treatment[i], ", ", treatment_data$IV.therapy.x[i], sep="")
     }
-    if(is.na(treatment_data$IV.therapy.y[i])==F){
-      treatment_data$treatment[i] = paste(treatment_data$treatment[i], ", ", treatment_data$IV.therapy.y[i][i], sep="")
+    if(is.na(treatment_data$IV.therapy.y[i])==FALSE){
+      treatment_data$treatment[i] = paste(treatment_data$treatment[i], ", ", treatment_data$IV.therapy.y[i], sep="")
     }
-    if(is.na(treatment_data$IV.therapy[i])==F){
-      treatment_data$treatment[i] = paste(treatment_data$treatment[i], ", ", treatment_data$IV.therapy[i][i], sep="")
+    if(is.na(treatment_data$IV.therapy[i])==FALSE){
+      treatment_data$treatment[i] = paste(treatment_data$treatment[i], ", ", treatment_data$IV.therapy[i], sep="")
     }
+    if(is.na(treatment_data$`Drug_Avacopan (C5aR inhibitor)`[i])==FALSE){
+      treatment_data$treatment[i] = paste(treatment_data$treatment[i], ", ", treatment_data$`Drug_Avacopan (C5aR inhibitor)`[i], sep="")
+    }
+    if(is.na(treatment_data$`Drug_Azathioprine - UATC/L04AX01`[i])==FALSE){
+      treatment_data$treatment[i] = paste(treatment_data$treatment[i], ", ", treatment_data$`Drug_Azathioprine - UATC/L04AX01`[i], sep="")
+    }
+    if(is.na(treatment_data$`Drug_Cyclophosphamide - UATC/L01AA01`[i])==FALSE){
+      treatment_data$treatment[i] = paste(treatment_data$treatment[i], ", ", treatment_data$`Drug_Cyclophosphamide - UATC/L01AA01`[i], sep="")
+    }
+    if(is.na(treatment_data$`Drug_Methotrexate - UATC/L01BA01`[i])==FALSE){
+      treatment_data$treatment[i] = paste(treatment_data$treatment[i], ", ", treatment_data$`Drug_Methotrexate - UATC/L01BA01`[i], sep="")
+    }
+    
   }
   
 }
