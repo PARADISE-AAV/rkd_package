@@ -34,6 +34,12 @@ CPD_Treatment = function(treatment_data, output_dir){
     if(is.na(treatment_data$IV.therapy.x[i])==F){
       treatment_data$treatment[i] = paste(treatment_data$treatment[i], ", ", treatment_data$IV.therapy.x[i], sep="")
     }
+    if(is.na(treatment_data$IV.therapy.y[i])==F){
+      treatment_data$treatment[i] = paste(treatment_data$treatment[i], ", ", treatment_data$IV.therapy.y[i][i], sep="")
+    }
+    if(is.na(treatment_data$IV.therapy[i])==F){
+      treatment_data$treatment[i] = paste(treatment_data$treatment[i], ", ", treatment_data$IV.therapy[i][i], sep="")
+    }
   }
   
 }
