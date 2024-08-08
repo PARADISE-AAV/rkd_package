@@ -61,6 +61,9 @@ CPD_Treatment = function(treatment_data, output_dir){
     if(is.na(treatment_data$`Drug_Other`[i])==FALSE){
       treatment_data$treatment[i] = paste(treatment_data$treatment[i], ", ", treatment_data$`Drug_Other`[i], sep="")
     }
+    if(is.na(treatment_data$treatment[i])==TRUE & treatment_data$CPD_treatment[i]=="On Treatment"){
+      treatment_data$treatment[i] = paste(treatment_data$treatment[i], ", ", treatment_data$Immunosuppressive.medication[i], sep="")
+    }
   }
   
   output_filename <- file.path(
