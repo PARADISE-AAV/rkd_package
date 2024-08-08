@@ -28,10 +28,12 @@ CPD_Treatment = function(treatment_data, output_dir){
   if (!dir.exists(output_dir)) {
     stop('Specified output folder does not exist')
   }
-  
+  treatment_data$treatment = NA
   n=nrow(treatment_data)
   for(i in 1:n){
-    
+    if(is.na(treatment_data$IV.therapy.x[i])==F){
+      treatment_data$treatment[i] = paste(treatment_data$treatment[i], ", ", treatment_data$IV.therapy.x[i], sep="")
+    }
   }
   
 }
