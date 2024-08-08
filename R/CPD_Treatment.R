@@ -29,4 +29,9 @@ CPD_Treatment = function(treatment_data, output_dir){
     stop('Specified output folder does not exist')
   }
   
+  n=nrow(treatment_data)
+  for(i in 1:n){
+    
+  }
+  
 }
