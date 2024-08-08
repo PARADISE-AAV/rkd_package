@@ -25,7 +25,9 @@ CPD_LTROT_current <- function(merge_data, interval, output_dir){
   if (!dir.exists(output_dir)) {
     stop('Specified output folder does not exist')
   }
+  
   merge_data$LTROT_current=NA
+  merge_data_LTROT=NULL
   n=length(levels(as.factor(merge_data$RKD.ID)))
   for (i in 1:n){
     dat <- merge_data[which(merge_data$RKD.ID == levels(as.factor(merge_data$RKD.ID))[i] ),]
@@ -35,10 +37,12 @@ CPD_LTROT_current <- function(merge_data, interval, output_dir){
         intermax=dat$Date.Of.Visit[j]+interval*365/12
         dat1 <- dat[which(dat$Date.Of.Visit>=dat$Date.Of.Visit[j] & dat$Date.Of.Visit<=intermax),]
         if(dim(table(dat1$CPD_relapse))==1 & dat1$CPD_relapse[1]=="No Relapse" & dim(table(dat1$CPD_treatment))==1 & dat1$CPD_treatment[1]=="Off Treatment"){
-          
+          dat1$LTROT_current[nrow(dat1)]="LTROT"
         }
+        merge_data_LTROT=rbind(merge_data_LTROT,dat1[,c("RKD.ID", "Date.Of.Visit", "LTROT_current")])
       }
     }
+    
   }
   
   
