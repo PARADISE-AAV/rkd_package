@@ -63,4 +63,12 @@ CPD_Treatment = function(treatment_data, output_dir){
     }
   }
   
+  output_filename <- file.path(
+    output_dir,
+    paste0('Redcap_CPDTreatment_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
+           , Sys.Date(), '.csv')
+  )
+  write.csv(treatment_data, output_filename, row.names = FALSE)
+  return(treatment_data)
+  
 }
