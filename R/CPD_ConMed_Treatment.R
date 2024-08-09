@@ -92,7 +92,7 @@ CPD_Medication_Treatment= function(Medication, merged_data, output_dir){
                          "Drug_Mycophenolate mofetil - UATC/L04AA06", "Drug_Other", "Drug_Prednisolone - UATC/H02AB06")))%>%
     ungroup
   
-  merged_frame_unique <- merged_frame_all[!duplicated(merged_frame_all[,c(1:2,17)]), ]
+  merged_frame_unique <- merged_frame_all[!duplicated(merged_frame_all[,c(1:2,ncol(merged_frame_all))]), ]
   
   return(merged_frame_unique)
   
