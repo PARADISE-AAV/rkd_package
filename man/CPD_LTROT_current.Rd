@@ -7,7 +7,7 @@
 CPD_LTROT_current(merge_data, interval, output_dir)
 }
 \arguments{
-\item{merge_data}{Data from the merge of encounter and General characteristics in the \code{\link{Merge_Encounter_initial}} function}
+\item{merge_data}{Data from the merge of encounter and General characteristics in the \code{\link{CPD_Treatment}} function}
 
 \item{interval}{Number of month to be off treatment}
 
