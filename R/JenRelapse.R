@@ -39,27 +39,30 @@ CPDRelapse <- function(RKDdata, interval_from_diagnostics = 6){
   n=nrow(CPD_Relapse_RKD_data)
   CPD_Relapse_RKD_data$CPD_relapse=NA
   for( i in 1:n){
-    if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="High Probability" | CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="Definite" | CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="1"){
-      CPD_Relapse_RKD_data$CPD_relapse[i]="Definite Relapse"
+    if(is.na(CPD_Relapse_RKD_data$rel.JS.OVERALL[i])==FALSE){
+      if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="High Probability" | CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="Definite" | CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="1"){
+        CPD_Relapse_RKD_data$CPD_relapse[i]="Definite Relapse"
+      }
+      if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="No" | CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="0"){
+        CPD_Relapse_RKD_data$CPD_relapse[i]="No Relapse"
+      }
+      if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="Possible"){
+        CPD_Relapse_RKD_data$CPD_relapse[i]="Possible Relapse"
+      }
+      if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="Relapse within 90d, so exclude"){
+        CPD_Relapse_RKD_data$CPD_relapse[i]="Exclude this encounter"
+      }
+      if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="Manual review" & CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]== "None"){
+        CPD_Relapse_RKD_data$CPD_relapse[i]="No Relapse"
+      }
+      if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="Manual review" & (CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]!= "None" & CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]!= "") & CPD_Relapse_RKD_data$Do.you.think.Vasculitis.is.relapsing.in.this.encounter[i]=="High Probability"){
+        CPD_Relapse_RKD_data$CPD_relapse[i]="Definite Relapse"
+      }
+      if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="Manual review" & (CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]!= "None" & CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]!= "") & CPD_Relapse_RKD_data$Do.you.think.Vasculitis.is.relapsing.in.this.encounter[i]=="Possibly"){
+        CPD_Relapse_RKD_data$CPD_relapse[i]="Possible Relapse"
+      }
     }
-    if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="No" | CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="0"){
-      CPD_Relapse_RKD_data$CPD_relapse[i]="No Relapse"
-    }
-    if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="Possible"){
-      CPD_Relapse_RKD_data$CPD_relapse[i]="Possible Relapse"
-    }
-    if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="Relapse within 90d, so exclude"){
-      CPD_Relapse_RKD_data$CPD_relapse[i]="Exclude this encounter"
-    }
-    if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="Manual review" & CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]== "None"){
-      CPD_Relapse_RKD_data$CPD_relapse[i]="No Relapse"
-    }
-    if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="Manual review" & (CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]!= "None" & CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]!= "") & CPD_Relapse_RKD_data$Do.you.think.Vasculitis.is.relapsing.in.this.encounter[i]=="High Probability"){
-      CPD_Relapse_RKD_data$CPD_relapse[i]="Definite Relapse"
-    }
-    if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="Manual review" & (CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]!= "None" & CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]!= "") & CPD_Relapse_RKD_data$Do.you.think.Vasculitis.is.relapsing.in.this.encounter[i]=="Possibly"){
-      CPD_Relapse_RKD_data$CPD_relapse[i]="Possible Relapse"
-    }
+    
   }
   
   return(CPD_Relapse_RKD_data)
