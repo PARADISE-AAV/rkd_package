@@ -34,7 +34,7 @@ CPDRelapse <- function(RKDdata, interval_from_diagnostics = 6){
   final_data <- cpd_relapse(prep2_data, interval_from_diagnostics)
   relapse_final_data <- Relapse_final(final_data)
   
-  CPD_Relapse_RKD_data <- merge(RKD_data, relapse_final_data, by.x = c("RKD.ID", "Date.Of.Visit"), by.y = c("ID", "Date.Of.Visit"))
+  CPD_Relapse_RKD_data <- merge(RKD_data, relapse_final_data, by.x = c("RKD.ID", "Date.Of.Visit"), by.y = c("ID", "Date.Of.Visit"),all.x=TRUE)
   
   n=nrow(CPD_Relapse_RKD_data)
   CPD_Relapse_RKD_data$CPD_relapse=NA
