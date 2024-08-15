@@ -26,6 +26,7 @@ CPD_LTROT_current <- function(merge_data, interval, output_dir){
     stop('Specified output folder does not exist')
   }
   
+  merge_data=merge_data[which(is.na(merge_data$CPD_relapse)==FALSE),]
   merge_data$LTROT_current=NA
   merge_data_LTROT=NULL
   n=length(levels(as.factor(merge_data$RKD.ID)))
@@ -44,7 +45,7 @@ CPD_LTROT_current <- function(merge_data, interval, output_dir){
     }
     
   }
-  
+  merge_data_LTROT=merge_data_LTROT[!duplicated(merge_data_LTROT[,c(1:2)]),]
   
   output_filename <- file.path(
     output_dir,
