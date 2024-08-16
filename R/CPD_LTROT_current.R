@@ -13,6 +13,7 @@
 #' @details
 #' to be added
 #' @import lubridate
+#' @import dplyr
 #' @export
 
 CPD_LTROT_current <- function(merge_data, interval, output_dir){
@@ -26,12 +27,12 @@ CPD_LTROT_current <- function(merge_data, interval, output_dir){
     stop('Specified output folder does not exist')
   }
   
-  merge_data=merge_data[which(is.na(merge_data$CPD_relapse)==FALSE),]
-  merge_data$LTROT_current=NA
+  merge_data1=merge_data[which(is.na(merge_data$CPD_relapse)==FALSE),]
+  merge_data1$LTROT_current=NA
   merge_data_LTROT=NULL
-  n=length(levels(as.factor(merge_data$RKD.ID)))
+  n=length(levels(as.factor(merge_data1$RKD.ID)))
   for (i in 1:n){
-    dat <- merge_data[which(merge_data$RKD.ID == levels(as.factor(merge_data$RKD.ID))[i] ),]
+    dat <- merge_data1[which(merge_data1$RKD.ID == levels(as.factor(merge_data1$RKD.ID))[i] ),]
     if(interval(min(dat$Date.Of.Visit), max(dat$Date.Of.Visit)) %/% months(1)>=interval){
       m=nrow(dat)
       for(j in 1:m){
@@ -47,12 +48,14 @@ CPD_LTROT_current <- function(merge_data, interval, output_dir){
   }
   merge_data_LTROT=merge_data_LTROT[!duplicated(merge_data_LTROT[,c(1:2)]),]
   
+  merge_LTROT=merge(merge_data1, merge_data_LTROT, by = c("RKD.ID", "Date.Of.Visit"), all.x = TRUE)
+  
   output_filename <- file.path(
     output_dir,
     paste0('Redcap_ltrot_current_function_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
            , Sys.Date(), '.csv')
   )
-  write.csv(rkd_data, output_filename, row.names = FALSE)
-  return(rkd_data)
+  write.csv(merge_LTROT, output_filename, row.names = FALSE)
+  return(merge_LTROT)
   
 }
