@@ -5,7 +5,7 @@
 #' 
 #' Version: 1.0
 #' 
-#' Date: 17-Apr-23
+#' Date: 15-Aug-23
 #'
 #' @param merge_data Data from the merge of encounter and General characteristics in the \code{\link{CPD_Treatment}} function
 #' @param output_dir folder where the Redcap data will be saved
