@@ -9,7 +9,7 @@
 #'
 #' @param merge_data Data from the merge of encounter and General characteristics in the \code{\link{CPD_Treatment}} function
 #' @param output_dir folder where the Redcap data will be saved
-#' @param interval Number of month to be off treatment
+#' @param interval Number of day to be off treatment
 #' @details
 #' to be added
 #' @import lubridate
@@ -33,10 +33,10 @@ CPD_LTROT_current <- function(merge_data, interval, output_dir){
   n=length(levels(as.factor(merge_data1$RKD.ID)))
   for (i in 1:n){
     dat <- merge_data1[which(merge_data1$RKD.ID == levels(as.factor(merge_data1$RKD.ID))[i] ),]
-    if(interval(min(dat$Date.Of.Visit), max(dat$Date.Of.Visit)) %/% months(1)>=interval){
+    if(as.numeric(difftime(max(dat$Date.Of.Visit), min(dat$Date.Of.Visit)))>=interval){
       m=nrow(dat)
       for(j in 1:m){
-        intermax=dat$Date.Of.Visit[j]+interval*365/12
+        intermax=dat$Date.Of.Visit[j]+interval
         dat1 <- dat[which(dat$Date.Of.Visit>=dat$Date.Of.Visit[j] & dat$Date.Of.Visit<=intermax),]
         if(dim(table(dat1$CPD_relapse))==1 & dat1$CPD_relapse[1]=="No Relapse" & dim(table(dat1$CPD_treatment))==1 & dat1$CPD_treatment[1]=="Off Treatment"){
           dat1$LTROT_current[nrow(dat1)]="LTROT"
@@ -48,7 +48,7 @@ CPD_LTROT_current <- function(merge_data, interval, output_dir){
   }
   merge_data_LTROT=merge_data_LTROT[!duplicated(merge_data_LTROT[,c(1:2)]),]
   
-  merge_LTROT=merge(merge_data1, merge_data_LTROT, by = c("RKD.ID", "Date.Of.Visit"), all.x = TRUE)
+  merge_LTROT=merge(merge_data, merge_data_LTROT, by = c("RKD.ID", "Date.Of.Visit"), all.x = TRUE)
   
   output_filename <- file.path(
     output_dir,
