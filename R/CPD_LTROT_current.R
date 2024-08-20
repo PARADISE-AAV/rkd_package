@@ -38,10 +38,15 @@ CPD_LTROT_current <- function(merge_data, interval, output_dir){
       for(j in 1:m){
         intermax=dat$Date.Of.Visit[j]+interval
         dat1 <- dat[which(dat$Date.Of.Visit>=dat$Date.Of.Visit[j] & dat$Date.Of.Visit<=intermax),]
-        if(dim(table(dat1$CPD_relapse))==1 & dat1$CPD_relapse[1]=="No Relapse" & dim(table(dat1$CPD_treatment))==1 & dat1$CPD_treatment[1]=="Off Treatment"){
-          dat1$LTROT_current[nrow(dat1)]="LTROT"
+        if(max(dat$Date.Of.Visit)>intermax){
+          dat2 <- dat[min(which(dat$Date.Of.Visit>intermax)),]
+          dat3=rbind(dat1,dat2)
+          if(dim(table(dat3$CPD_relapse))==1 & dat3$CPD_relapse[1]=="No Relapse" & dim(table(dat3$CPD_treatment))==1 & dat3$CPD_treatment[1]=="Off Treatment"){
+            dat3$LTROT_current[nrow(dat3)]="LTROT"
+          }
         }
-        merge_data_LTROT=rbind(merge_data_LTROT,dat1[,c("RKD.ID", "Date.Of.Visit", "LTROT_current")])
+        
+        merge_data_LTROT=rbind(merge_data_LTROT,dat3[,c("RKD.ID", "Date.Of.Visit", "LTROT_current")])
       }
     }
     
