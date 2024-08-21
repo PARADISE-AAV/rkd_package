@@ -42,10 +42,10 @@ CPD_Medication_Treatment= function(Medication, merged_data, output_dir){
     dat2=dat1[order(c(dat1$Drug)),]
     for(j in 1:nrow(dat2)){
       if(is.na(dat2$Stop.Date[j])==TRUE & is.na(dat2$Start.Date[j])==FALSE & is.na(dat2$Date_Last_Follow_up[j])==FALSE){
-          if(j == nrow(dat2) & interval(dat2$Start.Date[j], dat2$Date_Last_Follow_up[j]) %/% months(1)<=6){
+          if(j == nrow(dat2) & interval(dat2$Start.Date[j], dat2$Date_Last_Follow_up[j]) / months(1)<=6){
             dat2$Stop.Date[j]= dat2$Date_Last_Follow_up[j]
           }else{
-            if(dat2$Drug[j] == dat2$Drug[j+1] & interval(dat2$Start.Date[j], dat2$Date_Last_Follow_up[j]) %/% months(1)<=6)
+            if(dat2$Drug[j] == dat2$Drug[j+1] & interval(dat2$Start.Date[j], dat2$Date_Last_Follow_up[j]) / months(1)<=6)
               dat2$Stop.Date[j] = dat2$Start.Date[j+1]
           }
       }
