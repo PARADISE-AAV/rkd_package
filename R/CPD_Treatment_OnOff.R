@@ -89,7 +89,7 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data, output_dir){
     }
     if((is.na(data_merged$`Drug_Avacopan (C5aR inhibitor)`[i]) == FALSE | is.na(data_merged$`Drug_Azathioprine - UATC/L04AX01`[i]) == FALSE | is.na(data_merged$`Drug_Cyclophosphamide - UATC/L01AA01`[i]) == FALSE 
        | is.na(data_merged$`Drug_Methotrexate - UATC/L01BA01`[i]) == FALSE | is.na(data_merged$`Drug_Mycophenolate mofetil - UATC/L04AA06`[i]) == FALSE 
-       | is.na(data_merged$`Drug_Other`[i]) == FALSE) & is.na(data_merged$Step6[i])==TRUE){
+       | is.na(data_merged$`Drug_Other`[i]) == FALSE)){
       data_merged$Step6[i]="On treatment"
     }
     if(is.na(data_merged$`Drug_Avacopan (C5aR inhibitor)`[i]) == TRUE & is.na(data_merged$`Drug_Azathioprine - UATC/L04AX01`[i]) == TRUE & is.na(data_merged$`Drug_Cyclophosphamide - UATC/L01AA01`[i]) == TRUE 
