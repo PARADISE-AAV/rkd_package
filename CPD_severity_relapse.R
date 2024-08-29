@@ -27,8 +27,8 @@ CPD_Severity_Relapse <- function(merge_data, output_dir){
   
   merge_data <- merge_data %>%
     dplyr::mutate(relapse_severity = dplyr::case_when(
-      CPD_relapse == "Definite Relapse" &  ~ "Off treatment",
-      Immunosuppressive.medication != "No" & Immunosuppressive.medication != "" ~ "On treatment"
+      CPD_relapse == "Definite Relapse" & Number.of.major.BVAS.items > 0 ~ "Major Relapse",
+      CPD_relapse == "Definite Relapse" & Number.of.major.BVAS.items == 0 ~ "Minor Relapse"
     ))
   
   
