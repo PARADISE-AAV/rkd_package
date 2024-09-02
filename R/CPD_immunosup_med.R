@@ -60,10 +60,13 @@ CPD_immunosup_med <- function(treatment_data, output_dir){
   treatment_data$immunosup_med_10[grep("Avacopan", treatment_data$treatment)]="Yes"
   
   treatment_data$immunosup_med_11="No"
-  treatment_data$immunosup_med_11[grep("Other", treatment_data$treatment)]="Yes"
+  treatment_data$immunosup_med_11[grep("Prednisolone", treatment_data$treatment)]="Yes"
   
   treatment_data$immunosup_med_12="No"
-  treatment_data$immunosup_med_12[which(is.na(treatment_data$treatment)==TRUE)]="Yes"
+  treatment_data$immunosup_med_12[grep("Other", treatment_data$treatment)]="Yes"
+  
+  treatment_data$immunosup_med_13="No"
+  treatment_data$immunosup_med_13[which(is.na(treatment_data$treatment)==TRUE)]="Yes"
   
   
   output_filename <- file.path(
