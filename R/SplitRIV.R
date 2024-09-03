@@ -80,7 +80,7 @@ SplitRIV <- function(RIVdata, output_dir){
   
   rkd_Transplantation <- dplyr::filter(
     data,
-    .data$Repeat.Instrument == "Renal transplantations"
+    .data$Repeat.Instrument == "Renal transplantation"
   )
   rkd_Transplantation_filtered <- rkd_Transplantation %>%
     dplyr::select(!dplyr::where(~ all(is.na(.x)))) %>%
