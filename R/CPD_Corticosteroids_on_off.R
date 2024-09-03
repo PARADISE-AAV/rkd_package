@@ -29,7 +29,7 @@ CPD_Corticosteroids_on_off <- function(merge_data, output_dir){
   
   output_filename <- file.path(
     output_dir,
-    paste0('Redcap_ltrot_current_function_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
+    paste0('Redcap_CPD_Corticosteroids_on_off_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
            , Sys.Date(), '.csv')
   )
   write.csv(merge_LTROT, output_filename, row.names = FALSE)
