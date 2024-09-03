@@ -26,7 +26,10 @@ CPD_treatment_discontunition = function (merge_data, output_dir){
   }
   
   merge_data$Step1_TD = NA
-  
+  merge_data$Step2_TD = NA
+  merge_data$Step3_TD = NA
+  merge_data$Step4_TD = NA
+  merge_data$Step5_TD = NA
   
   output_filename <- file.path(
     output_dir,
