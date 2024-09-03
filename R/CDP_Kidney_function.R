@@ -74,8 +74,8 @@ CPD_Kidney_function <- function (merge_data, renal, output_dir){
       Dialysis.1 == "Off Dialysis"  & is.na(Dialysis1) == FALSE ~ "Transplant",
       Dialysis.1 == "" ~ "Functioning native kidneys"
     ))
-  
-  merge_renal_frame <- merge_renal_frame[, -c("Dialysis.1", "Dialysis1")]
+  a=which(colnames(merge_renal_frame)=="Dialysis.1" | colnames(merge_renal_frame)=="Dialysis1")
+  merge_renal_frame <- merge_renal_frame[, -a]
   
   output_filename <- file.path(
     output_dir,
