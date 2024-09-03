@@ -32,5 +32,14 @@ CPD_IS_Imputation <- function(Encounter, output_dir){
       Encounter$Immunosuppressive.medication[i] = Encounter$Immunosuppressive.medication[i-1]
     }
   }
+  
+  
+  output_filename <- file.path(
+    output_dir,
+    paste0('Redcap_IS_medication_imputation_function_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
+           , Sys.Date(), '.csv')
+  )
+  write.csv(Encounter, output_filename, row.names = FALSE)
   return(Encounter)
+  
 }
