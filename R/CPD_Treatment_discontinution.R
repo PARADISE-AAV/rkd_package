@@ -25,6 +25,7 @@ CPD_treatment_discontunition = function (merge_data, output_dir){
     stop('Specified output folder does not exist')
   }
   
+  merge_data$Step1_TD = NA
   
   
   output_filename <- file.path(
