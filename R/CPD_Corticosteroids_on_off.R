@@ -25,12 +25,18 @@ CPD_Corticosteroids_on_off <- function(merge_data, output_dir){
     stop('Specified output folder does not exist')
   }
   
-  n=nrow(merge_data)
-  merge_data$Corticosteroids_On_off=merge_data$Corticosteroids
-  a=grep("prednisolone", merge_data$treatment)
-  b=which(merge_data$Corticosteroids_On_off=="")
-  c=inner_join(as.data.frame(a),as.data.frame(a))
-  merge_data$Corticosteroids_On_off[ as.numeric(c$a)]="On"
+  
+  merge_data <- merge_data %>%
+    dplyr::mutate(Step1 = dplyr::case_when(
+      Corticosteroids =="Yes" ~ "On",
+      Corticosteroids =="No"  ~ "Off"
+    ))
+  a=as.data.frame(grep("prednisolone", merge_data$treatment))
+  b=as.data.frame(which(merge_data$Corticosteroids_On_off==""))
+  colnames(a)="x"
+  colnames(b)="x"
+  c=inner_join(a,b)
+  merge_data$Corticosteroids_On_off[ as.numeric(c$x)]="On"
   
   
   output_filename <- file.path(
