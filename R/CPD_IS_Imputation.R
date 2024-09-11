@@ -25,11 +25,20 @@ CPD_IS_Imputation <- function(Encounter, output_dir){
     stop('Specified output folder does not exist')
   }
   
-  n=nrow(Encounter)-1
-  for(i in 2:n){
-    if((Encounter$RKD.ID[i-1]==Encounter$RKD.ID[i] & Encounter$RKD.ID[i+1]==Encounter$RKD.ID[i]) & Encounter$Immunosuppressive.medication[i]==""
-       & Encounter$Immunosuppressive.medication[i-1] == Encounter$Immunosuppressive.medication[i+1] & as.numeric(Encounter$Date.Of.Visit[i+1]-Encounter$Date.Of.Visit[i-1])<=730){
-      Encounter$Immunosuppressive.medication[i] = Encounter$Immunosuppressive.medication[i-1]
+  n=length(levels(as.factor(Encounter$RKD.ID)))
+  for(i in 1:n){
+    dat=Encounter[which(Encounter$RKD.ID==levels(as.factor(Encounter$RKD.ID))[i]),]
+    m=nrow(dat)
+    for (j in 2:m){
+      if(dat$Immunosuppressive.medication[j]==""){
+        if(dat$Immunosuppressive.medication[j-1]!="" & j!=m){
+          if(dat$Immunosuppressive.medication[j+1]!="" & j+1!=m){
+            
+          }else{
+            
+          }
+        }
+      }
     }
   }
   
