@@ -25,6 +25,10 @@ CPD_Corticosteroids_on_off <- function(merge_data, output_dir){
     stop('Specified output folder does not exist')
   }
   
+  n=nrow(merge_data)
+  for (i in 1:n){
+    
+  }
   
   
   output_filename <- file.path(
@@ -32,7 +36,7 @@ CPD_Corticosteroids_on_off <- function(merge_data, output_dir){
     paste0('Redcap_CPD_Corticosteroids_on_off_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
            , Sys.Date(), '.csv')
   )
-  write.csv(merge_LTROT, output_filename, row.names = FALSE)
-  return(merge_LTROT)
+  write.csv(merge_data, output_filename, row.names = FALSE)
+  return(merge_data)
   
 }
