@@ -58,13 +58,13 @@ CPD_IS_Imputation <- function(Encounter, output_dir){
                     dat$Immunosuppressive.medication[j]=dat$Immunosuppressive.medication[j-1]
                   }
                 }
+              }
             }
+          }
+          }
           }
         }
       }
-    }
-    
-    }
     Encounter2=rbind(Encounter2,dat)
   } 
   
