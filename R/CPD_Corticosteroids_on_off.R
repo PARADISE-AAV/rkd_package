@@ -26,8 +26,9 @@ CPD_Corticosteroids_on_off <- function(merge_data, output_dir){
   }
   
   n=nrow(merge_data)
+  merge_data$Corticosteroids_On_off=merge_data$Corticosteroids
   for (i in 1:n){
-    
+    if
   }
   
   
