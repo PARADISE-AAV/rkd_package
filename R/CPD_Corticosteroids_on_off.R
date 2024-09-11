@@ -27,9 +27,10 @@ CPD_Corticosteroids_on_off <- function(merge_data, output_dir){
   
   n=nrow(merge_data)
   merge_data$Corticosteroids_On_off=merge_data$Corticosteroids
-  for (i in 1:n){
-    if
-  }
+  a=grep("prednisolone", merge_data$treatment)
+  b=which(merge_data$Corticosteroids_On_off=="")
+  c=inner_join(as.data.frame(a),as.data.frame(a))
+  merge_data$Corticosteroids_On_off[ as.numeric(c$a)]="On"
   
   
   output_filename <- file.path(
