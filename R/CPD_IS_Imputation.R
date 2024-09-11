@@ -51,7 +51,13 @@ CPD_IS_Imputation <- function(Encounter, output_dir){
                    as.numeric(dat$Date.Of.Visit[j+3]-dat$Date.Of.Visit[j-1])<=730){
                   dat$Immunosuppressive.medication[j]=dat$Immunosuppressive.medication[j-1]
                 }
-              }
+              }else{
+                if(dat$Immunosuppressive.medication[j+4]!="" & j+4<=m){
+                  if(dat$Immunosuppressive.medication[j+4] == dat$Immunosuppressive.medication[j-1]& 
+                     as.numeric(dat$Date.Of.Visit[j+4]-dat$Date.Of.Visit[j-1])<=730){
+                    dat$Immunosuppressive.medication[j]=dat$Immunosuppressive.medication[j-1]
+                  }
+                }
             }
           }
         }
@@ -60,7 +66,7 @@ CPD_IS_Imputation <- function(Encounter, output_dir){
     
     }
     Encounter2=rbind(Encounter2,dat)
-    } 
+  } 
   
   output_filename <- file.path(
     output_dir,
