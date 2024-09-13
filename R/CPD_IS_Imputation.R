@@ -57,6 +57,13 @@ CPD_IS_Imputation <- function(Encounter, output_dir){
                      as.numeric(dat$Date.Of.Visit[j+4]-dat$Date.Of.Visit[j-1])<=730){
                     dat$Immunosuppressive.medication[j]=dat$Immunosuppressive.medication[j-1]
                   }
+                }else{
+                  if(dat$Immunosuppressive.medication[j+5]!="" & j+5<=m){
+                    if(dat$Immunosuppressive.medication[j+5] == dat$Immunosuppressive.medication[j-1]& 
+                       as.numeric(dat$Date.Of.Visit[j+5]-dat$Date.Of.Visit[j-1])<=730){
+                      dat$Immunosuppressive.medication[j]=dat$Immunosuppressive.medication[j-1]
+                    }
+                  }
                 }
               }
             }
