@@ -2,6 +2,7 @@
 
 export(ANCA_titre)
 export(AddBiomarkerRIV)
+export(AntiGBMDisease)
 export(CPDRelapse)
 export(CPD_ANCA)
 export(CPD_ANCA_kinetics)
