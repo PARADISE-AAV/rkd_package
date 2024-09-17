@@ -9,11 +9,12 @@
 #'
 #' @param RKDdata a list from \code{\link{SplitRIV}} function
 #' @param output_path folder where the Redcap data will be saved
-#' @param algorithm function use to filter the RKD patient, the possibility are "Definite GPA/MPA" or "Definite GPA/MPA/EGPA"
+#' @param algorithm function use to filter the RKD patient, the possibility are "Definite GPA/MPA" or "Definite GPA/MPA/EGPA" or "Anti-GBM"
 #' @return The Redcap data with the classification variables in your folder and in an R object 
 #' @details The filter of the RKD data are based on the following filter
 #' * Definite MPA/GPA without secondary vasculitis with more explanation in \code{\link{DemographicFilterRIV}}
 #' * Definite MPA/GPA/EGPA without secondary vasculitis with more explanation in \code{\link{DemographicFilterRIV_EGPA}}
+#' * Anti-GBM Disease in \code{\link{AntiGBMDisease}}
 #' 
 #' @export
 FilterRIV = function(RKDdata, output_path, algorithm) {
@@ -24,7 +25,7 @@ FilterRIV = function(RKDdata, output_path, algorithm) {
   if (is.character(output_path) == FALSE) {
     stop("The argument output_path need to be a character argument")
   }
-  algorithm <- match.arg(algorithm, c("Definite GPA/MPA","Definite GPA/MPA/EGPA"))
+  algorithm <- match.arg(algorithm, c("Definite GPA/MPA","Definite GPA/MPA/EGPA","Anti-GBM"))
   
   RKD_data <- RKDdata$Initial
   ###check that you load a real file
@@ -37,6 +38,9 @@ FilterRIV = function(RKDdata, output_path, algorithm) {
   }
   if (algorithm == "Definite GPA/MPA/EGPA") {
     Filter_RKD_data <- DemographicFilterRIV_EGPA(RKD_data)
+  }
+  if (algorithm == "Anti-GBM") {
+    Filter_RKD_data <- AntiGBMDisease(RKD_data)
   }
   
   files_test <-  list.dirs(output_path)
