@@ -30,49 +30,9 @@ CPD_IS_Imputation <- function(Encounter, output_dir){
   for(i in 1:n){
     dat=Encounter[which(Encounter$RKD.ID==levels(as.factor(Encounter$RKD.ID))[i]),]
     m=nrow(dat)
-    if(m>3){
-      for (j in 2:m){
-        if(dat$Immunosuppressive.medication[j]==""){
-          if(dat$Immunosuppressive.medication[j-1]!="" & j<=m){
-            if(dat$Immunosuppressive.medication[j+1]!="" & j+1<=m){
-              if(dat$Immunosuppressive.medication[j+1] == dat$Immunosuppressive.medication[j-1] & 
-                 as.numeric(dat$Date.Of.Visit[j+1]-dat$Date.Of.Visit[j-1])<=730){
-                dat$Immunosuppressive.medication[j]=dat$Immunosuppressive.medication[j-1]
-              }
-            }else{
-              if(dat$Immunosuppressive.medication[j+2]!="" & j+2<=m){
-                if(dat$Immunosuppressive.medication[j+2] == dat$Immunosuppressive.medication[j-1]& 
-                   as.numeric(dat$Date.Of.Visit[j+2]-dat$Date.Of.Visit[j-1])<=730){
-                  dat$Immunosuppressive.medication[j]=dat$Immunosuppressive.medication[j-1]
-                }
-              }else{
-              if(dat$Immunosuppressive.medication[j+3]!="" & j+3<=m){
-                if(dat$Immunosuppressive.medication[j+3] == dat$Immunosuppressive.medication[j-1]& 
-                   as.numeric(dat$Date.Of.Visit[j+3]-dat$Date.Of.Visit[j-1])<=730){
-                  dat$Immunosuppressive.medication[j]=dat$Immunosuppressive.medication[j-1]
-                }
-              }else{
-                if(dat$Immunosuppressive.medication[j+4]!="" & j+4<=m){
-                  if(dat$Immunosuppressive.medication[j+4] == dat$Immunosuppressive.medication[j-1]& 
-                     as.numeric(dat$Date.Of.Visit[j+4]-dat$Date.Of.Visit[j-1])<=730){
-                    dat$Immunosuppressive.medication[j]=dat$Immunosuppressive.medication[j-1]
-                  }
-                }else{
-                  if(dat$Immunosuppressive.medication[j+5]!="" & j+5<=m){
-                    if(dat$Immunosuppressive.medication[j+5] == dat$Immunosuppressive.medication[j-1]& 
-                       as.numeric(dat$Date.Of.Visit[j+5]-dat$Date.Of.Visit[j-1])<=730){
-                      dat$Immunosuppressive.medication[j]=dat$Immunosuppressive.medication[j-1]
-                    }
-                  }
-                }
-              }
-            }
-          }
-          }
-          }
-        }
-      }
-    Encounter2=rbind(Encounter2,dat)
+    if(m>2){
+      
+    }
   } 
   
   output_filename <- file.path(
