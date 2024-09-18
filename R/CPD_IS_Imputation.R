@@ -31,8 +31,17 @@ CPD_IS_Imputation <- function(Encounter, output_dir){
     dat=Encounter[which(Encounter$RKD.ID==levels(as.factor(Encounter$RKD.ID))[i]),]
     m=nrow(dat)
     if(m>2){
-      
+      for(j in 2:m){
+        if(dat$Immunosuppressive.medication[j]==""){
+          k=j
+          while(dat$Immunosuppressive.medication[k]==""){
+            k=k+1
+            print(k)
+          }
+        }
+      }
     }
+    Encounter2=rbind(Encounter2,dat)
   } 
   
   output_filename <- file.path(
