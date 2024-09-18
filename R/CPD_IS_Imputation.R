@@ -36,7 +36,6 @@ CPD_IS_Imputation <- function(Encounter, output_dir){
           k=j
           while(dat$Immunosuppressive.medication[k]==""){
             k=k+1
-            print(k)
           }
           if(as.numeric(dat$Date.Of.Visit[k]-dat$Date.Of.Visit[j-1])<=730 & dat$Immunosuppressive.medication[k]==dat$Immunosuppressive.medication[j-1]){
             dat$Immunosuppressive.medication[j:k-1]=dat$Immunosuppressive.medication[j-1]
