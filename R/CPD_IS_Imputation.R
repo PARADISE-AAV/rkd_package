@@ -15,7 +15,7 @@
 #' @import lubridate
 #' @export
 
-CPD_IS_Imputation <- function(Encounter, output_dir){
+CPD_IS_medication_Imputation <- function(Encounter, output_dir){
   
   stopifnot("Your argument need to be a data frame"=is.data.frame(Encounter))
   stopifnot("Your argument need to be a character"=is.character(output_dir))
@@ -34,7 +34,7 @@ CPD_IS_Imputation <- function(Encounter, output_dir){
       for(j in 2:m){
         if(dat$Immunosuppressive.medication[j]==""){
           k=j
-          while(dat$Immunosuppressive.medication[k]==""){
+          while(dat$Immunosuppressive.medication[k]=="" & k<m){
             k=k+1
           }
           if(as.numeric(dat$Date.Of.Visit[k]-dat$Date.Of.Visit[j-1])<=730 & dat$Immunosuppressive.medication[k]==dat$Immunosuppressive.medication[j-1]){
@@ -51,7 +51,7 @@ CPD_IS_Imputation <- function(Encounter, output_dir){
     paste0('Redcap_IS_medication_imputation_function_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
            , Sys.Date(), '.csv')
   )
-  write.csv(Encounter, output_filename, row.names = FALSE)
-  return(Encounter)
+  write.csv(Encounter2, output_filename, row.names = FALSE)
+  return(Encounter2)
   
 }
