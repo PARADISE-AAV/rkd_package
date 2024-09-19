@@ -9,12 +9,13 @@ ClassifyRIVEncounter(
   output_path,
   algorithm,
   interval_from_diagnostics = 6,
-  rawRKDdata = NULL,
+  CM_data = NULL,
+  IV_data = NULL,
   nb_month = 24
 )
 }
 \arguments{
-\item{RKDdata}{RIV data from \code{\link{DemographicFilterRIV}} function}
+\item{RKDdata}{RIV data from \code{\link{Merge_Encounter_initial}} function}
 
 \item{output_path}{folder where the Redcap data will be saved}
 
@@ -22,7 +23,9 @@ ClassifyRIVEncounter(
 
 \item{interval_from_diagnostics}{the interval from diagnostics for the algorithm Paradise_Encounter by default 6}
 
-\item{rawRKDdata}{Raw data from \code{\link{load_riv}} function for the Treatment On/Off algorithm}
+\item{CM_data}{Data from \code{\link{CPD_Medication_Treatment}} function for the Treatment On/Off algorithm}
+
+\item{IV_data}{Data from \code{\link{CPD_IVTherapy_Treatment}} function for the Treatment On/Off algorithm}
 
 \item{nb_month}{Number of month out of treatment for the CPD LTROT function}
 }
