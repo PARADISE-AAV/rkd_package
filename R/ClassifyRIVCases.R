@@ -53,8 +53,8 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm, interval_from_d
   }
   if(algorithm == "CPD ANCA"){
     Classify_RKD_data <- CPD_ANCA(RKD_data)
-    
   }
+  
 
   files_test <-  list.dirs(output_path)
   if (identical(files_test, character(0)) == TRUE) {
