@@ -10,7 +10,6 @@
 #' @param IV_Therapy Data from IVTherapy from \code{\link{CPD_IVTherapy_Treatment}} function
 #' @param ConMed Data from Continous medication from \code{\link{CPD_Medication_Treatment}} function
 #' @param merged_data Data from the merge of encounter and General characteristics in the \code{\link{Merge_Encounter_initial}} function
-#' @param output_dir folder where the Redcap data will be saved
 #' @details
 #' to be added
 #' 
@@ -21,17 +20,14 @@
 #' @importFrom data.table %like%
 #' @export
 
-CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data, output_dir){
+CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data){
   
   stopifnot("Your argument need to be a data frame"=is.data.frame(merged_data))
   stopifnot("Your argument need to be a data frame"=is.data.frame(IV_Therapy))
   stopifnot("Your argument need to be a data frame"=is.data.frame(ConMed))
-  stopifnot("Your argument need to be a character"=is.character(output_dir))
+
   
-  # Check output directory
-  if (!dir.exists(output_dir)) {
-    stop('Specified output folder does not exist')
-  }
+  
   
   IV_ConMed <- merge(IV_Therapy, ConMed, by = c("RKD.ID", "Date.Of.Visit"), all = TRUE)
   
@@ -128,12 +124,7 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data, output_dir){
   data_merged$IVtherapy=as.character(data_merged$IVtherapy)
   data_merged$Drug=as.character(data_merged$Drug)
   data_merged$treatment=as.character(data_merged$treatment)
-  output_filename <- file.path(
-    output_dir,
-    paste0('Redcap_CPDTreatment_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
-           , Sys.Date(), '.csv')
-  )
-  write.csv(data_merged, output_filename, row.names = FALSE)
+  
   return(data_merged)
   
   
