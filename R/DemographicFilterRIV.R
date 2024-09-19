@@ -50,7 +50,7 @@ DemographicFilterRIV <- function(RKDdata) {
   
   ########Other filter
   
-  RKD_data_OtherFilter <- RKD_data_SecondaryFilter[which(RKD_data_SecondaryFilter$Other != "Yes"), ]
+  RKD_data_OtherFilter <- RKD_data_SecondaryFilter
   
   #######medium vessel filter
   
