@@ -4,7 +4,7 @@
 \alias{CPD_Treatment_OnOff}
 \title{CPD IV Therapy treatment}
 \usage{
-CPD_Treatment_OnOff(IV_Therapy, ConMed, merged_data, output_dir)
+CPD_Treatment_OnOff(IV_Therapy, ConMed, merged_data)
 }
 \arguments{
 \item{IV_Therapy}{Data from IVTherapy from \code{\link{CPD_IVTherapy_Treatment}} function}
@@ -12,8 +12,6 @@ CPD_Treatment_OnOff(IV_Therapy, ConMed, merged_data, output_dir)
 \item{ConMed}{Data from Continous medication from \code{\link{CPD_Medication_Treatment}} function}
 
 \item{merged_data}{Data from the merge of encounter and General characteristics in the \code{\link{Merge_Encounter_initial}} function}
-
-\item{output_dir}{folder where the Redcap data will be saved}
 }
 \description{
 The Goal is to do CPD IS Imputation for Treatment On/Off
