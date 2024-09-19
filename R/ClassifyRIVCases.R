@@ -4,11 +4,12 @@
 #'  The objective is to classify the patient of RIV data based on criteria described in the function apply
 #'
 #'
-#' @param RKDdata RIV data from \code{\link{DemographicFilterRIV}} function
+#' @param RKDdata RIV data from \code{\link{Merge_Encounter_initial}} function
 #' @param output_path folder where the Redcap data will be saved
 #' @param algorithm function use to classify the RIV patient, the possibility are "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT" or "CPD ANCA"
 #' @param interval_from_diagnostics the interval from diagnostics for the algorithm Paradise_Encounter by default 6
-#' @param rawRKDdata Raw data from \code{\link{load_riv}} function for the Treatment On/Off algorithm
+#' @param CM_data Data from \code{\link{CPD_Medication_Treatment}} function for the Treatment On/Off algorithm
+#' @param IV_data Data from \code{\link{CPD_IVTherapy_Treatment}} function for the Treatment On/Off algorithm
 #' @param nb_month Number of month out of treatment for the CPD LTROT function
 #' @return The Redcap data with the classification variables in your folder and in an R object 
 #' @details This function allows you to call one of  multiple functions to create a classification variable for each RKD encounter. The possible functions each create one new variable
@@ -19,7 +20,7 @@
 #' * \code{\link{CPD_ANCA}} tells us the switch of ANCA from one Encounter to the other.
 #' 
 #' @export
-ClassifyRIVEncounter = function(RKDdata, output_path, algorithm, interval_from_diagnostics=6, rawRKDdata=NULL, nb_month=24) {
+ClassifyRIVEncounter = function(RKDdata, output_path, algorithm, interval_from_diagnostics=6, CM_data=NULL, IV_data=NULL, nb_month=24) {
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
@@ -44,8 +45,7 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm, interval_from_d
      
   }
   if(algorithm == "Treatment On/Off"){
-    rkd_treatment <- Treatment_On_Off(RKDdata)
-    Classify_RKD_data <- IVTherapy(rawRKDdata, rkd_treatment)
+    Classify_RKD_data <- CPD_Treatment_OnOff(IV_data, CM_data, RKDdata)
   }
   if(algorithm == "CPD LTROT"){
     Classify_RKD_data <- CPD_LTROT(RKD_data, nb_month)
