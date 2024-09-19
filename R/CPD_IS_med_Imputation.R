@@ -37,8 +37,7 @@ CPD_IS_medication_Imputation <- function(Encounter, output_dir){
           while(dat$Immunosuppressive.medication[k]=="" & k<m){
             k=k+1
           }
-          if(as.numeric(dat$Date.Of.Visit[k]-dat$Date.Of.Visit[j-1])<=730 & dat$Immunosuppressive.medication[k]==dat$Immunosuppressive.medication[j-1] &
-             length(which(dat$Adjudicated.probability.of.relapse[(j-1):(k-1)]=="No"| dat$Adjudicated.probability.of.relapse[(j-1):(k-1)]=="" | dat$Adjudicated.probability.of.relapse[(j-1):(k-1)]=="Possible"))==length((j-1):(k-1)))){
+          if(as.numeric(dat$Date.Of.Visit[k]-dat$Date.Of.Visit[j-1])<=730 & dat$Immunosuppressive.medication[k]==dat$Immunosuppressive.medication[j-1]){
             dat$Immunosuppressive.medication[j:k-1]=dat$Immunosuppressive.medication[j-1]
           }
         }
