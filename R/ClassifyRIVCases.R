@@ -61,6 +61,8 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm, interval_from_d
   if(algorithm ==  "CPD Treatment"){
     Classify_RKD_data <- CPD_Treatment(RKD_data)
   }
+  
+  
 
   files_test <-  list.dirs(output_path)
   if (identical(files_test, character(0)) == TRUE) {
