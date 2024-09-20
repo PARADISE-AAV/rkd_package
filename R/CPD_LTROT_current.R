@@ -50,7 +50,6 @@ CPD_LTROT_current <- function(merge_data, interval){
   
   merge_LTROT=merge(merge_data, merge_data_LTROT, by = c("RKD.ID", "Date.Of.Visit"), all.x = TRUE)
   
-  
   return(merge_LTROT)
   
 }
