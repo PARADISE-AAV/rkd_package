@@ -6,7 +6,7 @@
 #'
 #' @param RKDdata RIV data from \code{\link{Merge_Encounter_initial}} function
 #' @param output_path folder where the Redcap data will be saved
-#' @param algorithm function use to classify the RIV patient, the possibility are "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT" or "CPD ANCA"
+#' @param algorithm function use to classify the RIV patient, the possibility are "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT" or "CPD ANCA" or "CPD Treatment"
 #' @param interval_from_diagnostics the interval from diagnostics for the algorithm Paradise_Encounter by default 6
 #' @param CM_data Data from \code{\link{CPD_Medication_Treatment}} function for the Treatment On/Off algorithm
 #' @param IV_data Data from \code{\link{CPD_IVTherapy_Treatment}} function for the Treatment On/Off algorithm
@@ -18,6 +18,7 @@
 #' * \code{\link{CPD_Treatment_OnOff}} tells us if an Encounter is under treatment or not
 #' * \code{\link{CPD_LTROT}} tells us if a patient is in Long Term Remission Out of Treatment (LTROT)
 #' * \code{\link{CPD_ANCA}} tells us the switch of ANCA from one Encounter to the other.
+#' * \code{\link{CPD_ANCA}} tells us which treatment is used at each encounter. To be use after \code{\link{CPD_Treatment_OnOff}}
 #' 
 #' @export
 ClassifyRIVEncounter = function(RKDdata, output_path, algorithm, interval_from_diagnostics=6, CM_data=NULL, IV_data=NULL, nb_month=24) {
@@ -28,7 +29,7 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm, interval_from_d
   if (is.character(output_path) == FALSE) {
     stop("The argument output_path need to be a character argument")
   }
-  algorithm <- match.arg(algorithm, c( 'Paradise_Encounter', "CPD Relapse", "Treatment On/Off", "CPD LTROT", "CPD ANCA"))
+  algorithm <- match.arg(algorithm, c( 'Paradise_Encounter', "CPD Relapse", "Treatment On/Off", "CPD LTROT", "CPD ANCA","CPD Treatment"))
 
   RKD_data <- RKDdata
   ###check that you load a real file
@@ -55,6 +56,9 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm, interval_from_d
     Classify_RKD_data <- CPD_ANCA(RKD_data)
   }
   
+  if(algorithm ==  "CPD Treatment"){
+    Classify_RKD_data <- CPD_Treatment(RKD_data)
+  }
 
   files_test <-  list.dirs(output_path)
   if (identical(files_test, character(0)) == TRUE) {
