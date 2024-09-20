@@ -18,7 +18,7 @@
 #' * \code{\link{CPD_Treatment_OnOff}} tells us if an Encounter is under treatment or not
 #' * \code{\link{CPD_LTROT}} tells us if a patient is in Long Term Remission Out of Treatment (LTROT)
 #' * \code{\link{CPD_ANCA}} tells us the switch of ANCA from one Encounter to the other.
-#' * \code{\link{CPD_ANCA}} tells us which treatment is used at each encounter. To be use after \code{\link{CPD_Treatment_OnOff}}
+#' * \code{\link{CPD_Treatment}} tells us which treatment is used at each encounter. To be use after \code{\link{CPD_Treatment_OnOff}}
 #' 
 #' @export
 ClassifyRIVEncounter = function(RKDdata, output_path, algorithm, interval_from_diagnostics=6, CM_data=NULL, IV_data=NULL, nb_month=24) {
