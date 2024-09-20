@@ -41,17 +41,19 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm, interval_from_d
   if (algorithm == "Paradise_Encounter") {
     Classify_RKD_data <- Paradise_Encounter(RKD_data, interval_from_diagnostics)
   }
+  
   if(algorithm == "CPD Relapse"){
     Classify_RKD_data <- CPDRelapse(RKD_data, interval_from_diagnostics)
-     
   }
+  
   if(algorithm == "Treatment On/Off"){
     Classify_RKD_data <- CPD_Treatment_OnOff(IV_data, CM_data, RKDdata)
   }
+  
   if(algorithm == "CPD LTROT"){
     Classify_RKD_data <- CPD_LTROT(RKD_data, nb_month)
-    
   }
+  
   if(algorithm == "CPD ANCA"){
     Classify_RKD_data <- CPD_ANCA(RKD_data)
   }
