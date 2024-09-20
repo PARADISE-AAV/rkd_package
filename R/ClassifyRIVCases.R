@@ -6,7 +6,7 @@
 #'
 #' @param RKDdata RIV data from \code{\link{Merge_Encounter_initial}} function
 #' @param output_path folder where the Redcap data will be saved
-#' @param algorithm function use to classify the RIV patient, the possibility are "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT" or "CPD ANCA" or "CPD Treatment"
+#' @param algorithm function use to classify the RIV patient, the possibility are "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT" or "CPD ANCA" or "CPD Treatment" or "CPD LTROT current" 
 #' @param interval_from_diagnostics the interval from diagnostics for the algorithm Paradise_Encounter by default 6
 #' @param CM_data Data from \code{\link{CPD_Medication_Treatment}} function for the Treatment On/Off algorithm
 #' @param IV_data Data from \code{\link{CPD_IVTherapy_Treatment}} function for the Treatment On/Off algorithm
@@ -29,7 +29,7 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm, interval_from_d
   if (is.character(output_path) == FALSE) {
     stop("The argument output_path need to be a character argument")
   }
-  algorithm <- match.arg(algorithm, c( 'Paradise_Encounter', "CPD Relapse", "Treatment On/Off", "CPD LTROT", "CPD ANCA","CPD Treatment"))
+  algorithm <- match.arg(algorithm, c( 'Paradise_Encounter', "CPD Relapse", "Treatment On/Off", "CPD LTROT", "CPD ANCA","CPD Treatment","CPD LTROT current"))
 
   RKD_data <- RKDdata
   ###check that you load a real file
@@ -62,7 +62,9 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm, interval_from_d
     Classify_RKD_data <- CPD_Treatment(RKD_data)
   }
   
-  
+  if(algorithm ==  "CPD LTROT current"){
+    Classify_RKD_data <- CPD_LTROT_current(RKD_data,nb_month)
+  }
 
   files_test <-  list.dirs(output_path)
   if (identical(files_test, character(0)) == TRUE) {
