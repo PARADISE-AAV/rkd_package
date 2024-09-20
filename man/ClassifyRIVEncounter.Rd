@@ -44,6 +44,7 @@ This function allows you to call one of  multiple functions to create a classifi
 \item \code{\link{CPD_LTROT}} tells us if a patient is in Long Term Remission Out of Treatment (LTROT)
 \item \code{\link{CPD_ANCA}} tells us the switch of ANCA from one Encounter to the other.
 \item \code{\link{CPD_Treatment}} tells us which treatment is used at each encounter. To be use after \code{\link{CPD_Treatment_OnOff}}
+\item \code{\link{CPD_LTROT_current}} tells us if an Encounter is a LTROT
 }
 }
 \author{
