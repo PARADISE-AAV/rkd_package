@@ -19,7 +19,7 @@ ClassifyRIVEncounter(
 
 \item{output_path}{folder where the Redcap data will be saved}
 
-\item{algorithm}{function use to classify the RIV patient, the possibility are "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT" or "CPD ANCA"}
+\item{algorithm}{function use to classify the RIV patient, the possibility are "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT" or "CPD ANCA" or "CPD Treatment"}
 
 \item{interval_from_diagnostics}{the interval from diagnostics for the algorithm Paradise_Encounter by default 6}
 
@@ -43,6 +43,7 @@ This function allows you to call one of  multiple functions to create a classifi
 \item \code{\link{CPD_Treatment_OnOff}} tells us if an Encounter is under treatment or not
 \item \code{\link{CPD_LTROT}} tells us if a patient is in Long Term Remission Out of Treatment (LTROT)
 \item \code{\link{CPD_ANCA}} tells us the switch of ANCA from one Encounter to the other.
+\item \code{\link{CPD_ANCA}} tells us which treatment is used at each encounter. To be use after \code{\link{CPD_Treatment_OnOff}}
 }
 }
 \author{
