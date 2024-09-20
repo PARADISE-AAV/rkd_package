@@ -63,7 +63,7 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm, interval_from_d
   }
   
   if(algorithm ==  "CPD LTROT current"){
-    Classify_RKD_data <- CPD_LTROT_current(RKD_data,nb_month)
+    Classify_RKD_data <- CPD_LTROT_current(RKD_data, nb_month)
   }
 
   files_test <-  list.dirs(output_path)
