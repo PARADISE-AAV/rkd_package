@@ -22,7 +22,7 @@ Date: 03-Jan-24
 Version 1.0
 }
 \details{
-This function need to be execute after \code{\link{Treatment_On_Off}} and \code{\link{CPDRelapse}}
+This function need to be execute after \code{\link{CPD_Treatment_OnOff}} and \code{\link{CPDRelapse}}
 }
 \author{
 Matthieu COQ/Jennifer Scott
