@@ -70,7 +70,7 @@ CPD_LTROT= function(RKDdata, duration){
   date.last.on.rx <- dat_check %>% 
     group_by(RKD.ID) %>% 
     filter( duration < Interval.from.diagnosis..months..x) %>% 
-    filter(treatment.on.off == "On Treatment") %>% 
+    filter(CPD_treatment == "On Treatment") %>% 
     mutate(date.last.on.rx = max(Date.Of.Visit)) %>% 
     slice(1) %>% 
     select(RKD.ID, date.last.on.rx)
@@ -80,7 +80,7 @@ CPD_LTROT= function(RKDdata, duration){
   date.rx.stop <- dat_check %>% 
     group_by(RKD.ID) %>% 
     filter( Date.Of.Visit > date.last.on.rx) %>% 
-    filter(treatment.on.off == "Not On Treatment") %>% 
+    filter(CPD_treatment == "Off Treatment") %>% 
     mutate(date.rx.stop_conservative = min(Date.Of.Visit)) %>% 
     mutate(date.rx.stop_liberal = date.last.on.rx) %>% 
     slice(1) %>% 
