@@ -9,7 +9,7 @@
 #' 
 #' @param RKDdata Data frame with the RIV data
 #' @param duration Duration without treatment
-#' @details This function need to be execute after \code{\link{Treatment_On_Off}} and \code{\link{CPDRelapse}}
+#' @details This function need to be execute after \code{\link{CPD_Treatment_OnOff}} and \code{\link{CPDRelapse}}
 #' 
 #' 
 #' @return The RIV data with the LTROT category
