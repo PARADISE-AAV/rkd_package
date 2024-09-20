@@ -8,7 +8,6 @@
 #' Date: 9-Aug-24
 #'
 #' @param treatment_data Data from IVTherapy from \code{\link{CPD_Treatment_OnOff}} function
-#' @param output_dir folder where the Redcap data will be saved
 #' @details
 #' to be added
 #' 
@@ -19,15 +18,11 @@
 #' @importFrom data.table %like%
 #' @export
 
-CPD_Treatment = function(treatment_data, output_dir){
+CPD_Treatment = function(treatment_data){
   
   stopifnot("Your argument need to be a data frame"=is.data.frame(treatment_data))
-  stopifnot("Your argument need to be a character"=is.character(output_dir))
   
-  # Check output directory
-  if (!dir.exists(output_dir)) {
-    stop('Specified output folder does not exist')
-  }
+  
   treatment_data$treatment = NA
   n=nrow(treatment_data)
   for(i in 1:n){
@@ -73,12 +68,7 @@ CPD_Treatment = function(treatment_data, output_dir){
     
   }
   
-  output_filename <- file.path(
-    output_dir,
-    paste0('Redcap_CPDTreatment_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
-           , Sys.Date(), '.csv')
-  )
-  write.csv(treatment_data, output_filename, row.names = FALSE)
+
   return(treatment_data)
   
 }
