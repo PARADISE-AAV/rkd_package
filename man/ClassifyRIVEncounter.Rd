@@ -39,11 +39,11 @@ The objective is to classify the patient of RIV data based on criteria described
 This function allows you to call one of  multiple functions to create a classification variable for each RKD encounter. The possible functions each create one new variable
 \itemize{
 \item \code{\link{CPDRelapse}} tells us if an encounter is in relapse or not based on rules and models
-\item \code{\link{Paradise_Encounter}} tells us if we can include the Encounter or not in the Paradise project
+\item \code{\link{Paradise_Encounter}} tells us if we can include the Encounter or not in the Paradise project. To be use after \code{\link{CPDRelapse}}
 \item \code{\link{CPD_Treatment_OnOff}} tells us if an Encounter is under treatment or not
 \item \code{\link{CPD_LTROT}} tells us if a patient is in Long Term Remission Out of Treatment (LTROT)
 \item \code{\link{CPD_ANCA}} tells us the switch of ANCA from one Encounter to the other.
-\item \code{\link{CPD_ANCA}} tells us which treatment is used at each encounter. To be use after \code{\link{CPD_Treatment_OnOff}}
+\item \code{\link{CPD_Treatment}} tells us which treatment is used at each encounter. To be use after \code{\link{CPD_Treatment_OnOff}}
 }
 }
 \author{
