@@ -26,7 +26,7 @@ CPD_Encounter <- function (Encounter_data, output_dir){
     stop('Specified output folder does not exist')
   }
   
-  rkd_data <- Encounter_data$Encounter
+  rkd_data <- Encounter_data
   n=nrow(rkd_data)
   for(i in 1:n){
     if(rkd_data$Dialysis.dependent[i] == "Yes"){
