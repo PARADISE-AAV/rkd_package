@@ -26,9 +26,12 @@ CPD_ANCA_Imputation <- function(Encounter, output_dir){
   }
   
   n=nrow(Encounter)
-  for(i in 1:n){
-    
-  } 
+  for(i in 2:n){
+    if((Encounter$ANCA.IF[i]=="" | Encounter$ANCA.IF[i]=="Not tested") & Encounter$ANCA.IF[i-1]==Encounter$ANCA.IF[i+1] & Encounter$RKD.ID[i-1]==Encounter$RKD.ID[i+1] & as.numeric(Encounter$Date.Of.Visit[i+1]-Encounter$Date.Of.Visit[i-1])<=400){
+      Encounter$ANCA.IF[i]=Encounter$ANCA.IF[i-1]
+    }
+  }
+  
   
   output_filename <- file.path(
     output_dir,
