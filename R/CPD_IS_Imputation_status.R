@@ -29,7 +29,7 @@ CPD_IS_status_Imputation <- function(Encounter, output_dir){
   
   output_filename <- file.path(
     output_dir,
-    paste0('Redcap_IS_medication_imputation_function_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
+    paste0('Redcap_IS_status_imputation_function_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
            , Sys.Date(), '.csv')
   )
   write.csv(Encounter, output_filename, row.names = FALSE)
