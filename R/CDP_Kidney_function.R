@@ -34,7 +34,7 @@ CPD_Kidney_function <- function (merge_data, renal, output_dir){
   renal_frame <- renal_frame %>% distinct(RKD.ID, Date.of.transplant., .keep_all=TRUE)
   
   renal_frame <- renal_frame %>% 
-    dplyr::mutate(Date.of.graft.failure = dplyr::case_when(
+    dplyr::mutate(Date.of.graft.failure.or.last.followup= dplyr::case_when(
       is.na(Date.of.graft.failure) == TRUE ~ Date_Last_Follow_up,
       is.na(Date.of.graft.failure) == FALSE ~ Date.of.graft.failure
     ))
@@ -58,7 +58,7 @@ CPD_Kidney_function <- function (merge_data, renal, output_dir){
   
   colnames(merged_frame)[1] = "RKD.ID"
   
-  merge_renal_frame = merge(merge_data, merged_frame[,c("RKD.ID", "Date.Of.Visit", "Date.of.transplant.", "Date.of.graft.failure", "Dialysis1","Repeat.Instance.y")], by= c("RKD.ID", "Date.Of.Visit"),all.x = TRUE)
+  merge_renal_frame = merge(merge_data, merged_frame[,c("RKD.ID", "Date.Of.Visit", "Date.of.transplant.", "Date.of.graft.failure", "Date.of.graft.failure.or.last.followup", "Dialysis1", "Repeat.Instance.y")], by= c("RKD.ID", "Date.Of.Visit"),all.x = TRUE)
   
   merge_renal_frame <- merge_renal_frame %>% 
     dplyr::mutate(Dialysis.1 = dplyr::case_when(
