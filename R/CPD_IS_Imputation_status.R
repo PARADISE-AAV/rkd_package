@@ -25,7 +25,7 @@ CPD_IS_status_Imputation <- function(Encounter, output_dir){
     stop('Specified output folder does not exist')
   }
   
-  Encounter$Immunosuppressive.status[which(Encounter$Immunosuppressive.status=="" & Encounter$Immunosuppressive.medication!="" & Encounter$Immunosuppressive.medication!="No")]=="Currently on immunosuppression"
+  Encounter$Immunosuppressive.status[which(Encounter$Immunosuppressive.status=="" & Encounter$Immunosuppressive.medication!="" & Encounter$Immunosuppressive.medication!="No")]="Currently on immunosuppression"
   
   output_filename <- file.path(
     output_dir,
