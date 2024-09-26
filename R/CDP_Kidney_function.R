@@ -76,6 +76,15 @@ CPD_Kidney_function <- function (merge_data, renal, output_dir){
   a=which(colnames(merge_renal_frame)=="Dialysis.1" | colnames(merge_renal_frame)=="Dialysis1")
   merge_renal_frame <- merge_renal_frame[, -a]
   
+  n=nrow(merge_renal_frame)
+  for(i in 1:n){
+    if(is.na(merge_renal_frame$Date.of.end.stage.kidney.disease..date.of.commencement.on.dialysis.or.transplant..whichever.first.[i])==FALSE){
+      if(merge_renal_frame$kidney_fx_status[i]=="Functioning native kidneys" & merge_renal_frame$Date.Of.Visit[i]>merge_renal_frame$Date.of.end.stage.kidney.disease..date.of.commencement.on.dialysis.or.transplant..whichever.first.[i]){
+        merge_renal_frame$kidney_fx_status[i]=="On Dialysis"
+      }
+    }
+  }
+  
   output_filename <- file.path(
     output_dir,
     paste0('Redcap_kidney_function_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
