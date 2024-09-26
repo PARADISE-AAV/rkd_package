@@ -63,15 +63,14 @@ CPD_Kidney_function <- function (merge_data, renal, output_dir){
   merge_renal_frame <- merge_renal_frame %>% 
     dplyr::mutate(Dialysis.1 = dplyr::case_when(
       Dialysis.dependent == "Yes" ~ "On Dialysis",
-      Dialysis.dependent == "No" ~ "Off Dialysis",
+      Dialysis.dependent == "No" ~ "",
       Dialysis.dependent == "" ~ ""
     ))
   
   merge_renal_frame <- merge_renal_frame %>% 
     dplyr::mutate(Dialysis = dplyr::case_when(
       Dialysis.1 == "On Dialysis" ~ "On Dialysis",
-      Dialysis.1 == "Off Dialysis" & is.na(Dialysis1) == TRUE ~ "Off Dialysis",
-      Dialysis.1 == "Off Dialysis"  & is.na(Dialysis1) == FALSE ~ "Transplant",
+      Dialysis.1 == ""  & is.na(Dialysis1) == FALSE ~ "Transplant",
       Dialysis.1 == "" ~ "Functioning native kidneys"
     ))
   a=which(colnames(merge_renal_frame)=="Dialysis.1" | colnames(merge_renal_frame)=="Dialysis1")
