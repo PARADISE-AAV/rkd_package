@@ -68,7 +68,7 @@ CPD_Kidney_function <- function (merge_data, renal, output_dir){
     ))
   
   merge_renal_frame <- merge_renal_frame %>% 
-    dplyr::mutate(Dialysis = dplyr::case_when(
+    dplyr::mutate(kidney_fx_status = dplyr::case_when(
       Dialysis.1 == "On Dialysis" ~ "On Dialysis",
       Dialysis.1 == ""  & is.na(Dialysis1) == FALSE ~ "Transplant",
       Dialysis.1 == "" ~ "Functioning native kidneys"
