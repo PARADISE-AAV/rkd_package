@@ -58,7 +58,7 @@ CPD_Kidney_function <- function (merge_data, renal, output_dir){
   
   colnames(merged_frame)[1] = "RKD.ID"
   
-  merge_renal_frame = merge(merge_data, merged_frame[,c("RKD.ID", "Date.Of.Visit", "Date.of.transplant.", "Date.of.graft.failure", "Dialysis1")], by= c("RKD.ID", "Date.Of.Visit"),all.x = TRUE)
+  merge_renal_frame = merge(merge_data, merged_frame[,c("RKD.ID", "Date.Of.Visit", "Date.of.transplant.", "Date.of.graft.failure", "Dialysis1","Repeat.Instance.y")], by= c("RKD.ID", "Date.Of.Visit"),all.x = TRUE)
   
   merge_renal_frame <- merge_renal_frame %>% 
     dplyr::mutate(Dialysis.1 = dplyr::case_when(
