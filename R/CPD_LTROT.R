@@ -27,10 +27,10 @@ CPD_LTROT= function(RKDdata, duration){
   }
   
   dat2 <- RKDdata %>% 
-    select(RKD.ID, Date.Of.Visit, Interval.from.diagnosis..months..x, 
+    select(RKD.ID, Date.Of.Visit, Interval.from.diagnosis..months., 
            Disease.activity.since.last.return, Do.you.think.Vasculitis.is.relapsing.in.this.encounter,
            Adjudicated.probability.of.relapse.x,
-           CPD_relapse, treatment.on.off) %>% 
+           CPD_relapse, CPD_treatment) %>% 
     dplyr::group_by(RKD.ID) %>% 
     arrange(Date.Of.Visit)
   
@@ -38,7 +38,7 @@ CPD_LTROT= function(RKDdata, duration){
             "Do.you.think.Vasculitis.is.relapsing.in.this.encounter"                       ,                     
             "Adjudicated.probability.of.relapse.x"                                          ,   
             "CPD_relapse",
-            "treatment.on.off")
+            "CPD_treatment")
   
   dat2 <- dat2 %>%
     mutate_at(cols, factor)
@@ -69,7 +69,7 @@ CPD_LTROT= function(RKDdata, duration){
   
   date.last.on.rx <- dat_check %>% 
     group_by(RKD.ID) %>% 
-    filter( duration < Interval.from.diagnosis..months..x) %>% 
+    filter( duration < Interval.from.diagnosis..months.) %>% 
     filter(CPD_treatment == "On Treatment") %>% 
     mutate(date.last.on.rx = max(Date.Of.Visit)) %>% 
     slice(1) %>% 
