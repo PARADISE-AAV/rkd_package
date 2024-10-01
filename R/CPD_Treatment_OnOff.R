@@ -70,7 +70,6 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data){
     ))
   data_merged <- data_merged %>%
     dplyr::mutate(Step5 = dplyr::case_when(
-      Immunosuppressive.medication == "No" ~ "Off treatment",
       Immunosuppressive.medication != "No" & Immunosuppressive.medication != "" ~ "On treatment"
     ))
   
