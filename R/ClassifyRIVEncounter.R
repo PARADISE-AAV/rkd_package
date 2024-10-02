@@ -70,6 +70,8 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_
   if(algorithm ==  "All"){
     Classify_RKD_CPD_Relapse <- CPDRelapse(RKD_data, interval_from_diagnostics)
     Classify_RKD_Paradise_encounter <- Paradise_Encounter(Classify_RKD_CPD_Relapse, interval_from_diagnostics)
+    Classify_RKD_Treatment_OnOff <- CPD_Treatment_OnOff(IV_data, CM_data, Classify_RKD_Paradise_encounter)
+    
   }
 
   files_test <-  list.dirs(output_path)
