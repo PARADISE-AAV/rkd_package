@@ -6,7 +6,7 @@
 #'
 #' @param RKDdata RIV data from \code{\link{Merge_Encounter_initial}} function
 #' @param output_path folder where the Redcap data will be saved
-#' @param algorithm function use to classify the RIV patient, the possibility are "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT" or "CPD ANCA" or "CPD Treatment" or "CPD LTROT current" 
+#' @param algorithm function use to classify the RIV patient, the possibility are "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT" or "CPD ANCA" or "CPD Treatment" or "CPD LTROT current" or "All" 
 #' @param interval_from_diagnostics the interval from diagnostics for the algorithm Paradise_Encounter by default 6
 #' @param CM_data Data from \code{\link{CPD_Medication_Treatment}} function for the Treatment On/Off algorithm
 #' @param IV_data Data from \code{\link{CPD_IVTherapy_Treatment}} function for the Treatment On/Off algorithm
@@ -22,7 +22,7 @@
 #' * \code{\link{CPD_LTROT_current}} tells us if an Encounter is a LTROT
 #' 
 #' @export
-ClassifyRIVEncounter = function(RKDdata, output_path, algorithm, interval_from_diagnostics=6, CM_data=NULL, IV_data=NULL, nb_month=24) {
+ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_from_diagnostics=6, CM_data=NULL, IV_data=NULL, nb_month=24) {
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
@@ -30,7 +30,7 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm, interval_from_d
   if (is.character(output_path) == FALSE) {
     stop("The argument output_path need to be a character argument")
   }
-  algorithm <- match.arg(algorithm, c( 'Paradise_Encounter', "CPD Relapse", "Treatment On/Off", "CPD LTROT", "CPD ANCA","CPD Treatment","CPD LTROT current"))
+  algorithm <- match.arg(algorithm, c( 'Paradise_Encounter', "CPD Relapse", "Treatment On/Off", "CPD LTROT", "CPD ANCA","CPD Treatment","CPD LTROT current", "All"))
 
   RKD_data <- RKDdata
   ###check that you load a real file
