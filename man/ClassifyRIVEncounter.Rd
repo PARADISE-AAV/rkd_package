@@ -7,7 +7,7 @@
 ClassifyRIVEncounter(
   RKDdata,
   output_path,
-  algorithm,
+  algorithm = "All",
   interval_from_diagnostics = 6,
   CM_data = NULL,
   IV_data = NULL,
@@ -19,7 +19,7 @@ ClassifyRIVEncounter(
 
 \item{output_path}{folder where the Redcap data will be saved}
 
-\item{algorithm}{function use to classify the RIV patient, the possibility are "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT" or "CPD ANCA" or "CPD Treatment" or "CPD LTROT current"}
+\item{algorithm}{function use to classify the RIV patient, the possibility are "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT" or "CPD ANCA" or "CPD Treatment" or "CPD LTROT current" or "All"}
 
 \item{interval_from_diagnostics}{the interval from diagnostics for the algorithm Paradise_Encounter by default 6}
 
