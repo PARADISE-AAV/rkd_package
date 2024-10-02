@@ -71,7 +71,9 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_
     Classify_RKD_CPD_Relapse <- CPDRelapse(RKD_data, interval_from_diagnostics)
     Classify_RKD_Paradise_encounter <- Paradise_Encounter(Classify_RKD_CPD_Relapse, interval_from_diagnostics)
     Classify_RKD_Treatment_OnOff <- CPD_Treatment_OnOff(IV_data, CM_data, Classify_RKD_Paradise_encounter)
-    
+    Classify_RKD_Treatment_list <- CPD_Treatment(Classify_RKD_Treatment_OnOff)
+    Classify_RKD_LTROT_patient <- CPD_LTROT(Classify_RKD_Treatment_list, nb_month)
+    Classify_RKD_LTROT_Encounter <- CPD_LTROT_current(Classify_RKD_LTROT_patient, nb_month)
   }
 
   files_test <-  list.dirs(output_path)
