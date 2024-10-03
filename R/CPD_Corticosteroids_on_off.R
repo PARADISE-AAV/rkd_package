@@ -27,9 +27,10 @@ CPD_Corticosteroids_on_off <- function(merge_data, output_dir){
   
   
   merge_data <- merge_data %>%
-    dplyr::mutate(Step1 = dplyr::case_when(
+    dplyr::mutate(Corticosteroids_On_off = dplyr::case_when(
       Corticosteroids =="Yes" ~ "On",
-      Corticosteroids =="No"  ~ "Off"
+      Corticosteroids =="No"  ~ "Off",
+      Corticosteroids ==""  ~ "",
     ))
   a=as.data.frame(grep("prednisolone", merge_data$treatment))
   b=as.data.frame(which(merge_data$Corticosteroids_On_off==""))
