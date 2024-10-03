@@ -32,6 +32,15 @@ CPD_ANCA_Imputation <- function(Encounter, output_dir){
     }
   }
   
+  for(i in 1:n){
+    if(Encounter$ANCA.IF[i]=="Negative" & is.na(Encounter$Anti.MPO.level[i])==TRUE){
+      Encounter$Anti.MPO.level[i]=1
+    }
+    if(Encounter$ANCA.IF[i]=="Negative" & is.na(Encounter$Anti.PR3.level[i])==TRUE){
+      Encounter$Anti.PR3.level[i]=1
+    }
+  }
+  
   
   
   output_filename <- file.path(
