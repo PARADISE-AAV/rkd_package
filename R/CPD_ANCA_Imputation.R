@@ -41,8 +41,6 @@ CPD_ANCA_Imputation <- function(Encounter, output_dir){
     }
   }
   
-  
-  
   output_filename <- file.path(
     output_dir,
     paste0('Redcap_ANCA_imputation_function_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
