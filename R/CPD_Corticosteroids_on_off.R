@@ -32,7 +32,7 @@ CPD_Corticosteroids_on_off <- function(merge_data, output_dir){
       Corticosteroids =="No"  ~ "Off",
       Corticosteroids ==""  ~ "",
     ))
-  a=as.data.frame(grep("prednisolone", merge_data$treatment))
+  a=as.data.frame(grep("rednisolone", merge_data$treatment))
   b=as.data.frame(which(merge_data$Corticosteroids_On_off==""))
   colnames(a)="x"
   colnames(b)="x"
