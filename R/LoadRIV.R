@@ -37,9 +37,10 @@ load_riv <- function (file_name) {
 
   rkd_data <- rkd_parse_dates(dataset)
   
-  if(length(which(is.na(rkd_data$Date.Of.Visit[which(rkd_data$Repeat.Instrument=="Encounters")])==TRUE))>0){
-    write.csv(rkd_data[which(is.na(rkd_data$Date.Of.Visit[which(rkd_data$Repeat.Instrument=="Encounters")])==TRUE),c("RKD.ID","Repeat.Instance")],"RKD_DateofVisit missing.csv",row.names = F)
-    warning("Date of Visit are missing!!")
+  Encounter=rkd_data[which(rkd_data$Repeat.Instrument=="Encounters"),]
+  if(length(which(is.na(Encounter$Date.Of.Visit)==TRUE))>0){
+    write.csv(Encounter[which(is.na(Encounter$Date.Of.Visit)==TRUE),c("RKD.ID","Repeat.Instance")],"RKD_Date_Of_Visit_missing.csv",row.names = F)
+    stop("Date of Visit are missing!!")
   }
   
   if(length(which(rkd_data$Date.of.diagnosis<rkd_data$Date.of.Birth))>0){
