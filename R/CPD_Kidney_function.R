@@ -80,7 +80,7 @@ CPD_Kidney_function <- function (merge_data, renal, output_dir){
   for(i in 1:n){
     if(is.na(merge_renal_frame$Date.of.end.stage.kidney.disease..date.of.commencement.on.dialysis.or.transplant..whichever.first.[i])==FALSE & is.na(merge_renal_frame$Date.Of.Visit[i])==FALSE){
       if(merge_renal_frame$kidney_fx_status[i]=="Functioning native kidneys" & merge_renal_frame$Date.Of.Visit[i]>merge_renal_frame$Date.of.end.stage.kidney.disease..date.of.commencement.on.dialysis.or.transplant..whichever.first.[i]){
-        merge_renal_frame$kidney_fx_status[i]=="On Dialysis"
+        merge_renal_frame$kidney_fx_status[i] <- "On Dialysis"
       }
     }
   }
