@@ -7,7 +7,7 @@
 FilterRIV(RKDdata, output_path, algorithm)
 }
 \arguments{
-\item{RKDdata}{a list from \code{\link{SplitRIV}} function}
+\item{RKDdata}{a list from \code{\link{SplitRIV_dataframe}} function}
 
 \item{output_path}{folder where the Redcap data will be saved}
 
