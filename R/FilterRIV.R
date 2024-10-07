@@ -7,7 +7,7 @@
 #' 
 #' Date: 03-Jan-24
 #'
-#' @param RKDdata a list from \code{\link{SplitRIV}} function
+#' @param RKDdata a list from \code{\link{SplitRIV_dataframe}} function
 #' @param output_path folder where the Redcap data will be saved
 #' @param algorithm function use to filter the RKD patient, the possibility are "Definite GPA/MPA" or "Definite GPA/MPA/EGPA" or "Anti-GBM"
 #' @return The Redcap data with the classification variables in your folder and in an R object 
@@ -19,7 +19,7 @@
 #' @export
 FilterRIV = function(RKDdata, output_path, algorithm) {
   ####Test on the argument
-  if (is.list(RKDdata) == FALSE) {
+  if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
   }
   if (is.character(output_path) == FALSE) {
@@ -27,7 +27,7 @@ FilterRIV = function(RKDdata, output_path, algorithm) {
   }
   algorithm <- match.arg(algorithm, c("Definite GPA/MPA","Definite GPA/MPA/EGPA","Anti-GBM"))
   
-  RKD_data <- RKDdata$Initial
+  RKD_data <- RKDdata
   ###check that you load a real file
   if (ncol(RKD_data) == 0 | nrow(RKD_data) == 0) {
     stop("You give an empty files")
