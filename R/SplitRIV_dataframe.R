@@ -9,6 +9,7 @@
 #'
 #' @param RKDdata a list from \code{\link{SplitRIV}} function
 #' @param algorithm data frame to choose, the possibility are "Encounter" or "Initial" or "IVTherapy" or "Medication" or "Biopsy" or "Transplant" or "Complication"
+#' @param output_dir folder where the Redcap data will be saved
 #' @return export the dataframe 
 #' @details 
 #' to be added later
