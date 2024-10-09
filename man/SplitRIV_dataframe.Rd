@@ -4,10 +4,12 @@
 \alias{SplitRIV_dataframe}
 \title{This function use the different algorithms to filter the patient of RIV data}
 \usage{
-SplitRIV_dataframe(RKDdata, algorithm)
+SplitRIV_dataframe(RKDdata, output_dir, algorithm)
 }
 \arguments{
 \item{RKDdata}{a list from \code{\link{SplitRIV}} function}
+
+\item{output_dir}{folder where the Redcap data will be saved}
 
 \item{algorithm}{data frame to choose, the possibility are "Encounter" or "Initial" or "IVTherapy" or "Medication" or "Biopsy" or "Transplant" or "Complication"}
 }
