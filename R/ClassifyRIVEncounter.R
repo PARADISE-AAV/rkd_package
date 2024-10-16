@@ -83,6 +83,7 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_
     Classify_RKD_LTROT_patient <- CPD_LTROT(Classify_RKD_Treatment_list, nb_month)
     Classify_RKD_LTROT_Encounter <- CPD_LTROT_current(Classify_RKD_LTROT_patient, nb_day)
     Classify_RKD_ANCA <- CPD_ANCA(Classify_RKD_LTROT_Encounter)
+    colnames(Classify_RKD_ANCA)[which(colnames(Classify_RKD_ANCA)=="Date_Last_Follow_up.x")]="Date_Last_Follow_up"
     Classify_RKD_data <- CPD_Kidney_function(Classify_RKD_ANCA, Renal)
   }
 
