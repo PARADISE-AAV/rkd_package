@@ -11,6 +11,7 @@
 #' @param CM_data Data from \code{\link{CPD_Medication_Treatment}} function for the Treatment On/Off algorithm
 #' @param IV_data Data from \code{\link{CPD_IVTherapy_Treatment}} function for the Treatment On/Off algorithm
 #' @param nb_month Number of month out of treatment for the CPD LTROT function
+#' #' @param nb_day Number of days out of treatment for the CPD LTROT function
 #' @return The Redcap data with the classification variables in your folder and in an R object 
 #' @details This function allows you to call one of  multiple functions to create a classification variable for each RKD encounter. The possible functions each create one new variable
 #' * \code{\link{CPDRelapse}} tells us if an encounter is in relapse or not based on rules and models 
@@ -22,7 +23,7 @@
 #' * \code{\link{CPD_LTROT_current}} tells us if an Encounter is a LTROT
 #' 
 #' @export
-ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_from_diagnostics=6, CM_data=NULL, IV_data=NULL, nb_month=24) {
+ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_from_diagnostics=6, CM_data=NULL, IV_data=NULL, nb_month=24, nb_day=730) {
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
@@ -64,7 +65,7 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_
   }
   
   if(algorithm ==  "CPD LTROT current"){
-    Classify_RKD_data <- CPD_LTROT_current(RKD_data, nb_month)
+    Classify_RKD_data <- CPD_LTROT_current(RKD_data, nb_day)
   }
   
   if(algorithm ==  "All"){
@@ -73,7 +74,7 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_
     Classify_RKD_Treatment_OnOff <- CPD_Treatment_OnOff(IV_data, CM_data, Classify_RKD_Paradise_encounter)
     Classify_RKD_Treatment_list <- CPD_Treatment(Classify_RKD_Treatment_OnOff)
     Classify_RKD_LTROT_patient <- CPD_LTROT(Classify_RKD_Treatment_list, nb_month)
-    Classify_RKD_LTROT_Encounter <- CPD_LTROT_current(Classify_RKD_LTROT_patient, nb_month)
+    Classify_RKD_LTROT_Encounter <- CPD_LTROT_current(Classify_RKD_LTROT_patient, nb_day)
     Classify_RKD_data <- CPD_ANCA(Classify_RKD_LTROT_Encounter)
   }
 
