@@ -4,14 +4,12 @@
 \alias{CPD_Kidney_function}
 \title{CPD Kidney function}
 \usage{
-CPD_Kidney_function(merge_data, renal, output_dir)
+CPD_Kidney_function(merge_data, renal)
 }
 \arguments{
 \item{merge_data}{Data from the merge of encounter and General characteristics in the \code{\link{Merge_Encounter_initial}} function}
 
 \item{renal}{Data from renal from \code{\link{CPD_Renal}} function}
-
-\item{output_dir}{folder where the Redcap data will be saved}
 }
 \description{
 The Goal is to merge the Continuous medication and general characteristics from \code{\link{SplitRIV}} function
