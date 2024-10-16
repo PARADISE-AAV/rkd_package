@@ -71,7 +71,7 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_
   }
   
   if(algorithm == "CPD Kidney function"){
-    
+    Classify_RKD_data <- CPD_Kidney_function(RKD_data, Renal)
   }
   
   if(algorithm ==  "All"){
@@ -82,7 +82,7 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_
     Classify_RKD_LTROT_patient <- CPD_LTROT(Classify_RKD_Treatment_list, nb_month)
     Classify_RKD_LTROT_Encounter <- CPD_LTROT_current(Classify_RKD_LTROT_patient, nb_day)
     Classify_RKD_ANCA <- CPD_ANCA(Classify_RKD_LTROT_Encounter)
-    Classify_RKD_data <- CPD_Kidney_function(Classify_RKD_ANCA, )
+    Classify_RKD_data <- CPD_Kidney_function(Classify_RKD_ANCA, Renal)
   }
 
   files_test <-  list.dirs(output_path)
