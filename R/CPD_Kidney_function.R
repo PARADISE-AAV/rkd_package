@@ -9,7 +9,6 @@
 #'
 #' @param renal Data from renal from \code{\link{CPD_Renal}} function
 #' @param merge_data Data from the merge of encounter and General characteristics in the \code{\link{Merge_Encounter_initial}} function
-#' @param output_dir folder where the Redcap data will be saved
 #' @details
 #' to be added
 #' @import lubridate
@@ -19,16 +18,11 @@
 #' @importFrom rlang .data
 #' @export
 
-CPD_Kidney_function <- function (merge_data, renal, output_dir){
+CPD_Kidney_function <- function (merge_data, renal){
   
   stopifnot("Your argument need to be a data frame"=is.data.frame(merge_data))
   stopifnot("Your argument need to be a data frame"=is.data.frame(renal))
-  stopifnot("Your argument need to be a character"=is.character(output_dir))
-  
-  # Check output directory
-  if (!dir.exists(output_dir)) {
-    stop('Specified output folder does not exist')
-  }
+
   
   renal_frame <- merge(renal, merge_data[, c("RKD.ID", "Date_Last_Follow_up")], by= "RKD.ID")
   renal_frame <- renal_frame %>% distinct(RKD.ID, Date.of.transplant., .keep_all=TRUE)
@@ -85,12 +79,6 @@ CPD_Kidney_function <- function (merge_data, renal, output_dir){
     }
   }
   
-  output_filename <- file.path(
-    output_dir,
-    paste0('Redcap_kidney_function_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
-           , Sys.Date(), '.csv')
-  )
-  write.csv(merge_renal_frame, output_filename, row.names = FALSE)
   return(merge_renal_frame)
   
 }
