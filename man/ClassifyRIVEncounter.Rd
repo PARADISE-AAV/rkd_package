@@ -11,7 +11,9 @@ ClassifyRIVEncounter(
   interval_from_diagnostics = 6,
   CM_data = NULL,
   IV_data = NULL,
-  nb_month = 24
+  nb_month = 24,
+  nb_day = 730,
+  Renal = NULL
 )
 }
 \arguments{
@@ -19,7 +21,7 @@ ClassifyRIVEncounter(
 
 \item{output_path}{folder where the Redcap data will be saved}
 
-\item{algorithm}{function use to classify the RIV patient, the possibility are "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT" or "CPD ANCA" or "CPD Treatment" or "CPD LTROT current" or "All"}
+\item{algorithm}{function use to classify the RIV patient, the possibility are "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT" or "CPD ANCA" or "CPD Treatment" or "CPD LTROT current" or "All" or "CPD Kidney function"}
 
 \item{interval_from_diagnostics}{the interval from diagnostics for the algorithm Paradise_Encounter by default 6}
 
@@ -28,6 +30,10 @@ ClassifyRIVEncounter(
 \item{IV_data}{Data from \code{\link{CPD_IVTherapy_Treatment}} function for the Treatment On/Off algorithm}
 
 \item{nb_month}{Number of month out of treatment for the CPD LTROT function}
+
+\item{nb_day}{Number of days out of treatment for the CPD LTROT function}
+
+\item{Renal}{Data from \code{\link{CPD_Renal}} function for the Kidney function}
 }
 \value{
 The Redcap data with the classification variables in your folder and in an R object
@@ -45,6 +51,7 @@ This function allows you to call one of  multiple functions to create a classifi
 \item \code{\link{CPD_ANCA}} tells us the switch of ANCA from one Encounter to the other.
 \item \code{\link{CPD_Treatment}} tells us which treatment is used at each encounter. To be use after \code{\link{CPD_Treatment_OnOff}}
 \item \code{\link{CPD_LTROT_current}} tells us if an Encounter is a LTROT
+\item \code{\link{CPD_Kidney_function}} tells us the status of the Kideney function
 }
 }
 \author{
