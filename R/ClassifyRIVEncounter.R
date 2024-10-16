@@ -6,12 +6,13 @@
 #'
 #' @param RKDdata RIV data from \code{\link{Merge_Encounter_initial}} function
 #' @param output_path folder where the Redcap data will be saved
-#' @param algorithm function use to classify the RIV patient, the possibility are "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT" or "CPD ANCA" or "CPD Treatment" or "CPD LTROT current" or "All" 
+#' @param algorithm function use to classify the RIV patient, the possibility are "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT" or "CPD ANCA" or "CPD Treatment" or "CPD LTROT current" or "All" or "CPD Kidney function" 
 #' @param interval_from_diagnostics the interval from diagnostics for the algorithm Paradise_Encounter by default 6
 #' @param CM_data Data from \code{\link{CPD_Medication_Treatment}} function for the Treatment On/Off algorithm
 #' @param IV_data Data from \code{\link{CPD_IVTherapy_Treatment}} function for the Treatment On/Off algorithm
 #' @param nb_month Number of month out of treatment for the CPD LTROT function
-#' #' @param nb_day Number of days out of treatment for the CPD LTROT function
+#' @param nb_day Number of days out of treatment for the CPD LTROT function
+#' @param Renal Data from \code{\link{CPD_Renal}} function for the Kidney function 
 #' @return The Redcap data with the classification variables in your folder and in an R object 
 #' @details This function allows you to call one of  multiple functions to create a classification variable for each RKD encounter. The possible functions each create one new variable
 #' * \code{\link{CPDRelapse}} tells us if an encounter is in relapse or not based on rules and models 
@@ -21,9 +22,10 @@
 #' * \code{\link{CPD_ANCA}} tells us the switch of ANCA from one Encounter to the other.
 #' * \code{\link{CPD_Treatment}} tells us which treatment is used at each encounter. To be use after \code{\link{CPD_Treatment_OnOff}}
 #' * \code{\link{CPD_LTROT_current}} tells us if an Encounter is a LTROT
+#' * \code{\link{CPD_Kidney_function}} tells us the status of the Kideney function
 #' 
 #' @export
-ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_from_diagnostics=6, CM_data=NULL, IV_data=NULL, nb_month=24, nb_day=730) {
+ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_from_diagnostics=6, CM_data=NULL, IV_data=NULL, nb_month=24, nb_day=730, Renal=NULL) {
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
@@ -31,7 +33,7 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_
   if (is.character(output_path) == FALSE) {
     stop("The argument output_path need to be a character argument")
   }
-  algorithm <- match.arg(algorithm, c( 'Paradise_Encounter', "CPD Relapse", "Treatment On/Off", "CPD LTROT", "CPD ANCA","CPD Treatment","CPD LTROT current", "All"))
+  algorithm <- match.arg(algorithm, c( 'Paradise_Encounter', "CPD Relapse", "Treatment On/Off", "CPD LTROT", "CPD ANCA","CPD Treatment","CPD LTROT current", "All", "CPD Kidney function"))
 
   RKD_data <- RKDdata
   ###check that you load a real file
@@ -66,6 +68,10 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_
   
   if(algorithm ==  "CPD LTROT current"){
     Classify_RKD_data <- CPD_LTROT_current(RKD_data, nb_day)
+  }
+  
+  if(algorithm == "CPD Kidney function"){
+    
   }
   
   if(algorithm ==  "All"){
