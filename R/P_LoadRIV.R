@@ -19,6 +19,7 @@
 #'
 #' @return A data frame containing the RKD dataset.
 #' @import textclean
+#' @import dplyr
 #' @export
 load_riv <- function (file_name) {
   stopifnot("Your argument need to be a character"=is.character(file_name))
@@ -39,8 +40,20 @@ load_riv <- function (file_name) {
   
   Encounter=rkd_data[which(rkd_data$Repeat.Instrument=="Encounters"),]
   if(length(which(is.na(Encounter$Date.Of.Visit)==TRUE))>0){
-    write.csv(Encounter[which(is.na(Encounter$Date.Of.Visit)==TRUE),c("RKD.ID","Repeat.Instance")],"RKD_Date_Of_Visit_missing.csv",row.names = F)
+   print(paste(Encounter[which(is.na(Encounter$Date.Of.Visit)==TRUE),c("RKD.ID","Repeat.Instance")]))
     stop("Date of Visit are missing!!")
+  }
+  
+  duplicate_rows_unique_values <- Encounter %>%
+    group_by(RKD.ID, Date.Of.Visit) %>%
+    filter(n() > 1) %>%
+    select(RKD.ID, Date.Of.Visit) %>%  # Select only the columns you are interested in
+    distinct() %>%  # Select unique rows among the duplicates
+    ungroup()
+  duplicate_rows_unique_values$Date.Of.Visit=as.character(duplicate_rows_unique_values$Date.Of.Visit)
+  if(nrow(duplicate_rows_unique_values)>0){
+    print(paste(duplicate_rows_unique_values))
+    stop("Duplicate Encounter")
   }
   
   if(length(which(rkd_data$Date.of.diagnosis<rkd_data$Date.of.Birth))>0){
