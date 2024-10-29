@@ -62,6 +62,9 @@ CPD_IVTherapy_Treatment= function(IV_Therapy, merged_data, output_dir){
   
   rownames(merged_frame_methyl) <- NULL
   
+  merged_frame_methyl$Encounter=paste(merged_frame_methyl$RKD.ID.x,merged_frame_methyl$Date.Of.Visit,sep="_")
+  
+  merged_frame_methyl1=merged_frame_methyl[!duplicated(merged_frame_methyl$Encounter),]
   
   Cyclo$Start.date.of.date.range <-
     as.Date(Cyclo$Date.of.IV.therapy)
@@ -83,6 +86,10 @@ CPD_IVTherapy_Treatment= function(IV_Therapy, merged_data, output_dir){
   
   rownames(merged_frame_Cyclo) <- NULL
   
+  merged_frame_Cyclo$Encounter=paste(merged_frame_Cyclo$RKD.ID.x,merged_frame_Cyclo$Date.Of.Visit,sep="_")
+  
+  merged_frame_Cyclo1=merged_frame_Cyclo[!duplicated(merged_frame_Cyclo$Encounter),]
+  
   
   Ritu$Start.date.of.date.range <-
     as.Date(Ritu$Date.of.IV.therapy)
@@ -100,11 +107,17 @@ CPD_IVTherapy_Treatment= function(IV_Therapy, merged_data, output_dir){
     match_fun = list(`==`, `>`, `<=`)
   ) %>%
     select(everything())
-  
-  
   rownames(merged_frame_Ritu) <- NULL
-  merged_frame_Cyclo_Ritu <- merge(merged_frame_Ritu[, c("RKD.ID.x", "Date.Of.Visit", "IV.therapy")], merged_frame_Cyclo[, c("RKD.ID.x", "Date.Of.Visit", "IV.therapy")], by=c("RKD.ID.x", "Date.Of.Visit"), all=T )
-  merged_frame_all <- merge(merged_frame_Cyclo_Ritu, merged_frame_methyl[, c("RKD.ID.x", "Date.Of.Visit", "IV.therapy")], by=c("RKD.ID.x", "Date.Of.Visit"), all=T )
+  merged_frame_Ritu$Encounter=paste(merged_frame_Ritu$RKD.ID.x,merged_frame_Ritu$Date.Of.Visit,sep="_")
+  
+  merged_frame_Ritu1=merged_frame_Ritu[!duplicated(merged_frame_Ritu$Encounter),]
+  
+  
+  
+  merged_frame_Cyclo_Ritu <- merge(merged_frame_Ritu1[, c("RKD.ID.x", "Date.Of.Visit", "IV.therapy")], merged_frame_Cyclo1[, c("RKD.ID.x", "Date.Of.Visit", "IV.therapy")], by=c("RKD.ID.x", "Date.Of.Visit"), all=T )
+  merged_frame_all <- merge(merged_frame_Cyclo_Ritu, merged_frame_methyl1[, c("RKD.ID.x", "Date.Of.Visit", "IV.therapy")], by=c("RKD.ID.x", "Date.Of.Visit"), all=T )
+  
+
   
   merged_frame_all <- merged_frame_all %>% rowwise %>%
     mutate(IVtherapy = list(c(IV.therapy.x, IV.therapy.y, IV.therapy)))%>%
