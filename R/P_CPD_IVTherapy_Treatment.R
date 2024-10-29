@@ -117,8 +117,6 @@ CPD_IVTherapy_Treatment= function(IV_Therapy, merged_data, output_dir){
   merged_frame_Cyclo_Ritu <- merge(merged_frame_Ritu1[, c("RKD.ID.x", "Date.Of.Visit", "IV.therapy")], merged_frame_Cyclo1[, c("RKD.ID.x", "Date.Of.Visit", "IV.therapy")], by=c("RKD.ID.x", "Date.Of.Visit"), all=T )
   merged_frame_all <- merge(merged_frame_Cyclo_Ritu, merged_frame_methyl1[, c("RKD.ID.x", "Date.Of.Visit", "IV.therapy")], by=c("RKD.ID.x", "Date.Of.Visit"), all=T )
   
-
-  
   merged_frame_all <- merged_frame_all %>% rowwise %>%
     mutate(IVtherapy = list(c(IV.therapy.x, IV.therapy.y, IV.therapy)))%>%
     ungroup
