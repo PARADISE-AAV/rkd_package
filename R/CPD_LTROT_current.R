@@ -15,7 +15,7 @@
 #' @import dplyr
 #' @export
 
-CPD_LTROT_current <- function(merge_data, interval){
+CPD_LTROT_current <- function(merge_data, interval=730){
   
   stopifnot("Your argument need to be a data frame"=is.data.frame(merge_data))
   stopifnot("Your argument need to be a numeric"=is.numeric(interval))
@@ -39,6 +39,8 @@ CPD_LTROT_current <- function(merge_data, interval){
           if(dim(table(dat3$CPD_relapse))==1 & dat3$CPD_relapse[1]=="No Relapse" & dim(table(dat3$CPD_treatment))==1 & dat3$CPD_treatment[1]=="Off Treatment"){
             dat3$LTROT_current[nrow(dat3)]="LTROT"
           }
+          
+        
         }
         
         merge_data_LTROT=rbind(merge_data_LTROT,dat3[,c("RKD.ID", "Date.Of.Visit", "LTROT_current")])
