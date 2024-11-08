@@ -4,7 +4,7 @@
 \alias{CPD_LTROT_current}
 \title{CPD current LTROT}
 \usage{
-CPD_LTROT_current(merge_data, interval)
+CPD_LTROT_current(merge_data, interval = 730)
 }
 \arguments{
 \item{merge_data}{Data from the merge of encounter and General characteristics in the \code{\link{CPD_Treatment}} function}
