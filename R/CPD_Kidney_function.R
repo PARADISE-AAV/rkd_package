@@ -39,7 +39,7 @@ CPD_Kidney_function <- function (merge_data, renal){
     by = c(
       "RKD.ID" = "RKD.ID",
       "Date.Of.Visit" = "Date.of.transplant.",
-      "Date.Of.Visit" = "Date.of.graft.failure" 
+      "Date.Of.Visit" = "Date.of.graft.failure.or.last.followup" 
     ),
     match_fun = list(`==`, `>=`, `<=`)
   ) %>%
