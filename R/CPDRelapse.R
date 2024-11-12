@@ -64,6 +64,9 @@ CPDRelapse <- function(RKDdata, interval_from_diagnostics = 6){
       if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="Manual review" & CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]== ""){
         CPD_Relapse_RKD_data$CPD_relapse[i]="Manual review"
       }
+      if(CPD_Relapse_RKD_data$interval_from_diagnosis[i] < 180 ){
+        CPD_Relapse_RKD_data$CPD_relapse[i]="Under 6 months"
+      }
     }
     
   }
