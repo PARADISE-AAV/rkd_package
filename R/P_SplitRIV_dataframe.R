@@ -28,7 +28,6 @@ SplitRIV_dataframe <- function(RKDdata, output_dir, algorithm){
     stop('Specified output folder does not exist')
   }
   
-  algorithm <- match.arg(algorithm, c("Encounter", "Initial" , "IVTherapy" , "Medication" ,"Biopsy" , "Transplant" ,"Complication"))
   
   RKD_data=RKDdata[[which(names(RKDdata)==algorithm)]]
   
