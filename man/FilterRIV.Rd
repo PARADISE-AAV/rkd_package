@@ -11,7 +11,7 @@ FilterRIV(RKDdata, output_path, algorithm)
 
 \item{output_path}{folder where the Redcap data will be saved}
 
-\item{algorithm}{function use to filter the RKD patient, the possibility are "Definite GPA/MPA" or "Definite GPA/MPA/EGPA" or "Anti-GBM"}
+\item{algorithm}{function use to filter the RKD patient, the possibility are "Definite GPA/MPA" or "Definite GPA/MPA/EGPA" or "Anti-GBM" or "TTV"}
 }
 \value{
 The Redcap data with the classification variables in your folder and in an R object
@@ -29,6 +29,7 @@ The filter of the RKD data are based on the following filter
 \item Definite MPA/GPA without secondary vasculitis with more explanation in \code{\link{DemographicFilterRIV}}
 \item Definite MPA/GPA/EGPA without secondary vasculitis with more explanation in \code{\link{DemographicFilterRIV_EGPA}}
 \item Anti-GBM Disease in \code{\link{AntiGBMDisease}}
+\item Anti-GBM and Definite MPA/GPA/EGPA in \code{\link{DemographicFilterRIV_GBM_MPA_EGPA_GPA}}
 }
 }
 \author{
