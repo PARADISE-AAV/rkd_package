@@ -42,6 +42,9 @@ FilterRIV = function(RKDdata, output_path, algorithm) {
   if (algorithm == "Anti-GBM") {
     Filter_RKD_data <- AntiGBMDisease(RKD_data)
   }
+  if (algorithm == "TTV") {
+    Filter_RKD_data <- DemographicFilterRIV_GBM_MPA_EGPA_GPA(RKD_data)
+  }
   
   files_test <-  list.dirs(output_path)
   if (identical(files_test, character(0)) == TRUE) {
