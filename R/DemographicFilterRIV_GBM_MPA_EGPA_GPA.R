@@ -9,16 +9,12 @@
 #'
 #' @param RKDdata RIV data from \code{\link{SplitRIV}} function
 #' @details The filter of the RKD data for Definite GPA/MPA/EGPA are based on the following filter
-#' *  SVV = GPA / MPA / EGPA
-#' *  AND diagnosis confidence = definite
-#' *  AND SVV (IC) != Anti-GBM, IgA, cryo
-#' *  AND Secondary vasculitis != Yes
-#' *  AND 'Other' != Yes
+#' *  diagnosis_confidence_init = "Definite"
+#' *  AND small_vessel_vas_immune != “IgA vasculitis (Henoch-Schonlein) - ORPHA:761"  OR "Cryoglobulinemic vasculitis - ORPHA:91138"
+#' *  AND secondary_vasculitis != "Yes"
 #' *  AND 'Medium vessel' != 1 or 2
 #' *  AND 'large vessel' != 1 or 2
 #' *  AND 'variable vessel' != 1 or 2
-#' *  AND (ANCA subtype = PR3 / MPO / both) OR (biopsy = Definite vasculitis AND histologically confirmed = YES)
-#' 
 #' 
 #' @return The Redcap data filter in your folder and an R object
 #' @export
