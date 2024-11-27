@@ -50,7 +50,7 @@ CPDRelapse <- function(RKDdata, interval_from_diagnostics = 6){
         CPD_Relapse_RKD_data$CPD_relapse[i]="Possible Relapse"
       }
       if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="Relapse within 90d, so exclude"){
-        CPD_Relapse_RKD_data$CPD_relapse[i]="Exclude this encounter"
+        CPD_Relapse_RKD_data$CPD_relapse[i]="Recent relapse"
       }
       if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="Manual review" & CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]== "None"){
         CPD_Relapse_RKD_data$CPD_relapse[i]="No Relapse"
