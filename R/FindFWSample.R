@@ -69,11 +69,27 @@ FindFWSample=function(FWdata, RKDdata, output_path, interval){
   
   rownames(merged_frame) <- NULL
   
+  merged_frame_no_duplicates <- merged_frame %>%
+    group_by(Unique.Aliquot.ID) %>%
+      # Step 1: Remove duplicates where Date.Of.Visit == Date.of.encounter, keeping only one row
+    filter(!(duplicated(Date.Of.Visit) & Date.Of.Visit == Date.of.encounter)) %>%
+      # Step 2: For remaining duplicates where Date.Of.Visit != Date.of.encounter, keep the row where Date.of.encounter is closest to Date.Of.Visit
+      # If there is a tie (multiple closest rows), keep one randomly
+    filter(if_else(n() > 1 & Date.Of.Visit != Date.of.encounter,
+                    abs(Date.of.encounter - Date.Of.Visit) == min(abs(Date.of.encounter - Date.Of.Visit)),
+                    TRUE)) %>%
+    group_by(Unique.Aliquot.ID, Date.Of.Visit) %>%
+      # Randomly select one row if there are still multiple rows with the same closest distance
+    slice_sample(n = 1) %>%
+    ungroup()
+  
+  
+  
   files_test <-  list.dirs(output_path)
   if(identical(files_test, character(0)) == TRUE){
     stop("Your output folder don't exist")
   }
-  write.csv(merged_frame, paste(output_path, "/Merged_FW_RKD_", "_version", packageVersion('rivpipeline'), "_Date", Sys.Date() , ".csv", sep=""), row.names = F)
-  return(merged_frame)
+  write.csv(merged_frame_no_duplicates, paste(output_path, "/Merged_FW_RKD_", "_version", packageVersion('rivpipeline'), "_Date", Sys.Date() , ".csv", sep=""), row.names = F)
+  return(merged_frame_no_duplicates)
   
 }
