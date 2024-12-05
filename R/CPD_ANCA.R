@@ -19,7 +19,7 @@ CPD_ANCA <- function(merge_data){
 
   rkd=merge_data[,c("RKD.ID", "Date.Of.Visit", "CPD_relapse","At.any.point.ANCA.specificity", "Anti.PR3.level", "Anti.MPO.level", "ANCA.IF")]
   
-  rkd$ANCA_Levels="Unknown"
+  rkd$ANCA_Levels=NA
   n=nrow(rkd)
   for(i in 1:n){
     if(rkd$At.any.point.ANCA.specificity[i] == "PR3"){
@@ -44,6 +44,14 @@ CPD_ANCA <- function(merge_data){
     }else{
       if( is.na(rkd$ANCA_Levels[i])== FALSE & as.numeric(rkd$ANCA_Levels[i]) <= 2){
         rkd$ANCA_Status[i] = "ANCA Negative"
+      }else{
+        if(rkd$ANCA.IF[i]=="Negative"){
+          rkd$ANCA_Status[i] = "ANCA Negative"
+        }else{
+          if(rkd$ANCA.IF[i]=="P" | rkd$ANCA.IF[i]=="C" | rkd$ANCA.IF[i]=="Atypical"){
+            rkd$ANCA_Status[i] = "ANCA Positive"
+          }
+        }
       }
     }
         
