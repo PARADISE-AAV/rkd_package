@@ -31,23 +31,23 @@ CPD_ANCA <- function(merge_data){
     if(rkd$At.any.point.ANCA.specificity[i] == "MPO and PR3"){
       rkd$ANCA_Levels[i] = max(rkd$Anti.MPO.level[i], rkd$Anti.PR3.level[i], na.rm=T)
     }
+    if(is.na(rkd$ANCA_Levels[i])== FALSE & rkd$ANCA_Levels[i] == -Inf){
+      rkd$ANCA_Levels[i]=NA
+    }
   }
   rkd$ANCA_Status="ANCA Status Unknown"
   n=nrow(rkd)
   for(i in 1:n){
     
-    if(( is.na(rkd$ANCA_Levels[i])== FALSE & as.numeric(rkd$ANCA_Levels[i]) > 2 & rkd$ANCA_Levels[i] != "Unknown" ) & (rkd$ANCA.IF[i] == "Atypical" | rkd$ANCA.IF[i]  == "P" | rkd$ANCA.IF[i]  == "C")){
+    if( is.na(rkd$ANCA_Levels[i])== FALSE & as.numeric(rkd$ANCA_Levels[i]) > 2){
       rkd$ANCA_Status[i] = "ANCA Positive"
+    }else{
+      if( is.na(rkd$ANCA_Levels[i])== FALSE & as.numeric(rkd$ANCA_Levels[i]) <= 2){
+        rkd$ANCA_Status[i] = "ANCA Negative"
+      }
     }
-    if(( is.na(rkd$ANCA_Levels[i])== FALSE & as.numeric(rkd$ANCA_Levels[i]) > 2 & rkd$ANCA_Levels[i] != "Unknown" ) & (rkd$ANCA.IF[i] == "Negative" )){
-      rkd$ANCA_Status[i] = "ANCA Positive"
-    }
-    if(( is.na(rkd$ANCA_Levels[i])== FALSE & as.numeric(rkd$ANCA_Levels[i]) <= 2 & rkd$ANCA_Levels[i] != "Unknown" ) & rkd$ANCA.IF[i] == "Negative" ){
-      rkd$ANCA_Status[i] = "ANCA Negative"
-    }
-    if(( is.na(rkd$ANCA_Levels[i])== FALSE & as.numeric(rkd$ANCA_Levels[i]) <= 2 & rkd$ANCA_Levels[i] != "Unknown" ) & (rkd$ANCA.IF[i] == "Atypical" | rkd$ANCA.IF[i]  == "P" | rkd$ANCA.IF[i]  == "C")){
-      rkd$ANCA_Status[i] = "ANCA Negative"
-    }
+        
+    
   }
   rkd$ANCA_Switch = "Switch Status Unknown"
   n=nrow(rkd)
