@@ -38,9 +38,6 @@ CPD_LTROT_current <- function(merge_data, interval=730){
             dat3$LTROT_current[nrow(dat3)]="LTROT"
           }
           
-        
-        
-        
         merge_data_LTROT=rbind(merge_data_LTROT,dat3[,c("RKD.ID", "Date.Of.Visit", "LTROT_current")])
       }
     }
