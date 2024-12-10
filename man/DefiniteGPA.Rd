@@ -20,7 +20,7 @@ Version: 2.0
 Date: 24-Jan-23
 }
 \details{
-The filter of the RIV data for Definite GPA/MPA are based on the following filter
+The filter of the RIV data for Definite GPA are based on the following filter
 \itemize{
 \item SVV = GPA
 \item AND diagnosis confidence = definite
