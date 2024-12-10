@@ -8,7 +8,7 @@
 #' Date: 24-Jan-23
 #'
 #' @param RKDdata RIV data from \code{\link{clean_riv}} function
-#' @details The filter of the RIV data for Definite GPA/MPA are based on the following filter
+#' @details The filter of the RIV data for Definite GPA are based on the following filter
 #' *  SVV = GPA
 #' *  AND diagnosis confidence = definite
 #' *  AND SVV (IC) != Anti-GBM, IgA, cryo
