@@ -23,7 +23,7 @@
 #' @return The Redcap data filter in your folder and an R object
 #' @export
 
-DefiniteMPA <- function(RKDdata) {
+DefiniteEGPA <- function(RKDdata) {
   
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
