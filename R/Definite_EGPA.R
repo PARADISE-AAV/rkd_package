@@ -36,7 +36,7 @@ DefiniteEGPA <- function(RKDdata) {
   }
   
   ###Select on disease Select only GPA and MPA
-  RKD_data_DiseaseFilter <- RKD_data[which(RKD_data$Small.vessel.vasculitis..ANCA.associated. == "Microscopic polyangiitis (including renal limited vasculitis) - ORPHA:727"),]
+  RKD_data_DiseaseFilter <- RKD_data[which(RKD_data$Small.vessel.vasculitis..ANCA.associated. == "Eosinophilic granulomatosis with polyangiitis (Churg Strauss) - ORPHA:183"),]
   
   
   #####Diagnosis confidence filter
