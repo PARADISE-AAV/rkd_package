@@ -30,8 +30,6 @@ HealthyControl <- function(RKDdata) {
   RKD_data_DiseaseFilter <- RKD_data[which(RKD_data$Type.of.Patient == "Healthy Control"),]
   
   
-  
-  
   Filter_RKD_data <- RKD_data_DiseaseFilter
   
   
