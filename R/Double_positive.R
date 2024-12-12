@@ -21,7 +21,8 @@
 #' 
 #' @return The Redcap data filter in your folder and an R object
 #' @export
-AntiGBMDisease <- function(RKDdata) {
+
+DoublePositive <- function(RKDdata) {
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
