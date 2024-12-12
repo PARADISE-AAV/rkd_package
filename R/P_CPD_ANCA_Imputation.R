@@ -25,19 +25,35 @@ CPD_ANCA_Imputation <- function(Encounter, output_dir){
     stop('Specified output folder does not exist')
   }
   
-  n=nrow(Encounter)
-  for(i in 2:(n-1)){
-    if((Encounter$ANCA.IF[i]=="" | Encounter$ANCA.IF[i]=="Not tested") & Encounter$ANCA.IF[i-1]==Encounter$ANCA.IF[i+1] & Encounter$RKD.ID[i-1]==Encounter$RKD.ID[i+1] & as.numeric(Encounter$Date.Of.Visit[i+1]-Encounter$Date.Of.Visit[i-1])<=400){
-      Encounter$ANCA.IF[i]=Encounter$ANCA.IF[i-1]
+  
+  n=length(levels(as.factor(Encounter$RKD.ID)))
+  Encounter2=NULL
+  for(i in 1:n){
+    dat=Encounter[which(Encounter$RKD.ID==levels(as.factor(Encounter$RKD.ID))[i]),]
+    m=nrow(dat)
+    if(m>2){
+      for(j in 2:m){
+        if(dat$ANCA.IF[j]=="" | dat$ANCA.IF[j]=="Not tested"){
+          k=j
+          while((dat$ANCA.IF[j]=="" | dat$ANCA.IF[j]=="Not tested") & k<m){
+            k=k+1
+          }
+          if(as.numeric(dat$Date.Of.Visit[k]-dat$Date.Of.Visit[j-1])<=400 & dat$ANCA.IF[k]==dat$ANCA.IF[j-1]){
+            dat$ANCA.IF[j:k-1]=dat$ANCA.IF[j-1]
+          }
+        }
+      }
     }
-  }
+    Encounter2=rbind(Encounter2,dat)
+  } 
+  
   
   for(i in 1:n){
-    if(Encounter$ANCA.IF[i]=="Negative" & is.na(Encounter$Anti.MPO.level[i])==TRUE){
-      Encounter$Anti.MPO.level[i]=1
+    if(Encounter2$ANCA.IF[i]=="Negative" & is.na(Encounter2$Anti.MPO.level[i])==TRUE){
+      Encounter2$Anti.MPO.level[i]=1
     }
-    if(Encounter$ANCA.IF[i]=="Negative" & is.na(Encounter$Anti.PR3.level[i])==TRUE){
-      Encounter$Anti.PR3.level[i]=1
+    if(Encounter2$ANCA.IF[i]=="Negative" & is.na(Encounter2$Anti.PR3.level[i])==TRUE){
+      Encounter2$Anti.PR3.level[i]=1
     }
   }
   
@@ -46,7 +62,7 @@ CPD_ANCA_Imputation <- function(Encounter, output_dir){
     paste0('Redcap_ANCA_imputation_function_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
            , Sys.Date(), '.csv')
   )
-  write.csv(Encounter, output_filename, row.names = FALSE)
-  return(Encounter)
+  write.csv(Encounter2, output_filename, row.names = FALSE)
+  return(Encounter2)
   
 }
