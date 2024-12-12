@@ -41,7 +41,7 @@ AntiGBMDisease <- function(RKDdata) {
   
   ###### Small vessel immune filter
   
-  RKD_data_SmallvesselImmuneFilter <- RKD_data_DiagnosisFilter[which(RKD_data_DiagnosisFilter$Small.vessel.vasculitis..ANCA.associated. != ""),]
+  RKD_data_SmallvesselImmuneFilter <- RKD_data_DiagnosisFilter[which(RKD_data_DiagnosisFilter$Small.vessel.vasculitis..ANCA.associated. == ""),]
   
   ########Secondary vascularite filter
   
