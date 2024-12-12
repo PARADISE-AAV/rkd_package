@@ -17,7 +17,7 @@
 #' *  AND 'Medium vessel' != 1 or 2
 #' *  AND 'large vessel' != 1 or 2
 #' *  AND 'variable vessel' != 1 or 2
-#' *  AND (ANCA subtype = PR3 / MPO / both) OR (biopsy = Definite vasculitis AND histologically confirmed = YES)
+#' *  AND (ANCA subtype = PR3 / MPO / both) OR histologically confirmed = YES
 #' 
 #' 
 #' @return The Redcap data filter in your folder and an R object
