@@ -70,9 +70,9 @@ DefiniteMPA <- function(RKDdata) {
   
   RKD_data_LastFilter <- RKD_data_VariableVesselFilter[which((RKD_data_VariableVesselFilter$At.any.point.ANCA.specificity == "PR3" | 
                                                                 RKD_data_VariableVesselFilter$At.any.point.ANCA.specificity == "MPO" |
-                                                                RKD_data_VariableVesselFilter$At.any.point.ANCA.specificity == "MPO and PR3") | 
+                                                                RKD_data_VariableVesselFilter$At.any.point.ANCA.specificity == "MPO and PR3") 
                                                                
-                                                               RKD_data_VariableVesselFilter$Histologically.confirmed.diagnosis == "Yes"
+                                                             | RKD_data_VariableVesselFilter$Histologically.confirmed.diagnosis == "Yes"
   ),]
   
   Filter_RKD_data <- RKD_data_LastFilter
