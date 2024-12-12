@@ -35,7 +35,7 @@ CPD_ANCA_Imputation <- function(Encounter, output_dir){
       for(j in 2:m){
         if(dat$ANCA.IF[j]=="" | dat$ANCA.IF[j]=="Not tested"){
           k=j
-          while((dat$ANCA.IF[j]=="" | dat$ANCA.IF[j]=="Not tested") & k<m){
+          while((dat$ANCA.IF[k]=="" | dat$ANCA.IF[k]=="Not tested") & k<m){
             k=k+1
           }
           if(as.numeric(dat$Date.Of.Visit[k]-dat$Date.Of.Visit[j-1])<=400 & dat$ANCA.IF[k]==dat$ANCA.IF[j-1]){
