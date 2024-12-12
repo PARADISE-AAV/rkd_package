@@ -30,7 +30,7 @@ The filter of the RIV data for Definite GPA are based on the following filter
 \item AND 'Medium vessel' != 1 or 2
 \item AND 'large vessel' != 1 or 2
 \item AND 'variable vessel' != 1 or 2
-\item AND (ANCA subtype = PR3 / MPO / both) OR (biopsy = Definite vasculitis AND histologically confirmed = YES)
+\item AND (ANCA subtype = PR3 / MPO / both) OR histologically confirmed = YES
 }
 }
 \author{
