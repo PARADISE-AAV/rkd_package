@@ -126,9 +126,7 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data){
     if (is.na(data_merged$Step1[i]) == FALSE & is.na(data_merged$Step2[i]) == TRUE & is.na(data_merged$Step3[i]) == TRUE & (is.na(data_merged$Step4[i])==TRUE | data_merged$Step4[i] == "Off treatment") & (is.na(data_merged$Step5[i])==TRUE | data_merged$Step5[i] == "Off treatment") & data_merged$Step6[i] == "Treatment Status Unknown"){
       data_merged$CPD_treatment[i]="Off Treatment"
     }
-    if (is.na(data_merged$Step1[i]) == TRUE & is.na(data_merged$Step2[i]) == TRUE & is.na(data_merged$Step3[i]) == TRUE & (is.na(data_merged$Step4[i])==TRUE | data_merged$Step4[i] == "Off treatment") & (is.na(data_merged$Step5[i])==TRUE | data_merged$Step5[i] == "Off treatment") & data_merged$Step6[i] == "Treatment Status Unknown"){
-      data_merged$CPD_treatment[i]="Off Treatment"
-    }
+    
     if (is.na(data_merged$Step1[i]) == TRUE & is.na(data_merged$Step2[i]) == TRUE & is.na(data_merged$Step3[i]) == TRUE & (is.na(data_merged$Step4[i])==TRUE ) & (is.na(data_merged$Step5[i])==TRUE) & data_merged$Step6[i] == "Treatment Status Unknown"){
       data_merged$CPD_treatment[i]="Treatment Status Unknown"
     }
