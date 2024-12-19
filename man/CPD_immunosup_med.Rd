@@ -4,12 +4,10 @@
 \alias{CPD_immunosup_med}
 \title{CPD IS medication}
 \usage{
-CPD_immunosup_med(treatment_data, output_dir)
+CPD_immunosup_med(treatment_data)
 }
 \arguments{
 \item{treatment_data}{Data from CPD_treatment from \code{\link{CPD_Treatment}} function}
-
-\item{output_dir}{folder where the Redcap data will be saved}
 }
 \description{
 The Goal is to do CPD Treatment
