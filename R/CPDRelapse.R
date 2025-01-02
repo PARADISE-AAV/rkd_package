@@ -55,11 +55,14 @@ CPDRelapse <- function(RKDdata, interval_from_diagnostics = 6){
       if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="Manual review" & CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]== "None"){
         CPD_Relapse_RKD_data$CPD_relapse[i]="No Relapse"
       }
-      if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="Manual review" & (CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]!= "None" & CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]!= "") & CPD_Relapse_RKD_data$Do.you.think.Vasculitis.is.relapsing.in.this.encounter[i]=="High Probability"){
+      if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="Manual review" & (CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]!= "None" & CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]!= "") & CPD_Relapse_RKD_data$Disease.activity.since.last.return[i]=="Active"){
         CPD_Relapse_RKD_data$CPD_relapse[i]="Definite Relapse"
       }
-      if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="Manual review" & (CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]!= "None" & CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]!= "") & CPD_Relapse_RKD_data$Do.you.think.Vasculitis.is.relapsing.in.this.encounter[i]=="Possibly"){
+      if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="Manual review" & (CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]!= "None" & CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]!= "") & CPD_Relapse_RKD_data$Disease.activity.since.last.return[i]=="Low disease activity"){
         CPD_Relapse_RKD_data$CPD_relapse[i]="Possible Relapse"
+      }
+      if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="Manual review" & (CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]!= "None" & CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]!= "") & CPD_Relapse_RKD_data$Disease.activity.since.last.return[i]=="Remission"){
+        CPD_Relapse_RKD_data$CPD_relapse[i]="Manual review"
       }
       if(CPD_Relapse_RKD_data$rel.JS.OVERALL[i]=="Manual review" & CPD_Relapse_RKD_data$Nature.of.confirmed.relapse[i]== ""){
         CPD_Relapse_RKD_data$CPD_relapse[i]="Manual review"
