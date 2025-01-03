@@ -35,6 +35,9 @@ CPD_ANCA <- function(merge_data){
       rkd$ANCA_Levels[i]=NA
     }
   }
+  
+  
+  
   rkd$ANCA_Status="ANCA Status Unknown"
   n=nrow(rkd)
   for(i in 1:n){
@@ -57,6 +60,31 @@ CPD_ANCA <- function(merge_data){
         
     
   }
+  
+  n=length(levels(as.factor(rkd$RKD.ID)))
+  Encounter2=NULL
+  for(i in 1:n){
+    dat=rkd[which(rkd$RKD.ID==levels(as.factor(rkd$RKD.ID))[i]),]
+    m=nrow(dat)
+    if(m>2){
+      for(j in 2:m){
+        if(dat$ANCA_Status[j]=="ANCA Status Unknown" ){
+          k=j
+          while((dat$ANCA_Status[k]=="ANCA Status Unknown" ) & k<m){
+            k=k+1
+          }
+          if(as.numeric(dat$Date.Of.Visit[k]-dat$Date.Of.Visit[j-1])<=400 & dat$ANCA_Status[k]==dat$ANCA_Status[j-1]){
+            dat$ANCA_Status[j:k-1]=dat$ANCA_Status[j-1]
+          }
+        }
+      }
+    }
+    Encounter2=rbind(Encounter2,dat)
+  } 
+  
+  rkd=Encounter2
+  
+  
   rkd$ANCA_Switch = "Switch Status Unknown"
   n=nrow(rkd)
   for( i in 2:n){
