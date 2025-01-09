@@ -4,12 +4,10 @@
 \alias{CPD_Corticosteroids_on_off}
 \title{CPD Corticosteroids on/off}
 \usage{
-CPD_Corticosteroids_on_off(merge_data, output_dir)
+CPD_Corticosteroids_on_off(merge_data)
 }
 \arguments{
 \item{merge_data}{Data from the merge of encounter and General characteristics in the \code{\link{CPD_Treatment}} function}
-
-\item{output_dir}{folder where the Redcap data will be saved}
 }
 \description{
 to be added
