@@ -88,11 +88,7 @@ CPD_Medication_Treatment= function(Medication, merged_data, output_dir){
     
   }
   
-  merged_frame_all <- merged_frame_drug %>% rowwise %>%
-    mutate(Drug = list(c("Drug_Avacopan (C5aR inhibitor)", "Drug_Azathioprine - UATC/L04AX01",
-                         "Drug_Cyclophosphamide - UATC/L01AA01", "Drug_Methotrexate - UATC/L01BA01", 
-                         "Drug_Mycophenolate mofetil - UATC/L04AA06", "Drug_Other", "Drug_Prednisolone - UATC/H02AB06")))%>%
-    ungroup
+  merged_frame_all <- merged_frame_drug 
   
   merged_frame_unique <- merged_frame_all[!duplicated(merged_frame_all[,c(1:2,ncol(merged_frame_all))]), ]
   
