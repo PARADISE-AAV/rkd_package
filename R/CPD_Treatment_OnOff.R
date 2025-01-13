@@ -33,7 +33,6 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data){
   
   data_merged <- merge(merged_data, IV_ConMed, by = c("RKD.ID", "Date.Of.Visit"), all.x = TRUE)
   
-  data_merged$treatment=Map(c,data_merged$IVtherapy, data_merged$Drug)
   
   data_merged <- data_merged %>%
     dplyr::mutate(Step1 = dplyr::case_when(
