@@ -141,8 +141,8 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data){
   }
   
   data_merged$IVtherapy=as.character(data_merged$IVtherapy)
-  data_merged$Drug=as.character(data_merged$Drug)
-  data_merged$treatment=as.character(data_merged$treatment)
+  
+  
   
   return(data_merged)
   
