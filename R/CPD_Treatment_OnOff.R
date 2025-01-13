@@ -61,6 +61,9 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data){
     if(any(data_merged$IVtherapy[i] %like% "Rituximab - UATC/L01XC02 -- Ruxience") == TRUE){
       data_merged$Step3[i] ="On treatment"
     }
+    if(any(data_merged$IVtherapy[i] %like% "Rituximab - UATC/L01XC02 -- Truxima") == TRUE){
+      data_merged$Step3[i] ="On treatment"
+    }
   }
   
   data_merged <- data_merged %>%
