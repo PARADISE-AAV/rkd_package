@@ -31,6 +31,13 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data){
   
   IV_ConMed <- merge(IV_Therapy, ConMed, by = c("RKD.ID", "Date.Of.Visit"), all = TRUE)
   
+  n=nrow(IV_ConMed)
+  for(i in 1:n){
+    if(is.null(IV_ConMed$IVtherapy[[i]])==TRUE){
+      IV_ConMed$IVtherapy[i]=NA
+    }
+  }
+  
   data_merged <- merge(merged_data, IV_ConMed, by = c("RKD.ID", "Date.Of.Visit"), all.x = TRUE)
   
   
@@ -48,19 +55,7 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data){
   data_merged$Step3 <- NA
   n=nrow(data_merged)
   for (i in 1:n) {
-    if(any(data_merged$IVtherapy[i] %like% "Rituximab - UATC/L01XC02 -- Mabthera") == TRUE){
-      data_merged$Step3[i] ="On treatment"
-    }
-    if(any(data_merged$IVtherapy[i] %like% "Cyclophosphamide Injectable Solution - UATC/ L01AA01") == TRUE){
-      data_merged$Step3[i] ="On treatment"
-    }
-    if(any(data_merged$IVtherapy[i] %like% "Methylprednisolone - UATC/D07AA01") == TRUE){
-      data_merged$Step3[i] ="On treatment"
-    }
-    if(any(data_merged$IVtherapy[i] %like% "Rituximab - UATC/L01XC02 -- Ruxience") == TRUE){
-      data_merged$Step3[i] ="On treatment"
-    }
-    if(any(data_merged$IVtherapy[i] %like% "Rituximab - UATC/L01XC02 -- Truxima") == TRUE){
+    if(is.na(data_merged$IVtherapy[i]) == FALSE){
       data_merged$Step3[i] ="On treatment"
     }
   }
