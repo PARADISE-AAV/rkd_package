@@ -95,7 +95,7 @@ CPD_IVTherapy_Treatment= function(IV_Therapy, merged_data, output_dir){
     as.Date(Ritu$Date.of.IV.therapy)
   
   Ritu$End.date.of.date.range <-
-    as.Date(Ritu$Date.of.IV.therapy) + 180
+    as.Date(Ritu$Date.of.IV.therapy) + 270
   
   merged_frame_Ritu <-fuzzy_inner_join(
     merged_data[, c("RKD.ID", "Date.Of.Visit")], Ritu,
