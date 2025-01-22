@@ -40,25 +40,26 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data){
   
   data_merged <- merge(merged_data, IV_ConMed, by = c("RKD.ID", "Date.Of.Visit"), all.x = TRUE)
   
-  
-  data_merged <- data_merged %>%
-    dplyr::mutate(Step1 = dplyr::case_when(
-      Immunosuppressive.status == 'Treatment Naive' & Interval.from.diagnosis..months. <= 12 ~ "Off treatment",
-      Immunosuppressive.status != 'Treatment Naive' | Interval.from.diagnosis..months. > 12  ~ NA
-    ))
-  data_merged <- data_merged %>%
-    dplyr::mutate(Step2 = dplyr::case_when(
-    Current.corticosteroid.dose == "> 20 mg/day" | Current.corticosteroid.dose == "11 - 20 mg/day" ~ "On treatment",
-    Current.corticosteroid.dose != "> 20 mg/day" & Current.corticosteroid.dose != "11 - 20 mg/day" ~ NA
-  ))
-  
-  data_merged$Step3 <- NA
+  data_merged$Step1 <- NA
   n=nrow(data_merged)
   for (i in 1:n) {
     if(is.na(data_merged$IVtherapy[i]) == FALSE){
       data_merged$Step3[i] ="On treatment"
     }
   }
+  
+  data_merged <- data_merged %>%
+    dplyr::mutate(Step2 = dplyr::case_when(
+      Immunosuppressive.status == 'Treatment Naive' & Interval.from.diagnosis..months. <= 12 ~ "Off treatment",
+      Immunosuppressive.status != 'Treatment Naive' | Interval.from.diagnosis..months. > 12  ~ NA
+    ))
+  data_merged <- data_merged %>%
+    dplyr::mutate(Step3 = dplyr::case_when(
+    Current.corticosteroid.dose == "> 20 mg/day" | Current.corticosteroid.dose == "11 - 20 mg/day" ~ "On treatment",
+    Current.corticosteroid.dose != "> 20 mg/day" & Current.corticosteroid.dose != "11 - 20 mg/day" ~ NA
+  ))
+  
+  
   
   data_merged <- data_merged %>%
     dplyr::mutate(Step4 = dplyr::case_when(
@@ -105,27 +106,7 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data){
     if(is.na(data_merged$Step3[i]) == FALSE){
       data_merged$CPD_treatment[i]="On Treatment"
     }else{
-      if(is.na(data_merged$Step1[i]) == FALSE   & (is.na(data_merged$Step5[i])==T) & data_merged$Step6[i] == "Treatment Status Unknown" ){
-        data_merged$CPD_treatment[i]="Off Treatment"
-      }
-      if(is.na(data_merged$Step1[i]) == TRUE  &  (is.na(data_merged$Step4[i])==FALSE & data_merged$Step4[i] == "On treatment") & data_merged$Step6[i] == "On treatment"){
-        data_merged$CPD_treatment[i]="On Treatment"
-      }
-      if (is.na(data_merged$Step1[i]) == TRUE & is.na(data_merged$Step2[i]) == TRUE &  (is.na(data_merged$Step4[i])==TRUE ) & (is.na(data_merged$Step5[i])==TRUE) & data_merged$Step6[i] == "Treatment Status Unknown" & is.na(data_merged$Step7[i])==T){
-        data_merged$CPD_treatment[i]="Treatment Status Unknown"
-      }
-      if (is.na(data_merged$Step1[i]) == TRUE & is.na(data_merged$Step2[i]) == TRUE &  (is.na(data_merged$Step4[i])==TRUE | data_merged$Step4[i] == "Off treatment") & (is.na(data_merged$Step5[i])==TRUE | data_merged$Step5[i] == "Off treatment") & data_merged$Step6[i] == "Prednisolone<=10" & is.na(data_merged$Step7[i]) == TRUE){
-        data_merged$CPD_treatment[i]="Prednisolone<=10"
-      }
-      if(is.na(data_merged$Step1[i]) == TRUE   & (is.na(data_merged$Step4[i])==TRUE | data_merged$Step4[i] == "Off treatment") & data_merged$Step6[i] == "Treatment Status Unknown" & is.na(data_merged$Step7[i]) == FALSE){
-        data_merged$CPD_treatment[i]="Off Treatment"
-      }
-      if(is.na(data_merged$Step1[i]) == TRUE   & (is.na(data_merged$Step4[i])==FALSE & data_merged$Step4[i] == "On treatment")  & (data_merged$Step6[i] == "Treatment Status Unknown" | data_merged$Step6[i] == "On Treatment") & is.na(data_merged$Step7[i]) == TRUE ){
-        data_merged$CPD_treatment[i]="On Treatment"
-      }
-      if(is.na(data_merged$Step1[i]) == TRUE & is.na(data_merged$Step2[i]) == TRUE  & (is.na(data_merged$Step4[i])==FALSE & data_merged$Step4[i] == "On treatment") & (is.na(data_merged$Step5[i])==FALSE & data_merged$Step5[i] == "On treatment") & is.na(data_merged$Step7[i]) == TRUE ){
-        data_merged$CPD_treatment[i]="On Treatment"
-      }
+      if(data_merged$)
     }
     
   }
