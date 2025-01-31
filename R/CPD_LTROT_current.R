@@ -28,13 +28,13 @@ CPD_LTROT_current <- function(merge_data, interval=730){
   n=length(levels(as.factor(merge_data1$RKD.ID)))
   for (i in 1:n){
     dat <- merge_data1[which(merge_data1$RKD.ID == levels(as.factor(merge_data1$RKD.ID))[i] ),]
-    if(as.numeric(difftime(max(dat$Date.Of.Visit), min(dat$Date.Of.Visit)))>=interval){
+    if(as.numeric(difftime(max(dat$Date.Of.Visit), min(dat$Date.Of.Visit)))>=interval & max(dat$interval_from_diagnosis)>=interval){
       dat1 <- dat[which(dat$interval_from_diagnosis >= interval),]
       m=nrow(dat1)
       for(j in 1:m){
         intermax=dat1$interval_from_diagnosis[j]
         dat3 <- dat[which(dat$interval_from_diagnosis<=intermax & dat$interval_from_diagnosis>=intermax-interval),]
-        if(dim(table(dat3$CPD_relapse))==1 & dat3$CPD_relapse[1]=="No Relapse" & dim(table(dat3$CPD_treatment))==1 & dat3$CPD_treatment[1]=="Off Treatment"){
+        if(dim(table(dat3$CPD_relapse))==1 & dat3$CPD_relapse[1]=="No Relapse" & dim(table(dat3$CPD_treatment))==1 & dat3$CPD_treatment[1]=="Off Treatment" & dat3$ANCA_Status[nrow(dat3)]=="ANCA Negative"){
             dat3$LTROT_current[nrow(dat3)]="LTROT"
           }
           
