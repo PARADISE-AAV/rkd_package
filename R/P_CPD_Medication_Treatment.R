@@ -90,7 +90,9 @@ CPD_Medication_Treatment= function(Medication, merged_data, output_dir){
   
   merged_frame_all <- merged_frame_drug 
   
-  merged_frame_unique <- merged_frame_all[!duplicated(merged_frame_all[,c(1:2,ncol(merged_frame_all))]), ]
+  merged_frame_all <- merged_frame_all[order(merged_frame_all$RKD.ID, merged_frame_all$Date.Of.Visit, merged_frame_all$`Dose_Prednisolone - UATC/H02AB06`),]
+  
+  merged_frame_unique <- merged_frame_all[!duplicated(merged_frame_all[,c(1:2)],fromLast = T), ]
   
   return(merged_frame_unique)
   
