@@ -140,6 +140,8 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data){
     
   }
   
+  ManualReview=data_merged[which(data_merged$CPD_treatment=="Manual review"), ]
+  
   data_merged$IVtherapy=as.character(data_merged$IVtherapy)
   
   
