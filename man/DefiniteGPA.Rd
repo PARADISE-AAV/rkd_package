@@ -9,7 +9,7 @@ DefiniteGPA(RKDdata)
 \arguments{
 \item{RKDdata}{RIV data from \code{\link{clean_riv}} function}
 
-\item{parameter_name}{{"name": "parameter_name","desc": "description of the parameter","options": (list of available options),"type": "string or file"}}
+\item{parameter_name}{{"name": "parameter_name","desc": "description of the parameter","options": {list of available options},"type": "string or file"}}
 }
 \value{
 The Redcap data filter in your folder and an R object
