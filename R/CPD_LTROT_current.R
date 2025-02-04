@@ -24,6 +24,8 @@ CPD_LTROT_current <- function(merge_data, interval=730){
   
   merge_data1=merge_data[which(is.na(merge_data$CPD_relapse)==FALSE),]
   merge_data1$LTROT_current=NA
+  merge_data1$LTROT_current_level1=NA
+  merge_data1$LTROT_current_level2=NA
   merge_data_LTROT=NULL
   n=length(levels(as.factor(merge_data1$RKD.ID)))
   for (i in 1:n){
@@ -36,9 +38,15 @@ CPD_LTROT_current <- function(merge_data, interval=730){
         dat3 <- dat[which(dat$interval_from_diagnosis<=intermax & dat$interval_from_diagnosis>=intermax-interval),]
         if(dim(table(dat3$CPD_relapse))==1 & dat3$CPD_relapse[1]=="No Relapse" & dim(table(dat3$CPD_treatment))==1 & dat3$CPD_treatment[1]=="Off Treatment"){
             dat3$LTROT_current[nrow(dat3)]="LTROT"
-          }
-          
-        merge_data_LTROT=rbind(merge_data_LTROT,dat3[,c("RKD.ID", "Date.Of.Visit", "LTROT_current")])
+        }
+        if(dim(table(dat3$CPD_relapse))==1 & dat3$CPD_relapse[1]=="No Relapse" & dim(table(dat3$CPD_treatment))==1 & dat3$CPD_treatment[1]=="Off Treatment" & dat3$ANCA_Status[nrow(dat3)]=="ANCA Negative"){
+          dat3$LTROT_current_level1[nrow(dat3)]="LTROT"
+        }
+        if(dim(table(dat3$CPD_relapse))==1 & dat3$CPD_relapse[1]=="No Relapse" & dim(table(dat3$CPD_treatment))==1 & dat3$CPD_treatment[1]=="Off Treatment" & dat3$ANCA_Status[nrow(dat3)]=="ANCA Positive"){
+          dat3$LTROT_current_level2[nrow(dat3)]="LTROT"
+        }
+         
+        merge_data_LTROT=rbind(merge_data_LTROT,dat3[,c("RKD.ID", "Date.Of.Visit", "LTROT_current", "LTROT_current_level1", "LTROT_current_level2")])
       }
     }
     
