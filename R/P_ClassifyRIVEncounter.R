@@ -83,10 +83,11 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_
     Classify_RKD_Treatment_list_plus <- CPD_immunosup_med(Classify_RKD_Treatment_list)
     Classify_RKD_Corticosteroid <- CPD_Corticosteroids_on_off(Classify_RKD_Treatment_list_plus)
     Classify_RKD_LTROT_patient <- CPD_LTROT(Classify_RKD_Corticosteroid, nb_month)
-    Classify_RKD_LTROT_Encounter <- CPD_LTROT_current(Classify_RKD_LTROT_patient, nb_day)
-    Classify_RKD_ANCA <- CPD_ANCA(Classify_RKD_LTROT_Encounter)
+    Classify_RKD_ANCA <- CPD_ANCA(Classify_RKD_LTROT_patient)
     colnames(Classify_RKD_ANCA)[which(colnames(Classify_RKD_ANCA)=="Date_Last_Follow_up.x")]="Date_Last_Follow_up"
-    Classify_RKD_data <- CPD_Kidney_function(Classify_RKD_ANCA, Renal)
+    Classify_RKD_LTROT_Encounter <- CPD_LTROT_current(Classify_RKD_ANCA, nb_day)
+    Classify_RKD_data <- CPD_Kidney_function(Classify_RKD_LTROT_Encounter, Renal)
+   
   }
 
   files_test <-  list.dirs(output_path)
