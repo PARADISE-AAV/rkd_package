@@ -19,9 +19,12 @@ CPD_vasc_vs_gran <- function(merge_data){
   
   stopifnot("Your argument need to be a data frame"=is.data.frame(merge_data))
   
-  
   n=nrow(merge_data)
   for(i in 1:n){
+    
+    if(merge_data$CPD_relapse[i]=="Definite Relapse"){
+      
+    }
     
   }
   
