@@ -23,7 +23,7 @@ CPD_vasc_vs_gran <- function(merge_data){
   n=nrow(merge_data)
   for(i in 1:n){
     
-    if(merge_data$CPD_relapse[i]=="Definite Relapse"){
+    if(is.na(merge_data$CPD_relapse[i])==FALSE & merge_data$CPD_relapse[i]=="Definite Relapse"){
       
       if(merge_data$ENT...yes..choice.Bloody.nasal.discharge...crusts...ulcers...granulomata.[i] == "Checked" | 
          merge_data$ENT...yes..choice.Paranasal.sinus.involvement.[i] == "Checked" |
