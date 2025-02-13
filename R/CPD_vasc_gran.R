@@ -53,6 +53,7 @@ CPD_vasc_vs_gran <- function(merge_data){
          merge_data$Mucous.membranes...eyes...yes..choice.Sudden.visual.loss.[i] == "Checked" |
          merge_data$Mucous.membranes...eyes...yes..choice.Uveitis.[i] == "Checked" |
          merge_data$Mucous.membranes...eyes...yes..choice.Retinal.changes..vasculitis..thrombosis...exudate...haemorrhage..[i] == "Checked" |
+         merge_data$Mucous.membranes...eyes...yes..choice.Scleritis...Episcleritis.[i] == "Checked" |
          merge_data$Chest...yes..choice.Wheeze.[i] == "Checked" |
          merge_data$Chest...yes..choice.Pleural.effusion...pleurisy.[i] == "Checked" |
          merge_data$Chest...yes..choice.Infiltrate.[i] == "Checked" |
@@ -74,6 +75,7 @@ CPD_vasc_vs_gran <- function(merge_data){
          merge_data$Renal...yes..choice.Serum.creatinine....500.uM.L.[i] == "Checked" |
          merge_data$Renal...yes..choice.Serum.creatinine.125.249....uM.L.[i] == "Checked" |
          merge_data$Renal...yes..choice.Serum.creatinine.250.499.....uM.L.[i] == "Checked" |
+         merge_data$Renal...yes..choice.Haematuria....10.RBCs.hpf.[i] == "Checked" |
          merge_data$Nervous.system...yes..choice.Cerebrovascular.accident.[i] == "Checked" |
          merge_data$Nervous.system...yes..choice.Cranial.nerve.palsy.[i] == "Checked" |
          merge_data$Nervous.system...yes..choice.Headache.[i] == "Checked" |
@@ -93,3 +95,4 @@ CPD_vasc_vs_gran <- function(merge_data){
   
   return(merge_data)
 }
+
