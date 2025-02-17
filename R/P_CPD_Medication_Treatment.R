@@ -78,12 +78,16 @@ CPD_Medication_Treatment= function(Medication, merged_data, output_dir){
   
   colnames(merged_frame)[1] <- "RKD.ID"
   
+  drug=levels(as.factor(merged_frame$Drug))
+  drug_all=c(drug, c("Avacopan (C5aR inhibitor)", "Azathioprine - UATC/L04AX01", "Cyclophosphamide - UATC/L01AA01",
+                 "Methotrexate - UATC/L01BA01", "Mycophenolate mofetil - UATC/L04AA06", "Other", "Prednisolone - UATC/H02AB06"))
+  drug=drug_all[!duplicated(drug_all)]
   
-  n <- length(levels(as.factor(merged_frame$Drug)))
+  n <- length(drug)
   merged_frame_drug <- merged_frame[, c("RKD.ID", "Date.Of.Visit")]
   for (i in 1:n){
-    dat <- merged_frame[which(merged_frame$Drug == levels(as.factor(merged_frame$Drug))[i]), c("RKD.ID", "Date.Of.Visit", "Drug", "Dose")]
-    colnames(dat)[3:4] <- paste(colnames(dat)[3:4], levels(as.factor(merged_frame$Drug))[i], sep="_")
+    dat <- merged_frame[which(merged_frame$Drug == drug[i]), c("RKD.ID", "Date.Of.Visit", "Drug", "Dose")]
+    colnames(dat)[3:4] <- paste(colnames(dat)[3:4], drug[i], sep="_")
     merged_frame_drug <- merge(merged_frame_drug, dat, by = c("RKD.ID", "Date.Of.Visit"), all.x = TRUE)
     
   }
