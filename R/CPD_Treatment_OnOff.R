@@ -56,7 +56,7 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data){
   data_merged <- data_merged %>%
     dplyr::mutate(Step3 = dplyr::case_when(
     Current.corticosteroid.dose == "> 20 mg/day" | Current.corticosteroid.dose == "11 - 20 mg/day" ~ "On treatment",
-    Current.corticosteroid.dose != "> 20 mg/day" & Current.corticosteroid.dose != "11 - 20 mg/day" ~ NA
+    Current.corticosteroid.dose == "< 5 mg/day" | Current.corticosteroid.dose == "5 - 10 mg/day" ~ "Prednisolone<=10"
   ))
   
   
