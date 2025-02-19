@@ -7,9 +7,9 @@
 clean_riv(rkd_data, output_path)
 }
 \arguments{
-\item{rkd_data}{RIV data from \code{\link{load_riv}} function}
+\item{rkd_data}{{"name": "rkd_data","desc": "RIV data from \code{\link{load_riv}} function","options": (),"type": "file"}}
 
-\item{output_path}{folder where the Redcap data will be saved}
+\item{output_path}{{"name": "output_path","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}}
 }
 \description{
 The objective is to clean the RIV data and send the problematic data to the RKD person
