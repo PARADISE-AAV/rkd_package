@@ -106,7 +106,7 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data){
     if(is.na(data_merged$Step1[i]) == FALSE){
       data_merged$CPD_treatment[i]="On Treatment"
     }else{
-      if(is.na(data_merged$Step2[i]) == TRUE & is.na(data_merged$Step3[i]) == FALSE & (is.na(data_merged$Step4[i])==TRUE | data_merged$Step4[i] == "On treatment") & (is.na(data_merged$Step5[i])==TRUE | data_merged$Step5[i] == "On treatment") & (data_merged$Step6[i] !="Prednisolone<=10" )& is.na(data_merged$Step7[i]==TRUE) ){
+      if(is.na(data_merged$Step2[i]) == TRUE & (is.na(data_merged$Step3[i]) == FALSE & data_merged$Step3[i] == "On treatment") & (is.na(data_merged$Step4[i])==TRUE | data_merged$Step4[i] == "On treatment") & (is.na(data_merged$Step5[i])==TRUE | data_merged$Step5[i] == "On treatment") & (data_merged$Step6[i] !="Prednisolone<=10" )& is.na(data_merged$Step7[i]==TRUE) ){
         data_merged$CPD_treatment[i]="On Treatment"
       }
       if(is.na(data_merged$Step2[i]) == TRUE  & (is.na(data_merged$Step4[i])==FALSE & data_merged$Step4[i] == "On treatment") & (is.na(data_merged$Step5[i])==TRUE | data_merged$Step5[i] == "On treatment") & data_merged$Step6[i] !="Prednisolone<=10" & is.na(data_merged$Step7[i]==TRUE) ){
@@ -131,6 +131,9 @@ CPD_Treatment_OnOff= function(IV_Therapy, ConMed, merged_data){
         data_merged$CPD_treatment[i]="Treatment Status Unknown"
       }
       if(is.na(data_merged$Step2[i]) == TRUE & is.na(data_merged$Step3[i]) == TRUE & (is.na(data_merged$Step4[i])==TRUE | data_merged$Step4[i]=="Off treatment")  & is.na(data_merged$Step5[i])==TRUE  & (data_merged$Step6[i] =="Prednisolone<=10" )& is.na(data_merged$Step7[i]==TRUE) ){
+        data_merged$CPD_treatment[i]="Prednisolone<=10"
+      }
+      if(is.na(data_merged$Step2[i]) == TRUE & (is.na(data_merged$Step3[i]) == FALSE & data_merged$Step3[i] == "Prednisolone<=10") & (is.na(data_merged$Step4[i])==TRUE | data_merged$Step4[i]=="Off treatment")  & is.na(data_merged$Step5[i])==TRUE  & (data_merged$Step6[i] =="Treatment Status Unknown" )& is.na(data_merged$Step7[i]==TRUE) ){
         data_merged$CPD_treatment[i]="Prednisolone<=10"
       }
       if(is.na(data_merged$Step2[i]) == TRUE  & (is.na(data_merged$Step4[i])==FALSE & data_merged$Step4[i]=="On treatment") & (is.na(data_merged$Step5[i])==TRUE | data_merged$Step5[i]=="On treatment")  & (data_merged$Step6[i] =="Prednisolone<=10" )& is.na(data_merged$Step7[i]==TRUE) ){
