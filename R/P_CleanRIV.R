@@ -7,8 +7,8 @@
 #' 
 #' Date: 24-Jan-23
 #'
-#' @param rkd_data RIV data from \code{\link{load_riv}} function
-#' @param output_path folder where the Redcap data will be saved
+#' @param rkd_data  {"name": "rkd_data","desc": "RIV data from \code{\link{load_riv}} function","options": (),"type": "file"}
+#' @param output_path  {"name": "output_path","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
 #' @details
 #' The Redcap data cleaned in your folder and in an R object
 #' 
