@@ -7,9 +7,9 @@
 #' 
 #' Date: 03-Jan-24
 #'
-#' @param RKDdata a list from \code{\link{SplitRIV_dataframe}} function
-#' @param output_path folder where the Redcap data will be saved
-#' @param algorithm function use to filter the RKD patient, the possibility are "Definite GPA/MPA" or "Definite GPA/MPA/EGPA" or "Anti-GBM" or "TTV"
+#' @param RKDdata {"name": "rkd_data","desc": "RIV data from \code{\link{SplitRIV_dataframe}} function","options": (),"type": "file"}
+#' @param output_path {"name": "output_path","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
+#' @param algorithm {"name": "algorithm","desc": "function use to filter the RKD patient","options": ("Definite GPA/MPA", "Definite GPA/MPA/EGPA", "Anti-GBM", "TTV"),"type": "string"}
 #' @return The Redcap data with the classification variables in your folder and in an R object 
 #' @details The filter of the RKD data are based on the following filter
 #' * Definite MPA/GPA without secondary vasculitis with more explanation in \code{\link{DemographicFilterRIV}}
