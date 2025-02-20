@@ -7,11 +7,11 @@
 FilterRIV(RKDdata, output_path, algorithm)
 }
 \arguments{
-\item{RKDdata}{a list from \code{\link{SplitRIV_dataframe}} function}
+\item{RKDdata}{{"name": "rkd_data","desc": "RIV data from \code{\link{SplitRIV_dataframe}} function","options": (),"type": "file"}}
 
-\item{output_path}{folder where the Redcap data will be saved}
+\item{output_path}{{"name": "output_path","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}}
 
-\item{algorithm}{function use to filter the RKD patient, the possibility are "Definite GPA/MPA" or "Definite GPA/MPA/EGPA" or "Anti-GBM" or "TTV"}
+\item{algorithm}{{"name": "algorithm","desc": "function use to filter the RKD patient","options": ("Definite GPA/MPA", "Definite GPA/MPA/EGPA", "Anti-GBM", "TTV"),"type": "string"}}
 }
 \value{
 The Redcap data with the classification variables in your folder and in an R object
