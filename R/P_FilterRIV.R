@@ -26,7 +26,6 @@ FilterRIV = function(RKDdata, output_path, algorithm) {
   if (is.character(output_path) == FALSE) {
     stop("The argument output_path need to be a character argument")
   }
-  algorithm <- match.arg(algorithm, c("Definite GPA/MPA","Definite GPA/MPA/EGPA","Anti-GBM", "TTV"))
   
   RKD_data <- RKDdata
   
