@@ -29,10 +29,20 @@ FilterRIV = function(RKDdata, output_path, algorithm) {
   algorithm <- match.arg(algorithm, c("Definite GPA/MPA","Definite GPA/MPA/EGPA","Anti-GBM", "TTV"))
   
   RKD_data <- RKDdata
+  
   ###check that you load a real file
   if (ncol(RKD_data) == 0 | nrow(RKD_data) == 0) {
     stop("You give an empty files")
   }
+  
+  RKD_data$DefiniteMPA <- 0
+  RKD_data$DefiniteGPA <- 0
+  RKD_data$DefiniteEGPA <- 0
+  RKD_data$AntiGBM <- 0
+  RKD_data$DoublePositive <- 0
+  RKD_data$IgA <- 0
+  RKD_data$Cryoglobulinemic <- 0
+  RKD_data$HC <- 0
   
   if (algorithm == "Definite GPA/MPA") {
     Filter_RKD_data <- DemographicFilterRIV(RKD_data)
