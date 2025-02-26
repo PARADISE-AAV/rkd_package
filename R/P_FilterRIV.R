@@ -61,14 +61,20 @@ FilterRIV = function(RKDdata, output_path, algorithm) {
     Filter_RKD_data1$DefiniteEGPA <- 1
     Filter_RKD_data <- rbind(Filter_RKD_data, Filter_RKD_data1)
   }
-  if (algorithm == "Definite GPA/MPA/EGPA") {
-    Filter_RKD_data <- DemographicFilterRIV_EGPA(RKD_data)
+  if (is.element("Anti-GBM", algorithm)) {
+    Filter_RKD_data1 <- AntiGBMDisease(RKD_data)
+    Filter_RKD_data1$AntiGBM <- 1
+    Filter_RKD_data <- rbind(Filter_RKD_data, Filter_RKD_data1)
   }
-  if (algorithm == "Anti-GBM") {
-    Filter_RKD_data <- AntiGBMDisease(RKD_data)
+  if (is.element("Double positive", algorithm)) {
+    Filter_RKD_data1 <- DoublePositive(RKD_data)
+    Filter_RKD_data1$DoublePositive <- 1
+    Filter_RKD_data <- rbind(Filter_RKD_data, Filter_RKD_data1)
   }
-  if (algorithm == "TTV") {
-    Filter_RKD_data <- DemographicFilterRIV_GBM_MPA_EGPA_GPA(RKD_data)
+  if (is.element("Healthy Control", algorithm)) {
+    Filter_RKD_data1 <- HealthyControl(RKD_data)
+    Filter_RKD_data1$HC <- 1
+    Filter_RKD_data <- rbind(Filter_RKD_data, Filter_RKD_data1)
   }
   
   files_test <-  list.dirs(output_path)
