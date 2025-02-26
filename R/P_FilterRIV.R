@@ -44,8 +44,22 @@ FilterRIV = function(RKDdata, output_path, algorithm) {
   RKD_data$Cryoglobulinemic <- 0
   RKD_data$HC <- 0
   
-  if (algorithm == "Definite GPA/MPA") {
-    Filter_RKD_data <- DemographicFilterRIV(RKD_data)
+  Filter_RKD_data <- NULL
+  
+  if (is.element("Definite GPA", algorithm)) {
+    Filter_RKD_data1 <- DefiniteGPA(RKD_data)
+    Filter_RKD_data1$DefiniteGPA <- 1
+    Filter_RKD_data <- rbind(Filter_RKD_data, Filter_RKD_data1)
+  }
+  if (is.element("Definite MPA", algorithm)) {
+    Filter_RKD_data1 <- DefiniteMPA(RKD_data)
+    Filter_RKD_data1$DefiniteMPA <- 1
+    Filter_RKD_data <- rbind(Filter_RKD_data, Filter_RKD_data1)
+  }
+  if (is.element("Definite EGPA", algorithm)) {
+    Filter_RKD_data1 <- DefiniteEGPA(RKD_data)
+    Filter_RKD_data1$DefiniteEGPA <- 1
+    Filter_RKD_data <- rbind(Filter_RKD_data, Filter_RKD_data1)
   }
   if (algorithm == "Definite GPA/MPA/EGPA") {
     Filter_RKD_data <- DemographicFilterRIV_EGPA(RKD_data)
