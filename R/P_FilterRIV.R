@@ -9,7 +9,7 @@
 #'
 #' @param RKDdata {"name": "rkd_data","desc": "RIV data from \code{\link{SplitRIV_dataframe}} function","options": (),"type": "file"}
 #' @param output_path {"name": "output_path","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
-#' @param algorithm {"name": "algorithm","desc": "function use to filter the RKD patient","options": ("Definite GPA", "Definite MPA", "Definite EGPA", "Anti-GBM", "Double positive", "Healthy Control"),"type": "string"}
+#' @param algorithm {"name": "algorithm","desc": "function use to filter the RKD patient","options": ("Definite GPA", "Definite MPA", "Definite EGPA", "Anti-GBM", "Double positive", "Healthy Control", "IgA),"type": "string"}
 #' @return The Redcap data with the classification variables in your folder and in an R object 
 #' @details The filter of the RKD data are based on the following filter
 #' * Definite MPA/GPA without secondary vasculitis with more explanation in \code{\link{DemographicFilterRIV}}
@@ -73,6 +73,11 @@ FilterRIV = function(RKDdata, output_path, algorithm) {
   if (is.element("Healthy Control", algorithm)) {
     Filter_RKD_data1 <- HealthyControl(RKD_data)
     Filter_RKD_data1$HC <- 1
+    Filter_RKD_data <- rbind(Filter_RKD_data, Filter_RKD_data1)
+  }
+  if (is.element("IgA", algorithm)) {
+    Filter_RKD_data1 <- IgA(RKD_data)
+    Filter_RKD_data1$IgA <- 1
     Filter_RKD_data <- rbind(Filter_RKD_data, Filter_RKD_data1)
   }
   
