@@ -11,7 +11,7 @@ FilterRIV(RKDdata, output_path, algorithm)
 
 \item{output_path}{{"name": "output_path","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}}
 
-\item{algorithm}{{"name": "algorithm","desc": "function use to filter the RKD patient","options": ("Definite GPA", "Definite MPA", "Definite EGPA", "Anti-GBM", "Double positive", "Healthy Control"),"type": "string"}}
+\item{algorithm}{{"name": "algorithm","desc": "function use to filter the RKD patient","options": ("Definite GPA", "Definite MPA", "Definite EGPA", "Anti-GBM", "Double positive", "Healthy Control", "IgA),"type": "string"}}
 }
 \value{
 The Redcap data with the classification variables in your folder and in an R object
