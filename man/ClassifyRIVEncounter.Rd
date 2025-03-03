@@ -8,7 +8,7 @@ ClassifyRIVEncounter(
   RKDdata,
   output_path,
   algorithm = "All",
-  interval_from_diagnostics = 6,
+  interval_from_diagnostics = 180,
   CM_data = NULL,
   IV_data = NULL,
   nb_month = 24,
