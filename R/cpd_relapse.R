@@ -32,9 +32,9 @@ cpd_relapse <- function (RKDdata, interval_from_diagnostics){
   dat_fullT <- RKD_data
   
   dat <- dat_fullT %>%
-    filter(Interval.from.diagnosis..months. >= interval_from_diagnostics) %>% 
+    filter(interval_from_diagnosis >= interval_from_diagnostics) %>% 
     select(RKD.ID, Date.Of.Visit, 
-           Repeat.Instance, Interval.from.diagnosis..months., 
+           Repeat.Instance, interval_from_diagnosis, 
            diag_bx_3, ANCA.overall.2_NA, sugg.blo.ur_overall_na, Suggestive.imaging, is.status_OVERALL, is.response_b,
            Adjudicated.probability.of.relapse ) %>%
     dplyr::rename(ID = RKD.ID,
