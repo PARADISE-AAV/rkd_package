@@ -78,7 +78,7 @@ inclusion_criteria <- function(RKDdata, interval_from_diagnostics){
     stop("You give an empty files")
   }
   RKD_data <- RKD_data %>% 
-    filter(Interval.from.diagnosis..months. >= interval_from_diagnostics)
+    filter(interval_from_diagnosis >= interval_from_diagnostics)
   return (RKD_data)
 
 }
