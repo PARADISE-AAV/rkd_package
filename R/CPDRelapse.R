@@ -17,7 +17,7 @@
 #' @return The RIV data with the relapse category
 #' @export
 
-CPDRelapse <- function(RKDdata, interval_from_diagnostics = 6){
+CPDRelapse <- function(RKDdata, interval_from_diagnostics = 180){
   
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
