@@ -25,7 +25,7 @@
 #' * \code{\link{CPD_Kidney_function}} tells us the status of the Kideney function
 #' 
 #' @export
-ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_from_diagnostics=6, CM_data=NULL, IV_data=NULL, nb_month=24, nb_day=730, Renal=NULL) {
+ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_from_diagnostics=180, CM_data=NULL, IV_data=NULL, nb_month=24, nb_day=730, Renal=NULL) {
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
