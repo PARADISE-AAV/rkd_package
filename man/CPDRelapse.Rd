@@ -4,7 +4,7 @@
 \alias{CPDRelapse}
 \title{CPD Relapse}
 \usage{
-CPDRelapse(RKDdata, interval_from_diagnostics = 6)
+CPDRelapse(RKDdata, interval_from_diagnostics = 180)
 }
 \arguments{
 \item{RKDdata}{Data frame with the RKD data}
