@@ -37,8 +37,8 @@ Relapse_final <- function(RKDdata){
   
   df_miss_pred2 <- df_miss_pred %>% 
     group_by(ID) %>% 
-    mutate(Interval.m.to.next.enc = lead(Interval.from.diagnosis..months.) - Interval.from.diagnosis..months.,
-           Interval.m.to.prior.enc = Interval.from.diagnosis..months. - lag(Interval.from.diagnosis..months.)) %>% 
+    mutate(Interval.m.to.next.enc = lead(interval_from_diagnosis) - interval_from_diagnosis,
+           Interval.m.to.prior.enc = interval_from_diagnosis - lag(interval_from_diagnosis)) %>% 
     mutate(rel.JS.interim = case_when( 
       (lag(rel.JS) %in% c("1", "Definite", "High Probability") & 
          Interval.m.to.prior.enc <= 3) ~ "Relapse within 90d, so exclude",
