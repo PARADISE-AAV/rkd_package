@@ -36,6 +36,8 @@ CPDRelapse <- function(RKDdata, interval_from_diagnostics = 180){
   
   CPD_Relapse_RKD_data <- merge(RKD_data, relapse_final_data, by.x = c("RKD.ID", "Date.Of.Visit"), by.y = c("ID", "Date.Of.Visit"),all.x=TRUE)
   
+  colnames(Classify_RKD_CPD_Relapse)[which(colnames(Classify_RKD_CPD_Relapse)=="interval_from_diagnosis.x")]="interval_from_diagnosis."
+  
   n=nrow(CPD_Relapse_RKD_data)
   CPD_Relapse_RKD_data$CPD_relapse=NA
   for( i in 1:n){
