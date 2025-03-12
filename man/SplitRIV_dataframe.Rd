@@ -7,11 +7,11 @@
 SplitRIV_dataframe(RKDdata, output_dir, algorithm)
 }
 \arguments{
-\item{RKDdata}{a list from \code{\link{SplitRIV}} function}
+\item{RKDdata}{{"name": "RKDdata","desc": "RIV data from \code{\link{SplitRIV}} function","options": (),"type": "list"}}
 
-\item{output_dir}{folder where the Redcap data will be saved}
+\item{output_dir}{{"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}}
 
-\item{algorithm}{data frame to choose, the possibility are "Encounter" or "Initial" or "IVTherapy" or "Medication" or "Biopsy" or "Transplant" or "Complication"}
+\item{algorithm}{{"name": "algorithm","desc": "data frame to choose","options": ("Encounter", "Initial", "IVTherapy", "Medication", "Biopsy", "Transplant", "Complication"),"type": "string"}}
 }
 \value{
 export the dataframe
