@@ -7,9 +7,9 @@
 CPD_ANCA_Imputation(Encounter, output_dir)
 }
 \arguments{
-\item{Encounter}{Data from Encounter from \code{\link{SplitRIV}} function}
+\item{Encounter}{{"name": "Encounter","desc": "RIV data from \code{\link{SplitRIV}} function","options": (),"type": "file"}}
 
-\item{output_dir}{folder where the Redcap data will be saved}
+\item{output_dir}{{"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}}
 }
 \description{
 The Goal is to do CPD ANCA Imputation
