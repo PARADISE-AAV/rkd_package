@@ -7,9 +7,9 @@
 CPD_Biopsy(Biopsy_data, output_dir)
 }
 \arguments{
-\item{Biopsy_data}{Split_RIV list from \code{\link{SplitRIV}} function}
+\item{Biopsy_data}{{"name": "rkd_data","desc": "RIV data from \code{\link{SplitRIV}} function","options": (),"type": "file"}}
 
-\item{output_dir}{folder where the Redcap data will be saved}
+\item{output_dir}{{"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}}
 }
 \description{
 The Goal is to merge the Biopsy and general characteristics from \code{\link{SplitRIV}} function
