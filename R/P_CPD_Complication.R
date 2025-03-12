@@ -6,9 +6,9 @@
 #' Version: 1.0
 #' 
 #' Date: 17-Apr-23
-#'
-#' @param Complication_data list of data frame from \code{\link{SplitRIV}} function
-#' @param output_dir folder where the Redcap data will be saved
+#' @param Complication_data  {"name": "Complication_data","desc": "RIV data from \code{\link{SplitRIV}} function","options": (),"type": "file"}
+#' @param output_dir  {"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
+#' 
 #' @details
 #' to be added
 #' @import lubridate
