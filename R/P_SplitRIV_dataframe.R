@@ -6,10 +6,10 @@
 #' Version: 1.0
 #' 
 #' Date: 03-Jan-24
+#' @param RKDdata  {"name": "RKDdata","desc": "RIV data from \code{\link{SplitRIV}} function","options": (),"type": "list"}
+#' @param algorithm  {"name": "algorithm","desc": "data frame to choose","options": ("Encounter", "Initial", "IVTherapy", "Medication", "Biopsy", "Transplant", "Complication"),"type": "string"}
+#' @param output_dir  {"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
 #'
-#' @param RKDdata a list from \code{\link{SplitRIV}} function
-#' @param algorithm data frame to choose, the possibility are "Encounter" or "Initial" or "IVTherapy" or "Medication" or "Biopsy" or "Transplant" or "Complication"
-#' @param output_dir folder where the Redcap data will be saved
 #' @return export the dataframe 
 #' @details 
 #' to be added later
