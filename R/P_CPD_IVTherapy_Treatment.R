@@ -6,10 +6,10 @@
 #' Version: 1.0
 #' 
 #' Date: 9-May-23
+#' @param IV_Therapy  {"name": "IV_Therapy","desc": "RIV data from \code{\link{CPD_IVTherapy_interval}} function","options": (),"type": "file"}
+#' @param merged_data  {"name": "merged_data","desc": "RIV data from \code{\link{Merge_Encounter_initial}} function","options": (),"type": "file"}
+#' @param output_dir  {"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
 #'
-#' @param IV_Therapy Data from IVTherapy from \code{\link{CPD_IVTherapy_interval}} function
-#' @param merged_data Data from the merge of encounter and General characteristics in the \code{\link{Merge_Encounter_initial}} function
-#' @param output_dir folder where the Redcap data will be saved
 #' @details
 #' to be added
 #' 
