@@ -7,9 +7,9 @@
 CPD_IS_medication_Imputation(Encounter, output_dir)
 }
 \arguments{
-\item{Encounter}{Data from Encounter from \code{\link{CPD_Encounter}} function}
+\item{Encounter}{{"name": "rkd_data","desc": "RIV data from \code{\link{CPD_Encounter}} function","options": (),"type": "file"}}
 
-\item{output_dir}{folder where the Redcap data will be saved}
+\item{output_dir}{{"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}}
 }
 \description{
 The Goal is to do CPD IS Imputation for Treatment On/Off
