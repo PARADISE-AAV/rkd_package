@@ -7,11 +7,11 @@
 Merge_Encounter_initial(Encounter, Initial, output_dir)
 }
 \arguments{
-\item{Encounter}{Encounter data from \code{\link{SplitRIV}} function}
+\item{Encounter}{{"name": "Encounter","desc": "RIV data from \code{\link{SplitRIV}} function","options": (),"type": "file"}}
 
-\item{Initial}{General Characteristics data from \code{\link{SplitRIV}} function}
+\item{Initial}{{"name": "Initial","desc": "RIV data from \code{\link{SplitRIV}} function","options": (),"type": "file"}}
 
-\item{output_dir}{folder where the Redcap data will be saved}
+\item{output_dir}{{"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}}
 }
 \description{
 The Goal is to merge the Encounter and general characteristics from \code{\link{SplitRIV}} function
