@@ -6,10 +6,10 @@
 #' Version: 1.0
 #' 
 #' Date: 9-May-23
+#' @param Medication  {"name": "Medication","desc": "RIV data from \code{\link{CPD_Continuous_Medication_interval}} function","options": (),"type": "file"}
+#' @param merged_data  {"name": "rkd_data","desc": "RIV data from \code{\link{Merge_Encounter_initial}} function","options": (),"type": "file"}
+#' @param output_dir  {"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
 #'
-#' @param Medication Data from Encounter from \code{\link{CPD_Continuous_Medication_interval}} function
-#' @param merged_data Data from the merge of encounter and General characteristics in the \code{\link{Merge_Encounter_initial}} function
-#' @param output_dir folder where the Redcap data will be saved
 #' @details
 #' to be added
 #' 
