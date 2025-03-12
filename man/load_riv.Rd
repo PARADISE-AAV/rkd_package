@@ -7,7 +7,7 @@
 load_riv(file_name)
 }
 \arguments{
-\item{file_name}{String. Directory where the RIV files are kept.}
+\item{file_name}{{"name": "file_name","desc": "Directory where the RIV files are kept","options": (),"type": "string"}}
 }
 \value{
 A data frame containing the RKD dataset.
