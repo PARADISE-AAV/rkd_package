@@ -7,11 +7,11 @@
 CPD_IVTherapy_Treatment(IV_Therapy, merged_data, output_dir)
 }
 \arguments{
-\item{IV_Therapy}{Data from IVTherapy from \code{\link{CPD_IVTherapy_interval}} function}
+\item{IV_Therapy}{{"name": "IV_Therapy","desc": "RIV data from \code{\link{CPD_IVTherapy_interval}} function","options": (),"type": "file"}}
 
-\item{merged_data}{Data from the merge of encounter and General characteristics in the \code{\link{Merge_Encounter_initial}} function}
+\item{merged_data}{{"name": "merged_data","desc": "RIV data from \code{\link{Merge_Encounter_initial}} function","options": (),"type": "file"}}
 
-\item{output_dir}{folder where the Redcap data will be saved}
+\item{output_dir}{{"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}}
 }
 \description{
 The Goal is to do CPD IS Imputation for Treatment On/Off
