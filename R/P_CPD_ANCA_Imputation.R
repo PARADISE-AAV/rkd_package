@@ -7,8 +7,8 @@
 #' 
 #' Date: 24-September-23
 #'
-#' @param Encounter Data from Encounter from \code{\link{SplitRIV}} function
-#' @param output_dir folder where the Redcap data will be saved
+#' @param Encounter  {"name": "Encounter","desc": "RIV data from \code{\link{SplitRIV}} function","options": (),"type": "file"}
+#' @param output_dir  {"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
 #' @details
 #' to be added
 #' 
