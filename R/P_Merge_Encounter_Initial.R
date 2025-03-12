@@ -6,10 +6,10 @@
 #' Version: 1.0
 #' 
 #' Date: 14-Mar-23
+#' @param Encounter  {"name": "Encounter","desc": "RIV data from \code{\link{SplitRIV}} function","options": (),"type": "file"}
+#' @param Initial  {"name": "Initial","desc": "RIV data from \code{\link{SplitRIV}} function","options": (),"type": "file"}
+#' @param output_dir  {"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
 #'
-#' @param Encounter Encounter data from \code{\link{SplitRIV}} function
-#' @param Initial General Characteristics data from \code{\link{SplitRIV}} function
-#' @param output_dir folder where the Redcap data will be saved
 #' @details
 #' to be added
 #' @import lubridate
