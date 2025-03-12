@@ -7,9 +7,9 @@
 CPD_Encounter(Encounter_data, output_dir)
 }
 \arguments{
-\item{Encounter_data}{Split_RIV list from \code{\link{SplitRIV}} function}
+\item{Encounter_data}{{"name": "Encounter_data","desc": "RIV data from \code{\link{SplitRIV}} function","options": (),"type": "file"}}
 
-\item{output_dir}{folder where the Redcap data will be saved}
+\item{output_dir}{{"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}}
 }
 \description{
 The Goal is to get modification done before the merge with general characteristics from \code{\link{SplitRIV}} function
