@@ -17,23 +17,23 @@ ClassifyRIVEncounter(
 )
 }
 \arguments{
-\item{RKDdata}{RIV data from \code{\link{Merge_Encounter_initial}} function}
+\item{RKDdata}{{"name": "rkd_data","desc": "RIV data from \code{\link{Merge_Encounter_initial}} function","options": (),"type": "file"}}
 
-\item{output_path}{folder where the Redcap data will be saved}
+\item{output_path}{{"name": "output_path","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}}
 
-\item{algorithm}{function use to classify the RIV patient, the possibility are "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT" or "CPD ANCA" or "CPD Treatment" or "CPD LTROT current" or "All" or "CPD Kidney function"}
+\item{algorithm}{{"name": "algorithm","desc": "function use to classify the RKD patient","options": ("Paradise_Encounter", "CPD Relapse", "Treatment On/Off", "CPD LTROT", "CPD ANCA", "CPD Treatment", "CPD LTROT current", "CPD Kidney function", "All"),"type": "string"}}
 
-\item{interval_from_diagnostics}{the interval from diagnostics for the algorithm Paradise_Encounter by default 6}
+\item{interval_from_diagnostics}{{"name": "interval_from_diagnostics","desc": "the interval from diagnostics for the algorithm Paradise_Encounter by default 180","options": (),"type": "numeric"}}
 
-\item{CM_data}{Data from \code{\link{CPD_Medication_Treatment}} function for the Treatment On/Off algorithm}
+\item{CM_data}{{"name": "CM_data","desc": "RIV data from \code{\link{CPD_Medication_Treatment}} function","options": (),"type": "file"}}
 
-\item{IV_data}{Data from \code{\link{CPD_IVTherapy_Treatment}} function for the Treatment On/Off algorithm}
+\item{IV_data}{{"name": "IV_data","desc": "RIV data from \code{\link{CPD_IVTherapy_Treatment}} function","options": (),"type": "file"}}
 
-\item{nb_month}{Number of month out of treatment for the CPD LTROT function}
+\item{nb_month}{{"name": "nb_month","desc": "Number of month out of treatment for the CPD LTROT function","options": (),"type": "numeric"}}
 
-\item{nb_day}{Number of days out of treatment for the CPD LTROT function}
+\item{nb_day}{{"name": "nb_day","desc": "Number of days out of treatment for the CPD LTROT Current function","options": (),"type": "numeric"}}
 
-\item{Renal}{Data from \code{\link{CPD_Renal}} function for the Kidney function}
+\item{Renal}{{"name": "Renal","desc": "RIV data from \code{\link{CPD_Renal}} function","options": (),"type": "file"}}
 }
 \value{
 The Redcap data with the classification variables in your folder and in an R object
