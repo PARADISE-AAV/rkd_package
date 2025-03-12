@@ -3,16 +3,15 @@
 #' @description
 #'  The objective is to classify the patient of RIV data based on criteria described in the function apply
 #'
-#'
-#' @param RKDdata RIV data from \code{\link{Merge_Encounter_initial}} function
-#' @param output_path folder where the Redcap data will be saved
-#' @param algorithm function use to classify the RIV patient, the possibility are "Paradise_Encounter" or "CPD Relapse" or "Treatment On/Off" or "CPD LTROT" or "CPD ANCA" or "CPD Treatment" or "CPD LTROT current" or "All" or "CPD Kidney function" 
-#' @param interval_from_diagnostics the interval from diagnostics for the algorithm Paradise_Encounter by default 6
-#' @param CM_data Data from \code{\link{CPD_Medication_Treatment}} function for the Treatment On/Off algorithm
-#' @param IV_data Data from \code{\link{CPD_IVTherapy_Treatment}} function for the Treatment On/Off algorithm
-#' @param nb_month Number of month out of treatment for the CPD LTROT function
-#' @param nb_day Number of days out of treatment for the CPD LTROT function
-#' @param Renal Data from \code{\link{CPD_Renal}} function for the Kidney function 
+#' @param RKDdata {"name": "rkd_data","desc": "RIV data from \code{\link{Merge_Encounter_initial}} function","options": (),"type": "file"}
+#' @param output_path {"name": "output_path","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
+#' @param algorithm {"name": "algorithm","desc": "function use to classify the RKD patient","options": ("Paradise_Encounter", "CPD Relapse", "Treatment On/Off", "CPD LTROT", "CPD ANCA", "CPD Treatment", "CPD LTROT current", "CPD Kidney function", "All"),"type": "string"}
+#' @param interval_from_diagnostics {"name": "interval_from_diagnostics","desc": "the interval from diagnostics for the algorithm Paradise_Encounter by default 180","options": (),"type": "numeric"}
+#' @param CM_data {"name": "CM_data","desc": "RIV data from \code{\link{CPD_Medication_Treatment}} function","options": (),"type": "file"}
+#' @param IV_data {"name": "IV_data","desc": "RIV data from \code{\link{CPD_IVTherapy_Treatment}} function","options": (),"type": "file"}
+#' @param nb_month {"name": "nb_month","desc": "Number of month out of treatment for the CPD LTROT function","options": (),"type": "numeric"}
+#' @param nb_day {"name": "nb_day","desc": "Number of days out of treatment for the CPD LTROT Current function","options": (),"type": "numeric"}
+#' @param Renal {"name": "Renal","desc": "RIV data from \code{\link{CPD_Renal}} function","options": (),"type": "file"}
 #' @return The Redcap data with the classification variables in your folder and in an R object 
 #' @details This function allows you to call one of  multiple functions to create a classification variable for each RKD encounter. The possible functions each create one new variable
 #' * \code{\link{CPDRelapse}} tells us if an encounter is in relapse or not based on rules and models 
