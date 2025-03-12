@@ -15,7 +15,7 @@
 #'
 #' @author Matthieu COQ
 #'
-#' @param file_name String. Directory where the RIV files are kept.
+#' @param file_name  {"name": "file_name","desc": "Directory where the RIV files are kept","options": (),"type": "string"}
 #'
 #' @return A data frame containing the RKD dataset.
 #' @import textclean
