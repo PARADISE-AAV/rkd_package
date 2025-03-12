@@ -7,11 +7,11 @@
 CPD_Medication_Treatment(Medication, merged_data, output_dir)
 }
 \arguments{
-\item{Medication}{Data from Encounter from \code{\link{CPD_Continuous_Medication_interval}} function}
+\item{Medication}{{"name": "Medication","desc": "RIV data from \code{\link{CPD_Continuous_Medication_interval}} function","options": (),"type": "file"}}
 
-\item{merged_data}{Data from the merge of encounter and General characteristics in the \code{\link{Merge_Encounter_initial}} function}
+\item{merged_data}{{"name": "rkd_data","desc": "RIV data from \code{\link{Merge_Encounter_initial}} function","options": (),"type": "file"}}
 
-\item{output_dir}{folder where the Redcap data will be saved}
+\item{output_dir}{{"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}}
 }
 \description{
 The Goal is to do CPD IS Imputation for Treatment On/Off
