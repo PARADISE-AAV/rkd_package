@@ -7,9 +7,9 @@
 CPD_Renal(Renal_data, output_dir)
 }
 \arguments{
-\item{Renal_data}{list of dataframe from \code{\link{SplitRIV}} function}
+\item{Renal_data}{{"name": "Renal_data","desc": "RIV data from \code{\link{SplitRIV}} function","options": (),"type": "file"}}
 
-\item{output_dir}{folder where the Redcap data will be saved}
+\item{output_dir}{{"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}}
 }
 \description{
 The Goal is to merge the Renal Transplant and general characteristics from \code{\link{SplitRIV}} function
