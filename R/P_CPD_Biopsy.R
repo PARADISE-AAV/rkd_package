@@ -6,9 +6,8 @@
 #' Version: 1.0
 #' 
 #' Date: 17-Apr-23
-#'
-#' @param Biopsy_data Split_RIV list from \code{\link{SplitRIV}} function
-#' @param output_dir folder where the Redcap data will be saved
+#' @param Biopsy_data  {"name": "rkd_data","desc": "RIV data from \code{\link{SplitRIV}} function","options": (),"type": "file"}
+#' @param output_dir  {"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
 #' @details
 #' to be added
 #' @import lubridate
