@@ -6,9 +6,9 @@
 #' Version: 1.0
 #' 
 #' Date: 17-Apr-23
+#' @param Medication_data  {"name": "Medication_data","desc": "RIV data from \code{\link{SplitRIV}} function","options": (),"type": "file"}
+#' @param output_dir  {"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
 #'
-#' @param Medication_data list of data frame from \code{\link{SplitRIV}} function
-#' @param output_dir folder where the Redcap data will be saved
 #' @details
 #' to be added
 #' @import lubridate
