@@ -19,3 +19,19 @@
 #' @importFrom data.table %like%
 #' @export
 
+CPD_Harmonisation <- function(RIVdata, output_dir){
+  
+  stopifnot("Your argument need to be a data frame"=is.data.frame(RIVdata))
+  stopifnot("Your argument need to be a character"=is.character(output_dir))
+  
+  # Check output directory
+  if (!dir.exists(output_dir)) {
+    stop('Specified output folder does not exist')
+  }
+  
+  # Check that you load a real file
+  if (!ncol(RIVdata) || !nrow(RIVdata)) {
+    stop("You supplied an empty file")
+  }
+  
+}
