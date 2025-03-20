@@ -69,7 +69,6 @@ CPD_vasc_vs_gran <- function(merge_data){
          merge_data$Abdominal...yes..choice.Ischaemic.abdominal.pain.[i] == "Checked" |
          merge_data$Abdominal...yes..choice.Peritonitis.[i] == "Checked" |
          merge_data$Renal...yes..choice.Hypertension.[i] == "Checked" |
-         merge_data$Renal...yes..choice.Hypertension.[i] == "Checked" |
          merge_data$Renal...yes..choice.Proteinuria..1..[i] == "Checked" |
          merge_data$Renal...yes..choice.Rise.in.serum.creatinine..30..or.fall.in.creatinine.clearance..25..[i] == "Checked" |
          merge_data$Renal...yes..choice.Serum.creatinine....500.uM.L.[i] == "Checked" |
