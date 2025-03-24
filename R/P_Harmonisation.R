@@ -34,7 +34,7 @@ CPD_Harmonisation <- function(RIVdata, output_dir){
     stop("You supplied an empty file")
   }
   
-  rkd_data = RIVdata[ ,c(1, 2, 427, 449, 444, 511, 18, 19, 110, 111, 509:514)]
+  rkd_data = RIVdata[ ,c(1, 2, 427, 449, 444, 509:514, 18, 19, 110, 111, 515, 115, 119:121)]
   
   output_filename <- file.path(
     output_dir,
