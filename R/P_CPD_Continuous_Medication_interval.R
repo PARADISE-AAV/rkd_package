@@ -32,6 +32,47 @@ CPD_Continuous_Medication_interval <- function (Medication_data, output_dir){
   rkd_data$medstart_interval_from_diagnosis <- as.numeric(rkd_data$Start.Date-rkd_data$Date.of.diagnosis)
   rkd_data$medstop_interval_from_diagnosis <- as.numeric(rkd_data$Stop.Date-rkd_data$Date.of.diagnosis)
   
+  n=nrow(rkd_data)
+  for(i in 1:n){
+    if(rkd_data$Frequency[i]=="" | rkd_data$Frequency[i]=="Daily" | rkd_data$Frequency[i]=="Once daily" | rkd_data$Frequency[i]=="Other"){
+      rkd_data$Dose[i]=rkd_data$Dose[i]
+    }
+    if(rkd_data$Frequency[i]=="Twice daily"){
+      rkd_data$Dose[i]=2*rkd_data$Dose[i]
+    }
+    if(rkd_data$Frequency[i]=="Three times daily"){
+      rkd_data$Dose[i]=3*rkd_data$Dose[i]
+    }
+    if(rkd_data$Frequency[i]=="Four times daily"){
+      rkd_data$Dose[i]=4*rkd_data$Dose[i]
+    }
+    if(rkd_data$Frequency[i]=="Five times daily"){
+      rkd_data$Dose[i]=5*rkd_data$Dose[i]
+    }
+    if(rkd_data$Frequency[i]=="Once weekly"){
+      rkd_data$Dose[i]=1/7*rkd_data$Dose[i]
+    }
+    if(rkd_data$Frequency[i]=="Twice weekly"){
+      rkd_data$Dose[i]=2/7*rkd_data$Dose[i]
+    }
+    if(rkd_data$Frequency[i]=="Three times weekly"){
+      rkd_data$Dose[i]=3/7*rkd_data$Dose[i]
+    }
+    if(rkd_data$Frequency[i]=="Annually"){
+      rkd_data$Dose[i]=1/365*rkd_data$Dose[i]
+    }
+    if(rkd_data$Frequency[i]=="Once monthly"){
+      rkd_data$Dose[i]=1/30*rkd_data$Dose[i]
+    }
+    if(rkd_data$Frequency[i]=="Twice monthly"){
+      rkd_data$Dose[i]=2/30*rkd_data$Dose[i]
+    }
+    if(rkd_data$Frequency[i]=="Once every 6 months"){
+      rkd_data$Dose[i]=2/365*rkd_data$Dose[i]
+    }
+  }
+  
+  
   output_filename <- file.path(
     output_dir,
     paste0('Redcap_countinuous_medication_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
