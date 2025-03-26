@@ -17,13 +17,13 @@
 CPD_treatment_discontunition = function (merge_data){
   
   stopifnot("Your argument need to be a data frame"=is.data.frame(merge_data))
-  
+  rkd=merge_data
   rkd$Treatment_Switch = "Switch Status Unknown"
   n=nrow(rkd)
   for( i in 2:n){
     if(rkd$RKD.ID[i] == rkd$RKD.ID[i-1] & as.numeric(rkd$Date.Of.Visit[i] - rkd$Date.Of.Visit[i-1]) <= 550){
-      if(rkd$ANCA_Status[i-1] == "ANCA Negative" & rkd$ANCA_Status[i] == "ANCA Negative"){
-        rkd$Treatment_Switch[i-1] = "Neg-Neg Switch"
+      if(rkd$CPD_treatment[i-1] == "Off Treatment" & rkd$CPD_treatment[i] == "Off Treatment"){
+        rkd$Treatment_Switch[i-1] = "Off-Off Switch"
       }
       if(rkd$ANCA_Status[i-1] == "ANCA Negative" & rkd$ANCA_Status[i] == "ANCA Positive"){
         rkd$Treatment_Switch[i-1] = "Neg-Pos Switch"
