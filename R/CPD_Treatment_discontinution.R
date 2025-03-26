@@ -18,15 +18,26 @@ CPD_treatment_discontunition = function (merge_data){
   
   stopifnot("Your argument need to be a data frame"=is.data.frame(merge_data))
   
-  
-  merge_data$Step1_TD = NA
-  merge_data$Step2_TD = NA
-  merge_data$Step3_TD = NA
-  merge_data$Step4_TD = NA
-  merge_data$Step5_TD = NA
-  
-  
-  
+  rkd$Treatment_Switch = "Switch Status Unknown"
+  n=nrow(rkd)
+  for( i in 2:n){
+    if(rkd$RKD.ID[i] == rkd$RKD.ID[i-1] & as.numeric(rkd$Date.Of.Visit[i] - rkd$Date.Of.Visit[i-1]) <= 550){
+      if(rkd$ANCA_Status[i-1] == "ANCA Negative" & rkd$ANCA_Status[i] == "ANCA Negative"){
+        rkd$Treatment_Switch[i-1] = "Neg-Neg Switch"
+      }
+      if(rkd$ANCA_Status[i-1] == "ANCA Negative" & rkd$ANCA_Status[i] == "ANCA Positive"){
+        rkd$Treatment_Switch[i-1] = "Neg-Pos Switch"
+      }
+      if(rkd$ANCA_Status[i-1] == "ANCA Positive" & rkd$ANCA_Status[i] == "ANCA Positive"){
+        rkd$Treatment_Switch[i-1] = "Pos-Pos Switch"
+      }
+      if(rkd$ANCA_Status[i-1] == "ANCA Positive" & rkd$ANCA_Status[i] == "ANCA Negative"){
+        rkd$Treatment_Switch[i-1] = "Pos-Neg Switch"
+      }
+      
+    }
+    
+  }
   
   return(merge_LTROT)
 }
