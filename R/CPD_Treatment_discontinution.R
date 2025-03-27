@@ -55,5 +55,5 @@ CPD_treatment_discontunition = function (merge_data){
     
   }
   
-  return(merge_LTROT)
+  return(rkd)
 }
