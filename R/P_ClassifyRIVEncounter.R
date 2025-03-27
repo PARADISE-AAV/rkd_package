@@ -86,7 +86,7 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_
     Classify_RKD_LTROT_Encounter <- CPD_LTROT_current(Classify_RKD_ANCA, nb_day)
     Classify_RKD_Vasc_Gran <- CPD_vasc_vs_gran(Classify_RKD_LTROT_Encounter)
     Classify_RKD_TreatmentSwitch <- CPD_treatment_discontunition(Classify_RKD_Vasc_Gran)
-    Classify_RKD_data <- CPD_Kidney_function(Classify_RKD_Vasc_Gran, Renal)
+    Classify_RKD_data <- CPD_Kidney_function(Classify_RKD_TreatmentSwitch, Renal)
    
   }
 
