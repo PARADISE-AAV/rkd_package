@@ -7,7 +7,7 @@
 #' 
 #' Date: 9-May-23
 #' @param Medication  {"name": "Medication","desc": "RIV data from \code{\link{CPD_Continuous_Medication_interval}} function","options": (),"type": "file"}
-#' @param merged_data  {"name": "rkd_data","desc": "RIV data from \code{\link{Merge_Encounter_initial}} function","options": (),"type": "file"}
+#' @param merged_data  {"name": "merged_data","desc": "RIV data from \code{\link{Merge_Encounter_initial}} function","options": (),"type": "file"}
 #' @param output_dir  {"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
 #'
 #' @details
