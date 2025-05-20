@@ -34,9 +34,9 @@ CPD_Harmonisation <- function(RIVdata, output_dir){
     stop("You supplied an empty file")
   }
   
-  rkd_data = RIVdata[ ,c("RKD.ID", "Date.Of.Visit", "interval_from_diagnosis", "CPD_relapse", "rel.method",  "Urinalysis.Protein", "Urinalysis.Blood", "Number.of.major.BVAS.items", "Number.of.minor.BVAS.items", "CPD_vasc_gran", 115, 480, 119:121, 481:493, 125, 4, 144, 146, 149, 159, 160, 162, 164, 166, 167, 172, 204, 205, 279, 207, 278)]
+  rkd_data = RIVdata[ ,c("RKD.ID", "Date.Of.Visit", "interval_from_diagnosis", "CPD_relapse", "rel.method",  "Urinalysis.Protein", "Urinalysis.Blood", "Number.of.major.BVAS.items", "Number.of.minor.BVAS.items", "CPD_vasc_gran", "Nature.of.confirmed.relapse", "CPD_treatment", "Immunosuppressive.medication...other..ATC", "ANCA_Status", "CRP", "Creatinine", "eGFR..calculated." , "Platelet.count.x10.9.L", "Total.white.cell.count.x10.9.L", "Neutrophil.count.x10.9.L", "Lymphocyte.count.x10.9.L", "Neutrophil...Lymphocyte.ratio", "Monocyte.count.x10.9.L", "Absolute.CD19.count..cells.uL.", "ANCA.IF", "Anti.PR3.level", "PR3.titre", "Anti.MPO.level", "MPO.titre")]
   
-  509:514 
+  509:514, 119:121, 481:493
   output_filename <- file.path(
     output_dir,
     paste0('Redcap_clinical_data_harmonized', "_version", packageVersion('rivpipeline'), "_Date"
