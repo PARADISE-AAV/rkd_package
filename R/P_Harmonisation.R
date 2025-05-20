@@ -34,8 +34,9 @@ CPD_Harmonisation <- function(RIVdata, output_dir){
     stop("You supplied an empty file")
   }
   
-  rkd_data = RIVdata[ ,c(1, 2, 427, 449, 444, 509:514, 18, 19, 110, 111, 515, 115, 480, 119:121, 481:493, 125, 4, 144, 146, 149, 159, 160, 162, 164, 166, 167, 172, 204, 205, 279, 207, 278)]
+  rkd_data = RIVdata[ ,c("RKD.ID", "Date.Of.Visit", "interval_from_diagnosis", "CPD_relapse", "rel.method",  "Urinalysis.Protein", "Urinalysis.Blood", "Number.of.major.BVAS.items", "Number.of.minor.BVAS.items", "CPD_vasc_gran", 115, 480, 119:121, 481:493, 125, 4, 144, 146, 149, 159, 160, 162, 164, 166, 167, 172, 204, 205, 279, 207, 278)]
   
+  509:514 
   output_filename <- file.path(
     output_dir,
     paste0('Redcap_clinical_data_harmonized', "_version", packageVersion('rivpipeline'), "_Date"
