@@ -77,6 +77,9 @@ CPD_Kidney_function <- function (merge_data, renal){
         merge_renal_frame$kidney_fx_status[i] <- "On Dialysis"
       }
     }
+    if(merge_renal_frame$kidney_fx_status[i]=="Functioning native kidneys" & (is.na(merge_renal_frame$eGFR..calculated.[i])==FALSE & merge_renal_frame$eGFR..calculated.[i]<15)){
+      merge_renal_frame$kidney_fx_status[i] <- "CKD5"
+    }
   }
   
   return(merge_renal_frame)
