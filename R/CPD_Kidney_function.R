@@ -48,7 +48,7 @@ CPD_Kidney_function <- function (merge_data, renal){
   
   rownames(merged_frame) <- NULL
   
-  merged_frame$Dialysis1 = "Transplant"
+  merged_frame$Transplant = "Transplant"
   
   colnames(merged_frame)[1] = "RKD.ID"
   
@@ -64,10 +64,10 @@ CPD_Kidney_function <- function (merge_data, renal){
   merge_renal_frame <- merge_renal_frame %>% 
     dplyr::mutate(kidney_fx_status = dplyr::case_when(
       Dialysis.1 == "On Dialysis" ~ "On Dialysis",
-      Dialysis.1 == ""  & is.na(Dialysis1) == FALSE ~ "Transplant",
+      Dialysis.1 == ""  & is.na(Transplant) == FALSE ~ "Transplant",
       Dialysis.1 == "" ~ "Functioning native kidneys"
     ))
-  a=which(colnames(merge_renal_frame)=="Dialysis.1" | colnames(merge_renal_frame)=="Dialysis1")
+  a=which(colnames(merge_renal_frame)=="Dialysis.1" | colnames(merge_renal_frame)=="Transplant")
   merge_renal_frame <- merge_renal_frame[, -a]
   
   n=nrow(merge_renal_frame)
