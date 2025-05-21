@@ -42,7 +42,7 @@ CPD_Harmonisation <- function(RIVdata, output_dir){
   inductiontreatment <- RIVdata[,grep("Induction.treatment.received", colnames(RIVdata))]
   maintenancetreatment <- RIVdata[,grep("Maintenance.treatment.received", colnames(RIVdata))]
   
-  harmonized_data <- cbind(rkd_data, LTROT, IS)
+  harmonized_data <- cbind(rkd_data, LTROT, IS, affectedorgan, inductiontreatment, maintenancetreatment)
   
   output_filename <- file.path(
     output_dir,
