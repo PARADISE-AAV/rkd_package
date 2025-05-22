@@ -8,7 +8,6 @@
 #' Date: 9-May-23
 #'
 #' @param merge_data Data from the \code{\link{CPD_ANCA}} function
-#' @param output_dir folder where the Redcap data will be saved
 #' @details
 #' to be added
 #' 
@@ -18,7 +17,7 @@
 #' @import fuzzyjoin
 #' @export
 
-CPD_ANCA_kinetics <- function(merge_data,output_dir){
+CPD_ANCA_kinetics <- function(merge_data){
   
   stopifnot("Your argument need to be a data frame"=is.data.frame(merge_data))
   
@@ -38,12 +37,7 @@ CPD_ANCA_kinetics <- function(merge_data,output_dir){
     }
   }
   
-  output_filename <- file.path(
-    output_dir,
-    paste0('Redcap_ANCA_kinetics longterm_merged', "_version", packageVersion('rivpipeline'), "_Date"
-           , Sys.Date(), '.csv')
-  )
-  write.csv(merge_data, output_filename, row.names = FALSE)
+  
   return(merge_data)
   
 }
