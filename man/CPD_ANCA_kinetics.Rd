@@ -4,12 +4,10 @@
 \alias{CPD_ANCA_kinetics}
 \title{CPD ANCA kinetic longterm}
 \usage{
-CPD_ANCA_kinetics(merge_data, output_dir)
+CPD_ANCA_kinetics(merge_data)
 }
 \arguments{
 \item{merge_data}{Data from the \code{\link{CPD_ANCA}} function}
-
-\item{output_dir}{folder where the Redcap data will be saved}
 }
 \description{
 The Goal is to do CPD ANCA kinetic longterm
