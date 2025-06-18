@@ -58,6 +58,15 @@ CPD_Harmonisation <- function(RIVdata, output_dir){
   colnames(harmonized_data)[16] = "anca_status"
   colnames(harmonized_data)[17] = "CRPtest"
   colnames(harmonized_data)[18] = "creatininetest"
+  colnames(harmonized_data)[19] = "egfr_calculated"
+  colnames(harmonized_data)[20] = "platelet_count"
+  colnames(harmonized_data)[21] = "total_white_cell_count"
+  colnames(harmonized_data)[22] = "neutrophil_count"
+  colnames(harmonized_data)[23] = "lymphocyte_count"
+  colnames(harmonized_data)[24] = "neutrophil_lympho_ratio"
+  colnames(harmonized_data)[25] = "monocyte_count"
+  colnames(harmonized_data)[26] = "absolute_cd19_count"
+  colnames(harmonized_data)[27] = "anca_if_2"
   
   
   
