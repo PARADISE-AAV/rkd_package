@@ -48,6 +48,11 @@ CPD_Harmonisation <- function(RIVdata, output_dir){
   colnames(harmonized_data)[3] = "encounter_interval_from_diagnosis"
   colnames(harmonized_data)[6] = "urinalysis_protein"
   colnames(harmonized_data)[7] = "urinalysis_blood"
+  colnames(harmonized_data)[8] = "bvasScoreCalculator"
+  colnames(harmonized_data)[9] = "numberOfMajorBVASItems"
+  colnames(harmonized_data)[10] = "numberOfMinorBVASItems"
+  colnames(harmonized_data)[11] = "vasculitic_granuloma"
+  
   
   
   output_filename <- file.path(
