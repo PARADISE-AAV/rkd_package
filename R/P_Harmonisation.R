@@ -67,7 +67,10 @@ CPD_Harmonisation <- function(RIVdata, output_dir){
   colnames(harmonized_data)[25] = "monocyte_count"
   colnames(harmonized_data)[26] = "absolute_cd19_count"
   colnames(harmonized_data)[27] = "anca_if_2"
-  
+  colnames(harmonized_data)[28] = "anti_pr3_level"
+  colnames(harmonized_data)[29] = "pr3Titre"
+  colnames(harmonized_data)[30] = "anti_mpo_level"
+  colnames(harmonized_data)[31] = "mpoTitre"
   
   
   output_filename <- file.path(
