@@ -34,7 +34,7 @@ CPD_Harmonisation <- function(RIVdata, output_dir){
     stop("You supplied an empty file")
   }
   
-  rkd_data <- RIVdata[ ,c("Paradise.ID", "Date.Of.Visit", "interval_from_diagnosis", "CPD_relapse", "rel.method",  "Urinalysis.Protein", "Urinalysis.Blood", "BVAS.score..calculator.", "Number.of.major.BVAS.items", "Number.of.minor.BVAS.items", "CPD_vasc_gran", "Nature.of.confirmed.relapse", "Treatment_Switch", "CPD_treatment", "Immunosuppressive.medication...other..ATC", "ANCA_Status", "CRP", "Creatinine", "eGFR..calculated." , "Platelet.count.x10.9.L", "Total.white.cell.count.x10.9.L", "Neutrophil.count.x10.9.L", "Lymphocyte.count.x10.9.L", "Neutrophil...Lymphocyte.ratio", "Monocyte.count.x10.9.L", "Absolute.CD19.count..cells.uL.", "ANCA.IF", "Anti.PR3.level", "PR3.titre", "Anti.MPO.level", "MPO.titre", "Immunosuppressive.status", "Corticosteroids_On_off", "Current.corticosteroid.dose",  "Corticosteroids.in.response.to.this.clinical.encounter.episode" ,"ANCA_Switch", "anca_kinetics_longterm", "Gender", "Year.of.birth", "Status.x", "Date_Last_Follow_up","Date.of.event", "At.any.point.ANCA.IF.pattern", "At.any.point.ANCA.specificity", "Any.Induction.Treatment", "Any.Maintenance.Treatment", "Required.renal.replacement.therapy.during.first.presentation", "Renal.recovery..independence.from.dialysis..regardless.of.dialysis.duration.", "Date.of.renal.recovery", "renal_recovery_time", "End.stage.kidney.disease", "Date.of.end.stage.kidney.disease..date.of.commencement.on.dialysis.or.transplant..whichever.first.", "ESKD_time", "Date.of.diagnosis", "Age.at.diagnosis", "Small.vessel.vasculitis..ANCA.associated.", "Small.vessel.vasculitis..Immune.complex.", "Diagnosis.confidence")]
+  rkd_data <- RIVdata[ ,c("Paradise.ID", "Date.Of.Visit", "interval_from_diagnosis", "CPD_relapse", "rel.method",  "Urinalysis.Protein", "Urinalysis.Blood", "BVAS.score..calculator.", "Number.of.major.BVAS.items", "Number.of.minor.BVAS.items", "CPD_vasc_gran", "Nature.of.confirmed.relapse", "Treatment_Switch", "CPD_treatment", "Immunosuppressive.medication...other..ATC", "ANCA_Status", "CRP", "Creatinine", "eGFR..calculated." , "Platelet.count.x10.9.L", "Total.white.cell.count.x10.9.L", "Neutrophil.count.x10.9.L", "Lymphocyte.count.x10.9.L", "Neutrophil...Lymphocyte.ratio", "Monocyte.count.x10.9.L", "Absolute.CD19.count..cells.uL.", "ANCA.IF", "Anti.PR3.level", "PR3.titre", "Anti.MPO.level", "MPO.titre", "Immunosuppressive.status", "Corticosteroids_On_off", "Current.corticosteroid.dose",  "Corticosteroids.in.response.to.this.clinical.encounter.episode" , "treatment","ANCA_Switch", "anca_kinetics_longterm", "Gender", "Year.of.birth", "Status.x", "Date_Last_Follow_up","Date.of.event", "At.any.point.ANCA.IF.pattern", "At.any.point.ANCA.specificity", "Any.Induction.Treatment", "Any.Maintenance.Treatment", "Required.renal.replacement.therapy.during.first.presentation", "Renal.recovery..independence.from.dialysis..regardless.of.dialysis.duration.", "Date.of.renal.recovery", "renal_recovery_time", "End.stage.kidney.disease", "Date.of.end.stage.kidney.disease..date.of.commencement.on.dialysis.or.transplant..whichever.first.", "ESKD_time", "Date.of.diagnosis", "Age.at.diagnosis", "Small.vessel.vasculitis..ANCA.associated.", "Small.vessel.vasculitis..Immune.complex.", "Diagnosis.confidence")]
   
   LTROT <- RIVdata[,grep("LTROT_current", colnames(RIVdata))]
   IS <- RIVdata[,grep("immunosup_med", colnames(RIVdata))]
@@ -74,8 +74,12 @@ CPD_Harmonisation <- function(RIVdata, output_dir){
   colnames(harmonized_data)[33] = "corticosteroids"
   colnames(harmonized_data)[34] = "corticosteroid_dose"
   colnames(harmonized_data)[35] = "corticosteroid_response"
-  
-  
+  colnames(harmonized_data)[36] = "treatment_type"
+  colnames(harmonized_data)[37] = "ancaswitch"
+  colnames(harmonized_data)[39] = "gender"
+  colnames(harmonized_data)[40] = "yearOfBirth"
+  colnames(harmonized_data)[42] = "lastRecordedContact"
+  colnames(harmonized_data)[43] = "dateOfDeath"
   
   output_filename <- file.path(
     output_dir,
