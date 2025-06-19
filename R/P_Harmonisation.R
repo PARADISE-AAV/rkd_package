@@ -72,6 +72,8 @@ CPD_Harmonisation <- function(RIVdata, output_dir){
   colnames(harmonized_data)[30] = "anti_mpo_level"
   colnames(harmonized_data)[31] = "mpoTitre"
   colnames(harmonized_data)[33] = "corticosteroids"
+  colnames(harmonized_data)[34] = "corticosteroid_dose"
+  colnames(harmonized_data)[35] = "corticosteroid_response"
   
   
   
