@@ -38,7 +38,7 @@ CPD_sample_availability <- function(RIVdata, output_dir){
   
   output_filename <- file.path(
     output_dir,
-    paste0('Redcap_clinical_data_harmonized', "_version", packageVersion('rivpipeline'), "_Date"
+    paste0('Redcap_clinical_sample_availability', "_version", packageVersion('rivpipeline'), "_Date"
            , Sys.Date(), '.csv')
   )
   
