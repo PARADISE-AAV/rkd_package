@@ -82,6 +82,10 @@ CPD_Harmonisation <- function(RIVdata, output_dir){
   colnames(harmonized_data)[43] = "dateOfDeath"
   colnames(harmonized_data)[44] = "ancaIF"
   colnames(harmonized_data)[45] = "ancaSpec"
+  colnames(harmonized_data)[46] = "induction"
+  colnames(harmonized_data)[47] = "maintenance"
+  
+  
   
   
   output_filename <- file.path(
