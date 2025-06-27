@@ -84,7 +84,7 @@ CPD_Harmonisation <- function(RIVdata, output_dir){
   colnames(harmonized_data)[45] = "ancaSpec"
   colnames(harmonized_data)[46] = "induction"
   colnames(harmonized_data)[47] = "maintenance"
-  
+  colnames(harmonized_data)[48] = "required_renal_replacement"
   
   
   
