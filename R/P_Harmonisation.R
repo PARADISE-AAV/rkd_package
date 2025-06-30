@@ -88,6 +88,7 @@ CPD_Harmonisation <- function(RIVdata, output_dir){
   colnames(harmonized_data)[49] = "renal_recovery_independ"
   colnames(harmonized_data)[50] = "date_of_renal_recovery_2"
   colnames(harmonized_data)[52] = "ESKDStandard"
+  colnames(harmonized_data)[53] = "dateOfESKD"
   
   
   
