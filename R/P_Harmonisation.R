@@ -97,6 +97,8 @@ CPD_Harmonisation <- function(RIVdata, output_dir){
   colnames(harmonized_data)[78] = "affectedOrgan_Renal"
   colnames(harmonized_data)[84] = "affectedOrgan_Cutaneous"
   colnames(harmonized_data)[85] = "affectedOrgan_General"
+  colnames(harmonized_data)[88] = "affectedOrgan_Abdominal"
+  
   
   
   
