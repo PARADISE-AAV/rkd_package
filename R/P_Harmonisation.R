@@ -94,6 +94,9 @@ CPD_Harmonisation <- function(RIVdata, output_dir){
   colnames(harmonized_data)[57] = "small_vessel_vas_anca"
   colnames(harmonized_data)[58] = "small_vessel_vas_immune"
   colnames(harmonized_data)[59] = "diagnosis_confidence"
+  colnames(harmonized_data)[78] = "affectedOrgan_Renal"
+  colnames(harmonized_data)[84] = "affectedOrgan_Cutaneous"
+  colnames(harmonized_data)[85] = "affectedOrgan_General"
   
   
   
