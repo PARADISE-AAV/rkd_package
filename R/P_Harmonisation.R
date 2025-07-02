@@ -123,6 +123,11 @@ CPD_Harmonisation <- function(RIVdata, output_dir){
   colnames(harmonized_data)[113] = "maintenancetreatmenttype_Other"
   colnames(harmonized_data)[114] = "maint_treat_recev_atc"
 
+  harmonized_data <- harmonized_data  %>%
+    dplyr::mutate(affectedOrgan_ENT = dplyr::case_when(
+      Systems.involved.at.any.point..choice.ENT. == 'Checked' | Systems.involved.at.any.point..choice.Trachea. == "Checked" ~ "Checked",
+      Systems.involved.at.any.point..choice.ENT. == 'Unchecked' & Systems.involved.at.any.point..choice.Trachea. == "Unchecked" ~ "Unchecked"
+    ))
   
   
   
