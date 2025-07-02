@@ -142,6 +142,8 @@ CPD_Harmonisation <- function(RIVdata, output_dir){
     ))
   
   
+  
+  
   output_filename <- file.path(
     output_dir,
     paste0('Redcap_clinical_data_harmonized', "_version", packageVersion('rivpipeline'), "_Date"
