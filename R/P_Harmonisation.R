@@ -129,7 +129,11 @@ CPD_Harmonisation <- function(RIVdata, output_dir){
       Systems.involved.at.any.point..choice.ENT. == 'Unchecked' & Systems.involved.at.any.point..choice.Trachea. == "Unchecked" ~ "Unchecked"
     ))
   
-  
+  harmonized_data <- harmonized_data  %>%
+    dplyr::mutate(affectedOrgan_Chest = dplyr::case_when(
+      Systems.involved.at.any.point..choice.Lung..granuloma.. == 'Checked' | Systems.involved.at.any.point..choice.Lung..haemorrhage.. == "Checked" | Systems.involved.at.any.point..choice.Interstitial.lung.disease. == "Checked" ~ "Checked",
+      Systems.involved.at.any.point..choice.Lung..granuloma.. == 'Unchecked' & Systems.involved.at.any.point..choice.Lung..haemorrhage.. == "Unchecked" & Systems.involved.at.any.point..choice.Interstitial.lung.disease. == "Unchecked" ~ "Unchecked"
+    ))
   
   output_filename <- file.path(
     output_dir,
