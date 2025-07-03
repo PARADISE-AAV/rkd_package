@@ -142,6 +142,11 @@ CPD_Harmonisation <- function(RIVdata, output_dir){
     ))
   
   
+  harmonized_data <- harmonized_data  %>%
+    dplyr::mutate(death = dplyr::case_when(
+      Status.x == "Dead" ~ "Dead",
+      Status.x != "Dead" ~ NA
+    ))
   
   
   output_filename <- file.path(
