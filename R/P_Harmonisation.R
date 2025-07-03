@@ -148,6 +148,7 @@ CPD_Harmonisation <- function(RIVdata, output_dir){
       Status.x != "Dead" ~ NA
     ))
   
+  harmonized_data_final <- harmonized_data[, -c(15, 41, 79:83, 86, 87, 101, 111)]
   
   output_filename <- file.path(
     output_dir,
@@ -155,7 +156,7 @@ CPD_Harmonisation <- function(RIVdata, output_dir){
            , Sys.Date(), '.csv')
   )
   
-  write.csv(harmonized_data, output_filename, row.names = FALSE)
-  return(harmonized_data)
+  write.csv(harmonized_data_final, output_filename, row.names = FALSE)
+  return(harmonized_data_final)
   
 }
