@@ -17,7 +17,7 @@ Version: 1.0
 Date: 17-Apr-23
 }
 \details{
-to be added
+This function is done to compile the CPD_ANCASwitch based on the \link[https://3.basecamp.com/3790396/buckets/31062049/google_documents/8234378355]{CPD_ANCA_Switch}
 }
 \author{
 Matthieu COQ
