@@ -9,7 +9,7 @@
 #'
 #' @param merge_data Data after CPD_Relapse from \code{\link{ClassifyRIVEncounter}} function
 #' @details
-#' This function is done to compile the CPD_ANCASwitch based on the \link[https://3.basecamp.com/3790396/buckets/31062049/google_documents/8234378355]{CPD_ANCA_Switch}
+#' This function is done to compile the CPD_ANCASwitch based on the [CPD_ANCA_Switch](https://3.basecamp.com/3790396/buckets/31062049/google_documents/8234378355)
 #' 
 #' @import lubridate
 #' @export
