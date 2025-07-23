@@ -10,14 +10,20 @@ CPD_ANCA_kinetics(merge_data)
 \item{merge_data}{Data from the \code{\link{CPD_ANCA}} function}
 }
 \description{
-The Goal is to do CPD ANCA kinetic longterm
+The Goal is to do CPD ANCA kinetic long term
 
 Version: 1.0
 
 Date: 9-May-23
 }
 \details{
-to be added
+The CPD ANCA kinetics long term is what is the kinetic of ANCA in long term. For this, we look at what is the ANCA Status  during the 2 last encounters.
+\itemize{
+\item If the 3 encounter have a ANCA Status positive, the CPD is persistent positive
+\item If the 3 encounter have a ANCA Status negative, the CPD is persistent negative
+\item If the 3 encounter have a ANCA Status positive and negative, the CPD is Variable ANCA level
+\item If at least one encounter have a ANCA Status unknown, the CPD is  Unknown ANCA level
+}
 }
 \author{
 Matthieu COQ
