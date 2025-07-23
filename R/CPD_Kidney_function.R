@@ -10,7 +10,10 @@
 #' @param renal Data from renal from \code{\link{CPD_Renal}} function
 #' @param merge_data Data from the merge of encounter and General characteristics in the \code{\link{Merge_Encounter_initial}} function
 #' @details
-#' to be added
+#' 
+#' This function is done to compile the CPD_Kidney based on the [CPD_Kidney](https://3.basecamp.com/3790396/buckets/31062049/google_documents/7860925814) document. 
+#' 
+#' 
 #' @import lubridate
 #' @import stringr
 #' @import dplyr
