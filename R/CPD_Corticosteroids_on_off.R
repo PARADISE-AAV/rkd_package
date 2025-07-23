@@ -1,7 +1,7 @@
 #' @title CPD Corticosteroids on/off
 #' @author Matthieu COQ
 #'
-#' @description The goal is to performed the CPD Corticosteroids on/off
+#' @description The goal is to performed the CPD Corticosteroids on/off as an imputation of the corticosteroid variable.
 #' 
 #' Version: 1.0
 #' 
@@ -9,7 +9,7 @@
 #'
 #' @param merge_data Data from the merge of encounter and General characteristics in the \code{\link{CPD_Treatment}} function
 #' @details
-#' 
+#' This function is done to compile the CPD_Corticosteroid_on_off based on the [CPD_Corticosteroid_on_off](https://3.basecamp.com/3790396/buckets/31062049/google_documents/7798594419) documents. 
 #' 
 #' 
 #' @import lubridate
