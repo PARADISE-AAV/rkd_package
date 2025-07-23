@@ -12,14 +12,14 @@ CPD_Kidney_function(merge_data, renal)
 \item{renal}{Data from renal from \code{\link{CPD_Renal}} function}
 }
 \description{
-The Goal is to merge the Continuous medication and general characteristics from \code{\link{SplitRIV}} function
+The Goal is to perform the CPD_Kidney
 
 Version: 1.0
 
 Date: 17-Apr-23
 }
 \details{
-to be added
+This function is done to compile the CPD_Kidney based on the \href{https://3.basecamp.com/3790396/buckets/31062049/google_documents/7860925814}{CPD_Kidney} document.
 }
 \author{
 Matthieu COQ
