@@ -1,7 +1,7 @@
 #' @title CPD current LTROT
 #' @author Matthieu COQ
 #'
-#' @description to be added
+#' @description The goal is to performed the CPD_LTROT_current
 #' 
 #' Version: 1.0
 #' 
