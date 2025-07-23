@@ -10,7 +10,9 @@
 #' @param merge_data Data from the merge of encounter and General characteristics in the \code{\link{CPD_Treatment}} function
 #' @param interval Number of day to be off treatment
 #' @details
-#' to be added
+#' 
+#' This function is done to compile the CPD_LTROT_current based on the [CPD_LTROT_current](https://3.basecamp.com/3790396/buckets/31062049/google_documents/7631389575) document. 
+#'  
 #' @import lubridate
 #' @import dplyr
 #' @export
