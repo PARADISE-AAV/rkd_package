@@ -1,7 +1,7 @@
 #' @title CPD IS medication
 #' @author Matthieu COQ
 #'
-#' @description The Goal is to do CPD Treatment
+#' @description The Goal is to do CPD IS medication
 #' 
 #' Version: 1.0
 #' 
@@ -9,7 +9,7 @@
 #'
 #' @param treatment_data Data from CPD_treatment from \code{\link{CPD_Treatment}} function
 #' @details
-#' to be added
+#' To perform the CPD IS Medication, we take the list from \code{\link{CPD_Treatment}} function
 #' 
 #' @import lubridate
 #' @import DT
