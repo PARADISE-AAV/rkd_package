@@ -1,7 +1,7 @@
 #' @title CPD Kidney function
 #' @author Matthieu COQ
 #'
-#' @description The Goal is to merge the Continuous medication and general characteristics from \code{\link{SplitRIV}} function
+#' @description The Goal is to perform the CPD_Kidney
 #' 
 #' Version: 1.0
 #' 
