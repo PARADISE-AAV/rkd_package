@@ -1,7 +1,7 @@
 #' @title CPD ANCA kinetic longterm
 #' @author Matthieu COQ
 #'
-#' @description The Goal is to do CPD ANCA kinetic longterm
+#' @description The Goal is to do CPD ANCA kinetic long term
 #' 
 #' Version: 1.0
 #' 
@@ -9,7 +9,12 @@
 #'
 #' @param merge_data Data from the \code{\link{CPD_ANCA}} function
 #' @details
-#' to be added
+#' The CPD ANCA kinetics long term is what is the kinetic of ANCA in long term. For this, we look at what is the ANCA Status  during the 2 last encounters. 
+#' * If the 3 encounter have a ANCA Status positive, the CPD is persistent positive 
+#' * If the 3 encounter have a ANCA Status negative, the CPD is persistent negative 
+#' * If the 3 encounter have a ANCA Status positive and negative, the CPD is Variable ANCA level 
+#' * If at least one encounter have a ANCA Status unknown, the CPD is  Unknown ANCA level
+#' 
 #' 
 #' @import lubridate
 #' @import DT
