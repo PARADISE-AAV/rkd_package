@@ -1,7 +1,7 @@
 #' @title CPD Corticosteroids on/off
 #' @author Matthieu COQ
 #'
-#' @description to be added
+#' @description The goal is to performed the CPD Corticosteroids on/off
 #' 
 #' Version: 1.0
 #' 
@@ -9,7 +9,9 @@
 #'
 #' @param merge_data Data from the merge of encounter and General characteristics in the \code{\link{CPD_Treatment}} function
 #' @details
-#' to be added
+#' 
+#' 
+#' 
 #' @import lubridate
 #' @import dplyr
 #' @export
