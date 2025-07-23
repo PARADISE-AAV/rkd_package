@@ -10,14 +10,14 @@ CPD_immunosup_med(treatment_data)
 \item{treatment_data}{Data from CPD_treatment from \code{\link{CPD_Treatment}} function}
 }
 \description{
-The Goal is to do CPD Treatment
+The Goal is to do CPD IS medication
 
 Version: 1.0
 
 Date: 9-Aug-24
 }
 \details{
-to be added
+To perform the CPD IS Medication, we take the list from \code{\link{CPD_Treatment}} function and extract each medication based on code overview.
 }
 \author{
 Matthieu COQ
