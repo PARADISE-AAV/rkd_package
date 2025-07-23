@@ -12,14 +12,14 @@ CPD_LTROT_current(merge_data, interval = 730)
 \item{interval}{Number of day to be off treatment}
 }
 \description{
-to be added
+The goal is to performed the CPD_LTROT_current
 
 Version: 1.0
 
 Date: 15-Aug-23
 }
 \details{
-to be added
+This function is done to compile the CPD_LTROT_current based on the \href{https://3.basecamp.com/3790396/buckets/31062049/google_documents/7631389575}{CPD_LTROT_current} document.
 }
 \author{
 Matthieu COQ
