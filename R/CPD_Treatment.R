@@ -1,4 +1,4 @@
-#' @title CPD IS medication
+#' @title CPD_Treatment
 #' @author Matthieu COQ
 #'
 #' @description The Goal is to do CPD Treatment
