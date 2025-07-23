@@ -2,7 +2,7 @@
 % Please edit documentation in R/CPD_Treatment.R
 \name{CPD_Treatment}
 \alias{CPD_Treatment}
-\title{CPD IS medication}
+\title{CPD_Treatment}
 \usage{
 CPD_Treatment(treatment_data)
 }
@@ -17,7 +17,7 @@ Version: 1.0
 Date: 9-Aug-24
 }
 \details{
-to be added
+this function created a list of treatment per encounter
 }
 \author{
 Matthieu COQ
