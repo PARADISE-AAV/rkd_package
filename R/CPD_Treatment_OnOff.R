@@ -1,7 +1,7 @@
-#' @title CPD IV Therapy treatment
+#' @title CPD Treatment On/OFF
 #' @author Matthieu COQ
 #'
-#' @description The Goal is to do CPD IS Imputation for Treatment On/Off
+#' @description The Goal is to perform CPD Treatment On/Off
 #' 
 #' Version: 1.0
 #' 
@@ -11,7 +11,9 @@
 #' @param ConMed Data from Continous medication from \code{\link{CPD_Medication_Treatment}} function
 #' @param merged_data Data from the merge of encounter and General characteristics in the \code{\link{Merge_Encounter_initial}} function
 #' @details
-#' to be added
+#' 
+#' This function is done to compile the CPD Treatment On/Off based on the [CPD Treatment On/Off](https://3.basecamp.com/3790396/buckets/31062049/cloud_files/7631150656) document. 
+#' 
 #' 
 #' @import lubridate
 #' @import DT
