@@ -2,7 +2,7 @@
 % Please edit documentation in R/CPD_vasc_gran.R
 \name{CPD_vasc_vs_gran}
 \alias{CPD_vasc_vs_gran}
-\title{CPD vascvs gran}
+\title{CPD vasc vs gran}
 \usage{
 CPD_vasc_vs_gran(merge_data)
 }
@@ -10,14 +10,14 @@ CPD_vasc_vs_gran(merge_data)
 \item{merge_data}{Data from the merge of encounter and General characteristics in the \code{\link{CPD_Treatment}} function}
 }
 \description{
-to be added
+The goal is to perform the CPD vasc vs gran
 
 Version: 1.0
 
 Date: 15-Aug-23
 }
 \details{
-to be added
+This function is done to compile the CPD_vasc_gran based on the \href{https://3.basecamp.com/3790396/buckets/31062049/google_documents/8189505981}{CPD_vasc_gran} document.
 }
 \author{
 Matthieu COQ
