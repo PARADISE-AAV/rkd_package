@@ -17,7 +17,7 @@ Version: 1.0
 Date: 9-Aug-24
 }
 \details{
-this function created a list of treatment per encounter
+This function created a list of treatment per encounter
 }
 \author{
 Matthieu COQ
