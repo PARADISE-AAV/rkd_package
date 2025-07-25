@@ -1,7 +1,7 @@
-#' @title CPD treatment discontunition
+#' @title CPD treatment switch
 #' @author Matthieu COQ
 #'
-#' @description to be added
+#' @description The goal of theis function is to perform the CPD_treatment_switch
 #' 
 #' Version: 1.0
 #' 
