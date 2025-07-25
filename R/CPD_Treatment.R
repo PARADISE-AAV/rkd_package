@@ -9,7 +9,7 @@
 #'
 #' @param treatment_data Data from IVTherapy from \code{\link{CPD_Treatment_OnOff}} function
 #' @details
-#' this function created a list of treatment per encounter
+#' This function created a list of treatment per encounter
 #' 
 #' @import lubridate
 #' @import DT
