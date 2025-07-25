@@ -1,7 +1,7 @@
 #' @title CPD treatment switch
 #' @author Matthieu COQ
 #'
-#' @description The goal of theis function is to perform the CPD_treatment_switch
+#' @description The goal of this function is to perform the CPD_treatment_switch
 #' 
 #' Version: 1.0
 #' 
@@ -9,7 +9,10 @@
 #'
 #' @param merge_data Data from the merge of encounter and General characteristics in the \code{\link{CPD_Treatment}} function
 #' @details
-#' to be added
+#' 
+#' This function is done to compile the CPD_Treatment_Switch based on the [CPD_Treatment_Switch](https://3.basecamp.com/3790396/buckets/31062049/google_documents/8376976908) document. 
+#' 
+#' 
 #' @import lubridate
 #' @import dplyr
 #' @export
