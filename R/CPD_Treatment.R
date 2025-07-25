@@ -1,7 +1,7 @@
 #' @title CPD_Treatment
 #' @author Matthieu COQ
 #'
-#' @description The Goal is to do CPD Treatment
+#' @description The Goal is to perform CPD Treatment
 #' 
 #' Version: 1.0
 #' 
