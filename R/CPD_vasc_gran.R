@@ -1,7 +1,7 @@
-#' @title CPD vascvs gran
+#' @title CPD vasc vs gran
 #' @author Matthieu COQ
 #'
-#' @description to be added
+#' @description The goal is to perform the CPD vasc vs gran
 #' 
 #' Version: 1.0
 #' 
@@ -9,7 +9,9 @@
 #'
 #' @param merge_data Data from the merge of encounter and General characteristics in the \code{\link{CPD_Treatment}} function
 #' @details
-#' to be added
+#' 
+#' This function is done to compile the CPD_vasc_gran based on the [CPD_vasc_gran](https://3.basecamp.com/3790396/buckets/31062049/google_documents/8189505981) document. 
+#' 
 #' 
 #' @import lubridate
 #' @import dplyr
