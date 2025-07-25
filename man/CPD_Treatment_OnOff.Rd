@@ -2,7 +2,7 @@
 % Please edit documentation in R/CPD_Treatment_OnOff.R
 \name{CPD_Treatment_OnOff}
 \alias{CPD_Treatment_OnOff}
-\title{CPD IV Therapy treatment}
+\title{CPD Treatment On/OFF}
 \usage{
 CPD_Treatment_OnOff(IV_Therapy, ConMed, merged_data)
 }
@@ -14,14 +14,14 @@ CPD_Treatment_OnOff(IV_Therapy, ConMed, merged_data)
 \item{merged_data}{Data from the merge of encounter and General characteristics in the \code{\link{Merge_Encounter_initial}} function}
 }
 \description{
-The Goal is to do CPD IS Imputation for Treatment On/Off
+The Goal is to perform CPD Treatment On/Off
 
 Version: 1.0
 
 Date: 9-May-23
 }
 \details{
-to be added
+This function is done to compile the CPD Treatment On/Off based on the \href{https://3.basecamp.com/3790396/buckets/31062049/cloud_files/7631150656}{CPD Treatment On/Off} document.
 }
 \author{
 Matthieu COQ
