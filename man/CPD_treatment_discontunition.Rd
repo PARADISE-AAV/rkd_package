@@ -2,7 +2,7 @@
 % Please edit documentation in R/CPD_Treatment_discontinution.R
 \name{CPD_treatment_discontunition}
 \alias{CPD_treatment_discontunition}
-\title{CPD treatment discontunition}
+\title{CPD treatment switch}
 \usage{
 CPD_treatment_discontunition(merge_data)
 }
@@ -10,14 +10,14 @@ CPD_treatment_discontunition(merge_data)
 \item{merge_data}{Data from the merge of encounter and General characteristics in the \code{\link{CPD_Treatment}} function}
 }
 \description{
-to be added
+The goal of this function is to perform the CPD_treatment_switch
 
 Version: 1.0
 
 Date: 15-Aug-23
 }
 \details{
-to be added
+This function is done to compile the CPD_Treatment_Switch based on the \href{https://3.basecamp.com/3790396/buckets/31062049/google_documents/8376976908}{CPD_Treatment_Switch} document.
 }
 \author{
 Matthieu COQ
