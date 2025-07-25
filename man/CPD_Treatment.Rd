@@ -10,7 +10,7 @@ CPD_Treatment(treatment_data)
 \item{treatment_data}{Data from IVTherapy from \code{\link{CPD_Treatment_OnOff}} function}
 }
 \description{
-The Goal is to do CPD Treatment
+The Goal is to perform CPD Treatment
 
 Version: 1.0
 
