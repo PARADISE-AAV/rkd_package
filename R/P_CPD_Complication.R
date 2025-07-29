@@ -10,7 +10,9 @@
 #' @param output_dir  {"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
 #' 
 #' @details
-#' to be added
+#' 
+#' The function calculated the interval in days between the diagnosis and the complication
+#' 
 #' @import lubridate
 #' @import stringr
 #' @import dplyr
