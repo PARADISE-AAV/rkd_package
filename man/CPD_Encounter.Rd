@@ -19,7 +19,7 @@ Version: 1.0
 Date: 18-Apr-23
 }
 \details{
-to be added
+in this function, we modify the creatinine for the patient in dialysis to 999 and we calculate the MPO and PR3 titre based on geometric mean
 }
 \author{
 Matthieu COQ
