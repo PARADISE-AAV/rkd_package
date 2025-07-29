@@ -10,7 +10,9 @@
 #' @param output_dir  {"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
 #'
 #' @details
-#' to be added
+#' 
+#' in this function, we modify the creatinine for the patient in dialysis to 999 and we calculate the MPO and PR3 titre based on geometric mean
+#' 
 #' @import lubridate
 #' @import stringr
 #' @import dplyr
@@ -31,7 +33,7 @@ CPD_Encounter <- function (Encounter_data, output_dir){
   for(i in 1:n){
     if(rkd_data$Dialysis.dependent[i] == "Yes"){
       rkd_data$Creatinine[i]=999
-    }
+    } 
   }
   
   MPO_geom_mean=exp(mean(log(rkd_data$Anti.MPO.level [rkd_data$Anti.MPO.level>0]), na.rm = TRUE))
