@@ -9,7 +9,9 @@
 #' @param Biopsy_data  {"name": "rkd_data","desc": "RIV data from \code{\link{SplitRIV}} function","options": (),"type": "file"}
 #' @param output_dir  {"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
 #' @details
-#' to be added
+#' 
+#' The function calculated the interval in days between the diagnosis and the biopsy
+#' 
 #' @import lubridate
 #' @import stringr
 #' @import dplyr
