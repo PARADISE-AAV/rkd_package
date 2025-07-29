@@ -19,7 +19,7 @@ Version: 1.0
 Date: 24-September-23
 }
 \details{
-to be added
+This function is done to compile the CPD_ANCA_imputation based on the \href{https://3.basecamp.com/3790396/buckets/31062049/google_documents/8131573548}{CPD_ANCA_imputation} document.
 }
 \author{
 Matthieu COQ
