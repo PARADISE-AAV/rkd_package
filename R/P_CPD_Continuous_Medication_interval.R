@@ -10,7 +10,9 @@
 #' @param output_dir  {"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
 #'
 #' @details
-#' to be added
+#' 
+#' The function calculated the interval in days between the diagnosis and the start data and stop date of continuous medication. The dose is recalculated to have a daily dose. 
+#' 
 #' @import lubridate
 #' @import stringr
 #' @import dplyr
