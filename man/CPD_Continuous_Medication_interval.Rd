@@ -19,7 +19,7 @@ Version: 1.0
 Date: 17-Apr-23
 }
 \details{
-to be added
+The function calculated the interval in days between the diagnosis and the start data and stop date of continuous medication. The dose is recalculated to have a daily dose.
 }
 \author{
 Matthieu COQ
