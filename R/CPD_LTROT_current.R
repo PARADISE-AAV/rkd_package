@@ -39,16 +39,16 @@ CPD_LTROT_current <- function(merge_data, interval=730){
         intermax=dat1$interval_from_diagnosis[j]
         dat3 <- dat[which(dat$interval_from_diagnosis<=intermax & dat$interval_from_diagnosis>=intermax-interval),]
         if(dim(table(dat3$CPD_relapse))==1 & dat3$CPD_relapse[1]=="No Relapse" & dim(table(dat3$CPD_treatment))==1 & dat3$CPD_treatment[1]=="Off Treatment"){
-            dat3$LTROT_current_level1[nrow(dat3)]="LTROT"
+            dat3$LTROT_ANCAnegpos_steroidneg[nrow(dat3)]="LTROT"
         }
         if(dim(table(dat3$CPD_relapse))==1 & dat3$CPD_relapse[1]=="No Relapse" & dim(table(dat3$CPD_treatment))==1 & dat3$CPD_treatment[1]=="Off Treatment" & dat3$ANCA_Status[nrow(dat3)]=="ANCA Negative"){
-          dat3$LTROT_current_level2[nrow(dat3)]="LTROT"
+          dat3$LTROT_ANCAneg_steroidneg[nrow(dat3)]="LTROT"
         }
         if(dim(table(dat3$CPD_relapse))==1 & dat3$CPD_relapse[1]=="No Relapse" & dim(table(dat3$CPD_treatment))==1 & dat3$CPD_treatment[1]=="Off Treatment" & dat3$ANCA_Status[nrow(dat3)]=="ANCA Positive"){
-          dat3$LTROT_current_level3[nrow(dat3)]="LTROT"
+          dat3$LTROT_ANCApos_steroidneg[nrow(dat3)]="LTROT"
         }
          
-        merge_data_LTROT=rbind(merge_data_LTROT,dat3[,c("RKD.ID", "Date.Of.Visit", "LTROT_current_level1", "LTROT_current_level2", "LTROT_current_level3")])
+        merge_data_LTROT=rbind(merge_data_LTROT,dat3[,c("RKD.ID", "Date.Of.Visit", "LTROT_ANCAnegpos_steroidneg", "LTROT_ANCAneg_steroidneg", "LTROT_ANCApos_steroidneg")])
       }
     }
     
@@ -81,16 +81,16 @@ CPD_LTROT_current <- function(merge_data, interval=730){
         intermax=dat1$interval_from_diagnosis[j]
         dat3 <- dat[which(dat$interval_from_diagnosis<=intermax & dat$interval_from_diagnosis>=intermax-interval),]
         if(dim(table(dat3$CPD_relapse))==1 & dat3$CPD_relapse[1]=="No Relapse" & dim(table(dat3$CPD_treatment1))==1 & dat3$CPD_treatment1[1]=="Off Treatment"){
-          dat3$LTROT_current_level4[nrow(dat3)]="LTROT"
+          dat3$LTROT_ANCAnegpos_steroidnegpos[nrow(dat3)]="LTROT"
         }
         if(dim(table(dat3$CPD_relapse))==1 & dat3$CPD_relapse[1]=="No Relapse" & dim(table(dat3$CPD_treatment1))==1 & dat3$CPD_treatment1[1]=="Off Treatment" & dat3$ANCA_Status[nrow(dat3)]=="ANCA Negative"){
-          dat3$LTROT_current_level5[nrow(dat3)]="LTROT"
+          dat3$LTROT_ANCAneg_steroidnegpos[nrow(dat3)]="LTROT"
         }
         if(dim(table(dat3$CPD_relapse))==1 & dat3$CPD_relapse[1]=="No Relapse" & dim(table(dat3$CPD_treatment1))==1 & dat3$CPD_treatment1[1]=="Off Treatment" & dat3$ANCA_Status[nrow(dat3)]=="ANCA Positive"){
-          dat3$LTROT_current_level6[nrow(dat3)]="LTROT"
+          dat3$LTROT_ANCApos_steroidnegpos[nrow(dat3)]="LTROT"
         }
         
-        merge_data_LTROT1=rbind(merge_data_LTROT1,dat3[,c("RKD.ID", "Date.Of.Visit", "LTROT_current_level4", "LTROT_current_level5", "LTROT_current_level6")])
+        merge_data_LTROT1=rbind(merge_data_LTROT1,dat3[,c("RKD.ID", "Date.Of.Visit", "LTROT_ANCAnegpos_steroidnegpos", "LTROT_ANCAneg_steroidnegpos", "LTROT_ANCApos_steroidnegpos")])
       }
     }
     
