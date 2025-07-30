@@ -25,9 +25,9 @@ CPD_LTROT_current <- function(merge_data, interval=730){
   
   
   merge_data1=merge_data[which(is.na(merge_data$CPD_relapse)==FALSE),]
-  merge_data1$LTROT_current_level1=NA
-  merge_data1$LTROT_current_level2=NA
-  merge_data1$LTROT_current_level3=NA
+  merge_data1$LTROT_ANCAnegpos_steroidneg=NA
+  merge_data1$LTROT_ANCAneg_steroidneg=NA
+  merge_data1$LTROT_ANCApos_steroidneg=NA
   merge_data_LTROT=NULL
   n=length(levels(as.factor(merge_data1$RKD.ID)))
   for (i in 1:n){
@@ -67,9 +67,9 @@ CPD_LTROT_current <- function(merge_data, interval=730){
       
     ))
   
-  merge_data1$LTROT_current_level4=NA
-  merge_data1$LTROT_current_level5=NA
-  merge_data1$LTROT_current_level6=NA
+  merge_data1$LTROT_ANCAnegpos_steroidnegpos=NA
+  merge_data1$LTROT_ANCAneg_steroidnegpos=NA
+  merge_data1$LTROT_ANCApos_steroidnegpos=NA
   merge_data_LTROT1=NULL
   n=length(levels(as.factor(merge_data1$RKD.ID)))
   for (i in 1:n){
