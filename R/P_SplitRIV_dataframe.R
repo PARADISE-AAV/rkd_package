@@ -12,7 +12,8 @@
 #'
 #' @return export the dataframe 
 #' @details 
-#' to be added later
+#' 
+#' In this function, we extract one frame from the list of frame and write as a data frame. mainly use for the web application.
 #' 
 #' @export
 
