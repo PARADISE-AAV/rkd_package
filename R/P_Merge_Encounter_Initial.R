@@ -1,4 +1,4 @@
-#' @title Clean rare kidney disease data
+#' @title Merge Encounter and Initial frame
 #' @author Matthieu COQ
 #'
 #' @description The Goal is to merge the Encounter and general characteristics from \code{\link{SplitRIV}} function
@@ -11,7 +11,9 @@
 #' @param output_dir  {"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
 #'
 #' @details
-#' to be added
+#' 
+#' In this function, we merge the Encounter frame and the general characteristics frame with the RIV.ID. In addition, we calculate th age at the encounter, the interval in number of days between the encounter date and the date of diagnosis. We calculate the date of the last follow up.
+#' 
 #' @import lubridate
 #' @import stringr
 #' @import dplyr
