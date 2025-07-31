@@ -2,7 +2,7 @@
 % Please edit documentation in R/P_CPD_Medication_Treatment.R
 \name{CPD_Medication_Treatment}
 \alias{CPD_Medication_Treatment}
-\title{CPD IV Therapy treatment}
+\title{CPD Medication treatment}
 \usage{
 CPD_Medication_Treatment(Medication, merged_data, output_dir)
 }
@@ -14,14 +14,14 @@ CPD_Medication_Treatment(Medication, merged_data, output_dir)
 \item{output_dir}{{"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}}
 }
 \description{
-The Goal is to do CPD IS Imputation for Treatment On/Off
+The Goal is to prepare the continuous medication frame for Treatment On/Off
 
 Version: 1.0
 
 Date: 9-May-23
 }
 \details{
-to be added
+This function is to merge the encounter frame and the Continuous Medication frame with the goal to know if an encounter is under a medication. More information are in the folowing document, \link{CPD_Treatment}(https://3.basecamp.com/3790396/buckets/31062049/cloud_files/7631150656
 }
 \author{
 Matthieu COQ
