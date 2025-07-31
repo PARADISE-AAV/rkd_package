@@ -19,7 +19,7 @@ Version: 1.0
 Date: 9-May-23
 }
 \details{
-to be added
+This function is done to compile the CPD_IS Imputation based on the \href{https://3.basecamp.com/3790396/buckets/31062049/google_documents/8131573548}{CPD_IS_Imputation} document.
 }
 \author{
 Matthieu COQ
