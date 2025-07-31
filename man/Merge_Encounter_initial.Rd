@@ -2,7 +2,7 @@
 % Please edit documentation in R/P_Merge_Encounter_Initial.R
 \name{Merge_Encounter_initial}
 \alias{Merge_Encounter_initial}
-\title{Clean rare kidney disease data}
+\title{Merge Encounter and Initial frame}
 \usage{
 Merge_Encounter_initial(Encounter, Initial, output_dir)
 }
@@ -21,7 +21,7 @@ Version: 1.0
 Date: 14-Mar-23
 }
 \details{
-to be added
+In this function, we merge the Encounter frame and the general characteristics frame with the RIV.ID. In addition, we calculate th age at the encounter, the interval in number of days between the encounter date and the date of diagnosis. We calculate the date of the last follow up.
 }
 \author{
 Matthieu COQ
