@@ -19,7 +19,16 @@ Version: 1.0
 Date: 13-Mar-23
 }
 \details{
-Need to be added
+In this function, we divided the RIV data in 7 frame. The 7 frame are the following
+\itemize{
+\item Initial (General characteristic)
+\item Encounter
+\item IV Therapy
+\item Continuous medication
+\item Complication
+\item Biopsy
+\item Renal Transplantation
+}
 }
 \author{
 Matthieu COQ
