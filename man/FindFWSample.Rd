@@ -16,7 +16,7 @@ FindFWSample(FWdata, RKDdata, output_path, interval)
 \item{interval}{The number of day in which the merge need to be done}
 }
 \value{
-to add
+A frame with the merge of the clinical data and FW data
 }
 \description{
 Objective: The objective is to merge the RIV data filter and clean with the clean Freezer work data
