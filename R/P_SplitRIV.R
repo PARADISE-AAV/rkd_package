@@ -10,7 +10,17 @@
 #' @param output_dir  {"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
 #'
 #' @details
-#' Need to be added
+#' 
+#' In this function, we divided the RIV data in 7 frame. The 7 frame are the following
+#' *  Initial (General characteristic)
+#' *  Encounter
+#' *  IV Therapy
+#' *  Continuous medication
+#' *  Complication
+#' *  Biopsy
+#' *  Renal Transplantation
+#' 
+#' 
 #' @import dplyr
 #' @export
 
