@@ -1,7 +1,7 @@
-#' @title CPD IV Therapy treatment
+#' @title CPD Medication treatment
 #' @author Matthieu COQ
 #'
-#' @description The Goal is to do CPD IS Imputation for Treatment On/Off
+#' @description The Goal is to prepare the continuous medication frame for Treatment On/Off
 #' 
 #' Version: 1.0
 #' 
@@ -11,7 +11,9 @@
 #' @param output_dir  {"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
 #'
 #' @details
-#' to be added
+#' 
+#' This function is to merge the encounter frame and the Continuous Medication frame with the goal to know if an encounter is under a medication. More information are in the folowing document, [CPD_Treatment](https://3.basecamp.com/3790396/buckets/31062049/cloud_files/7631150656
+#' 
 #' 
 #' @import lubridate
 #' @import DT
