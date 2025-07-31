@@ -12,7 +12,8 @@
 #' @param RKDdata RKD data from \code{\link{ClassifyRIVEncounter}} or earlier function
 #' @param output_path folder where the merged data will be saved
 #' @param interval The number of day in which the merge need to be done
-#' @details The merge between the Freezerwork data and the RIV data allows us to find the sample associated to the RKD data.
+#' @details 
+#' The merge between the Freezerwork data and the RIV data allows us to find the sample associated to the RKD data.
 #' 
 #' The interval of day argument is here as we need flexibility in the date merging. The date of sample in the Freezerwork is the one when the sample arrive in the biobank and they can be a delay with the encounter date.
 #' 
