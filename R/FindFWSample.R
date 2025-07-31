@@ -17,7 +17,7 @@
 #' 
 #' The interval of day argument is here as we need flexibility in the date merging. The date of sample in the Freezerwork is the one when the sample arrive in the biobank and they can be a delay with the encounter date.
 #' 
-#' @return to add
+#' @return A frame with the merge of the clinical data and FW data
 #' @import DT
 #' @import dplyr
 #' @import fuzzyjoin
