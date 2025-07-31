@@ -10,7 +10,9 @@
 #' @param output_dir  {"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
 #'
 #' @details
-#' to be added
+#' 
+#' This function is done to compile the CPD_IS Imputation based on the [CPD_IS_Imputation](https://3.basecamp.com/3790396/buckets/31062049/google_documents/8131573548) document. 
+#' 
 #' 
 #' @import lubridate
 #' @export
