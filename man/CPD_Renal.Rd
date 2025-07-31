@@ -19,7 +19,7 @@ Version: 1.0
 Date: 17-Apr-23
 }
 \details{
-to be added
+In this function, we calculate the interval in number of day between the date of transplant or the date of failure and the date of diagnosis.
 }
 \author{
 Matthieu COQ
