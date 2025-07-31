@@ -24,7 +24,7 @@ Version: 1.0
 Date: 03-Jan-24
 }
 \details{
-to be added later
+In this function, we extract one frame from the list of frame and write as a data frame. mainly use for the web application.
 }
 \author{
 Matthieu COQ
