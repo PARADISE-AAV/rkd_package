@@ -10,7 +10,9 @@
 #' @param output_dir  {"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
 #'
 #' @details
-#' to be added
+#' 
+#' In this function, we calculate the interval in number of day between the date of transplant or the date of failure and the date of diagnosis.
+#' 
 #' @import lubridate
 #' @import stringr
 #' @import dplyr
