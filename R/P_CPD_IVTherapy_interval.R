@@ -6,11 +6,14 @@
 #' Version: 1.0
 #' 
 #' Date: 17-Apr-23
+#' 
 #' @param IVTherapy_data  {"name": "rkd_data","desc": "RIV data from \code{\link{SplitRIV}} function","options": (),"type": "file"}
 #' @param output_dir  {"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
 #'
 #' @details
-#' to be added
+#' 
+#' In this function, we calculate the interval in number of day between the date of IV Theray and the date of diagnosis.
+#' 
 #' @import lubridate
 #' @import stringr
 #' @import dplyr
