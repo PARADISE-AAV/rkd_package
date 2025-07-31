@@ -10,7 +10,8 @@
 #' @param RIVdata  {"name": "rkd_data","desc": "RIV data from \code{\link{ClassifyRIVEncounter}} function","options": (),"type": "file"}
 #' @param output_dir  {"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
 #' @details
-#' to be added
+#' 
+#' In this function, we modify the column names to be align with the [Code Overview](https://3.basecamp.com/3790396/buckets/31349172/google_documents/7056193063) document. 
 #' 
 #' @import lubridate
 #' @import DT
