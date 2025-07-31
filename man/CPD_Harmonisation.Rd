@@ -19,7 +19,7 @@ Version: 1.0
 Date: 9-May-23
 }
 \details{
-to be added
+In this function, we modify the column names to be align with the \href{https://3.basecamp.com/3790396/buckets/31349172/google_documents/7056193063}{Code Overview} document.
 }
 \author{
 Matthieu COQ
