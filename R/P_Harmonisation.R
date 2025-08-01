@@ -1,7 +1,7 @@
 #' @title CPD Harmonisation
 #' @author Matthieu COQ
 #'
-#' @description The Goal is to finalize the harmonisation
+#' @description The Goal is to finalize the harmonization and create a file with only the cor variable
 #' 
 #' Version: 1.0
 #' 
