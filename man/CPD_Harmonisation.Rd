@@ -12,7 +12,7 @@ CPD_Harmonisation(RIVdata, output_dir)
 \item{output_dir}{{"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}}
 }
 \description{
-The Goal is to finalize the harmonization and create a file with only the cor variable
+The Goal is to finalize the harmonization and create a file with only the core variable
 
 Version: 1.0
 
