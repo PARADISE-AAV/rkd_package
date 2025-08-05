@@ -45,7 +45,14 @@ CPD_Harmonisation_full <- function(RIVdata, output_dir){
                                                                                   "maintenancetreatmentType_Other (indu_treat_recv_atc)", "indu_treat_recv_atc")
   
   
- 
+  output_filename <- file.path(
+    output_dir,
+    paste0('Redcap_clinical_data_harmonized', "_version", packageVersion('rivpipeline'), "_Date"
+           , Sys.Date(), '.csv')
+  )
+  
+  write.csv(RIVdata, output_filename, row.names = FALSE)
+  return(RIVdata)
   
 
 }
