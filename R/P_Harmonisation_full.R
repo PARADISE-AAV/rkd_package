@@ -76,6 +76,10 @@ CPD_Harmonisation_full <- function(RIVdata, output_dir){
   colnames(RIVdata)[which(colnames(RIVdata)=="Corticosteroids.in.response.to.this.clinical.encounter.episode" )] = "corticosteroid_response"
   colnames(RIVdata)[which(colnames(RIVdata)=="treatment" )] = "treatment_type"
   colnames(RIVdata)[which(colnames(RIVdata)=="ANCA_Switch" )] = "ancaswitch"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Gender" )] = "gender"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Year.of.birth" )] = "yearOfBirth"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Date_Last_Follow_up"  )] = "lastRecordedContact"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Date.of.event"  )] = "dateOfDeath"
   
   
   output_filename <- file.path(
