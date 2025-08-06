@@ -46,6 +46,9 @@ CPD_Harmonisation_full <- function(RIVdata, output_dir){
   
   colnames(RIVdata)[which(colnames(RIVdata)=="Date.Of.Visit")] = "dateOfEncounter"
   colnames(RIVdata)[which(colnames(RIVdata)=="interval_from_diagnosis")] = "encounter_interval_from_diagnosis"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Urinalysis.Protein")] = "urinalysis_protein"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Urinalysis.Blood")] = "urinalysis_blood"
+  
   
   
   
