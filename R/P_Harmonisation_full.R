@@ -45,6 +45,7 @@ CPD_Harmonisation_full <- function(RIVdata, output_dir){
                                                                                   "maintenancetreatmentType_Other (indu_treat_recv_atc)", "indu_treat_recv_atc")
   
   colnames(RIVdata)[which(colnames(RIVdata)=="Date.Of.Visit")] = "dateOfEncounter"
+  colnames(RIVdata)[which(colnames(RIVdata)=="interval_from_diagnosis")] = "encounter_interval_from_diagnosis"
   
   
   
