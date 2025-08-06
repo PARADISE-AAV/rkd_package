@@ -94,6 +94,10 @@ CPD_Harmonisation_full <- function(RIVdata, output_dir){
   colnames(RIVdata)[which(colnames(RIVdata)=="Small.vessel.vasculitis..ANCA.associated.")] = "small_vessel_vas_anca"
   colnames(RIVdata)[which(colnames(RIVdata)=="Small.vessel.vasculitis..Immune.complex.")] = "small_vessel_vas_immune"
   colnames(RIVdata)[which(colnames(RIVdata)=="Diagnosis.confidence" )] = "diagnosis_confidence"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Systems.involved.at.any.point..choice.Kidney." )] = "affectedOrgan_Renal"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Systems.involved.at.any.point..choice.Mucocutaneous." )] = "affectedOrgan_Cutaneous"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Systems.involved.at.any.point..choice.Musculoskeletal." )] = "affectedOrgan_General"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Systems.involved.at.any.point..choice.Abdominal." )] = "affectedOrgan_Abdominal"
   
   
   output_filename <- file.path(
