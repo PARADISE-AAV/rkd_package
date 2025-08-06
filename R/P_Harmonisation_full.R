@@ -44,6 +44,9 @@ CPD_Harmonisation_full <- function(RIVdata, output_dir){
                                                                                   "maintenancetreatmentType_Azathioprine", "maintenancetreatmentType_Methotrexate", "maintenance.treatment.received..choice.Leflunomide.", "maintenancetreatmentType_Avacopan (C5aR inhibitor)", 
                                                                                   "maintenancetreatmentType_Other (indu_treat_recv_atc)", "indu_treat_recv_atc")
   
+  colnames(RIVdata)[which(colnames(RIVdata)=="Date.Of.Visit")] = "dateOfEncounter"
+  
+  
   
   output_filename <- file.path(
     output_dir,
