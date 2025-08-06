@@ -59,6 +59,10 @@ CPD_Harmonisation_full <- function(RIVdata, output_dir){
   colnames(RIVdata)[which(colnames(RIVdata)=="CRP")] = "CRPtest"
   colnames(RIVdata)[which(colnames(RIVdata)=="Creatinine")] = "creatininetest"
   colnames(RIVdata)[which(colnames(RIVdata)=="eGFR..calculated.")] = "egfr_calculated"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Platelet.count.x10.9.L")] = "platelet_count"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Total.white.cell.count.x10.9.L")] = "total_white_cell_count"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Neutrophil.count.x10.9.L")] = "neutrophil_count"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Lymphocyte.count.x10.9.L")] = "lymphocyte_count"
   
   
   output_filename <- file.path(
