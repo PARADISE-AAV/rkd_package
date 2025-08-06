@@ -98,6 +98,9 @@ CPD_Harmonisation_full <- function(RIVdata, output_dir){
   colnames(RIVdata)[which(colnames(RIVdata)=="Systems.involved.at.any.point..choice.Mucocutaneous." )] = "affectedOrgan_Cutaneous"
   colnames(RIVdata)[which(colnames(RIVdata)=="Systems.involved.at.any.point..choice.Musculoskeletal." )] = "affectedOrgan_General"
   colnames(RIVdata)[which(colnames(RIVdata)=="Systems.involved.at.any.point..choice.Abdominal." )] = "affectedOrgan_Abdominal"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Systems.involved.at.any.point..choice.Eye." )] = "affectedOrgan_Mucous_membranes_eyes"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Systems.involved.at.any.point..choice.Cardiovascular." )] = "affectedOrgan_Cardiovascular"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Systems.involved.at.any.point..choice.Other." )] = "affectedOrgan_Other"
   
   
   output_filename <- file.path(
