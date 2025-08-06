@@ -54,7 +54,11 @@ CPD_Harmonisation_full <- function(RIVdata, output_dir){
   colnames(RIVdata)[which(colnames(RIVdata)=="CPD_vasc_gran")] = "vasculitic_granuloma"
   colnames(RIVdata)[which(colnames(RIVdata)=="Nature.of.confirmed.relapse")] = "natureofrelapse"
   colnames(RIVdata)[which(colnames(RIVdata)=="Treatment_Switch")] = "TreatmentSwitch"
-  
+  colnames(RIVdata)[which(colnames(RIVdata)=="CPD_treatment")] = "imputed_treatment_status"
+  colnames(RIVdata)[which(colnames(RIVdata)=="ANCA_Status")] = "anca_status"
+  colnames(RIVdata)[which(colnames(RIVdata)=="CRP")] = "CRPtest"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Creatinine")] = "creatininetest"
+  colnames(RIVdata)[which(colnames(RIVdata)=="eGFR..calculated.")] = "egfr_calculated"
   
   
   output_filename <- file.path(
