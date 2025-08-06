@@ -63,6 +63,11 @@ CPD_Harmonisation_full <- function(RIVdata, output_dir){
   colnames(RIVdata)[which(colnames(RIVdata)=="Total.white.cell.count.x10.9.L")] = "total_white_cell_count"
   colnames(RIVdata)[which(colnames(RIVdata)=="Neutrophil.count.x10.9.L")] = "neutrophil_count"
   colnames(RIVdata)[which(colnames(RIVdata)=="Lymphocyte.count.x10.9.L")] = "lymphocyte_count"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Neutrophil...Lymphocyte.ratio")] = "neutrophil_lympho_ratio"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Monocyte.count.x10.9.L")] = "monocyte_count"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Absolute.CD19.count..cells.uL.")] = "absolute_cd19_count"
+  colnames(RIVdata)[which(colnames(RIVdata)=="ANCA.IF")] = "anca_if_2"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Anti.PR3.level")] = "anti_pr3_level"
   
   
   output_filename <- file.path(
