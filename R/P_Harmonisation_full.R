@@ -88,6 +88,12 @@ CPD_Harmonisation_full <- function(RIVdata, output_dir){
   colnames(RIVdata)[which(colnames(RIVdata)=="Renal.recovery..independence.from.dialysis..regardless.of.dialysis.duration.")] = "renal_recovery_independ"
   colnames(RIVdata)[which(colnames(RIVdata)=="Date.of.renal.recovery")] = "date_of_renal_recovery_2"
   colnames(RIVdata)[which(colnames(RIVdata)=="End.stage.kidney.disease")] = "ESKDStandard"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Date.of.end.stage.kidney.disease..date.of.commencement.on.dialysis.or.transplant..whichever.first.")] = "dateOfESKD"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Date.of.diagnosis")] = "dateOfDiagnosis"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Age.at.diagnosis")] = "ageAtDiagnosis"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Small.vessel.vasculitis..ANCA.associated.")] = "small_vessel_vas_anca"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Small.vessel.vasculitis..Immune.complex.")] = "small_vessel_vas_immune"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Diagnosis.confidence" )] = "diagnosis_confidence"
   
   
   output_filename <- file.path(
