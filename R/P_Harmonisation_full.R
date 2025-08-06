@@ -51,6 +51,9 @@ CPD_Harmonisation_full <- function(RIVdata, output_dir){
   colnames(RIVdata)[which(colnames(RIVdata)=="BVAS.score..calculator.")] = "bvasScoreCalculator"
   colnames(RIVdata)[which(colnames(RIVdata)=="Number.of.major.BVAS.items")] = "numberOfMajorBVASItems"
   colnames(RIVdata)[which(colnames(RIVdata)=="Number.of.minor.BVAS.items")] = "numberOfMinorBVASItems"
+  colnames(RIVdata)[which(colnames(RIVdata)=="CPD_vasc_gran")] = "vasculitic_granuloma"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Nature.of.confirmed.relapse")] = "natureofrelapse"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Treatment_Switch")] = "TreatmentSwitch"
   
   
   
