@@ -84,6 +84,10 @@ CPD_Harmonisation_full <- function(RIVdata, output_dir){
   colnames(RIVdata)[which(colnames(RIVdata)=="At.any.point.ANCA.specificity"  )] = "ancaSpec"
   colnames(RIVdata)[which(colnames(RIVdata)=="Any.Induction.Treatment")] = "induction"
   colnames(RIVdata)[which(colnames(RIVdata)=="Any.Maintenance.Treatment")] = "maintenance"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Required.renal.replacement.therapy.during.first.presentation")] = "required_renal_replacement"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Renal.recovery..independence.from.dialysis..regardless.of.dialysis.duration.")] = "renal_recovery_independ"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Date.of.renal.recovery")] = "date_of_renal_recovery_2"
+  colnames(RIVdata)[which(colnames(RIVdata)=="End.stage.kidney.disease")] = "ESKDStandard"
   
   
   output_filename <- file.path(
