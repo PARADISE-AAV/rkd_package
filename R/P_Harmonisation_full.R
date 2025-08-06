@@ -80,6 +80,10 @@ CPD_Harmonisation_full <- function(RIVdata, output_dir){
   colnames(RIVdata)[which(colnames(RIVdata)=="Year.of.birth" )] = "yearOfBirth"
   colnames(RIVdata)[which(colnames(RIVdata)=="Date_Last_Follow_up"  )] = "lastRecordedContact"
   colnames(RIVdata)[which(colnames(RIVdata)=="Date.of.event"  )] = "dateOfDeath"
+  colnames(RIVdata)[which(colnames(RIVdata)=="At.any.point.ANCA.IF.pattern"  )] = "ancaIF"
+  colnames(RIVdata)[which(colnames(RIVdata)=="At.any.point.ANCA.specificity"  )] = "ancaSpec"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Any.Induction.Treatment")] = "induction"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Any.Maintenance.Treatment")] = "maintenance"
   
   
   output_filename <- file.path(
