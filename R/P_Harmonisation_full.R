@@ -39,9 +39,9 @@ CPD_Harmonisation_full <- function(RIVdata, output_dir){
                                                                                   "inductiontreatmentType_Pulsed IV Cyclophosphamide", "inductiontreatmentType_Plasma exchange", "inductiontreatmentType_Rituximab", "inductiontreatmentType_MMF", 
                                                                                   "inductiontreatmentType_Azathioprine", "inductiontreatmentType_Methotrexate", "Induction.treatment.received..choice.Leflunomide.", "inductiontreatmentType_Avacopan (C5aR inhibitor)", 
                                                                                   "inductiontreatmentType_Other (indu_treat_recv_atc)", "indu_treat_recv_atc")
-  colnames(RIVdata)[grep("Maintenance.treatment.received", colnames(RIVdata))] <- c("maintenancetreatmentType_Oral corticosteroids", "maintenancetreatmentType_ Pulsed IV corticosteroids", "maintenancetreatmentType_ Daily Oral Cyclophosphamide", 
-                                                                                  "maintenancetreatmentType_Pulsed IV Cyclophosphamide", "maintenancetreatmentType_Plasma exchange", "maintenancetreatmentType_Rituximab", "maintenancetreatmentType_MMF", 
-                                                                                  "maintenancetreatmentType_Azathioprine", "maintenancetreatmentType_Methotrexate", "maintenance.treatment.received..choice.Leflunomide.", "maintenancetreatmentType_Avacopan (C5aR inhibitor)", 
+  colnames(RIVdata)[grep("Maintenance.treatment.received", colnames(RIVdata))] <- c("maintenancetreatmentType_Oral corticosteroids", "maintenancetreatmentType_Rituximab", "maintenancetreatmentType_Azathioprine", 
+                                                                                    "maintenancetreatmenttype_Cyclophosphamide", "maintenancetreatmenttype_MMF",   
+                                                                                   "maintenancetreatmentType_Methotrexate", "Maintenance.treatment.received..choice.Leflunomide." , "maintenancetreatmentType_Avacopan (C5aR inhibitor)", 
                                                                                   "maintenancetreatmentType_Other (indu_treat_recv_atc)", "indu_treat_recv_atc")
   
   
