@@ -42,7 +42,7 @@ CPD_Harmonisation_full <- function(RIVdata, output_dir){
   colnames(RIVdata)[grep("Maintenance.treatment.received", colnames(RIVdata))] <- c("maintenancetreatmentType_Oral corticosteroids", "maintenancetreatmentType_Rituximab", "maintenancetreatmentType_Azathioprine", 
                                                                                     "maintenancetreatmenttype_Cyclophosphamide", "maintenancetreatmenttype_MMF",   
                                                                                    "maintenancetreatmentType_Methotrexate", "Maintenance.treatment.received..choice.Leflunomide." , "maintenancetreatmentType_Avacopan (C5aR inhibitor)", 
-                                                                                  "maintenancetreatmentType_Other (indu_treat_recv_atc)", "indu_treat_recv_atc")
+                                                                                  "maintenancetreatmentType_Other (indu_treat_recv_atc)", "maint_treat_recv_atc")
   
   
   colnames(RIVdata)[which(colnames(RIVdata)=="Date.Of.Visit")] = "dateOfEncounter"
