@@ -72,7 +72,7 @@ CPD_Harmonisation_full <- function(RIVdata, output_dir){
   colnames(RIVdata)[which(colnames(RIVdata)=="PR3.titre")] = "pr3Titre"
   colnames(RIVdata)[which(colnames(RIVdata)=="Anti.MPO.level")] = "anti_mpo_level"
   colnames(RIVdata)[which(colnames(RIVdata)=="MPO.titre")] = "mpoTitre"
-  colnames(RIVdata)[which(colnames(RIVdata)=="Corticosteroids_On_off")] = "corticosteroids"
+  colnames(RIVdata)[which(colnames(RIVdata)=="Corticosteroids_On_off")] = "imputed_corticosteroids"
   colnames(RIVdata)[which(colnames(RIVdata)=="Current.corticosteroid.dose")] = "corticosteroid_dose"
   colnames(RIVdata)[which(colnames(RIVdata)=="Corticosteroids.in.response.to.this.clinical.encounter.episode" )] = "corticosteroid_response"
   colnames(RIVdata)[which(colnames(RIVdata)=="treatment" )] = "treatment_type"
