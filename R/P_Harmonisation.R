@@ -45,7 +45,6 @@ CPD_Harmonisation <- function(RIVdata, output_dir){
   
   harmonized_data <- cbind(rkd_data, LTROT, IS, affectedorgan, inductiontreatment, maintenancetreatment)
   
-  colnames(harmonized_data)[2] = "dateOfEncounter"
   colnames(harmonized_data)[3] = "encounter_interval_from_diagnosis"
   colnames(harmonized_data)[6] = "urinalysis_protein"
   colnames(harmonized_data)[7] = "urinalysis_blood"
