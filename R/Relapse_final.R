@@ -1,4 +1,4 @@
-#' @title The application of the rules defned in the details of \code{\link{CPDRelapse}}
+#' @title The application of the rules defined in the details of \code{\link{CPDRelapse}}
 #' @author Matthieu COQ/Jennifer Scott
 #' @description
 #'  The objective is to apply the clinical rules of \code{\link{CPDRelapse}}
