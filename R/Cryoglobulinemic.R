@@ -9,6 +9,7 @@
 #'
 #' @param RKDdata RIV data from \code{\link{clean_riv}} function
 #' @details 
+#' 
 #' The filter of the RIV data for Cryoglobulinemic vasculitis are based on the following filter
 #' * small_vessel_vas_immune = Cryoglobulinemic vasculitis - ORPHA:91138
 #' * AND diagnosis_confidence_init = definite 
