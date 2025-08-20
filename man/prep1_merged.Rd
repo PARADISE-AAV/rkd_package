@@ -14,6 +14,7 @@ The RIV data with the summary of induction treatment and ready for \code{\link{p
 }
 \description{
 The objective is to summarize the induction treatment receive (Induction.treatment.received) and add this summary to the data
+This function is part of The CPD_Relapse described in the \href{https://3.basecamp.com/3790396/buckets/31062049/uploads/7737921584}{CPD_Relapse} document.
 
 Version: 1.0
 
