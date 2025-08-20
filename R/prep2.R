@@ -2,7 +2,8 @@
 #' @author Matthieu COQ/Jennifer Scott
 #' @description
 #'  The objective is to do the second part of the data preparation in the \code{\link{CPDRelapse}}
-#'  
+#'  This function is part of The CPD_Relapse described in the [CPD_Relapse](https://3.basecamp.com/3790396/buckets/31062049/uploads/7737921584) document.
+#' 
 #'  Version: 1.0
 #'  
 #'  Date: 07-Jul-23
@@ -54,6 +55,7 @@ prep2 <- function(RKDdata, interval_from_diagnostics){
 #' @author Matthieu COQ/Jennifer Scott
 #' @description
 #' The objective is to do the second part of the data preparation (\code{\link{prep2}}) in particularity the inclusion criteria
+#' This function is part of The CPD_Relapse described in the [CPD_Relapse](https://3.basecamp.com/3790396/buckets/31062049/uploads/7737921584) document.
 #' 
 #' Version: 1.0
 #' 
@@ -88,6 +90,8 @@ inclusion_criteria <- function(RKDdata, interval_from_diagnostics){
 #' @author Matthieu COQ/Jennifer Scott
 #' @description
 #' The objective is to do the second part of the data preparation in particularity the inference of ANCA titre
+#'This function is part of The CPD_Relapse described in the [CPD_Relapse](https://3.basecamp.com/3790396/buckets/31062049/uploads/7737921584) document.
+#' 
 #' Version: 1.0
 #' Date: 07-Jul-23 
 #' 
@@ -182,6 +186,8 @@ ANCA_titre <- function(RKDdata){
 #' @author Matthieu COQ/Jennifer Scott
 #' @description
 #' The objective is to do the second part of the data preparation in particularity the inference for suggested blood answer
+#' This function is part of The CPD_Relapse described in the [CPD_Relapse](https://3.basecamp.com/3790396/buckets/31062049/uploads/7737921584) document.
+#' 
 #' Version: 1.0
 #' Date: 07-Jul-23
 #'
@@ -267,6 +273,8 @@ sug_blood <- function(RKDdata){
 #' @author Matthieu COQ/Jennifer Scott
 #' @description
 #' The objective is to do the second part of the data preparation in particularity the inference for immunosuppression status
+#' This function is part of The CPD_Relapse described in the [CPD_Relapse](https://3.basecamp.com/3790396/buckets/31062049/uploads/7737921584) document.
+#' 
 #' Version: 1.0
 #' Date: 07-Jul-23 
 #' 
@@ -352,6 +360,8 @@ is_status <- function(RKDdata){
 #' @author Matthieu COQ/Jennifer Scott
 #' @description
 #' The objective is to do the second part of the data preparation in particularity the inference for BVAS
+#' This function is part of The CPD_Relapse described in the [CPD_Relapse](https://3.basecamp.com/3790396/buckets/31062049/uploads/7737921584) document.
+#' 
 #' Version: 1.0
 #' Date: 07-Jul-23
 #'
@@ -389,6 +399,8 @@ complete_bvas <- function(RKDdata){
 #' @author Matthieu COQ/Jennifer Scott
 #' @description
 #' The objective is to do the second part of the data preparation in particularity the inference for ANCA
+#' This function is part of The CPD_Relapse described in the [CPD_Relapse](https://3.basecamp.com/3790396/buckets/31062049/uploads/7737921584) document.
+#' 
 #' Version: 1.0
 #' Date: 07-Jul-23 
 #' 
