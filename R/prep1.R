@@ -3,6 +3,7 @@
 #' 
 #' @description
 #' The objective is to do the first part of the data preparation in the \code{\link{CPDRelapse}} for the demographic data (At.any.point.ANCA.specificity, End.stage.kidney.disease, Systems.involved.at.any.point, Induction.treatment.received)
+#' This function is part of The CPD_Relapse described in the [CPD_Relapse](https://3.basecamp.com/3790396/buckets/31062049/uploads/7737921584) document.
 #' 
 #' Version: 1.0
 #' 
@@ -110,6 +111,7 @@ prep1_demo <- function(RKDdata){
 #' 
 #' @description
 #' The objective is to do the first part of the data preparation in the \code{\link{CPDRelapse}} with encounter data (Adjudicated.probability.of.relapse, BVAS.score..calculator. and Diagnostic.biopsy)
+#' This function is part of The CPD_Relapse described in the [CPD_Relapse](https://3.basecamp.com/3790396/buckets/31062049/uploads/7737921584) document.
 #' 
 #' Version: 1.0
 #' 
@@ -164,6 +166,7 @@ prep1_enc <- function(RKDdata){
 #' @author Matthieu COQ/Jennifer Scott
 #' @description
 #' The objective is to summarize the induction treatment receive (Induction.treatment.received) and add this summary to the data
+#' This function is part of The CPD_Relapse described in the [CPD_Relapse](https://3.basecamp.com/3790396/buckets/31062049/uploads/7737921584) document.
 #' 
 #' Version: 1.0
 #' 
@@ -236,7 +239,8 @@ prep1_merged <- function(RKDdata){
 #' 
 #' @description
 #'  The objective is to do the first part of the data preparation for the \code{\link{CPDRelapse}}
-#'  
+#'  This function is part of The CPD_Relapse described in the [CPD_Relapse](https://3.basecamp.com/3790396/buckets/31062049/uploads/7737921584) document.
+#' 
 #' Date: 07-Jul-23
 #' 
 #' Version: 1.0
