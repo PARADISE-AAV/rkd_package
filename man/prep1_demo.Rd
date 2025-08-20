@@ -14,6 +14,7 @@ The RIV data after the first part of the data preparation on demographic data re
 }
 \description{
 The objective is to do the first part of the data preparation in the \code{\link{CPDRelapse}} for the demographic data (At.any.point.ANCA.specificity, End.stage.kidney.disease, Systems.involved.at.any.point, Induction.treatment.received)
+This function is part of The CPD_Relapse described in the \href{https://3.basecamp.com/3790396/buckets/31062049/uploads/7737921584}{CPD_Relapse} document.
 
 Version: 1.0
 
