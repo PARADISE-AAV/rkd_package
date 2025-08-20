@@ -9,7 +9,7 @@
 #'
 #' @param RKDdata RIV data from \code{\link{clean_riv}} function
 #' @details The filter of the RIV data for Definite GPA/MPA are based on the following filter
-#' *   SVV (IC) = Anti-GBM disease – ORPHA:375
+#' *  SVV (IC) = Anti-GBM disease – ORPHA:375
 #' *  AND diagnosis confidence = definite
 #' *  SVV != GPA / MPA / EGPA / ANCA vasculitis unclassified
 #' *  AND SVV (IC) != IgA, cryo
