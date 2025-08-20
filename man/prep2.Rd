@@ -16,6 +16,7 @@ The RIV data after the second part of the data preparation and ready for \code{\
 }
 \description{
 The objective is to do the second part of the data preparation in the \code{\link{CPDRelapse}}
+This function is part of The CPD_Relapse described in the \href{https://3.basecamp.com/3790396/buckets/31062049/uploads/7737921584}{CPD_Relapse} document.
 
 Version: 1.0
 
