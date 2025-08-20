@@ -8,7 +8,8 @@
 #' Date: 24-Jan-23
 #'
 #' @param RKDdata RIV data from \code{\link{clean_riv}} function
-#' @details The filter of the RIV data for double positive are based on the following filter
+#' @details 
+#' The filter of the RIV data for double positive are based on the following filter
 #' *   SVV (IC) = Anti-GBM disease – ORPHA:375
 #' *  AND diagnosis confidence = definite
 #' *  AND SVV = GPA / MPA / EGPA / ANCA vasculitis unclassified
