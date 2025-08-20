@@ -1,23 +1,25 @@
-#' @title Filter the patient with the rule for Definite MPA
+#' @title Filter the patient with the rule for IgA vasculitis (Henoch-Schonlein)
 #' @author Matthieu COQ
 #' @description
-#' The objective is to filter the RIV data based on inclusion criteria as Definite MPA 
+#' The objective is to filter the RIV data based on inclusion criteria as IgA vasculitis (Henoch-Schonlein) 
 #' 
 #' Version: 2.0
 #' 
 #' Date: 24-Jan-23
 #'
 #' @param RKDdata RIV data from \code{\link{clean_riv}} function
-#' @details The filter of the RIV data for Definite MPA are based on the following filter
-#' *  SVV = MPA
-#' *  AND diagnosis confidence = definite
-#' *  AND SVV (IC) != Anti-GBM, IgA, cryo
-#' *  AND Secondary vasculitis != Yes
-#' *  AND 'Other' != Yes
-#' *  AND 'Medium vessel' != 1 or 2
-#' *  AND 'large vessel' != 1 or 2
-#' *  AND 'variable vessel' != 1 or 2
-#' *  AND (ANCA subtype = PR3 / MPO / both) OR  histologically confirmed = YES
+#' @details 
+#' 
+#' The filter of the RIV data for IgA vasculitis (Henoch-Schonlein) are based on the following filter
+#' *  small_vessel_vas_immune = IgA vasculitis (Henoch-Schonlein) - ORPHA:761
+#' * AND diagnosis_confidence_init = definite 
+#' * AND small_vessel_vas_immune != Anti-GBM disease - ORPHA:375 OR Cryoglobulinemic vasculitis - ORPHA:91138
+#' * AND small_vessel_vas_anca != GPA OR MPA OR EGPA OR ANCA vasculitis unclassified
+#' * AND secondary_vasculitis != Yes 
+#' * AND ’Other’ != Yes
+#' * AND medium_vessel_vasculitis’ != 1 OR 2 
+#' * AND large_vessel_vasculitis != 1 or 2 
+#' * AND variable_vessel_vasculitis != 1 or 2
 #' 
 #' 
 #' @return The Redcap data filter in your folder and an R object
