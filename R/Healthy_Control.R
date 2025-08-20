@@ -8,7 +8,9 @@
 #' Date: 24-Jan-23
 #'
 #' @param RKDdata RIV data from \code{\link{clean_riv}} function
-#' @details The filter of the RIV data for Healthy Control are based on the following filter
+#' @details 
+#' 
+#' The filter of the RIV data for Healthy Control are based on the following filter
 #' *  Type.of.Patient = Healthy Control
 #' 
 #' @return The Redcap data filter in your folder and an R object
