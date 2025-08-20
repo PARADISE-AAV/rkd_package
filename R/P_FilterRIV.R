@@ -11,11 +11,8 @@
 #' @param output_path {"name": "output_path","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
 #' @param algorithm {"name": "algorithm","desc": "function use to filter the RKD patient","options": ("Definite GPA", "Definite MPA", "Definite EGPA", "Anti-GBM", "Double positive", "Healthy Control", "IgA", "Cryoglobulinemic"),"type": "string"}
 #' @return The Redcap data with the classification variables in your folder and in an R object 
-#' @details The filter of the RKD data are based on the following filter
-#' * Definite MPA/GPA without secondary vasculitis with more explanation in \code{\link{DemographicFilterRIV}}
-#' * Definite MPA/GPA/EGPA without secondary vasculitis with more explanation in \code{\link{DemographicFilterRIV_EGPA}}
-#' * Anti-GBM Disease in \code{\link{AntiGBMDisease}}
-#' * Anti-GBM and Definite MPA/GPA/EGPA in \code{\link{DemographicFilterRIV_GBM_MPA_EGPA_GPA}}
+#' @details 
+#' The filter of the RKD data are based on the following filter. The filter are define in the following document, [Filter_criteria](https://3.basecamp.com/3790396/buckets/31062049/google_documents/8110318588)
 #' 
 #' @export
 FilterRIV = function(RKDdata, output_path, algorithm) {
