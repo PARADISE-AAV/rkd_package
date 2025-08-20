@@ -14,7 +14,7 @@
 #' @details
 #' 
 #' During this function, the model described by the article written by Dr Jennifer Scott. This model give us the possibility to tell if an encounter of a patient is in relapse or not despite we don't have the information given by the clinician.
-#' This function is part of The CPD_Relapse described in the [CPD_Relapse](https://3.basecamp.com/3790396/buckets/31062049/uploads/7765622028) document.
+#' This function is part of The CPD_Relapse described in the [CPD_Relapse](https://3.basecamp.com/3790396/buckets/31062049/uploads/7737921584) document.
 #' 
 #' @import dplyr
 #' @import lme4
