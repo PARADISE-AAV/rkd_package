@@ -2,7 +2,7 @@
 % Please edit documentation in R/Relapse_final.R
 \name{Relapse_final}
 \alias{Relapse_final}
-\title{The application of the rules defned in the details of \code{\link{CPDRelapse}}}
+\title{The application of the rules defined in the details of \code{\link{CPDRelapse}}}
 \usage{
 Relapse_final(RKDdata)
 }
