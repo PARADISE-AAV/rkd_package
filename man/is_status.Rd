@@ -14,6 +14,8 @@ The RIV data after the second part of the data preparation
 }
 \description{
 The objective is to do the second part of the data preparation in particularity the inference for immunosuppression status
+This function is part of The CPD_Relapse described in the \href{https://3.basecamp.com/3790396/buckets/31062049/uploads/7737921584}{CPD_Relapse} document.
+
 Version: 1.0
 Date: 07-Jul-23
 }
