@@ -24,13 +24,7 @@ Version: 1.0
 Date: 03-Jan-24
 }
 \details{
-The filter of the RKD data are based on the following filter
-\itemize{
-\item Definite MPA/GPA without secondary vasculitis with more explanation in \code{\link{DemographicFilterRIV}}
-\item Definite MPA/GPA/EGPA without secondary vasculitis with more explanation in \code{\link{DemographicFilterRIV_EGPA}}
-\item Anti-GBM Disease in \code{\link{AntiGBMDisease}}
-\item Anti-GBM and Definite MPA/GPA/EGPA in \code{\link{DemographicFilterRIV_GBM_MPA_EGPA_GPA}}
-}
+The filter of the RKD data are based on the following filter. The filter are define in the following document, \href{https://3.basecamp.com/3790396/buckets/31062049/google_documents/8110318588}{Filter_criteria}
 }
 \author{
 Matthieu COQ
