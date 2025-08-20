@@ -2,7 +2,7 @@
 % Please edit documentation in R/Cryoglobulinemic.R
 \name{Cryoglobulinemic}
 \alias{Cryoglobulinemic}
-\title{Filter the patient with the rule for Definite MPA}
+\title{Filter the patient with the rule for Cryoglobulinemic vasculitis}
 \usage{
 Cryoglobulinemic(RKDdata)
 }
@@ -13,24 +13,24 @@ Cryoglobulinemic(RKDdata)
 The Redcap data filter in your folder and an R object
 }
 \description{
-The objective is to filter the RIV data based on inclusion criteria as Definite MPA
+The objective is to filter the RIV data based on inclusion criteria as Cryoglobulinemic vasculitis
 
 Version: 2.0
 
 Date: 24-Jan-23
 }
 \details{
-The filter of the RIV data for Definite MPA are based on the following filter
+The filter of the RIV data for Cryoglobulinemic vasculitis are based on the following filter
 \itemize{
-\item SVV = MPA
-\item AND diagnosis confidence = definite
-\item AND SVV (IC) != Anti-GBM, IgA, cryo
-\item AND Secondary vasculitis != Yes
-\item AND 'Other' != Yes
-\item AND 'Medium vessel' != 1 or 2
-\item AND 'large vessel' != 1 or 2
-\item AND 'variable vessel' != 1 or 2
-\item AND (ANCA subtype = PR3 / MPO / both) OR  histologically confirmed = YES
+\item small_vessel_vas_immune = Cryoglobulinemic vasculitis - ORPHA:91138
+\item AND diagnosis_confidence_init = definite
+\item AND small_vessel_vas_immune != Anti-GBM disease - ORPHA:375 OR IgA vasculitis (Henoch-Schonlein) - ORPHA:761
+\item AND small_vessel_vas_anca != GPA OR MPA OR EGPA OR ANCA vasculitis unclassified
+\item AND secondary_vasculitis != Yes
+\item AND ’Other’ != Yes
+\item AND medium_vessel_vasculitis’ != 1 OR 2
+\item AND large_vessel_vasculitis != 1 or 2
+\item AND variable_vessel_vasculitis != 1 or 2
 }
 }
 \author{
