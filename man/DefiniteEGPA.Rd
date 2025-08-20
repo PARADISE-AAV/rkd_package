@@ -22,7 +22,7 @@ Date: 24-Jan-23
 \details{
 The filter of the RIV data for Definite EGPA are based on the following filter
 \itemize{
-\item SVV = MPA
+\item SVV = EGPA
 \item AND diagnosis confidence = definite
 \item AND SVV (IC) != Anti-GBM, IgA, cryo
 \item AND Secondary vasculitis != Yes
