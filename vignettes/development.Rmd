@@ -65,12 +65,12 @@ Note the following code is not reproducible for other users.
 
 ```{r paths}
 
-Biomarker_path <- "C:/Users/matthAdministrator/OneDrive - Trinity College Dublin/Biomarker_master/Biomarker master_Data only.csv"
+Biomarker_path <- "C:/Users/COQM/OneDrive - Trinity College Dublin/Biomarker_master/Biomarker master_Data only.csv"
    
-fw_path <- "C:/Users/matth/OneDrive - Trinity College Dublin/Freezerworks exports/FW Exports (2023)"
+fw_path <- "C:/Users/COQM/OneDrive - Trinity College Dublin/Freezerworks exports/Freezerworks Exports"
 
 #specific RKD version
-rkd_file <- "C:/Users/matth/OneDrive - Trinity College Dublin/Redcap Data exports/RareKidneyDiseaseRIT-PARADISE_DATA_LABELS_2024-01-02_1910.csv"
+rkd_file <- "C:/Users/COQM/OneDrive - Trinity College Dublin/Redcap Data exports/RareKidneyDiseaseRIT-PARADISE_DATA_LABELS_2025-07-14_2214.csv"
 ```
 
 # Pipeline
@@ -81,10 +81,6 @@ This function will load the RKD dataset from disk.
 For the purposes of this example, we will pull in whichever CSV file is in the current working directory.
 
 ```{r load_RKD}
-# rkd_xlsx <- list.files(pattern = 'DATA_LABELS.*\\.xlsx')
-# rkd <- readxl::read_excel(rkd_xlsx, .name_repair = 'universal')
-# The option 'universal' replaces spaces in colnames with dots, like base read.csv
-(rkd_csv <- list.files(pattern = 'DATA_LABELS.*\\.csv'))
 rkd <- load_riv(rkd_file)
 colnames(rkd)[1:10]
 ```
@@ -101,8 +97,8 @@ The CleanRKD function clean the in 5 steps:
 
 ```{r clean_rkd)}
 output_dir <- tempdir()
-clean_rkd <- clean_riv(rkd, output_dir)
-colnames(clean_rkd)[1:10]
+split_RKD <- SplitRIV(rkd, tempdir())
+names(split_RKD)
 ```
 
 
@@ -124,91 +120,63 @@ The DemographicFilterRKD function use the Paradise filter:
 
 
 ```{r demographic filter}
-Inclusion_Criteria_rkd <- FilterRIV(clean_rkd, tempdir(),"Definite GPA/MPA")
+Inclusion_Criteria_rkd <- FilterRIV(split_RKD$Initial, tempdir(),c("Definite MPA", "Definite GPA"))
 head(Inclusion_Criteria_rkd)[, 1:10]
 ```
 
-## Classify the RKD patient
-
-The ClassifyRKDCases function use different algorithm create by several previous employee:
-
-* "BRelapse" algorithm perform the prediction of a Relapse. The output of the function is a variable that tell if the patient have a definite relapse, a possible relapse or no relapse fr one encounter.
-- "Paradise_Encounter" algorithm perform a selection of the encounter that reach the paradise project criteria.
-
-```{r classify jrelapse}
-Classify_rkd_JRelapse <- ClassifyRIVEncounter(Inclusion_Criteria_rkd, tempdir(), "CPD Relapse")
-head(Classify_rkd_JRelapse)[, 1:10]
-
-```
-
-
-```{r classify treatment_on/off}
-Classify_rkd_treatment <- ClassifyRIVEncounter(Classify_rkd_JRelapse, tempdir(), "Treatment On/Off",rawRKDdata=rkd)
-head(Classify_rkd_treatment)[, 1:10]
-
-```
-
-```{r classify ltrot}
-Classify_rkd_ltrot <- ClassifyRIVEncounter(Classify_rkd_treatment, tempdir(), "CPD LTROT", nb_month=24)
-head(Classify_rkd_ltrot)[, 1:10]
-
-```
-
-Let's look at the outputs:
+# Clean General characteristics data
 
 ```{r}
-list.files(output_dir, full.names = TRUE)
-knitr::knit_exit() # only render document up to this point
+
+clean_rkd <- clean_riv(Inclusion_Criteria_rkd,tempdir())
+
+```
+```{r}
+
+ANCAimputation=CPD_ANCA_Imputation(split_RKD$Encounter,tempdir())
+ISmedImputation=CPD_IS_medication_Imputation(ANCAimputation,tempdir())
+ISstatusImputation=CPD_IS_status_Imputation(ISmedImputation,tempdir())
+clean_encounter=CPD_Encounter(ISstatusImputation, tempdir())
+
 ```
 
-## Load Freezer Work data
 
-This function load the data from Freezerwork database based on their blood matrix:
+# merge Encounters data and General Characteristics data
 
-* Plasma
-- PBMC
-- Serum
-- DNA
-- urine
-- RNA
+```{r}
 
-```{r, warning=FALSE}
+merge_rkd <- Merge_Encounter_initial(clean_rkd, clean_encounter, tempdir())
 
-Load_FW <- LoadFW(fw_path, "Urine")
-head(Load_FW)[1:5,1:10]
 ```
 
-## Cleanning Freezer Work data
-
-The CleanFW function is done in 2 step:
-
-* Put the date in the same format of the RKD data
-- Remove the sample that no amount
-- Remove sample without RKD.ID
-
-```{r, warning=FALSE}
-output_dir <- tempdir()
-Clean_FW <- CleanFW(Load_FW, output_dir)
-head(Clean_FW)[1:5,1:10]
+```{r}
+IVTherapy = CPD_IVTherapy_interval(split_RKD, tempdir())
 ```
 
-## Finding the good sample
-
-The Goal of the FindFWSample function is to find the best sample to measure to answer to the statistician question. It is just a merge between the 2 files.
-
-```{r, warning=FALSE}
-
-Finding_Good_Sample <- rkdpipeline:::FindFWSample(Serum2,Filter_RKD_data, output_dir, 3)
-head(Finding_Good_Sample)[1:5,1:10]
+```{r}
+Medication = CPD_Continuous_Medication_interval(split_RKD, tempdir())
 ```
 
-# Load Biomarker
-
-```{r, warning=FALSE}
-
-BM_data <- LoadBiomarker(Biomarker_path)
-head(BM_data)[1:5,1:10]
+```{r}
+IVTherapy_treatment=CPD_IVTherapy_Treatment(IVTherapy, merge_rkd, tempdir())
 ```
+
+```{r}
+Medication_treatment=CPD_Medication_Treatment(Medication, merge_rkd, tempdir())
+```
+
+```{r}
+CPDRenal=CPD_Renal(split_RKD,tempdir())
+```
+
+
+
+```{r classify jrelapse}
+Classify_rkd_All <- ClassifyRIVEncounter(merge_rkd, tempdir(), "All", CM_data=Medication_treatment, IV_data=IVTherapy_treatment, Renal=CPDRenal)
+head(Classify_rkd_All)[, 1:10]
+
+```
+
 
 # Appendix
 
