@@ -51,7 +51,12 @@ CPD_Kidney_function <- function (merge_data, renal){
   
   rownames(merged_frame) <- NULL
   
-  merged_frame$Transplant = "Transplant"
+  if(nrow(merged_frame)>0){
+    merged_frame$Transplant = "Transplant"
+  }else{
+    merged_frame$Transplant = NULL
+  }
+  
   
   colnames(merged_frame)[1] = "RKD.ID"
   
