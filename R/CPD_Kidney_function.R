@@ -54,7 +54,7 @@ CPD_Kidney_function <- function (merge_data, renal){
   if(nrow(merged_frame)>0){
     merged_frame$Transplant = "Transplant"
   }else{
-    merged_frame$Transplant = NULL
+    merged_frame$Transplant = NA
   }
   
   
