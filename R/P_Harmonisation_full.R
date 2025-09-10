@@ -103,6 +103,32 @@ CPD_Harmonisation_full <- function(RIVdata, output_dir){
   colnames(RIVdata)[which(colnames(RIVdata)=="Systems.involved.at.any.point..choice.Other." )] = "affectedOrgan_Other"
   colnames(RIVdata)[which(colnames(RIVdata)=="kidney_fx_status" )] = "kidney_function_status"
   
+  
+  RIVdata <- RIVdata  %>%
+    dplyr::mutate(affectedOrgan_ENT = dplyr::case_when(
+      Systems.involved.at.any.point..choice.ENT. == 'Checked' | Systems.involved.at.any.point..choice.Trachea. == "Checked" ~ "Checked",
+      Systems.involved.at.any.point..choice.ENT. == 'Unchecked' & Systems.involved.at.any.point..choice.Trachea. == "Unchecked" ~ "Unchecked"
+    ))
+  
+  RIVdata <- RIVdata  %>%
+    dplyr::mutate(affectedOrgan_Chest = dplyr::case_when(
+      Systems.involved.at.any.point..choice.Lung..granuloma.. == 'Checked' | Systems.involved.at.any.point..choice.Lung..haemorrhage.. == "Checked" | Systems.involved.at.any.point..choice.Interstitial.lung.disease. == "Checked" ~ "Checked",
+      Systems.involved.at.any.point..choice.Lung..granuloma.. == 'Unchecked' & Systems.involved.at.any.point..choice.Lung..haemorrhage.. == "Unchecked" & Systems.involved.at.any.point..choice.Interstitial.lung.disease. == "Unchecked" ~ "Unchecked"
+    ))
+  
+  RIVdata <- RIVdata  %>%
+    dplyr::mutate(affectedOrgan_ENT = dplyr::case_when(
+      Systems.involved.at.any.point..choice.CNS. == 'Checked' | Systems.involved.at.any.point..choice.PNS. == "Checked" ~ "Checked",
+      Systems.involved.at.any.point..choice.CNS. == 'Unchecked' & Systems.involved.at.any.point..choice.PNS. == "Unchecked" ~ "Unchecked"
+    ))
+  
+  
+  RIVdata <- RIVdata  %>%
+    dplyr::mutate(death = dplyr::case_when(
+      Status.x == "Dead" ~ "Dead",
+      Status.x != "Dead" ~ NA
+    ))
+  
   output_filename <- file.path(
     output_dir,
     paste0('Redcap_clinical_data_harmonized', "_version", packageVersion('rivpipeline'), "_Date"
