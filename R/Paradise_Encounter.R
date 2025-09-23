@@ -37,7 +37,7 @@ Paradise_Encounter <- function(RKD_data, months_after_diagnosis = 6) {
     Status == 'Lost to follow-up' ~ Date.Of.Visit
   )) %>%
     dplyr::group_by(RKD.ID) %>%
-    dplyr::mutate(Date_Last_Follow_up = max_if_any(last_encounter),
+    dplyr::mutate(Date_Last_Follow_up = max(last_encounter),
                   Interval_Last_Encounter_Months = lubridate::interval(Date.Of.Visit, Date_Last_Follow_up) %/%
                     lubridate::days(1) / (365 / 12)) %>%
     dplyr::select(RKD.ID, Interval_Last_Encounter_Months, Date_Last_Follow_up, last_encounter, Status, Date.Of.Visit) %>%
