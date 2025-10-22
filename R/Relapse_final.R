@@ -42,7 +42,7 @@ Relapse_final <- function(RKDdata){
            Interval.m.to.prior.enc = interval_from_diagnosis - lag(interval_from_diagnosis)) %>% 
     mutate(rel.JS.interim = case_when( 
       (lag(rel.JS) %in% c("1", "Definite", "High Probability") & 
-         Interval.m.to.prior.enc <= 3) ~ "Relapse within 90d, so exclude",
+         Interval.m.to.prior.enc <= 90) ~ "Relapse within 90d, so exclude",
       (lag(rel.JS, 2) %in% c("1", "Definite", "High Probability") & 
          ((Interval.m.to.prior.enc + lag(Interval.m.to.prior.enc)) <= 90)) ~ "Relapse within 90d, so exclude",
       (lag(rel.JS, 3) %in% c("1", "Definite", "High Probability") & 
