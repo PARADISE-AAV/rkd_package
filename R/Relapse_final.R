@@ -44,20 +44,20 @@ Relapse_final <- function(RKDdata){
       (lag(rel.JS) %in% c("1", "Definite", "High Probability") & 
          Interval.m.to.prior.enc <= 3) ~ "Relapse within 90d, so exclude",
       (lag(rel.JS, 2) %in% c("1", "Definite", "High Probability") & 
-         ((Interval.m.to.prior.enc + lag(Interval.m.to.prior.enc)) <= 3)) ~ "Relapse within 90d, so exclude",
+         ((Interval.m.to.prior.enc + lag(Interval.m.to.prior.enc)) <= 90)) ~ "Relapse within 90d, so exclude",
       (lag(rel.JS, 3) %in% c("1", "Definite", "High Probability") & 
-         ((Interval.m.to.prior.enc + lag(Interval.m.to.prior.enc) + lag(Interval.m.to.prior.enc, 2)) <= 3)) ~ "Relapse within 90d, so exclude",
+         ((Interval.m.to.prior.enc + lag(Interval.m.to.prior.enc) + lag(Interval.m.to.prior.enc, 2)) <= 90)) ~ "Relapse within 90d, so exclude",
       (lag(rel.JS, 4) %in% c("1", "Definite", "High Probability") & 
-         ((Interval.m.to.prior.enc + lag(Interval.m.to.prior.enc) + lag(Interval.m.to.prior.enc, 2) + lag(Interval.m.to.prior.enc, 3)) <= 3)) ~ "Relapse within 90d, so exclude",
+         ((Interval.m.to.prior.enc + lag(Interval.m.to.prior.enc) + lag(Interval.m.to.prior.enc, 2) + lag(Interval.m.to.prior.enc, 3)) <= 90)) ~ "Relapse within 90d, so exclude",
       (lag(rel.JS, 5) %in% c("1", "Definite", "High Probability") & 
-         ((Interval.m.to.prior.enc + lag(Interval.m.to.prior.enc) + lag(Interval.m.to.prior.enc, 2) + lag(Interval.m.to.prior.enc, 3) + lag(Interval.m.to.prior.enc, 4)) <= 3)) 
+         ((Interval.m.to.prior.enc + lag(Interval.m.to.prior.enc) + lag(Interval.m.to.prior.enc, 2) + lag(Interval.m.to.prior.enc, 3) + lag(Interval.m.to.prior.enc, 4)) <= 90)) 
       ~ "Relapse within 90d, so exclude",
       (lag(rel.JS, 6) %in% c("1", "Definite", "High Probability") & 
          ((Interval.m.to.prior.enc + lag(Interval.m.to.prior.enc) + lag(Interval.m.to.prior.enc, 2) + lag(Interval.m.to.prior.enc, 3) + lag(Interval.m.to.prior.enc, 4) + 
-             lag(Interval.m.to.prior.enc, 5)) <= 3)) ~ "Relapse within 90d, so exclude",
+             lag(Interval.m.to.prior.enc, 5)) <= 90)) ~ "Relapse within 90d, so exclude",
       (lag(rel.JS, 7) %in% c("1", "Definite", "High Probability") & 
          ((Interval.m.to.prior.enc + lag(Interval.m.to.prior.enc) + lag(Interval.m.to.prior.enc, 2) + lag(Interval.m.to.prior.enc, 3) + lag(Interval.m.to.prior.enc, 4) + 
-             lag(Interval.m.to.prior.enc, 5) + lag(Interval.m.to.prior.enc, 6)) <= 3)) ~ "Relapse within 90d, so exclude"),
+             lag(Interval.m.to.prior.enc, 5) + lag(Interval.m.to.prior.enc, 6)) <= 90)) ~ "Relapse within 90d, so exclude"),
       rel.JS.OVERALL = as.factor(ifelse(!is.na(rel.JS.interim), rel.JS.interim, rel.JS))) %>% 
     relocate(Adjudicated.probability.of.relapse, .after = Relapse.prediction)
   
