@@ -117,7 +117,7 @@ CPD_Harmonisation_full <- function(RIVdata, output_dir){
     ))
   
   RIVdata <- RIVdata  %>%
-    dplyr::mutate(affectedOrgan_ENT = dplyr::case_when(
+    dplyr::mutate(affectedOrgan_Nervous_system = dplyr::case_when(
       Systems.involved.at.any.point..choice.CNS. == 'Checked' | Systems.involved.at.any.point..choice.PNS. == "Checked" ~ "Checked",
       Systems.involved.at.any.point..choice.CNS. == 'Unchecked' & Systems.involved.at.any.point..choice.PNS. == "Unchecked" ~ "Unchecked"
     ))
