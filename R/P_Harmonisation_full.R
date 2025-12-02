@@ -122,6 +122,13 @@ CPD_Harmonisation_full <- function(RIVdata, output_dir){
       Systems.involved.at.any.point..choice.CNS. == 'Unchecked' & Systems.involved.at.any.point..choice.PNS. == "Unchecked" ~ "Unchecked"
     ))
   
+  RIVdata <- RIVdata  %>%
+    dplyr::mutate(inductiontreatmentType_Cyclophosphamide = dplyr::case_when(
+      `inductiontreatmentType_ Daily Oral Cyclophosphamide` == 'Checked' | `inductiontreatmentType_Pulsed IV Cyclophosphamide` == "Checked" ~ "Checked",
+      `inductiontreatmentType_ Daily Oral Cyclophosphamide` == 'Unchecked' & `inductiontreatmentType_Pulsed IV Cyclophosphamide` == "Unchecked" ~ "Unchecked"
+    ))
+  
+  
   
   RIVdata <- RIVdata  %>%
     dplyr::mutate(death = dplyr::case_when(
