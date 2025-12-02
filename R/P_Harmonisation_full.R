@@ -42,7 +42,7 @@ CPD_Harmonisation_full <- function(RIVdata, output_dir){
   colnames(RIVdata)[grep("Maintenance.treatment.received", colnames(RIVdata))] <- c("maintenancetreatmentType_Oral corticosteroids", "maintenancetreatmentType_Rituximab", "maintenancetreatmentType_Azathioprine", 
                                                                                     "maintenancetreatmenttype_Cyclophosphamide", "maintenancetreatmenttype_MMF",   
                                                                                    "maintenancetreatmentType_Methotrexate", "Maintenance.treatment.received..choice.Leflunomide." , "maintenancetreatmentType_Avacopan (C5aR inhibitor)", 
-                                                                                  "maintenancetreatmentType_Other (indu_treat_recv_atc)", "maint_treat_recv_atc")
+                                                                                  "maintenancetreatmentType_Other", "maint_treat_recv_atc")
   
   
   colnames(RIVdata)[which(colnames(RIVdata)=="interval_from_diagnosis")] = "encounter_interval_from_diagnosis"
@@ -128,7 +128,11 @@ CPD_Harmonisation_full <- function(RIVdata, output_dir){
       `inductiontreatmentType_ Daily Oral Cyclophosphamide` == 'Unchecked' & `inductiontreatmentType_Pulsed IV Cyclophosphamide` == "Unchecked" ~ "Unchecked"
     ))
   
-  
+  RIVdata <- RIVdata  %>%
+    dplyr::mutate(inductiontreatmentType_Cyclophosphamide = dplyr::case_when(
+      `inductiontreatmentType_ Daily Oral Cyclophosphamide` == 'Checked' | `inductiontreatmentType_Pulsed IV Cyclophosphamide` == "Checked" ~ "Checked",
+      `inductiontreatmentType_ Daily Oral Cyclophosphamide` == 'Unchecked' & `inductiontreatmentType_Pulsed IV Cyclophosphamide` == "Unchecked" ~ "Unchecked"
+    ))
   
   RIVdata <- RIVdata  %>%
     dplyr::mutate(death = dplyr::case_when(
