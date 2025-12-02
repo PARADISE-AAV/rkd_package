@@ -135,6 +135,12 @@ CPD_Harmonisation_full <- function(RIVdata, output_dir){
     ))
   
   RIVdata <- RIVdata  %>%
+    dplyr::mutate(maintenancetreatmentType_Other = dplyr::case_when(
+      maintenancetreatmentType_Other == 'Checked' | `maintenancetreatmentType_Avacopan (C5aR inhibitor)` == "Checked" | maintenancetreatmenttype_Cyclophosphamide == "Checked"| maintenancetreatmenttype_MMF == "Checked" | Maintenance.treatment.received..choice.Leflunomide. == "Checked"  ~ "Checked",
+      maintenancetreatmentType_Other == 'Unchecked' & `maintenancetreatmentType_Avacopan (C5aR inhibitor)` == "Unchecked" & maintenancetreatmenttype_Cyclophosphamide == "Unchecked"& maintenancetreatmenttype_MMF == "Unchecked" & Maintenance.treatment.received..choice.Leflunomide. == "Unchecked" ~ "Unchecked"
+    ))
+  
+  RIVdata <- RIVdata  %>%
     dplyr::mutate(death = dplyr::case_when(
       Status.x == "Dead" ~ "Dead",
       Status.x != "Dead" ~ NA
