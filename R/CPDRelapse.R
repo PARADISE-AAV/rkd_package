@@ -76,6 +76,8 @@ CPDRelapse <- function(RKDdata, interval_from_diagnostics = 180){
     }
   }
   
+  
+  
   return(CPD_Relapse_RKD_data)
   
 }
