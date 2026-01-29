@@ -32,7 +32,7 @@ CPD_LTROT_current <- function(merge_data, interval=730){
   n=length(levels(as.factor(merge_data1$RKD.ID)))
   for (i in 1:n){
     dat <- merge_data1[which(merge_data1$RKD.ID == levels(as.factor(merge_data1$RKD.ID))[i] ),]
-    if(as.numeric(difftime(max(dat$Date.Of.Visit), min(dat$Date.Of.Visit)))>=interval & max(dat$interval_from_diagnosis)>=interval){
+    if(as.numeric(difftime(max(dat$Date.Of.Visit), min(dat$Date.Of.Visit)))>=interval & max(dat$interval_from_diagnosis,na.rm=T)>=interval){
       dat1 <- dat[which(dat$interval_from_diagnosis >= interval),]
       m=nrow(dat1)
       for(j in 1:m){
