@@ -76,6 +76,15 @@ CPDRelapse <- function(RKDdata, interval_from_diagnostics = 180){
     }
   }
   
+  n=nrow(CPD_Relapse_RKD_data)
+  for( i in 1:n){
+    if(is.na(CPD_Relapse_RKD_data$CPD_relapse[i])==FALSE & CPD_Relapse_RKD_data$CPD_relapse[i]=="Under 6 months" & CPD_Relapse_RKD_data$Disease.activity.since.last.return[i]=="Active"){
+      CPD_Relapse_RKD_data$CPD_relapse[i] = "Under 6 months active"
+    }
+    if(is.na(CPD_Relapse_RKD_data$CPD_relapse[i])==FALSE & CPD_Relapse_RKD_data$CPD_relapse[i]=="Under 6 months" & CPD_Relapse_RKD_data$Disease.activity.since.last.return[i]=="Remission"){
+      CPD_Relapse_RKD_data$CPD_relapse[i] = "Under 6 months remission"
+    }
+  }
   
   
   return(CPD_Relapse_RKD_data)
