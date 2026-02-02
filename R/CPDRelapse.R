@@ -92,7 +92,13 @@ CPDRelapse <- function(RKDdata, interval_from_diagnostics = 180){
         CPD_Relapse_RKD_data$CPD_relapse[i] = "Under 6 months post-active"
       }
     }
-    
+    if(is.na(CPD_Relapse_RKD_data$CPD_relapse[i])==FALSE &  CPD_Relapse_RKD_data$CPD_relapse[i] == "Definite Relapse" ){
+      j=i-1
+      while (CPD_Relapse_RKD_data$Date.Of.Visit[i] - CPD_Relapse_RKD_data$Date.Of.Visit[j] <90 & CPD_Relapse_RKD_data$RKD.ID[j] == CPD_Relapse_RKD_data$RKD.ID[i] & j<=0) {
+        j=j-1
+        CPD_Relapse_RKD_data$CPD_relapse[i] = "Post 6 months pre-active"
+      }
+    }
   }
   
   return(CPD_Relapse_RKD_data)
