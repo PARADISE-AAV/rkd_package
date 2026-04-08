@@ -40,4 +40,4 @@ That is, run `Ctrl + Shift + E` from RStudio, or `devtools::check()` and it will
 
 ## The pipeline discussed
 
-![GetImage](https://user-images.githubusercontent.com/120493801/214896546-7de93959-ad72-4696-83ab-dfb446137d0f.png)
+![GetImage](https://raw.githubusercontent.com/PARADISE-AAV/Paradise-pipeline-app/18c89d27ebea5d0b81f70a8e435b4d402b86cc82/RIV%20pipeline.png?token=A4XJN2JQFUGAWT22TKCV2ITJ2XZZC)
