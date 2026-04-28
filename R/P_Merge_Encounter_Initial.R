@@ -45,7 +45,14 @@ Merge_Encounter_initial <- function(Encounter, Initial, output_dir){
     dplyr::ungroup()
   
   rkd_data$kidney_involvment_diagnosis= rkd_data$Systems.involved.at.any.point..choice.Kidney.
+  test=rkd_data[which(rkd_data$kidney_involvment_diagnosis=="Unchecked"),c("RKD.ID", "interval_from_diagnosis", "Renal")]
+  test1=test[which(test$Renal=="Yes" & test$interval_from_diagnosis>=-14 & test$interval_from_diagnosis<=14),]
+  a=test1$RKD.ID[duplicated(test1$RKD.ID)==FALSE]
+  n= length(a)
   
+  for (i in 1:n){
+    rkd_data$kidney_involvment_diagnosis[which(rkd_data$RKD.ID==a[i])]="Checked"
+  }
   
   output_filename <- file.path(
     output_dir,
