@@ -44,6 +44,9 @@ Merge_Encounter_initial <- function(Encounter, Initial, output_dir){
     dplyr::mutate(Date_Last_Follow_up = max(last_encounter, na.rm=TRUE))%>%
     dplyr::ungroup()
   
+  rkd_data$kidney_involvment_diagnosis= rkd_data$Systems.involved.at.any.point..choice.Kidney.
+  
+  
   output_filename <- file.path(
     output_dir,
     paste0('Redcap_clinical_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
