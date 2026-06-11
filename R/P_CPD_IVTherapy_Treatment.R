@@ -35,11 +35,12 @@ CPD_IVTherapy_Treatment= function(IV_Therapy, merged_data, output_dir){
                                         | IV_Therapy$IV.therapy == "Rituximab - UATC/L01XC02 -- Mabthera" 
                                         | IV_Therapy$IV.therapy == "Cyclophosphamide Injectable Solution - UATC/ L01AA01"
                                         | IV_Therapy$IV.therapy == "Rituximab - UATC/L01XC02 -- Ruxience"
-                                        | IV_Therapy$IV.therapy == "Rituximab - UATC/L01XC02 -- Truxima")
+                                        | IV_Therapy$IV.therapy == "Rituximab - UATC/L01XC02 -- Truxima"
+                                        | IV_Therapy$IV.therapy == "Mepolizumab - UATC/R03DX09")
                                   , c("RKD.ID", "Date.of.IV.therapy", "IV.therapy")]
   
   Methyl <- IV_Therapy_filter [which(IV_Therapy_filter$IV.therapy == "Methylprednisolone - UATC/D07AA01"), ]
-  Cyclo <- IV_Therapy_filter [which(IV_Therapy_filter$IV.therapy == "Cyclophosphamide Injectable Solution - UATC/ L01AA01"), ]
+  Cyclo <- IV_Therapy_filter [which(IV_Therapy_filter$IV.therapy == "Cyclophosphamide Injectable Solution - UATC/ L01AA01" | IV_Therapy_filter$IV.therapy == "Mepolizumab - UATC/R03DX09"), ]
   Ritu <- IV_Therapy_filter [which(IV_Therapy_filter$IV.therapy == "Rituximab - UATC/L01XC02 -- Mabthera"| IV_Therapy_filter$IV.therapy == "Rituximab - UATC/L01XC02 -- Ruxience" | IV_Therapy_filter$IV.therapy == "Rituximab - UATC/L01XC02 -- Truxima") , ]
   
   Methyl$Start.date.of.date.range <-
