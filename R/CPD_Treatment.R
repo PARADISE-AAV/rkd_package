@@ -24,7 +24,7 @@ CPD_Treatment = function(treatment_data){
   stopifnot("Your argument need to be a data frame"=is.data.frame(treatment_data))
   
   
-  treatment_data$treatment = NA
+  treatment_data$treatment_type = NA
   n=nrow(treatment_data)
   for(i in 1:n){
     if(is.na(treatment_data$IV.therapy.x[i])==FALSE){
