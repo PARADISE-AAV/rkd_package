@@ -32,9 +32,8 @@ CPD_Medication_Treatment= function(Medication, merged_data, output_dir){
     stop('Specified output folder does not exist')
   }
   
-  Medication1= Medication
   
-  medication_inputed <- Medication1[which(Medication1$Drug!=""), c("RKD.ID", "Drug", "Dose", "Start.Date", "Stop.Date")]
+  medication_inputed <- Medication[which(Medication$Drug!=""), c("RKD.ID", "Drug", "Dose", "Start.Date", "Stop.Date")]
   
   medication_inputed$Start.date.of.date.range <-
     as.Date(medication_inputed$Start.Date)
