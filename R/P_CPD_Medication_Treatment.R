@@ -32,7 +32,7 @@ CPD_Medication_Treatment= function(Medication, merged_data, output_dir){
     stop('Specified output folder does not exist')
   }
   
-  Medication1= Medication[-which(Medication$Drug=="Other" & Medication$Drug..ATC==""),]
+  Medication1= Medication
   
   medication_inputed <- Medication1[which(Medication1$Drug!=""), c("RKD.ID", "Drug", "Dose", "Start.Date", "Stop.Date")]
   
