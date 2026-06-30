@@ -98,7 +98,7 @@ CPD_Continuous_Medication_interval <- function (Medication_data, merged_data ,ou
     medication_inputed=rbind(medication_inputed, dat2)
   }
   
-  n=legth(medication_inputed$Unit.of.Doses)
+  n=length(medication_inputed$Unit.of.Doses)
   for(i in 1:n){
     if(is.na(medication_inputed$Unit.of.Doses[i]) == FALSE & medication_inputed$Unit.of.Doses[i] == "g"){
       medication_inputed$Dose[i]=medication_inputed$Dose[i]*1000
