@@ -110,7 +110,7 @@ CPD_Continuous_Medication_interval <- function (Medication_data, merged_data ,ou
     paste0('Redcap_countinuous_medication_data_merged', "_version", packageVersion('rivpipeline'), "_Date"
            , Sys.Date(), '.csv')
   )
-  write.csv(rkd_data, output_filename, row.names = FALSE)
-  return(rkd_data)
+  write.csv(medication_inputed, output_filename, row.names = FALSE)
+  return(medication_inputed)
   
 }
