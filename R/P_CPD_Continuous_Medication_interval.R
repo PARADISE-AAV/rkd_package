@@ -74,9 +74,9 @@ CPD_Continuous_Medication_interval <- function (Medication_data, merged_data ,ou
     }
   }
   
-  Medication1= Medication[-which(rkd_data$Drug=="Other" & rkd_data$Drug..ATC==""),]
+  Medication1= rkd_data[-which(rkd_data$Drug=="Other" & rkd_data$Drug..ATC==""),]
   
-  medication_filter <- Medication1[which(Medication1$Drug!=""), c("RKD.ID", "Drug", "Dose", "Start.Date", "Stop.Date")]
+  medication_filter <- Medication1[which(Medication1$Drug!=""), c("RKD.ID", "Drug", "Dose", "Unit.of.Doses", "Start.Date", "Stop.Date")]
   
   medication_last <- merge(merged_data[!duplicated(merged_data[,c("RKD.ID", "Date_Last_Follow_up")]),c("RKD.ID", "Date_Last_Follow_up")], medication_filter, by="RKD.ID")
   n=length(levels(as.factor(medication_last$RKD.ID)))
@@ -96,6 +96,13 @@ CPD_Continuous_Medication_interval <- function (Medication_data, merged_data ,ou
       }
     }
     medication_inputed=rbind(medication_inputed, dat2)
+  }
+  
+  n=legth(medication_inputed$Unit.of.Doses)
+  for(i in 1:n){
+    if(is.na(medication_inputed$Unit.of.Doses[i]) == FALSE & medication_inputed$Unit.of.Doses[i] == "g"){
+      medication_inputed$Dose[i]=medication_inputed$Dose[i]*1000
+    } 
   }
   
   output_filename <- file.path(
