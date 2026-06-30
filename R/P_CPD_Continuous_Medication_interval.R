@@ -7,8 +7,8 @@
 #' 
 #' Date: 17-Apr-23
 #' @param Medication_data  {"name": "Medication_data","desc": "RIV data from \code{\link{SplitRIV}} function","options": (),"type": "file"}
+#' @param merged_data RIV data from \code{\link{Merge_Encounter_initial}} function
 #' @param output_dir  {"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
-#'
 #' @details
 #' 
 #' The function calculated the interval in days between the diagnosis and the start data and stop date of continuous medication. The dose is recalculated to have a daily dose. 
@@ -20,7 +20,7 @@
 #' @importFrom rlang .data
 #' @export
 
-CPD_Continuous_Medication_interval <- function (Medication_data, output_dir){
+CPD_Continuous_Medication_interval <- function (Medication_data, merged_data ,output_dir){
   stopifnot("Your argument need to be a data frame"=is.list(Medication_data))
   stopifnot("Your argument need to be a character"=is.character(output_dir))
   
@@ -74,6 +74,25 @@ CPD_Continuous_Medication_interval <- function (Medication_data, output_dir){
     }
   }
   
+  medication_last=rkd_data
+  n=length(levels(as.factor(medication_last$RKD.ID)))
+  medication_inputed=NULL
+  for(i in 1:n){
+    dat=medication_last[which(medication_last$RKD.ID ==levels(as.factor(medication_last$RKD.ID))[i] ),]
+    dat1=dat[order(c(dat$Start.Date)),]
+    dat2=dat1[order(c(dat1$Drug)),]
+    for(j in 1:nrow(dat2)){
+      if(is.na(dat2$Stop.Date[j])==TRUE & is.na(dat2$Start.Date[j])==FALSE & is.na(dat2$Date_Last_Follow_up[j])==FALSE){
+        if(j == nrow(dat2) & interval(dat2$Start.Date[j], dat2$Date_Last_Follow_up[j]) / months(1)<=6){
+          dat2$Stop.Date[j]= dat2$Date_Last_Follow_up[j]
+        }else{
+          if(dat2$Drug[j] == dat2$Drug[j+1] & interval(dat2$Start.Date[j], dat2$Date_Last_Follow_up[j]) / months(1)<=6)
+            dat2$Stop.Date[j] = dat2$Start.Date[j+1]
+        }
+      }
+    }
+    medication_inputed=rbind(medication_inputed, dat2)
+  }
   
   output_filename <- file.path(
     output_dir,
