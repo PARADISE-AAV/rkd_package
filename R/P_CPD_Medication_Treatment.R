@@ -34,29 +34,7 @@ CPD_Medication_Treatment= function(Medication, merged_data, output_dir){
   
   Medication1= Medication[-which(Medication$Drug=="Other" & Medication$Drug..ATC==""),]
   
-  medication_filter <- Medication1[which(Medication1$Drug!=""), c("RKD.ID", "Drug", "Dose", "Start.Date", "Stop.Date")]
-  
-  medication_last <- merge(merged_data[!duplicated(merged_data[,c("RKD.ID", "Date_Last_Follow_up")]),c("RKD.ID", "Date_Last_Follow_up")], medication_filter, by="RKD.ID")
-  
-  n=length(levels(as.factor(medication_last$RKD.ID)))
-  medication_inputed=NULL
-  for(i in 1:n){
-    dat=medication_last[which(medication_last$RKD.ID ==levels(as.factor(medication_last$RKD.ID))[i] ),]
-    dat1=dat[order(c(dat$Start.Date)),]
-    dat2=dat1[order(c(dat1$Drug)),]
-    for(j in 1:nrow(dat2)){
-      if(is.na(dat2$Stop.Date[j])==TRUE & is.na(dat2$Start.Date[j])==FALSE & is.na(dat2$Date_Last_Follow_up[j])==FALSE){
-          if(j == nrow(dat2) & interval(dat2$Start.Date[j], dat2$Date_Last_Follow_up[j]) / months(1)<=6){
-            dat2$Stop.Date[j]= dat2$Date_Last_Follow_up[j]
-          }else{
-            if(dat2$Drug[j] == dat2$Drug[j+1] & interval(dat2$Start.Date[j], dat2$Date_Last_Follow_up[j]) / months(1)<=6)
-              dat2$Stop.Date[j] = dat2$Start.Date[j+1]
-          }
-      }
-    }
-    medication_inputed=rbind(medication_inputed, dat2)
-  }
-  
+  medication_inputed <- Medication1[which(Medication1$Drug!=""), c("RKD.ID", "Drug", "Dose", "Start.Date", "Stop.Date")]
   
   medication_inputed$Start.date.of.date.range <-
     as.Date(medication_inputed$Start.Date)
