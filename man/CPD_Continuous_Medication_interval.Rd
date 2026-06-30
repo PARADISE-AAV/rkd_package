@@ -4,10 +4,12 @@
 \alias{CPD_Continuous_Medication_interval}
 \title{CPD Continuous medication}
 \usage{
-CPD_Continuous_Medication_interval(Medication_data, output_dir)
+CPD_Continuous_Medication_interval(Medication_data, merged_data, output_dir)
 }
 \arguments{
 \item{Medication_data}{{"name": "Medication_data","desc": "RIV data from \code{\link{SplitRIV}} function","options": (),"type": "file"}}
+
+\item{merged_data}{RIV data from \code{\link{Merge_Encounter_initial}} function}
 
 \item{output_dir}{{"name": "output_dir","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}}
 }
