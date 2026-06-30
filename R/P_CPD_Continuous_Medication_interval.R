@@ -74,7 +74,11 @@ CPD_Continuous_Medication_interval <- function (Medication_data, merged_data ,ou
     }
   }
   
-  medication_last=rkd_data
+  Medication1= Medication[-which(rkd_data$Drug=="Other" & rkd_data$Drug..ATC==""),]
+  
+  medication_filter <- Medication1[which(Medication1$Drug!=""), c("RKD.ID", "Drug", "Dose", "Start.Date", "Stop.Date")]
+  
+  medication_last <- merge(merged_data[!duplicated(merged_data[,c("RKD.ID", "Date_Last_Follow_up")]),c("RKD.ID", "Date_Last_Follow_up")], medication_filter, by="RKD.ID")
   n=length(levels(as.factor(medication_last$RKD.ID)))
   medication_inputed=NULL
   for(i in 1:n){
