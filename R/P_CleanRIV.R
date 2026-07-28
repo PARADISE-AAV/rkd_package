@@ -29,6 +29,7 @@ clean_riv <- function(rkd_data, comor, output_path) {
 
   # Check arguments
   stopifnot("Your argument need to be a data frame"=is.data.frame(rkd_data))
+  stopifnot("Your argument need to be a data frame"=is.data.frame(comor))
   stopifnot("Your argument need to be a character"=is.character(output_path))
 
   # Check output directory
