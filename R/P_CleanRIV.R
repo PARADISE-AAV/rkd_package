@@ -8,6 +8,7 @@
 #' Date: 24-Jan-23
 #'
 #' @param rkd_data  {"name": "rkd_data","desc": "RIV data from \code{\link{load_riv}} function","options": (),"type": "file"}
+#' @param comor Commordities frame to merge with the RIV data from filterRIV
 #' @param output_path  {"name": "output_path","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
 #' @details
 #' The Redcap data cleaned in your folder and in an R object
@@ -24,7 +25,7 @@
 #' @import forcats
 #' @importFrom rlang .data
 #' @export
-clean_riv <- function(rkd_data, output_path) {
+clean_riv <- function(rkd_data, comor, output_path) {
 
   # Check arguments
   stopifnot("Your argument need to be a data frame"=is.data.frame(rkd_data))
