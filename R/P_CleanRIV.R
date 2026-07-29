@@ -17,6 +17,7 @@
 #' 
 #' The function clean some RKD.ID trouble to be sure that we have no problem when we do any merge with other dataset
 #' 
+#' The function merge the co-morbidity frame to the general characteristics one.The co-morbidity frame is modify to have only one row per patient.
 #' 
 #' 
 #' @import lubridate
