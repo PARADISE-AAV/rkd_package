@@ -58,14 +58,25 @@ clean_riv <- function(rkd_data, comor, output_path) {
   rkd_data2$ESKD_time <- as.numeric(rkd_data$Date.of.end.stage.kidney.disease..date.of.commencement.on.dialysis.or.transplant..whichever.first.-rkd_data$Date.of.diagnosis)
   rkd_data2$renal_recovery_time <- as.numeric(rkd_data$Date.of.renal.recovery-rkd_data$Date.of.diagnosis)
   
+  comor1 <- comor %>%
+    group_by(RKD.ID) %>%
+    mutate(
+      across(5:20, ~ ifelse(any(. == "Checked"), "Checked", first(.))),
+      List_comorbidities = paste(c_across(21:23), collapse = ", ")
+    ) %>%
+    slice(1) %>%
+    ungroup() %>%
+    select(1:20, List_comorbidities)
+  
+  data0=merge(rkd_data2, comor1[,-c(2:4)], by="RKD.ID", all.x=T)
   
   output_filename <- file.path(
     output_path,
     paste0('Redcap_clinical_data_clean', "_version", packageVersion('rivpipeline'), "_Date"
            , Sys.Date(), '.csv')
   )
-  write.csv(rkd_data2, output_filename, row.names = FALSE)
-  return(rkd_data2)
+  write.csv(data0, output_filename, row.names = FALSE)
+  return(data0)
 }
 
 
