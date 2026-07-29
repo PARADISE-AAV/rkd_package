@@ -4,10 +4,12 @@
 \alias{clean_riv}
 \title{Clean rare kidney disease data}
 \usage{
-clean_riv(rkd_data, output_path)
+clean_riv(rkd_data, comor, output_path)
 }
 \arguments{
 \item{rkd_data}{{"name": "rkd_data","desc": "RIV data from \code{\link{load_riv}} function","options": (),"type": "file"}}
+
+\item{comor}{Commordities frame to merge with the RIV data from filterRIV}
 
 \item{output_path}{{"name": "output_path","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}}
 }
@@ -24,6 +26,8 @@ The Redcap data cleaned in your folder and in an R object
 The function reduce the ethnicity to 6 group where different subgroup are regrouped.
 
 The function clean some RKD.ID trouble to be sure that we have no problem when we do any merge with other dataset
+
+The function merge the co-morbidity frame to the general characteristics one.The co-morbidity frame is modify to have only one row per patient.
 }
 \author{
 Matthieu COQ
