@@ -5,12 +5,7 @@
 # Requires: dplyr, tidyr, purrr, rlang, stringr
 # =============================================================================
 
-library(dplyr)
-library(tidyr)
-library(purrr)
-library(rlang)
-library(stringr)
-library(zoo)   # for na.locf() forward-fill
+# for na.locf() forward-fill
 
 # -----------------------------------------------------------------------------
 # 1. GENERIC HELPERS
