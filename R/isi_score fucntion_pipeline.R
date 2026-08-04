@@ -102,7 +102,7 @@ merge_visits_with_iv <- function(visits, wide, prefix) {
   df
 }
 
-#' Reorder columns so each dose block (date/value[/vanish]) sits together in
+#' @description Reorder columns so each dose block (date/value[/vanish]) sits together in
 #' ascending dose-number order, matching reorder_*_columns() in the notebook.
 reorder_iv_columns <- function(df, prefix, extra_suffixes = character(0)) {
   cols <- names(df)
@@ -123,7 +123,7 @@ reorder_iv_columns <- function(df, prefix, extra_suffixes = character(0)) {
   df[, c(core_cols, dose_blocks, other_cols)]
 }
 
-#' Combine two adjacent doses into one, per patient, when they occurred
+#' @description Combine two adjacent doses into one, per patient, when they occurred
 #' within `max_days` of each other: the target dose's date/value are folded
 #' into the base dose (summed), and the target columns are blanked.
 #' Direct translation of update_mtp_doses / update_cyc_doses / update_rtx_doses.
