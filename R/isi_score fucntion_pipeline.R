@@ -59,9 +59,8 @@ cumulative_ITIS <- function(df, cols, out_col) {
 #    Rituximab (rtx).
 # -----------------------------------------------------------------------------
 
-#' @description Pivot a long-format IV-therapy extract to one row per patient, with
+#' Pivot a long-format IV-therapy extract to one row per patient, with
 #' sequential dose columns  <prefix>_<n>_dose_date / <prefix>_<n>_dose_value
-#' @import dplyr
 pivot_iv_wide <- function(iv_drug, prefix) {
   iv_drug <- iv_drug %>%
     arrange(RKD.ID, Date.of.IV.therapy) %>%
@@ -82,9 +81,8 @@ pivot_iv_wide <- function(iv_drug, prefix) {
   full_join(wide_date, wide_value, by = "RKD.ID")
 }
 
-#' @description Merge the wide dose table onto the visit-level data, blanking any dose
+#' Merge the wide dose table onto the visit-level data, blanking any dose
 #' that has not yet occurred as of that visit (dose_date must be < visit date).
-#' @import dplyr
 merge_visits_with_iv <- function(visits, wide, prefix) {
   df <- visits %>% mutate(Date_Of_Visit = as.Date(Date_Of_Visit))
   df <- left_join(df, wide, by = "RKD.ID")
@@ -102,7 +100,7 @@ merge_visits_with_iv <- function(visits, wide, prefix) {
   df
 }
 
-#' @description Reorder columns so each dose block (date/value[/vanish]) sits together in
+#' Reorder columns so each dose block (date/value[/vanish]) sits together in
 #' ascending dose-number order, matching reorder_*_columns() in the notebook.
 reorder_iv_columns <- function(df, prefix, extra_suffixes = character(0)) {
   cols <- names(df)
@@ -123,7 +121,7 @@ reorder_iv_columns <- function(df, prefix, extra_suffixes = character(0)) {
   df[, c(core_cols, dose_blocks, other_cols)]
 }
 
-#' @description Combine two adjacent doses into one, per patient, when they occurred
+#' Combine two adjacent doses into one, per patient, when they occurred
 #' within `max_days` of each other: the target dose's date/value are folded
 #' into the base dose (summed), and the target columns are blanked.
 #' Direct translation of update_mtp_doses / update_cyc_doses / update_rtx_doses.
