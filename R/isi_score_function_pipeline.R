@@ -641,6 +641,8 @@ run_methotrexate_pipeline <- function(df,conmed) {
 }
 
 ## ---- 4.9 Avacopan -----------------------------------------------------------
+#' @title run_avacopan_pipeline
+#' @param df dataframe with all the previous ISI score calculated
 run_avacopan_pipeline <- function(df) {
   df$Avacopan_ISI_score <- ifelse(df[["Drug_Avacopan (C5aR inhibitor)"]] == "Avacopan (C5aR inhibitor)", 0.50, 0)
   df$Avacopan_ISI_score[is.na(df$Avacopan_ISI_score)] <- 0
