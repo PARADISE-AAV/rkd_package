@@ -11,7 +11,13 @@
 # 1. GENERIC HELPERS
 # -----------------------------------------------------------------------------
 
-#' Logistic decay curve used for every "sigmoid" ITIS component
+#' @title sigmoid curve
+#' @description Logistic decay curve used for every "sigmoid" ITIS component
+#' @param x 
+#' @param A  
+#' @param n 
+#' @param d 
+#' 
 sigmoid_curve <- function(x, A, n, d) {
   A / (1 + exp(n * (x - d)))
 }
