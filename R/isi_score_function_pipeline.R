@@ -80,8 +80,11 @@ cumulative_ITIS <- function(df, cols, out_col) {
 #    Rituximab (rtx).
 # -----------------------------------------------------------------------------
 
-#' Pivot a long-format IV-therapy extract to one row per patient, with
+#' @title pivot_iv_wide
+#' @description Pivot a long-format IV-therapy extract to one row per patient, with
 #' sequential dose columns  <prefix>_<n>_dose_date / <prefix>_<n>_dose_value
+#' @param iv_drug IVTherapy frame
+#' @param prefix name of the drug
 pivot_iv_wide <- function(iv_drug, prefix) {
   iv_drug <- iv_drug %>%
     arrange(RKD.ID, Date.of.IV.therapy) %>%
