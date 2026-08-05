@@ -2,9 +2,18 @@
 % Please edit documentation in R/isi_score_function_pipeline.R
 \name{sigmoid_curve}
 \alias{sigmoid_curve}
-\title{Logistic decay curve used for every "sigmoid" ITIS component}
+\title{sigmoid curve}
 \usage{
 sigmoid_curve(x, A, n, d)
+}
+\arguments{
+\item{x}{}
+
+\item{A}{}
+
+\item{n}{}
+
+\item{d}{}
 }
 \description{
 Logistic decay curve used for every "sigmoid" ITIS component
