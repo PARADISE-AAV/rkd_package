@@ -2,11 +2,26 @@
 % Please edit documentation in R/isi_score_function_pipeline.R
 \name{build_sigmoid_params}
 \alias{build_sigmoid_params}
-\title{Build calculate_A / calculate_d / calculate_n closures from the two
-anchor points (dose1 -> A1/d1, dose2 -> A2/d2) plus the two "vanish day"
-anchors, exactly mirroring the notebook's linear-interpolation blocks.}
+\title{build_sigmoid_params}
 \usage{
 build_sigmoid_params(A1, A2, dose1, dose2, d1, d2, vanish1, vanish2)
+}
+\arguments{
+\item{A1}{}
+
+\item{A2}{}
+
+\item{dose1}{}
+
+\item{dose2}{}
+
+\item{d1}{}
+
+\item{d2}{}
+
+\item{vanish1}{}
+
+\item{vanish2}{}
 }
 \description{
 Build calculate_A / calculate_d / calculate_n closures from the two
