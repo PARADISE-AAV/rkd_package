@@ -2,10 +2,16 @@
 % Please edit documentation in R/isi_score_function_pipeline.R
 \name{cumulative_ITIS}
 \alias{cumulative_ITIS}
-\title{Cumulative "1 - prod(1 - x_i)" combination rule used everywhere in the
-notebook to combine several ITIS components into one score.}
+\title{cumulative_ITIS}
 \usage{
 cumulative_ITIS(df, cols, out_col)
+}
+\arguments{
+\item{df}{}
+
+\item{cols}{}
+
+\item{out_col}{}
 }
 \description{
 Cumulative "1 - prod(1 - x_i)" combination rule used everywhere in the
