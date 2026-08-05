@@ -28,8 +28,8 @@ sigmoid_curve <- function(x, A, n, d) {
 #' anchors, exactly mirroring the notebook's linear-interpolation blocks.
 #' @param A1 
 #' @param A2  
-#' @param dose1 
-#' @param dose2 
+#' @param dose1 min dose
+#' @param dose2 max dose
 #' @param d1 
 #' @param d2  
 #' @param vanish1 
