@@ -2,10 +2,14 @@
 % Please edit documentation in R/isi_score_function_pipeline.R
 \name{pivot_iv_wide}
 \alias{pivot_iv_wide}
-\title{Pivot a long-format IV-therapy extract to one row per patient, with
-sequential dose columns  \if{html}{\out{<prefix>}}_\if{html}{\out{<n>}}\emph{dose_date / \if{html}{\out{<prefix>}}}\if{html}{\out{<n>}}_dose_value}
+\title{pivot_iv_wide}
 \usage{
 pivot_iv_wide(iv_drug, prefix)
+}
+\arguments{
+\item{iv_drug}{IVTherapy frame}
+
+\item{prefix}{name of the drug}
 }
 \description{
 Pivot a long-format IV-therapy extract to one row per patient, with
