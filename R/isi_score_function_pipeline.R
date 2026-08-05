@@ -22,9 +22,19 @@ sigmoid_curve <- function(x, A, n, d) {
   A / (1 + exp(n * (x - d)))
 }
 
-#' Build calculate_A / calculate_d / calculate_n closures from the two
+#' @title build_sigmoid_params
+#' @description Build calculate_A / calculate_d / calculate_n closures from the two
 #' anchor points (dose1 -> A1/d1, dose2 -> A2/d2) plus the two "vanish day"
 #' anchors, exactly mirroring the notebook's linear-interpolation blocks.
+#' @param A1 
+#' @param A2  
+#' @param dose1 
+#' @param dose2 
+#' @param d1 
+#' @param d2  
+#' @param vanish1 
+#' @param vanish2  
+#' 
 build_sigmoid_params <- function(A1, A2, dose1, dose2, d1, d2, vanish1, vanish2) {
   m_A <- (A2 - A1) / (dose2 - dose1)
   b_A <- A1 - m_A * dose1
