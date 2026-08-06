@@ -13,10 +13,10 @@
 
 #' @title sigmoid curve
 #' @description Logistic decay curve used for every "sigmoid" ITIS component
-#' @param x 
-#' @param A  
-#' @param n 
-#' @param d 
+#' @param x data
+#' @param A max of ISI
+#' @param n time when the drug have no effect
+#' @param d time when the drug is at mid effect
 #' 
 sigmoid_curve <- function(x, A, n, d) {
   A / (1 + exp(n * (x - d)))
