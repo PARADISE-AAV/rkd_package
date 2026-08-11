@@ -11,9 +11,9 @@ build_sigmoid_params(A1, A2, dose1, dose2, d1, d2, vanish1, vanish2)
 
 \item{A2}{}
 
-\item{dose1}{}
+\item{dose1}{min dose}
 
-\item{dose2}{}
+\item{dose2}{max dose}
 
 \item{d1}{}
 
