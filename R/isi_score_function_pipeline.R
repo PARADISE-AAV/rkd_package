@@ -26,14 +26,14 @@ sigmoid_curve <- function(x, A, n, d) {
 #' @description Build calculate_A / calculate_d / calculate_n closures from the two
 #' anchor points (dose1 -> A1/d1, dose2 -> A2/d2) plus the two "vanish day"
 #' anchors, exactly mirroring the notebook's linear-interpolation blocks.
-#' @param A1 
-#' @param A2  
+#' @param A1 the max of ISI score with the min dose
+#' @param A2  the max of ISI score with the max dose
 #' @param dose1 min dose
 #' @param dose2 max dose
-#' @param d1 
-#' @param d2  
-#' @param vanish1 
-#' @param vanish2  
+#' @param d1 the days after which the immunosuppression effect is reduced by 50% for min dose
+#' @param d2  the days after which the immunosuppression effect is reduced by 50% for max dose
+#' @param vanish1 the time in days to the disappearance of the immunosuppression effects for min dose
+#' @param vanish2  the time in days to the disappearance of the immunosuppression effects for max dose
 #' 
 build_sigmoid_params <- function(A1, A2, dose1, dose2, d1, d2, vanish1, vanish2) {
   m_A <- (A2 - A1) / (dose2 - dose1)
