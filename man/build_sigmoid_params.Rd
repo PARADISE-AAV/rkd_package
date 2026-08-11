@@ -7,21 +7,21 @@
 build_sigmoid_params(A1, A2, dose1, dose2, d1, d2, vanish1, vanish2)
 }
 \arguments{
-\item{A1}{}
+\item{A1}{the max of ISI score with the min dose}
 
-\item{A2}{}
+\item{A2}{the max of ISI score with the max dose}
 
 \item{dose1}{min dose}
 
 \item{dose2}{max dose}
 
-\item{d1}{}
+\item{d1}{the days after which the immunosuppression effect is reduced by 50\% for min dose}
 
-\item{d2}{}
+\item{d2}{the days after which the immunosuppression effect is reduced by 50\% for max dose}
 
-\item{vanish1}{}
+\item{vanish1}{the time in days to the disappearance of the immunosuppression effects for min dose}
 
-\item{vanish2}{}
+\item{vanish2}{the time in days to the disappearance of the immunosuppression effects for max dose}
 }
 \description{
 Build calculate_A / calculate_d / calculate_n closures from the two
