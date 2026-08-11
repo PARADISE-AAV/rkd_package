@@ -7,13 +7,13 @@
 sigmoid_curve(x, A, n, d)
 }
 \arguments{
-\item{x}{}
+\item{x}{data}
 
-\item{A}{}
+\item{A}{max of ISI}
 
-\item{n}{}
+\item{n}{time when the drug have no effect}
 
-\item{d}{}
+\item{d}{time when the drug is at mid effect}
 }
 \description{
 Logistic decay curve used for every "sigmoid" ITIS component
