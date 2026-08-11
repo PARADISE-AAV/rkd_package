@@ -351,6 +351,9 @@ linear_dose_score <- function(dose, min_dose, max_dose, min_score, max_score) {
 # -----------------------------------------------------------------------------
 
 ## ---- 4.1 Methylprednisolone IV (mtp) --------------------------------------
+#' @title run_mtp_pipeline
+#' @param data1 dataframe with all the previous ISI score calculated
+#' @param IV IV Therapy frame
 run_mtp_pipeline <- function(data1, IV) {
   mtp <- IV %>% filter(IV.therapy == "Methylprednisolone - UATC/D07AA01")
   mtp <- mtp[, colSums(!is.na(mtp)) > 0]
@@ -395,6 +398,9 @@ run_mtp_pipeline <- function(data1, IV) {
 }
 
 ## ---- 4.2 IV Cyclophosphamide (cyc) -----------------------------------------
+#' @title run_cyc_iv_pipeline
+#' @param mtp_with_intervals dataframe with all the previous ISI score calculated
+#' @param IV IV Therapy frame
 run_cyc_iv_pipeline <- function(mtp_with_intervals, IV) {
   cyc <- IV %>% filter(IV.therapy == "Cyclophosphamide Injectable Solution - UATC/ L01AA01")
   cyc <- cyc[, colSums(!is.na(cyc)) > 0]
@@ -441,6 +447,9 @@ run_cyc_iv_pipeline <- function(mtp_with_intervals, IV) {
 }
 
 ## ---- 4.3 Rituximab (rtx) ---------------------------------------------------
+#' @title run_rtx_pipeline
+#' @param rtx_with_intervals dataframe with all the previous ISI score calculated
+#' @param IV IV Therapy frame
 run_rtx_pipeline <- function(rtx_with_intervals, IV) {
   rtx <- IV %>%
     filter(IV.therapy %in% c("Rituximab - UATC/L01XC02 -- Mabthera",
