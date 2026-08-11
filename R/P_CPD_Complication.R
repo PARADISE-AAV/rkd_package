@@ -29,7 +29,7 @@ CPD_Complication <- function (Complication_data, output_dir){
   }
   
   rkd_data <- merge(Complication_data$Complication, Complication_data$Initial[,c("RKD.ID", "Date.of.diagnosis")], by="RKD.ID")
-  rkd_data$Complication_interval_from_diagnosis <- days(rkd_data$Date.of.complication)-days(rkd_data$Date.of.diagnosis)
+  rkd_data$Complication_interval_from_diagnosis <- as.numeric(rkd_data$Date.of.complication-rkd_data$Date.of.diagnosis)
   
   output_filename <- file.path(
     output_dir,
