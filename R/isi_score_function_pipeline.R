@@ -602,6 +602,9 @@ run_mmf_pipeline <- function(df, conmed) {
 }
 
 ## ---- 4.8 Methotrexate ------------------------------------------------------
+#' @title run_methotrexate_pipeline
+#' @param df dataframe with all the previous ISI score calculated
+#' @param conmed Continuous medication frame
 run_methotrexate_pipeline <- function(df,conmed) {
   # "Dose_Methotrexate - UATC/L01BA01" and a stop-date column
   # "meth_Stop.Date" are assumed to already exist upstream, as in the notebook.
