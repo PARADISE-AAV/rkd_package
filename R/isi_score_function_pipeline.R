@@ -500,6 +500,9 @@ run_rtx_pipeline <- function(rtx_with_intervals, IV) {
 }
 
 ## ---- 4.4 Oral Cyclophosphamide --------------------------------------------
+#' @title run_cyc_oral_pipeline
+#' @param df dataframe with all the previous ISI score calculated
+#' @param conmed Continuous medication frame
 run_cyc_oral_pipeline <- function(df, conmed) {
   df <- merge_continuous_medication(df, conmed, "Cyclophosphamide - UATC/L01AA01", "cyc_oral")
 
@@ -530,6 +533,9 @@ run_cyc_oral_pipeline <- function(df, conmed) {
 }
 
 ## ---- 4.5 Prednisolone (categorical) ---------------------------------------
+#' @title run_prednisolone_pipeline
+#' @param df dataframe with all the previous ISI score calculated
+
 run_prednisolone_pipeline <- function(df) {
   itis_map <- c(
     "< 5 mg/day"    = 0.10,
@@ -549,6 +555,9 @@ run_prednisolone_pipeline <- function(df) {
 }
 
 ## ---- 4.6 Azathioprine ------------------------------------------------------
+#' @title run_aza_pipeline
+#' @param df dataframe with all the previous ISI score calculated
+#' @param conmed Continuous medication frame
 run_aza_pipeline <- function(df, conmed) {
   df <- merge_continuous_medication(df, conmed, "Azathioprine - UATC/L04AX01", "aza")
 
@@ -578,6 +587,9 @@ run_aza_pipeline <- function(df, conmed) {
 }
 
 ## ---- 4.7 Mycophenolate Mofetil (MMF) --------------------------------------
+#' @title run_mmf_pipeline
+#' @param df dataframe with all the previous ISI score calculated
+#' @param conmed Continuous medication frame
 run_mmf_pipeline <- function(df, conmed) {
   df <- merge_continuous_medication(df, conmed, "Mycophenolate mofetil - UATC/L04AA06", "mmf")
 
