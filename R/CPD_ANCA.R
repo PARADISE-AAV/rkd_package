@@ -88,7 +88,7 @@ CPD_ANCA <- function(merge_data){
   rkd$ANCA_Switch = "Switch Status Unknown"
   n=nrow(rkd)
   for( i in 2:n){
-    if(rkd$RKD.ID[i] == rkd$RKD.ID[i-1] & as.numeric(rkd$Date.Of.Visit[i] - rkd$Date.Of.Visit[i-1]) <= 550  &  (is.na(rkd$CPD_relapse[i])== FALSE & rkd$CPD_relapse[i] != "Definite Relapse") & (is.na(rkd$CPD_relapse[i-1])== FALSE & rkd$CPD_relapse[i-1] != "Definite Relapse")){
+    if(rkd$RKD.ID[i] == rkd$RKD.ID[i-1] & as.numeric(rkd$Date.Of.Visit[i] - rkd$Date.Of.Visit[i-1]) <= 550){
       if(rkd$ANCA_Status[i-1] == "ANCA Negative" & rkd$ANCA_Status[i] == "ANCA Negative"){
         rkd$ANCA_Switch[i] = "Neg-Neg Switch"
       }
@@ -101,11 +101,21 @@ CPD_ANCA <- function(merge_data){
       if(rkd$ANCA_Status[i-1] == "ANCA Positive" & rkd$ANCA_Status[i] == "ANCA Negative"){
         rkd$ANCA_Switch[i] = "Pos-Neg Switch"
       }
-      
+      if((is.na(rkd$CPD_relapse[i])== FALSE & rkd$CPD_relapse[i] == "Definite Relapse") | (is.na(rkd$CPD_relapse[i-1])== FALSE & rkd$CPD_relapse[i-1] == "No Relapse")){
+        rkd$ANCA_Switch[i] = "Not a switch encounter"
+      }
+      if((is.na(rkd$CPD_relapse[i])== FALSE & rkd$CPD_relapse[i] == "No Relapse") | (is.na(rkd$CPD_relapse[i-1])== FALSE & rkd$CPD_relapse[i-1] == "Definite Relapse")){
+        rkd$ANCA_Switch[i] = "Not a switch encounter"
+      }
+      if((is.na(rkd$CPD_relapse[i])== FALSE & rkd$CPD_relapse[i] == "Definite Relapse") | (is.na(rkd$CPD_relapse[i-1])== FALSE & rkd$CPD_relapse[i-1] == "Definite Relapse")){
+        rkd$ANCA_Switch[i] = "Relapse"
+      }
     }
-    if((is.na(rkd$CPD_relapse[i])== FALSE & rkd$CPD_relapse[i] == "Definite Relapse") | (is.na(rkd$CPD_relapse[i-1])== FALSE & rkd$CPD_relapse[i-1] == "Definite Relapse")){
-      rkd$ANCA_Switch[i] = "Relapse"
+    if(rkd$RKD.ID[i] == rkd$RKD.ID[i-1] & as.numeric(rkd$Date.Of.Visit[i] - rkd$Date.Of.Visit[i-1]) > 550){
+      rkd$ANCA_Switch[i] = "Not a switch encounter"
     }
+    
+    
   }
   
   rkd_data=merge(rkd[,c("RKD.ID", "Date.Of.Visit", "ANCA_Levels", "ANCA_Status", "ANCA_Switch")], merge_data, by=c("RKD.ID", "Date.Of.Visit"))
