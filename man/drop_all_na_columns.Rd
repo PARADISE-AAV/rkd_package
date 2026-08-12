@@ -2,9 +2,12 @@
 % Please edit documentation in R/isi_score_function_pipeline.R
 \name{drop_all_na_columns}
 \alias{drop_all_na_columns}
-\title{Drop columns that are entirely NA (mirrors df.dropna(axis=1, how='all'))}
+\title{drop_all_na_columns}
 \usage{
 drop_all_na_columns(df)
+}
+\arguments{
+\item{df}{dataframe}
 }
 \description{
 Drop columns that are entirely NA (mirrors df.dropna(axis=1, how='all'))
