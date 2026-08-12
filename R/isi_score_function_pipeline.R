@@ -226,9 +226,14 @@ apply_combine_plan <- function(df, prefix, plan) {
   df
 }
 
-#' Rename dose blocks, e.g. rename_map = list(c(10,6), c(13,7)) means
+#' @title apply_rename_plan
+#' @description Rename dose blocks, e.g. rename_map = list(c(10,6), c(13,7)) means
 #' "<prefix>_10_dose_date" -> "<prefix>_6_dose_date", etc. (applied in order,
 #' exactly as in the notebook's sequential rename() calls).
+#' @param df dataframe
+#' @param prefix prefix
+#' @param rename_map rename map
+#' 
 apply_rename_plan <- function(df, prefix, rename_map) {
   for (pair in rename_map) {
     old_n <- pair[1]; new_n <- pair[2]
