@@ -124,8 +124,13 @@ merge_visits_with_iv <- function(visits, wide, prefix) {
   df
 }
 
-#' Reorder columns so each dose block (date, value, and optional vanish columns) sits together in
+#' @title reorder_iv_columns
+#' @description Reorder columns so each dose block (date, value, and optional vanish columns) sits together in
 #' ascending dose-number order, matching reorder_*_columns() in the notebook.
+#' @param df dataframe
+#' @param prefix prefix
+#' @param extra_suffixes extra suffixes
+#' 
 reorder_iv_columns <- function(df, prefix, extra_suffixes = character(0)) {
   cols <- names(df)
   dose_nums <- sort(unique(as.integer(str_match(
