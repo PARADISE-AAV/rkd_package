@@ -244,8 +244,16 @@ compute_days_since_dose <- function(df, prefix, doses) {
   df
 }
 
-#' Clip dose values, then compute the per-dose ITIS (sigmoid) score for a
+#' @title compute_dose_ITIS_scores
+#' @description Clip dose values, then compute the per-dose ITIS (sigmoid) score for a
 #' whole run of doses (1..max(doses)), creating <prefix>_dose<n>_ISI_score.
+#' @param df dataframe
+#' @param prefix prefix
+#' @param doses doses
+#' @param clip_lower clip lower
+#' @param clip_upper clip upper
+#' @param sp sp
+#'  
 compute_dose_ITIS_scores <- function(df, prefix, doses, clip_lower, clip_upper, sp) {
   for (n in doses) {
     value_col <- paste0(prefix, "_", n, "_dose_value")
