@@ -2,10 +2,16 @@
 % Please edit documentation in R/isi_score_function_pipeline.R
 \name{reorder_iv_columns}
 \alias{reorder_iv_columns}
-\title{Reorder columns so each dose block (date, value, and optional vanish columns) sits together in
-ascending dose-number order, matching reorder_*_columns() in the notebook.}
+\title{reorder_iv_columns}
 \usage{
 reorder_iv_columns(df, prefix, extra_suffixes = character(0))
+}
+\arguments{
+\item{df}{dataframe}
+
+\item{prefix}{prefix}
+
+\item{extra_suffixes}{extra suffixes}
 }
 \description{
 Reorder columns so each dose block (date, value, and optional vanish columns) sits together in
