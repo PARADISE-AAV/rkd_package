@@ -18,5 +18,8 @@ update_iv_doses(df, prefix, base_dose, target_dose, max_days)
 \item{max_days}{max days}
 }
 \description{
-update_iv_doses
+Combine two adjacent doses into one, per patient, when they occurred
+within \code{max_days} of each other: the target dose's date/value are folded
+into the base dose (summed), and the target columns are blanked.
+Direct translation of update_mtp_doses / update_cyc_doses / update_rtx_doses.
 }
