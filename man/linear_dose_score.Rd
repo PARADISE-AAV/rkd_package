@@ -2,11 +2,20 @@
 % Please edit documentation in R/isi_score_function_pipeline.R
 \name{linear_dose_score}
 \alias{linear_dose_score}
-\title{Linear dose->score mapping used for Aza / MMF / Methotrexate:
-score = min_score for dose<=min_dose, max_score for dose>=max_dose,
-linear in between.}
+\title{linear_dose_score}
 \usage{
 linear_dose_score(dose, min_dose, max_dose, min_score, max_score)
+}
+\arguments{
+\item{dose}{dataframe}
+
+\item{min_dose}{minimal dose}
+
+\item{max_dose}{maximal dose}
+
+\item{min_score}{minimal score}
+
+\item{max_score}{maximal score}
 }
 \description{
 Linear dose->score mapping used for Aza / MMF / Methotrexate:
