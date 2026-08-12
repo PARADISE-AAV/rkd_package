@@ -2,16 +2,21 @@
 % Please edit documentation in R/isi_score_function_pipeline.R
 \name{update_iv_doses}
 \alias{update_iv_doses}
-\title{Combine two adjacent doses into one, per patient, when they occurred
-within \code{max_days} of each other: the target dose's date/value are folded
-into the base dose (summed), and the target columns are blanked.
-Direct translation of update_mtp_doses / update_cyc_doses / update_rtx_doses.}
+\title{update_iv_doses}
 \usage{
 update_iv_doses(df, prefix, base_dose, target_dose, max_days)
 }
+\arguments{
+\item{df}{dataframe}
+
+\item{prefix}{prefix}
+
+\item{base_dose}{dose of base}
+
+\item{target_dose}{target dose}
+
+\item{max_days}{max days}
+}
 \description{
-Combine two adjacent doses into one, per patient, when they occurred
-within \code{max_days} of each other: the target dose's date/value are folded
-into the base dose (summed), and the target columns are blanked.
-Direct translation of update_mtp_doses / update_cyc_doses / update_rtx_doses.
+update_iv_doses
 }
