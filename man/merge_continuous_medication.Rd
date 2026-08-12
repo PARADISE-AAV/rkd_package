@@ -2,12 +2,18 @@
 % Please edit documentation in R/isi_score_function_pipeline.R
 \name{merge_continuous_medication}
 \alias{merge_continuous_medication}
-\title{Attach a drug's Start.Date / Stop.Date / dose-related columns onto the
-visit-level data for the (single) episode active at each visit
-(Start.Date < Date_Of_Visit <= Stop.Date), then forward-fill Stop.Date
-per patient and compute the day-interval since that stop date.}
+\title{merge_continuous_medication}
 \usage{
 merge_continuous_medication(visits, conmed, drug_name, prefix)
+}
+\arguments{
+\item{visits}{Encounter frame}
+
+\item{conmed}{Continuous medication frame}
+
+\item{drug_name}{Drug Name}
+
+\item{prefix}{Prefix of column name}
 }
 \description{
 Attach a drug's Start.Date / Stop.Date / dose-related columns onto the
