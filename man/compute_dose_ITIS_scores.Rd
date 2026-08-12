@@ -2,10 +2,22 @@
 % Please edit documentation in R/isi_score_function_pipeline.R
 \name{compute_dose_ITIS_scores}
 \alias{compute_dose_ITIS_scores}
-\title{Clip dose values, then compute the per-dose ITIS (sigmoid) score for a
-whole run of doses (1..max(doses)), creating \if{html}{\out{<prefix>}}_dose\if{html}{\out{<n>}}_ISI_score.}
+\title{compute_dose_ITIS_scores}
 \usage{
 compute_dose_ITIS_scores(df, prefix, doses, clip_lower, clip_upper, sp)
+}
+\arguments{
+\item{df}{dataframe}
+
+\item{prefix}{prefix}
+
+\item{doses}{doses}
+
+\item{clip_lower}{clip lower}
+
+\item{clip_upper}{clip upper}
+
+\item{sp}{sp}
 }
 \description{
 Clip dose values, then compute the per-dose ITIS (sigmoid) score for a
