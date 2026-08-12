@@ -2,10 +2,16 @@
 % Please edit documentation in R/isi_score_function_pipeline.R
 \name{merge_visits_with_iv}
 \alias{merge_visits_with_iv}
-\title{Merge the wide dose table onto the visit-level data, blanking any dose
-that has not yet occurred as of that visit (dose_date must be < visit date).}
+\title{merge_visits_with_iv}
 \usage{
 merge_visits_with_iv(visits, wide, prefix)
+}
+\arguments{
+\item{visits}{encounter dataframe}
+
+\item{wide}{wide}
+
+\item{prefix}{prefix}
 }
 \description{
 Merge the wide dose table onto the visit-level data, blanking any dose
