@@ -225,7 +225,9 @@ apply_rename_plan <- function(df, prefix, rename_map) {
   df
 }
 
-#' Drop columns that are entirely NA (mirrors df.dropna(axis=1, how='all'))
+#' @title drop_all_na_columns
+#' @description Drop columns that are entirely NA (mirrors df.dropna(axis=1, how='all'))
+#' @param df dataframe
 drop_all_na_columns <- function(df) {
   df[, colSums(!is.na(df)) > 0, drop = FALSE]
 }
