@@ -145,10 +145,17 @@ reorder_iv_columns <- function(df, prefix, extra_suffixes = character(0)) {
   df[, c(core_cols, dose_blocks, other_cols)]
 }
 
-#' Combine two adjacent doses into one, per patient, when they occurred
+#' @title update_iv_doses
+#' @descriptio Combine two adjacent doses into one, per patient, when they occurred
 #' within `max_days` of each other: the target dose's date/value are folded
 #' into the base dose (summed), and the target columns are blanked.
 #' Direct translation of update_mtp_doses / update_cyc_doses / update_rtx_doses.
+#' @param df dataframe
+#' @param prefix prefix
+#' @param base_dose dose of base
+#' @param target_dose target dose
+#' @param max_days max days
+#' 
 update_iv_doses <- function(df, prefix, base_dose, target_dose, max_days) {
   base_date   <- paste0(prefix, "_", base_dose,   "_dose_date")
   target_date <- paste0(prefix, "_", target_dose, "_dose_date")
