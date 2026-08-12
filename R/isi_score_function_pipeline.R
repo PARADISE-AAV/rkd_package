@@ -281,10 +281,16 @@ compute_dose_ITIS_scores <- function(df, prefix, doses, clip_lower, clip_upper, 
 #    prescription episode: RKD.ID, Drug, Start.Date, Stop.Date, Dose, ...
 # -----------------------------------------------------------------------------
 
-#' Attach a drug's Start.Date / Stop.Date / dose-related columns onto the
+#' @title merge_continuous_medication
+#' @description Attach a drug's Start.Date / Stop.Date / dose-related columns onto the
 #' visit-level data for the (single) episode active at each visit
 #' (Start.Date < Date_Of_Visit <= Stop.Date), then forward-fill Stop.Date
 #' per patient and compute the day-interval since that stop date.
+#' @param visits Encounter frame
+#' @param conmed Continuous medication frame
+#' @param drug_name Drug Name
+#' @param prefix Prefix of column name
+#' 
 merge_continuous_medication <- function(visits, conmed, drug_name, prefix) {
   drug_df <- conmed %>%
     filter(Drug == drug_name) %>%
