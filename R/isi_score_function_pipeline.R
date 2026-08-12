@@ -230,7 +230,12 @@ drop_all_na_columns <- function(df) {
   df[, colSums(!is.na(df)) > 0, drop = FALSE]
 }
 
-#' Days between visit and each remaining dose date, clipped at 0.
+#' @title compute_days_since_dose
+#' @description Days between visit and each remaining dose date, clipped at 0.
+#' @param df dataframe
+#' @param prefix prefix
+#' @param doses doses
+#' 
 compute_days_since_dose <- function(df, prefix, doses) {
   for (n in doses) {
     dc <- paste0(prefix, "_", n, "_dose_date")
