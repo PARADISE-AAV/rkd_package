@@ -332,9 +332,15 @@ merge_continuous_medication <- function(visits, conmed, drug_name, prefix) {
   visits
 }
 
-#' Linear dose->score mapping used for Aza / MMF / Methotrexate:
+#' @description Linear dose->score mapping used for Aza / MMF / Methotrexate:
 #' score = min_score for dose<=min_dose, max_score for dose>=max_dose,
 #' linear in between.
+ #' @title linear_dose_score
+#' @param dose dataframe 
+#' @param min_dose minimal dose
+#' @param max_dose maximal dose
+#' @param min_score minimal score
+#' @param max_score maximal score
 linear_dose_score <- function(dose, min_dose, max_dose, min_score, max_score) {
   score <- ifelse(dose <= min_dose, min_score,
             ifelse(dose >= max_dose, max_score,
