@@ -7,11 +7,11 @@
 cumulative_ITIS(df, cols, out_col)
 }
 \arguments{
-\item{df}{}
+\item{df}{dataframe}
 
-\item{cols}{}
+\item{cols}{column}
 
-\item{out_col}{}
+\item{out_col}{output column}
 }
 \description{
 Cumulative "1 - prod(1 - x_i)" combination rule used everywhere in the
