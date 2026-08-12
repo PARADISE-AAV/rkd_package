@@ -105,8 +105,13 @@ pivot_iv_wide <- function(iv_drug, prefix) {
   full_join(wide_date, wide_value, by = "RKD.ID")
 }
 
-#' Merge the wide dose table onto the visit-level data, blanking any dose
+#' @title merge_visits_with_iv
+#' @description Merge the wide dose table onto the visit-level data, blanking any dose
 #' that has not yet occurred as of that visit (dose_date must be < visit date).
+#' @param visits encounter dataframe 
+#' @param wide wide
+#' @param prefix prefix
+#' 
 merge_visits_with_iv <- function(visits, wide, prefix) {
   df <- visits %>% mutate(Date_Of_Visit = as.Date(Date_Of_Visit))
   df <- left_join(df, wide, by = "RKD.ID")
