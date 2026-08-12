@@ -2,9 +2,16 @@
 % Please edit documentation in R/isi_score_function_pipeline.R
 \name{compute_days_since_dose}
 \alias{compute_days_since_dose}
-\title{Days between visit and each remaining dose date, clipped at 0.}
+\title{compute_days_since_dose}
 \usage{
 compute_days_since_dose(df, prefix, doses)
+}
+\arguments{
+\item{df}{dataframe}
+
+\item{prefix}{prefix}
+
+\item{doses}{doses}
 }
 \description{
 Days between visit and each remaining dose date, clipped at 0.
