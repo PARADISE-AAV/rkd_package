@@ -58,9 +58,9 @@ build_sigmoid_params <- function(A1, A2, dose1, dose2, d1, d2, vanish1, vanish2)
 #' @title cumulative_ITIS
 #' @description Cumulative "1 - prod(1 - x_i)" combination rule used everywhere in the
 #' notebook to combine several ITIS components into one score.
-#' @param df  
-#' @param cols 
-#' @param out_col 
+#' @param df  dataframe
+#' @param cols column
+#' @param out_col output column
 #' 
 cumulative_ITIS <- function(df, cols, out_col) {
   cols <- intersect(cols, names(df))
