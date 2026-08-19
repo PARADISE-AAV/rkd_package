@@ -602,8 +602,8 @@ run_prednisolone_pipeline <- function(df) {
     "> 20 mg/day"   = 0.75
   )
   df$Prednisolone_ISI_score <- 0
-  mask <- !is.na(df$corticosteroid_dose)
-  df$Prednisolone_ISI_score[mask] <- unname(itis_map[df$corticosteroid_dose[mask]])
+  mask <- !is.na(df$Current.corticosteroid.dose)
+  df$Prednisolone_ISI_score[mask] <- unname(itis_map[df$Current.corticosteroid.dose[mask]])
 
   # if a high-enough IV methylprednisolone dose was given, oral steroid
   # contribution is zeroed out for that visit
@@ -729,7 +729,7 @@ run_avacopan_pipeline <- function(df) {
 #' Run the full ISI-score pipeline.
 #'
 #' @param data1  visit-level clinical data (one row per RKD.ID + Date_Of_Visit),
-#'   must already contain: corticosteroid_dose, "Dose_Cyclophosphamide - UATC/L01AA01",
+#'   must already contain: Current.corticosteroid.dose, "Dose_Cyclophosphamide - UATC/L01AA01",
 #'   "Dose_Azathioprine - UATC/L04AX01", "Dose_Mycophenolate mofetil - UATC/L04AA06",
 #'   "Dose_Methotrexate - UATC/L01BA01", meth_Stop.Date, "Drug_Avacopan (C5aR inhibitor)"
 #'   (these are produced by an earlier data-cleaning stage not included in this notebook).
