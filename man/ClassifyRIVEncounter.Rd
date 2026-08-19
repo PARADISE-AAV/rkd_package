@@ -13,7 +13,9 @@ ClassifyRIVEncounter(
   IV_data = NULL,
   nb_month = 24,
   nb_day = 730,
-  Renal = NULL
+  Renal = NULL,
+  ConMed_data = NULL,
+  IVTherapy_data = NULL
 )
 }
 \arguments{
@@ -34,6 +36,10 @@ ClassifyRIVEncounter(
 \item{nb_day}{{"name": "nb_day","desc": "Number of days out of treatment for the CPD LTROT Current function","options": (),"type": "numeric"}}
 
 \item{Renal}{{"name": "Renal","desc": "RIV data from \code{\link{CPD_Renal}} function","options": (),"type": "file"}}
+
+\item{ConMed_data}{Continuous Medication data from \code{\link{CPD_Continuous_Medication_interval}} function}
+
+\item{IVTherapy_data}{IV Therapy data from \code{\link{CPD_IVTherapy_interval}} function}
 }
 \value{
 The Redcap data with the classification variables in your folder and in an R object
@@ -51,7 +57,7 @@ This function allows you to call one of  multiple functions to create a classifi
 \item \code{\link{CPD_ANCA}} tells us the switch of ANCA from one Encounter to the other.
 \item \code{\link{CPD_Treatment}} tells us which treatment is used at each encounter. To be use after \code{\link{CPD_Treatment_OnOff}}
 \item \code{\link{CPD_LTROT_current}} tells us if an Encounter is a LTROT
-\item \code{\link{CPD_Kidney_function}} tells us the status of the Kideney function
+\item \code{\link{CPD_Kidney_function}} tells us the status of the Kidney function
 }
 }
 \author{
