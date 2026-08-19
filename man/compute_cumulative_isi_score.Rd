@@ -4,7 +4,7 @@
 \alias{compute_cumulative_isi_score}
 \title{Run the full ISI-score pipeline.}
 \usage{
-compute_cumulative_isi_score(data1, IV, conmed, output_csv)
+compute_cumulative_isi_score(data1, IV, conmed)
 }
 \arguments{
 \item{data1}{visit-level clinical data (one row per RKD.ID + Date_Of_Visit),
@@ -18,8 +18,6 @@ Dose.of.IV.therapy, Unit.of.dose, ...)}
 
 \item{conmed}{long-format continuous-medication extract (RKD.ID, Drug, Start.Date,
 Stop.Date, Dose, Unit.of.Doses, Frequency, On.going, ...)}
-
-\item{output_csv}{Folder where the file is saved}
 }
 \value{
 data1 with one row per visit and a final "Cumulative_ISI_score_base" column
