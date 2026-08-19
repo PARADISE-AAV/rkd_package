@@ -747,7 +747,7 @@ run_avacopan_pipeline <- function(df) {
 #' @import stringr
 #' @import zoo
 #' 
-compute_cumulative_isi_score <- function(data1, IV, conmed) {
+compute_cumulative_isi_score_base <- function(data1, IV, conmed) {
 
   data1 <- data1 %>% rename(Date_Of_Visit = any_of(c("Date.Of.Visit", "Date_Of_Visit")))
   IV <- IV %>%
