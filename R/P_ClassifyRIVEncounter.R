@@ -12,6 +12,8 @@
 #' @param nb_month {"name": "nb_month","desc": "Number of month out of treatment for the CPD LTROT function","options": (),"type": "numeric"}
 #' @param nb_day {"name": "nb_day","desc": "Number of days out of treatment for the CPD LTROT Current function","options": (),"type": "numeric"}
 #' @param Renal {"name": "Renal","desc": "RIV data from \code{\link{CPD_Renal}} function","options": (),"type": "file"}
+#' @param ConMed_data Continuous Medication data from \code{\link{CPD_Continuous_Medication_interval}} function
+#' @param IVTherapy_data IV Therapy data from \code{\link{CPD_IVTherapy_interval}} function
 #' @return The Redcap data with the classification variables in your folder and in an R object 
 #' @details This function allows you to call one of  multiple functions to create a classification variable for each RKD encounter. The possible functions each create one new variable
 #' * \code{\link{CPDRelapse}} tells us if an encounter is in relapse or not based on rules and models 
@@ -21,10 +23,10 @@
 #' * \code{\link{CPD_ANCA}} tells us the switch of ANCA from one Encounter to the other.
 #' * \code{\link{CPD_Treatment}} tells us which treatment is used at each encounter. To be use after \code{\link{CPD_Treatment_OnOff}}
 #' * \code{\link{CPD_LTROT_current}} tells us if an Encounter is a LTROT
-#' * \code{\link{CPD_Kidney_function}} tells us the status of the Kideney function
+#' * \code{\link{CPD_Kidney_function}} tells us the status of the Kidney function
 #' 
 #' @export
-ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_from_diagnostics=180, CM_data=NULL, IV_data=NULL, nb_month=24, nb_day=730, Renal=NULL) {
+ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_from_diagnostics=180, CM_data=NULL, IV_data=NULL, nb_month=24, nb_day=730, Renal=NULL, ConMed_data=NULL, IVTherapy_data=NULL) {
   ####Test on the argument
   if (is.data.frame(RKDdata) == FALSE) {
     stop("The argument RKDdata need to be a dataframe argument")
@@ -88,6 +90,7 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_
     Classify_RKD_Vasc_Gran <- CPD_vasc_vs_gran(Classify_RKD_LTROT_Encounter)
     Classify_RKD_TreatmentSwitch <- CPD_treatment_discontunition(Classify_RKD_Vasc_Gran)
     Classify_RKD_data <- CPD_Kidney_function(Classify_RKD_TreatmentSwitch, Renal)
+    Classify_RKD_data_ISI_base <-compute_cumulative_isi_score(Classify_rkd_All, IVTherapy_data, ConMed_data)
    
   }
 
