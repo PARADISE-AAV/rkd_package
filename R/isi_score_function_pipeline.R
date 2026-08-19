@@ -737,7 +737,6 @@ run_avacopan_pipeline <- function(df) {
 #'   Dose.of.IV.therapy, Unit.of.dose, ...)
 #' @param conmed long-format continuous-medication extract (RKD.ID, Drug, Start.Date,
 #'   Stop.Date, Dose, Unit.of.Doses, Frequency, On.going, ...)
-#' @param output_csv Folder where the file is saved
 #'
 #' @return data1 with one row per visit and a final "Cumulative_ISI_score_base" column
 #'   (plus every intermediate *_ISI_score component, for auditing).
@@ -748,7 +747,7 @@ run_avacopan_pipeline <- function(df) {
 #' @import stringr
 #' @import zoo
 #' 
-compute_cumulative_isi_score <- function(data1, IV, conmed, output_csv) {
+compute_cumulative_isi_score <- function(data1, IV, conmed) {
 
   data1 <- data1 %>% rename(Date_Of_Visit = any_of(c("Date.Of.Visit", "Date_Of_Visit")))
   IV <- IV %>%
@@ -786,15 +785,7 @@ compute_cumulative_isi_score <- function(data1, IV, conmed, output_csv) {
 
   df
   
-  if (!is.null(output_csv)) {
-    output_filename <- file.path(
-      output_csv,
-      paste0('Redcap_clinical_ISI_score', "_version", packageVersion('rivpipeline'), "_Date"
-             , Sys.Date(), '.csv')
-    )
-    write.csv(df, output_filename, row.names = FALSE)
-    message("Results saved to: ", output_filename)
-  }
+  
 }
 
 # -----------------------------------------------------------------------------
