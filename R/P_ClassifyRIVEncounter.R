@@ -102,7 +102,7 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_
   output_filename <- file.path(output_path,
     paste0("Redcap_clinical_data_with-classification", "_version", packageVersion('rivpipeline'), "_Date", Sys.Date(), ".csv"))
 
-  write.csv(Classify_RKD_data, output_filename, row.names = FALSE)
-  return(Classify_RKD_data)
+  write.csv(Classify_RKD_data_ISI_base, output_filename, row.names = FALSE)
+  return(Classify_RKD_data_ISI_base)
 
 }
