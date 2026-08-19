@@ -8,7 +8,7 @@ compute_cumulative_isi_score(data1, IV, conmed, output_csv)
 }
 \arguments{
 \item{data1}{visit-level clinical data (one row per RKD.ID + Date_Of_Visit),
-must already contain: corticosteroid_dose, "Dose_Cyclophosphamide - UATC/L01AA01",
+must already contain: Current.corticosteroid.dose, "Dose_Cyclophosphamide - UATC/L01AA01",
 "Dose_Azathioprine - UATC/L04AX01", "Dose_Mycophenolate mofetil - UATC/L04AA06",
 "Dose_Methotrexate - UATC/L01BA01", meth_Stop.Date, "Drug_Avacopan (C5aR inhibitor)"
 (these are produced by an earlier data-cleaning stage not included in this notebook).}
