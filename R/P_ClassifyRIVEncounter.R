@@ -34,7 +34,7 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_
   if (is.character(output_path) == FALSE) {
     stop("The argument output_path need to be a character argument")
   }
-  algorithm <- match.arg(algorithm, c( 'Paradise_Encounter', "CPD Relapse", "Treatment On/Off", "CPD LTROT", "CPD ANCA","CPD Treatment","CPD LTROT current", "All", "CPD Kidney function"))
+  algorithm <- match.arg(algorithm, c( 'Paradise_Encounter', "CPD Relapse", "Treatment On/Off", "CPD LTROT", "CPD ANCA","CPD Treatment","CPD LTROT current", "All", "CPD Kidney function", "All without ISI"))
 
   RKD_data <- RKDdata
   ###check that you load a real file
@@ -75,6 +75,25 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_
     Classify_RKD_data <- CPD_Kidney_function(RKD_data, Renal)
   }
   
+  if(algorithm ==  "All without ISI"){
+    Classify_RKD_CPD_Relapse <- CPDRelapse(RKD_data, interval_from_diagnostics)
+    Classify_RKD_Paradise_encounter <- Paradise_Encounter(Classify_RKD_CPD_Relapse, interval_from_diagnostics)
+    Classify_RKD_Treatment_OnOff <- CPD_Treatment_OnOff(IV_data, CM_data, Classify_RKD_Paradise_encounter)
+    Classify_RKD_Treatment_list <- CPD_Treatment(Classify_RKD_Treatment_OnOff)
+    Classify_RKD_Treatment_list_plus <- CPD_immunosup_med(Classify_RKD_Treatment_list)
+    Classify_RKD_Corticosteroid <- CPD_Corticosteroids_on_off(Classify_RKD_Treatment_list_plus)
+    Classify_RKD_LTROT_patient <- CPD_LTROT(Classify_RKD_Corticosteroid, nb_month)
+    Classify_RKD_ANCA <- CPD_ANCA(Classify_RKD_LTROT_patient)
+    colnames(Classify_RKD_ANCA)[which(colnames(Classify_RKD_ANCA)=="Date_Last_Follow_up.x")]="Date_Last_Follow_up"
+    Classify_RKD_ANCA_kinetic <- CPD_ANCA_kinetics(Classify_RKD_ANCA)
+    Classify_RKD_LTROT_Encounter <- CPD_LTROT_current(Classify_RKD_ANCA_kinetic, nb_day)
+    Classify_RKD_Vasc_Gran <- CPD_vasc_vs_gran(Classify_RKD_LTROT_Encounter)
+    Classify_RKD_TreatmentSwitch <- CPD_treatment_discontunition(Classify_RKD_Vasc_Gran)
+    Classify_RKD_data <- CPD_Kidney_function(Classify_RKD_TreatmentSwitch, Renal)
+    #Classify_RKD_data_ISI_base <-compute_cumulative_isi_score_base(Classify_RKD_data, IVTherapy_data, ConMed_data)
+    Classify_RKD_data_ISI_base<-Classify_RKD_data
+  }
+  
   if(algorithm ==  "All"){
     Classify_RKD_CPD_Relapse <- CPDRelapse(RKD_data, interval_from_diagnostics)
     Classify_RKD_Paradise_encounter <- Paradise_Encounter(Classify_RKD_CPD_Relapse, interval_from_diagnostics)
@@ -90,8 +109,8 @@ ClassifyRIVEncounter = function(RKDdata, output_path, algorithm="All", interval_
     Classify_RKD_Vasc_Gran <- CPD_vasc_vs_gran(Classify_RKD_LTROT_Encounter)
     Classify_RKD_TreatmentSwitch <- CPD_treatment_discontunition(Classify_RKD_Vasc_Gran)
     Classify_RKD_data <- CPD_Kidney_function(Classify_RKD_TreatmentSwitch, Renal)
-    Classify_RKD_data_ISI_base <-compute_cumulative_isi_score_base(Classify_RKD_data, IVTherapy_data, ConMed_data)
-   
+    #Classify_RKD_data_ISI_base <-compute_cumulative_isi_score_base(Classify_RKD_data, IVTherapy_data, ConMed_data)
+    Classify_RKD_data_ISI_base<-Classify_RKD_data
   }
 
   files_test <-  list.dirs(output_path)
