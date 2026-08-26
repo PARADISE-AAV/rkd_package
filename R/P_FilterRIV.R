@@ -84,7 +84,7 @@ FilterRIV = function(RKDdata, output_path, algorithm) {
     Filter_RKD_data <- rbind(Filter_RKD_data, Filter_RKD_data1)
   }
   if (is.element("Disease Control", algorithm)) {
-    Filter_RKD_data1 <- RKD_data[which(RKD_data$Type.of.Patient=="Other Disease")]
+    Filter_RKD_data1 <- RKD_data[which(RKD_data$Type.of.Patient=="Other Disease"),]
     Filter_RKD_data <- rbind(Filter_RKD_data, Filter_RKD_data1)
   }
   
