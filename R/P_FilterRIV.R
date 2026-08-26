@@ -9,7 +9,7 @@
 #'
 #' @param RKDdata {"name": "rkd_data","desc": "RIV data from \code{\link{SplitRIV_dataframe}} function","options": (),"type": "file"}
 #' @param output_path {"name": "output_path","desc": "folder where the Redcap data will be saved","options": (),"type": "string"}
-#' @param algorithm {"name": "algorithm","desc": "function use to filter the RKD patient","options": ("Definite GPA", "Definite MPA", "Definite EGPA", "Anti-GBM", "Double positive", "Healthy Control", "IgA", "Cryoglobulinemic"),"type": "string"}
+#' @param algorithm {"name": "algorithm","desc": "function use to filter the RKD patient","options": ("Definite GPA", "Definite MPA", "Definite EGPA", "Anti-GBM", "Double positive", "Healthy Control", "IgA", "Cryoglobulinemic", "Disease Control"),"type": "string"}
 #' @return The Redcap data with the classification variables in your folder and in an R object 
 #' @details 
 #' The filter of the RKD data are based on the following filter. The filter are define in the following document, [Filter_criteria](https://3.basecamp.com/3790396/buckets/31062049/google_documents/8110318588)
@@ -39,6 +39,7 @@ FilterRIV = function(RKDdata, output_path, algorithm) {
   RKD_data$IgA <- 0
   RKD_data$Cryoglobulinemic <- 0
   RKD_data$HC <- 0
+  
   
   Filter_RKD_data <- NULL
   
@@ -80,6 +81,10 @@ FilterRIV = function(RKDdata, output_path, algorithm) {
   if (is.element("Cryoglobulinemic", algorithm)) {
     Filter_RKD_data1 <- Cryoglobulinemic(RKD_data)
     Filter_RKD_data1$Cryoglobulinemic <- 1
+    Filter_RKD_data <- rbind(Filter_RKD_data, Filter_RKD_data1)
+  }
+  if (is.element("Disease Control", algorithm)) {
+    Filter_RKD_data1 <- RKD_data[which(RKD_data$Type.of.Patient=="Other Disease")]
     Filter_RKD_data <- rbind(Filter_RKD_data, Filter_RKD_data1)
   }
   
