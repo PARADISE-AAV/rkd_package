@@ -429,7 +429,7 @@ run_mtp_pipeline <- function(data1, IV) {
   df <- apply_combine_plan(df, "mtp", combine_plan)
   df <- drop_all_na_columns(df)
 
-  df <- apply_rename_plan(df, "mtp", list(c(10,6), c(13,7)))
+  df <- apply_rename_plan(df, "mtp", list(c(10,9), c(13,10)))
   df <- update_iv_doses(df, "mtp", base_dose = 6, target_dose = 7, max_days = 30)
   df <- drop_all_na_columns(df)
 
