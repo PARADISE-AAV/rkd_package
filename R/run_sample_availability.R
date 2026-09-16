@@ -29,17 +29,18 @@
 #'   uses \code{write.csv()}, \code{".xlsx"} uses \code{writexl::write_xlsx()}.
 #'   If \code{NULL} (default), nothing is written and only the data frame is
 #'   returned.
+#'@param RIV Clinical output
 #'
 #' @return A data.frame: the final merged Sample Availability dataset.
 #' @import dplyr
 #' @import tidyr
 #' @import writexl
 #' @export
-run_sample_availability <- function(output_path = NULL) {
+run_sample_availability <- function(RIV, output_path = NULL) {
 
 
   ## ---- Hardcoded paths (mirrors Sample_Availability_Function.Rmd) --------
-  pipeline_file <- "C:/Users/DOGAYY/OneDrive - Trinity College Dublin/Yagmur Dogay/Yagmur_2024/Pipeline_Export_Files/November 2025/Redcap_clinical_data_with-classification_version0.0.3.310_Date2025-11-04_potential_additional_LTROT.csv"
+ 
 
   fw_path <- "C:/Users/DOGAYY/OneDrive - Trinity College Dublin/Freezerworks exports/Freezerworks Exports"
 
@@ -50,7 +51,7 @@ run_sample_availability <- function(output_path = NULL) {
 
   ## ---- Step 1: Clinical data + diagnosis/criteria -------------------------
   message("Step 1/7: Reading clinical data and assigning diagnosis...")
-  riv <- read.csv(pipeline_file)
+  riv <- RIV
   riv_processed <- assign_diagnosis(riv)
 
   ## ---- Step 2: ParadiseBiobank files ---------------------------------------
