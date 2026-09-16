@@ -7,10 +7,12 @@
 #'
 #' @import dplyr
 #' @import tidyr
+#' @import writexl
 #' @param data Data frame containing RIV datasets with unique aliquots
 #'             columns (e.g., PLASMA_RIV_unique_aliquots_1_Specimen.type)
 #' @return Data frame with added columns:
 #'         PLASMA_RIV_ParadiseBiobank_FW, SERUM_RIV_ParadiseBiobank_FW, URINE_RIV_ParadiseBiobank_FW
+#' @export
 
 
 
