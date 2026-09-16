@@ -24,7 +24,7 @@ Runs the full Sample Availability pipeline end-to-end, mirroring
 \code{criteria_1} columns (\code{\link{assign_diagnosis}}).
 \item Read the four ParadiseBiobank files.
 \item Load the Freezerworks (FW) exports and combine each with its
-matching Biobank dataset (\code{\link{prepare_fw_datasets}}).
+matching Biobank dataset (\code{prepare_fw_datasets}).
 \item Link every FW/Biobank dataset to the clinical data
 (\code{\link{link_fw_samples}}).
 \item Keep the top 4 aliquots per encounter
