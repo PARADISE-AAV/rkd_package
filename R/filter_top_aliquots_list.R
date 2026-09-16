@@ -20,6 +20,8 @@
 #'
 #' @import dplyr
 #' @import tidyr
+#' @import writexl
+#' @export
 
 
 
