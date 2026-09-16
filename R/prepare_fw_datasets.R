@@ -11,6 +11,7 @@
 #' - FW data alone is stored with suffix \code{_1}
 #' - Combined FW + Biobank data is stored with suffix \code{_2}
 #' @import dplyr
+#' @import tidyr
 #' @param fw_list A named list of FW data frames (already loaded).
 #' @param biobank_list Optional named list of Paradise_Biobank data frames with matching names.
 #'
