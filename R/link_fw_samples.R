@@ -10,7 +10,8 @@
 #' @param fw_list Named list of processed FW datasets. Names should match the sample types.
 #' @param RKD_data Clinical Data
 #' @param temp_dir Optional character string for temporary files. Defaults to R's `tempdir()`.
-#'
+#' @import dplyr
+#' @import tidyr
 #' @return Named list of linked datasets. Each element corresponds to a sample type
 #'   and contains the result of `FindFWSample`.
 
