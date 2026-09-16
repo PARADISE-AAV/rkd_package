@@ -36,8 +36,6 @@
 #' @export
 run_sample_availability <- function(output_path = NULL) {
 
-  library(dplyr)
-  library(tidyr)
 
   ## ---- Hardcoded paths (mirrors Sample_Availability_Function.Rmd) --------
   pipeline_file <- "C:/Users/DOGAYY/OneDrive - Trinity College Dublin/Yagmur Dogay/Yagmur_2024/Pipeline_Export_Files/November 2025/Redcap_clinical_data_with-classification_version0.0.3.310_Date2025-11-04_potential_additional_LTROT.csv"
