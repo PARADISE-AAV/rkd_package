@@ -6,6 +6,7 @@
 #' Process clinical data with an aliquot dataset
 #' @import dplyr
 #' @import tidyr
+#' @import writexl
 #' @description
 #' This function merges an aliquot dataset (other_data) into the main dataset (main_data) by RKD.ID and Date.Of.Visit.
 #' It also reshapes the aliquot dataset into wide format with dynamic column names.
@@ -15,6 +16,7 @@
 #' @param other_data_name A string representing the prefix name to use for new columns (e.g., "DNA_RIV").
 #'
 #' @return A data.frame or tibble where main_data is augmented with the reshaped aliquot columns from other_data.
+#' @export
 
 
 
