@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_paradisebiobank_files.R
 \name{read_paradisebiobank_files}
 \alias{read_paradisebiobank_files}
-\title{Read multiple Paradise/Biobank files and store as variables}
+\title{Read Paradise biobank file}
 \usage{
 read_paradisebiobank_files(files)
 }
