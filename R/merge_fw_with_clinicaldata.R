@@ -26,8 +26,6 @@
 
 
 merge_fw_with_clinicaldata <- function(main_data, other_data, other_data_name) {
-  library(dplyr)
-  library(tidyr)
   
   # Step 1: Calculate the maximum number of aliquots per encounter
   max_aliquots <- other_data %>%
