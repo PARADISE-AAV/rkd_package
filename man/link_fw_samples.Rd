@@ -13,11 +13,12 @@ link_fw_samples(samples, fw_list, RKD_data, temp_dir = tempdir())
 
 \item{RKD_data}{Clinical Data}
 
-\item{temp_dir}{Optional character string for temporary files. Defaults to R's \code{tempdir()}.}
+\item{temp_dir}{Optional character string for temporary files. Defaults to R's tempdir.}
 }
 \value{
 Named list of linked datasets. Each element corresponds to a sample type
-and contains the result of \code{FindFWSample}.
+and contains the result of \code{\link{FindFWSample}}.
+@export
 }
 \description{
 link_fw_samples
@@ -26,7 +27,7 @@ link_fw_samples
 Yagmur Dogay
 Link FW datasets to a reference frame using FindFWSample
 
-This function links selected FW datasets to clinical data(\code{RKD_data})
-by calling \code{FindFWSample()}. For Serum, Plasma, and Urine, the \verb{_2} datasets
+This function links selected FW datasets to clinical data(RKD_data)
+by calling \code{\link{FindFWSample}}. For Serum, Plasma, and Urine, the \verb{_2} datasets
 are automatically used if present.
 }
