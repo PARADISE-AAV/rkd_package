@@ -7,8 +7,7 @@
 assign_diagnosis(RKDdata)
 }
 \arguments{
-\item{RKDdata}{Data frame with the RKD data
-#' @import dplyr}
+\item{RKDdata}{Data frame with the RKD data}
 }
 \value{
 The input data frame with additional variables:
