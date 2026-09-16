@@ -22,6 +22,7 @@
 #'   \item \code{criteria_1_Diagnosis_Encounters}
 #'   \item \code{criteria_1}
 #' @import dplyr
+#' @import tidyr
 #' @export
 #' 
 #' 
