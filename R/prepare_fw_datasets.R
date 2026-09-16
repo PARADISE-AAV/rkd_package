@@ -12,10 +12,12 @@
 #' - Combined FW + Biobank data is stored with suffix \code{_2}
 #' @import dplyr
 #' @import tidyr
+#' @import writexl
 #' @param fw_list A named list of FW data frames (already loaded).
 #' @param biobank_list Optional named list of Paradise_Biobank data frames with matching names.
 #'
 #' @return A named list of processed data frames.
+#' @export
 
 
 
