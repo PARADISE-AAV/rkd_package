@@ -2,18 +2,20 @@
 #' @author Yagmur Dogay
 #' Link FW datasets to a reference frame using FindFWSample
 #'
-#' This function links selected FW datasets to clinical data(`RKD_data`)
-#' by calling `FindFWSample()`. For Serum, Plasma, and Urine, the `_2` datasets
+#' This function links selected FW datasets to clinical data(RKD_data)
+#' by calling \code{\link{FindFWSample}}. For Serum, Plasma, and Urine, the `_2` datasets
 #' are automatically used if present.
 #'
 #' @param samples Character vector of sample types to link (e.g., "DNA", "Serum").
 #' @param fw_list Named list of processed FW datasets. Names should match the sample types.
 #' @param RKD_data Clinical Data
-#' @param temp_dir Optional character string for temporary files. Defaults to R's `tempdir()`.
+#' @param temp_dir Optional character string for temporary files. Defaults to R's tempdir.
 #' @import dplyr
 #' @import tidyr
+#' @import writexl
 #' @return Named list of linked datasets. Each element corresponds to a sample type
-#'   and contains the result of `FindFWSample`.
+#'   and contains the result of \code{\link{FindFWSample}}.
+#'  @export
 
 
 
