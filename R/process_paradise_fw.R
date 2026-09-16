@@ -5,6 +5,8 @@
 #' Creates a new column for each specimen type indicating whether
 #' the sample comes from FW, Biobank, or both.
 #'
+#' @import dplyr
+#' @import tidyr
 #' @param data Data frame containing RIV datasets with unique aliquots
 #'             columns (e.g., PLASMA_RIV_unique_aliquots_1_Specimen.type)
 #' @return Data frame with added columns:
