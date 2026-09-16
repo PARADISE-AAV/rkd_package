@@ -2,7 +2,7 @@
 % Please edit documentation in R/prepare_fw_datasets.R
 \name{process_all_fw}
 \alias{process_all_fw}
-\title{Process All FW}
+\title{prepare_fw_datasets}
 \usage{
 process_all_fw(fw_list, biobank_list = list())
 }
