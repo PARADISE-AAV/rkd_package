@@ -33,6 +33,7 @@
 #' @return A data.frame: the final merged Sample Availability dataset.
 #' @import dplyr
 #' @import tidyr
+#' @import writexl
 #' @export
 run_sample_availability <- function(output_path = NULL) {
 
