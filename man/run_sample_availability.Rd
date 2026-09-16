@@ -4,9 +4,11 @@
 \alias{run_sample_availability}
 \title{run_sample_availability}
 \usage{
-run_sample_availability(output_path = NULL)
+run_sample_availability(RIV, output_path = NULL)
 }
 \arguments{
+\item{RIV}{Clinical output}
+
 \item{output_path}{Optional. If supplied, the final data frame is written
 to this path. The file extension determines the format: \code{".csv"}
 uses \code{write.csv()}, \code{".xlsx"} uses \code{writexl::write_xlsx()}.
