@@ -1,4 +1,4 @@
-#' Read multiple Paradise/Biobank files and store as variables
+#' @title Read Paradise biobank file
 #'
 #' @description
 #' This function reads multiple Paradise_Biobank CSV files from the specified paths
@@ -9,7 +9,8 @@
 #'   \code{list(Urine = "path/to/urine.csv", Blood = "path/to/blood.csv")}
 #'
 #' @return None. The data frames are stored in the global environment.
-#'
+#' @import dplyr
+#' @import tidyr
 #' @export
 #' 
 #' 
