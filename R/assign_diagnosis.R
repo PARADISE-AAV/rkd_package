@@ -14,6 +14,9 @@
 #' diagnosis date.
 #'
 #' @param RKDdata Data frame with the RKD data
+#' #' @import dplyr
+#' @import tidyr
+#' @import writexl
 #' @return The input data frame with additional variables:
 #' \itemize{
 #'   \item \code{Diagnosis}
@@ -22,9 +25,6 @@
 #'   \item \code{criteria_1_Paradise_Encounters}
 #'   \item \code{criteria_1_Diagnosis_Encounters}
 #'   \item \code{criteria_1}
-#' @import dplyr
-#' @import tidyr
-#' @import writexl
 #' @export
 
 
