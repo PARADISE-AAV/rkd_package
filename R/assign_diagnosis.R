@@ -1,6 +1,7 @@
 #' @title Diagnosis Type
 #' @author Yagmur Dogay
-#' @description This function processes RKD encounter data to derive a diagnosis variable and
+#' @description 
+#' This function processes RKD encounter data to derive a diagnosis variable and
 #' create encounter-level criteria for further analysis. The diagnosis is derived
 #' from disease indicator columns (DefiniteMPA, DefiniteGPA, DefiniteEGPA,
 #' AntiGBM, DoublePositive, IgA, Cryoglobulinemic). If multiple indicators are
