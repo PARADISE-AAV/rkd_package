@@ -77,7 +77,7 @@ run_sample_availability <- function(RIV, output_path = NULL) {
     fw_prefixes
   )
 
-  all_fw <- prepare_fw_datasets(fw_list, biobank_list)
+  all_fw <- process_all_fw(fw_list, biobank_list)
 
   ## ---- Step 4: Link FW datasets to clinical data ---------------------------
   message("Step 4/7: Linking FW datasets to clinical data...")
