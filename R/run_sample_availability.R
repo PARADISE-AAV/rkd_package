@@ -70,7 +70,7 @@ run_sample_availability <- function(RIV, output_path = NULL) {
   ## ---- Step 3: Load FW files, combine with Biobank -------------------------
   message("Step 3/7: Loading FW files and merging with Biobank...")
   fw_prefixes <- c("DNA_", "DNAEDTA", "DNANorm", "Serum",
-                    "Plasma", "Urine", "RNA_", "RNAPAX", "PBMC_")
+                    "Plasma", "Urine", "RNA_", "RNAPax", "PBMC_")
 
   fw_list <- setNames(
     lapply(fw_prefixes, function(p) LoadFW(fw_path, p)),
