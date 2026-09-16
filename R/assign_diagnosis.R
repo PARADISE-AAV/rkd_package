@@ -23,6 +23,7 @@
 #'   \item \code{criteria_1}
 #' @import dplyr
 #' @import tidyr
+#' @import writexl
 #' @export
 #' 
 #' 
