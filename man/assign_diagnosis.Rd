@@ -11,13 +11,6 @@ assign_diagnosis(RKDdata)
 }
 \value{
 The input data frame with additional variables:
-\itemize{
-\item \code{Diagnosis}
-\item \code{criteria_pre}
-\item \code{ID_date}
-\item \code{criteria_1_Paradise_Encounters}
-\item \code{criteria_1_Diagnosis_Encounters}
-\item \code{criteria_1}
 }
 \description{
 This function processes RKD encounter data to derive a diagnosis variable and
