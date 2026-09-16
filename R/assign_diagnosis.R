@@ -14,7 +14,7 @@
 #' diagnosis date.
 #'
 #' @param RKDdata Data frame with the RKD data
-#' #' @import dplyr
+#' @import dplyr
 #' @import tidyr
 #' @import writexl
 #' @return The input data frame with additional variables:
