@@ -1,4 +1,4 @@
-#' @title Process All FW
+#' @title prepare_fw_datasets
 #' @author Yagmur Dogay
 #' @description
 #' Process FW data and optionally combine with Biobank data
