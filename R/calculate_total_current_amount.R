@@ -8,6 +8,7 @@
 #' and sums them row-wise, creating a new column with the total amount.
 #' @import dplyr
 #' @import tidyr
+#' @import writexl
 #' @param processed_data clinical data with FW columns
 #' @param other_data_name A string representing the prefix of the dataset (e.g., "DNA_RIV", "RNA_RIV").
 #'
