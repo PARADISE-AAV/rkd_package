@@ -42,12 +42,12 @@ run_sample_availability <- function(RIV, output_path = NULL) {
   ## ---- Hardcoded paths (mirrors Sample_Availability_Function.Rmd) --------
  
 
-  fw_path <- "C:/Users/DOGAYY/OneDrive - Trinity College Dublin/Freezerworks exports/Freezerworks Exports"
+  fw_path <- "C:/Users/coqm/OneDrive - Trinity College Dublin/Freezerworks exports/Freezerworks Exports"
 
-  file_path_mini_serum   <- "C:/Users/DOGAYY/OneDrive - Trinity College Dublin/Yagmur Dogay/Yagmur_2024/MiniBiobank/ParadiseBiobank/ParadiseBiobank_Serum_10032025.csv"
-  file_path_mini_plasma  <- "C:/Users/DOGAYY/OneDrive - Trinity College Dublin/Yagmur Dogay/Yagmur_2024/MiniBiobank/ParadiseBiobank/ParadiseBiobank_Plasma_10032025.csv"
-  file_path_mini_urine   <- "C:/Users/DOGAYY/OneDrive - Trinity College Dublin/Yagmur Dogay/Yagmur_2024/MiniBiobank/ParadiseBiobank/ParadiseBiobank_Urine_10032025.csv"
-  file_path_mini_unknown <- "C:/Users/DOGAYY/OneDrive - Trinity College Dublin/Yagmur Dogay/Yagmur_2024/MiniBiobank/ParadiseBiobank/ParadiseBiobank_Unknown_10032025.csv"
+  file_path_mini_serum   <- "C:/Users/coqm/OneDrive - Trinity College Dublin/Yagmur Dogay/Yagmur_2024/MiniBiobank/ParadiseBiobank/ParadiseBiobank_Serum_10032025.csv"
+  file_path_mini_plasma  <- "C:/Users/coqm/OneDrive - Trinity College Dublin/Yagmur Dogay/Yagmur_2024/MiniBiobank/ParadiseBiobank/ParadiseBiobank_Plasma_10032025.csv"
+  file_path_mini_urine   <- "C:/Users/coqm/OneDrive - Trinity College Dublin/Yagmur Dogay/Yagmur_2024/MiniBiobank/ParadiseBiobank/ParadiseBiobank_Urine_10032025.csv"
+  file_path_mini_unknown <- "C:/Users/coqm/OneDrive - Trinity College Dublin/Yagmur Dogay/Yagmur_2024/MiniBiobank/ParadiseBiobank/ParadiseBiobank_Unknown_10032025.csv"
 
   ## ---- Step 1: Clinical data + diagnosis/criteria -------------------------
   message("Step 1/7: Reading clinical data and assigning diagnosis...")
