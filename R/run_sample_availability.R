@@ -119,23 +119,13 @@ run_sample_availability <- function(RIV, output_path = NULL) {
   final_data <- process_paradise_fw(main_data)
 
   ## ---- Optional export --------------------------------------------------------
-  if (!is.null(output_path)) {
-    ext <- tolower(tools::file_ext(output_path))
-    if (ext == "csv") {
-      write.csv(final_data, output_path, row.names = FALSE)
-    } else if (ext == "xlsx") {
-      if (!requireNamespace("writexl", quietly = TRUE)) {
-        stop("Package 'writexl' is required to write .xlsx output.")
-      }
-      writexl::write_xlsx(final_data, output_path)
-    } else {
-      warning(paste0("Unrecognized output_path extension '", ext,
-                      "'; nothing written. Use '.csv' or '.xlsx'."))
-    }
-    if (ext %in% c("csv", "xlsx")) {
-      message(paste0("Output written to: ", output_path))
-    }
-  }
+  output_filename <- file.path(
+    output_dir,
+    paste0('Redcap_sample-availability', "_version", packageVersion('rivpipeline'), "_Date"
+           , Sys.Date(), '.csv')
+  )
+  
+  write.csv(final_data, output_filename, row.names = FALSE)
 
   message("Done.")
   return(final_data)
