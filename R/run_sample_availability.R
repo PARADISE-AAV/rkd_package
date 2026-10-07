@@ -82,7 +82,7 @@ run_sample_availability <- function(RIV, output_path = NULL) {
   ## ---- Step 4: Link FW datasets to clinical data ---------------------------
   message("Step 4/7: Linking FW datasets to clinical data...")
   fw_datasets <- c("DNA", "DNAEDTA", "DNANorm", "Serum_2", "Plasma_2",
-                    "Urine_2", "RNA", "RNAPAX", "PBMC")
+                    "Urine_2", "RNA", "RNAPax", "PBMC")
 
   linked_multiple <- link_fw_samples(fw_datasets, all_fw, riv_processed)
 
