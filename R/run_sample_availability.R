@@ -120,7 +120,7 @@ run_sample_availability <- function(RIV, output_path = NULL) {
 
   ## ---- Optional export --------------------------------------------------------
   output_filename <- file.path(
-    output_dir,
+    output_path,
     paste0('Redcap_sample-availability', "_version", packageVersion('rivpipeline'), "_Date"
            , Sys.Date(), '.csv')
   )
