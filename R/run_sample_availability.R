@@ -24,19 +24,21 @@
 #' File paths are hardcoded to match the original analysis notebook. Update
 #' the paths inside this function if the source files move.
 #'
-#' @param output_path Optional. If supplied, the final data frame is written
-#'   to this path. The file extension determines the format: \code{".csv"}
-#'   uses \code{write.csv()}, \code{".xlsx"} uses \code{writexl::write_xlsx()}.
-#'   If \code{NULL} (default), nothing is written and only the data frame is
-#'   returned.
-#'@param RIV Clinical output
+#' @param output_path the final data frame is written
+#'   to this path.
+#' @param RIV Clinical output
+#' @param fw_prefixes sample type to be chosen by default c("DNA_", "DNAEDTA", "DNANorm", "Serum","Plasma", "Urine", "RNA_", "RNAPax", "PBMC_")
+#' @param fw_datasets sample type to be chosen by default c("DNA", "DNAEDTA", "DNANorm", "Serum_2", "Plasma_2", "Urine_2", "RNA", "RNAPax", "PBMC")
 #'
 #' @return A data.frame: the final merged Sample Availability dataset.
 #' @import dplyr
 #' @import tidyr
 #' @import writexl
 #' @export
-run_sample_availability <- function(RIV, output_path) {
+run_sample_availability <- function(RIV, output_path, fw_prefixes = c("DNA_", "DNAEDTA", "DNANorm", "Serum",
+                                                                       "Plasma", "Urine", "RNA_", "RNAPax", "PBMC_")
+                                    fw_datasets = c("DNA", "DNAEDTA", "DNANorm", "Serum_2", "Plasma_2",
+                                                     "Urine_2", "RNA", "RNAPax", "PBMC")) {
 
 
   ## ---- Hardcoded paths (mirrors Sample_Availability_Function.Rmd) --------
@@ -69,8 +71,7 @@ run_sample_availability <- function(RIV, output_path) {
 
   ## ---- Step 3: Load FW files, combine with Biobank -------------------------
   message("Step 3/7: Loading FW files and merging with Biobank...")
-  fw_prefixes <- c("DNA_", "DNAEDTA", "DNANorm", "Serum",
-                    "Plasma", "Urine", "RNA_", "RNAPax", "PBMC_")
+  
 
   fw_list <- setNames(
     lapply(fw_prefixes, function(p) LoadFW(fw_path, p)),
@@ -81,8 +82,7 @@ run_sample_availability <- function(RIV, output_path) {
 
   ## ---- Step 4: Link FW datasets to clinical data ---------------------------
   message("Step 4/7: Linking FW datasets to clinical data...")
-  fw_datasets <- c("DNA", "DNAEDTA", "DNANorm", "Serum_2", "Plasma_2",
-                    "Urine_2", "RNA", "RNAPax", "PBMC")
+  
 
   linked_multiple <- link_fw_samples(fw_datasets, all_fw, riv_processed)
 
