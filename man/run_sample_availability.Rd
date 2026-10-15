@@ -4,16 +4,24 @@
 \alias{run_sample_availability}
 \title{run_sample_availability}
 \usage{
-run_sample_availability(RIV, output_path = NULL)
+run_sample_availability(
+  RIV,
+  output_path,
+  fw_prefixes = c("DNA_", "DNAEDTA", "DNANorm", "Serum", "Plasma", "Urine", "RNA_",
+    "RNAPax", "PBMC_"),
+  fw_datasets = c("DNA", "DNAEDTA", "DNANorm", "Serum_2", "Plasma_2", "Urine_2", "RNA",
+    "RNAPax", "PBMC")
+)
 }
 \arguments{
 \item{RIV}{Clinical output}
 
-\item{output_path}{Optional. If supplied, the final data frame is written
-to this path. The file extension determines the format: \code{".csv"}
-uses \code{write.csv()}, \code{".xlsx"} uses \code{writexl::write_xlsx()}.
-If \code{NULL} (default), nothing is written and only the data frame is
-returned.}
+\item{output_path}{the final data frame is written
+to this path.}
+
+\item{fw_prefixes}{sample type to be chosen by default c("DNA_", "DNAEDTA", "DNANorm", "Serum","Plasma", "Urine", "RNA_", "RNAPax", "PBMC_")}
+
+\item{fw_datasets}{sample type to be chosen by default c("DNA", "DNAEDTA", "DNANorm", "Serum_2", "Plasma_2", "Urine_2", "RNA", "RNAPax", "PBMC")}
 }
 \value{
 A data.frame: the final merged Sample Availability dataset.
