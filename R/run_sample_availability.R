@@ -36,7 +36,7 @@
 #' @import tidyr
 #' @import writexl
 #' @export
-run_sample_availability <- function(RIV, output_path = NULL) {
+run_sample_availability <- function(RIV, output_path) {
 
 
   ## ---- Hardcoded paths (mirrors Sample_Availability_Function.Rmd) --------
