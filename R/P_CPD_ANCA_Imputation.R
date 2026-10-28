@@ -27,7 +27,7 @@ CPD_ANCA_Imputation <- function(Encounter, output_dir){
     stop('Specified output folder does not exist')
   }
   
-  Encounter=Encounter[order(Encounter$RKD.ID, Encounter$Date.of.Visit),]
+  Encounter=Encounter[order(Encounter$RKD.ID, Encounter$Date.Of.Visit),]
   n=length(levels(as.factor(Encounter$RKD.ID)))
   Encounter2=NULL
   for(i in 1:n){
