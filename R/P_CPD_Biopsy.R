@@ -29,6 +29,7 @@ stopifnot("Your argument need to be a character"=is.character(output_dir))
   
   rkd_data <- merge(Biopsy_data$Biopsy, Biopsy_data$Initial[,c("RKD.ID", "Date.of.diagnosis")], by="RKD.ID")
   rkd_data$Biopsy_interval_from_diagnosis <- as.numeric(rkd_data$Date.of.biopsy-rkd_data$Date.of.diagnosis)
+  rkd_data=rkd_data[order(rkd_data$RKD.ID, rkd_data$Date.of.biopsy),]
   
   output_filename <- file.path(
     output_dir,
