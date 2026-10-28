@@ -31,6 +31,9 @@ CPD_Renal <- function (Renal_data, output_dir){
   rkd_data <- merge(Renal_data$Transplant, Renal_data$Initial[,c("RKD.ID", "Date.of.diagnosis")], by="RKD.ID")
   rkd_data$Renal_interval_from_diagnosis <- as.numeric(rkd_data$Date.of.transplant.-rkd_data$Date.of.diagnosis)
   rkd_data$txfail_interval_from_diagnosis <- as.numeric(rkd_data$Date.of.graft.failure-rkd_data$Date.of.diagnosis)
+  rkd_data=rkd_data[order(rkd_data$RKD.ID, rkd_data$Date.of.transplant.),]
+  
+  
   
   output_filename <- file.path(
     output_dir,
