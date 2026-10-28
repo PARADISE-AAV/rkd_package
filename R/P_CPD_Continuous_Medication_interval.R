@@ -33,6 +33,7 @@ CPD_Continuous_Medication_interval <- function (Medication_data, merged_data ,ou
   rkd_data <- merge(Medication_data$Medication, Medication_data$Initial[,c("RKD.ID", "Date.of.diagnosis")], by="RKD.ID")
   rkd_data$medstart_interval_from_diagnosis <- as.numeric(rkd_data$Start.Date-rkd_data$Date.of.diagnosis)
   rkd_data$medstop_interval_from_diagnosis <- as.numeric(rkd_data$Stop.Date-rkd_data$Date.of.diagnosis)
+  rkd_data=rkd_data[order(rkd_data$RKD.ID, rkd_data$Start.Date),]
   
   n=nrow(rkd_data)
   for(i in 1:n){
