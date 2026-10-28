@@ -31,6 +31,7 @@ CPD_IVTherapy_interval <- function (IVTherapy_data, output_dir){
   
   rkd_data <- merge(IVTherapy_data$IVTherapy, IVTherapy_data$Initial[,c("RKD.ID", "Date.of.diagnosis")], by="RKD.ID")
   rkd_data$IVTherapy_interval_from_diagnosis <- as.numeric(rkd_data$Date.of.IV.therapy-rkd_data$Date.of.diagnosis)
+  rkd_data=rkd_data[order(rkd_data$RKD.ID, rkd_data$Date.of.IV.therapy),]
   
   rkd_data$Dose.of.IV.therapy[which(is.na(rkd_data$Dose.of.IV.therapy)==TRUE & rkd_data$IV.therapy=="Cyclophosphamide Injectable Solution - UATC/ L01AA01")]=median(rkd_data$Dose.of.IV.therapy[which(rkd_data$IV.therapy=="Cyclophosphamide Injectable Solution - UATC/ L01AA01")], na.rm=T)
   rkd_data$Dose.of.IV.therapy[which(is.na(rkd_data$Dose.of.IV.therapy)==TRUE & rkd_data$IV.therapy=="Methylprednisolone - UATC/D07AA01")]=median(rkd_data$Dose.of.IV.therapy[which(rkd_data$IV.therapy=="Methylprednisolone - UATC/D07AA01")], na.rm=T)
