@@ -10,7 +10,8 @@ run_sample_availability(
   fw_prefixes = c("DNA_", "DNAEDTA", "DNANorm", "Serum", "Plasma", "Urine", "RNA_",
     "RNAPax", "PBMC_"),
   fw_datasets = c("DNA", "DNAEDTA", "DNANorm", "Serum_2", "Plasma_2", "Urine_2", "RNA",
-    "RNAPax", "PBMC")
+    "RNAPax", "PBMC"),
+  fw_path
 )
 }
 \arguments{
