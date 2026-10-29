@@ -38,18 +38,18 @@
 run_sample_availability <- function(RIV, output_path, fw_prefixes = c("DNA_", "DNAEDTA", "DNANorm", "Serum",
                                                                        "Plasma", "Urine", "RNA_", "RNAPax", "PBMC_"),
                                     fw_datasets = c("DNA", "DNAEDTA", "DNANorm", "Serum_2", "Plasma_2",
-                                                     "Urine_2", "RNA", "RNAPax", "PBMC")) {
+                                                     "Urine_2", "RNA", "RNAPax", "PBMC"), fw_path) {
 
 
   ## ---- Hardcoded paths (mirrors Sample_Availability_Function.Rmd) --------
  
 
-  fw_path <- "C:/Users/coqm/OneDrive - Trinity College Dublin/Freezerworks exports/Freezerworks Exports"
+  
 
-  file_path_mini_serum   <- "C:/Users/coqm/OneDrive - Trinity College Dublin/Yagmur Dogay/Yagmur_2024/MiniBiobank/ParadiseBiobank/ParadiseBiobank_Serum_10032025.csv"
-  file_path_mini_plasma  <- "C:/Users/coqm/OneDrive - Trinity College Dublin/Yagmur Dogay/Yagmur_2024/MiniBiobank/ParadiseBiobank/ParadiseBiobank_Plasma_10032025.csv"
-  file_path_mini_urine   <- "C:/Users/coqm/OneDrive - Trinity College Dublin/Yagmur Dogay/Yagmur_2024/MiniBiobank/ParadiseBiobank/ParadiseBiobank_Urine_10032025.csv"
-  file_path_mini_unknown <- "C:/Users/coqm/OneDrive - Trinity College Dublin/Yagmur Dogay/Yagmur_2024/MiniBiobank/ParadiseBiobank/ParadiseBiobank_Unknown_10032025.csv"
+  file_path_mini_serum   <- paste(fw_path, "/ParadiseBiobank_Serum_10032025.csv",sep="")
+  file_path_mini_plasma  <- paste(fw_path,"/ParadiseBiobank_Plasma_10032025.csv",sep="")
+  file_path_mini_urine   <- paste(fw_path,"/ParadiseBiobank_Urine_10032025.csv",sep="")
+  file_path_mini_unknown <- paste(fw_path,"/ParadiseBiobank_Unknown_10032025.csv",sep="")
 
   ## ---- Step 1: Clinical data + diagnosis/criteria -------------------------
   message("Step 1/7: Reading clinical data and assigning diagnosis...")
