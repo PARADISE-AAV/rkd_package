@@ -23,6 +23,8 @@ to this path.}
 \item{fw_prefixes}{sample type to be chosen by default c("DNA_", "DNAEDTA", "DNANorm", "Serum","Plasma", "Urine", "RNA_", "RNAPax", "PBMC_")}
 
 \item{fw_datasets}{sample type to be chosen by default c("DNA", "DNAEDTA", "DNANorm", "Serum_2", "Plasma_2", "Urine_2", "RNA", "RNAPax", "PBMC")}
+
+\item{fw_path}{Freezerworks path}
 }
 \value{
 A data.frame: the final merged Sample Availability dataset.
