@@ -29,6 +29,7 @@
 #' @param RIV Clinical output
 #' @param fw_prefixes sample type to be chosen by default c("DNA_", "DNAEDTA", "DNANorm", "Serum","Plasma", "Urine", "RNA_", "RNAPax", "PBMC_")
 #' @param fw_datasets sample type to be chosen by default c("DNA", "DNAEDTA", "DNANorm", "Serum_2", "Plasma_2", "Urine_2", "RNA", "RNAPax", "PBMC")
+#' @param fw_path Freezerworks path
 #'
 #' @return A data.frame: the final merged Sample Availability dataset.
 #' @import dplyr
