@@ -54,7 +54,7 @@ CPD_Interval_RTX = function (merge_data, IV_Therapy){
     merged_frame_Ritu_2=rbind(merged_frame_Ritu_2,dat)
   }
   
-  merge_data_2=merge(merge_dataClassify_rkd_All, merged_frame_Ritu_2[, c("RKD.ID", "Date.Of.Visit", "Date.of.IV.therapy", "Interval_from_RTX")], by=c("RKD.ID", "Date.Of.Visit"))
+  merge_data_2=merge(merge_data, merged_frame_Ritu_2[, c("RKD.ID", "Date.Of.Visit", "Date.of.IV.therapy", "Interval_from_RTX")], by=c("RKD.ID", "Date.Of.Visit"))
   
   return(merge_data_2)
   
