@@ -23,7 +23,7 @@ CPD_Interval_RTX = function (merge_data, IV_Therapy){
   
   Ritu <- IV_Therapy [which(IVTherapy$IV.therapy == "Rituximab - UATC/L01XC02 -- Mabthera"| IVTherapy$IV.therapy == "Rituximab - UATC/L01XC02 -- Ruxience" | IVTherapy$IV.therapy == "Rituximab - UATC/L01XC02 -- Truxima") , ]
   Ritu=Ritu[order(Ritu$RKD.ID,Ritu$Date.of.IV.therapy),]
-  colnames(Classify_rkd_All)[2]="Date.Of.Visit"
+  colnames(merge_data)[2]="Date.Of.Visit"
   merged_frame_Ritu <-fuzzy_left_join(
     merge_data[, c("RKD.ID", "Date.Of.Visit")], Ritu,
     by = c(
