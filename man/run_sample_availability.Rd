@@ -7,10 +7,8 @@
 run_sample_availability(
   RIV,
   output_path,
-  fw_prefixes = c("DNA_", "DNAEDTA", "DNANorm", "Serum", "Plasma", "Urine", "RNA_",
-    "RNAPax", "PBMC_"),
-  fw_datasets = c("DNA", "DNAEDTA", "DNANorm", "Serum_2", "Plasma_2", "Urine_2", "RNA",
-    "RNAPax", "PBMC"),
+  fw_prefixes = c("DNA_", "DNAEDTA", "DNANorm", "Serum", "Plasma", "Urine", "PBMC_"),
+  fw_datasets = c("DNA", "DNAEDTA", "DNANorm", "Serum_2", "Plasma_2", "Urine_2", "PBMC"),
   fw_path
 )
 }
