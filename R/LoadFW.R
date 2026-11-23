@@ -37,7 +37,7 @@ LoadFW=function(folder_name, matrix_type){
   
   
   dir_test <- list.dirs(folder_name)
-  files_test <-  list.files(folder_name, pattern = ".", all.files = FALSE, recursive = TRUE)
+  files_test <-  list.files(folder_name, pattern = ".", all.files = FALSE, recursive = FALSE)
   if(identical(dir_test, character(0)) == TRUE){
     stop("Your input folder don't exist")
   }
