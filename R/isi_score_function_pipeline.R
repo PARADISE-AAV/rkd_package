@@ -479,7 +479,7 @@ run_cyc_iv_pipeline <- function(mtp_with_intervals, IV) {
   df <- apply_combine_plan(df, "cyc", combine_plan)
   df <- drop_all_na_columns(df)
 
-  df <- apply_rename_plan(df, "cyc", list(c(6,5), c(7,6), c(8,7), c(9,8), c(10,9), c(11,10), c(12,11)))
+  #df <- apply_rename_plan(df, "cyc", list(c(6,5), c(7,6), c(8,7), c(9,8), c(10,9), c(11,10), c(12,11)))
 
   doses <- 1:11
   df <- compute_days_since_dose(df, "cyc", doses)
@@ -540,7 +540,7 @@ run_rtx_pipeline <- function(rtx_with_intervals, IV) {
   df <- apply_combine_plan(df, "rtx", combine_plan)
   df <- drop_all_na_columns(df)
 
-  df <- apply_rename_plan(df, "rtx", list(c(24,23), c(26,24), c(27,25), c(29,26), c(31,27), c(33,28)))
+  #df <- apply_rename_plan(df, "rtx", list(c(24,23), c(26,24), c(27,25), c(29,26), c(31,27), c(33,28)))
   df <- reorder_iv_columns(df, "rtx")
 
   doses <- 1:28
