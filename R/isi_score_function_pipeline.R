@@ -432,8 +432,10 @@ run_mtp_pipeline <- function(data1, IV) {
   #df <- apply_rename_plan(df, "mtp", list(c(13,13)))
   df <- update_iv_doses(df, "mtp", base_dose = 6, target_dose = 7, max_days = 30)
   df <- drop_all_na_columns(df)
+  a=colnames(df)[ncol(df)]
+  max_dose=as.numeric(substr(a, 5, 6))
 
-  doses <- 1:6
+  doses <- 1:max_dose
   df <- compute_days_since_dose(df, "mtp", doses)
 
   sp <- build_sigmoid_params(A1 = 0.40, A2 = 0.80, dose1 = 250, dose2 = 3000,
@@ -481,7 +483,10 @@ run_cyc_iv_pipeline <- function(mtp_with_intervals, IV) {
 
   #df <- apply_rename_plan(df, "cyc", list(c(6,5), c(7,6), c(8,7), c(9,8), c(10,9), c(11,10), c(12,11)))
 
-  doses <- 1:11
+  a=colnames(df)[ncol(df)]
+  max_dose=as.numeric(substr(a, 5, 6))
+  
+  doses <- 1:max_dose
   df <- compute_days_since_dose(df, "cyc", doses)
 
   sp <- build_sigmoid_params(A1 = 0.60, A2 = 0.90, dose1 = 150, dose2 = 8000,
@@ -543,7 +548,10 @@ run_rtx_pipeline <- function(rtx_with_intervals, IV) {
   #df <- apply_rename_plan(df, "rtx", list(c(24,23), c(26,24), c(27,25), c(29,26), c(31,27), c(33,28)))
   df <- reorder_iv_columns(df, "rtx")
 
-  doses <- 1:28
+  a=colnames(df)[ncol(df)]
+  max_dose=as.numeric(substr(a, 5, 6))
+  
+  doses <- 1:max_dose
   df <- compute_days_since_dose(df, "rtx", doses)
 
   sp <- build_sigmoid_params(A1 = 0.70, A2 = 0.85, dose1 = 500, dose2 = 2000,
